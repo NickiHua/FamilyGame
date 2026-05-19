@@ -1,0 +1,30 @@
+{
+  "id": "free_0_1",
+  "name": "荒野练兵场",
+  "chapter": 0,
+  "width": 12,
+  "height": 10,
+  "terrain": [
+    ["plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","forest","plain","plain","plain","plain","plain","plain","forest","plain","plain"],
+    ["plain","plain","plain","plain","plain","forest","plain","plain","plain","plain","plain","plain"],
+    ["plain","forest","plain","plain","plain","plain","plain","plain","forest","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","forest","plain","plain","forest","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","forest","plain","plain","plain","plain","plain","plain","forest","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain"]
+  ],
+  "player_units": [
+    {"name": "陆离", "class": "swordsman", "x": 1, "y": 4, "level": 1},
+    {"name": "苏瑶", "class": "mage", "x": 1, "y": 5, "level": 1}
+  ],
+  "enemy_units": [
+    {"name": "野狼", "class": "assassin", "x": 9, "y": 2, "level": 1, "ai": "aggressive"},
+    {"name": "野狼", "class": "assassin", "x": 10, "y": 5, "level": 1, "ai": "aggressive"},
+    {"name": "野狼", "class": "assassin", "x": 9, "y": 7, "level": 1, "ai": "aggressive"},
+    {"name": "狼王", "class": "knight", "x": 10, "y": 4, "level": 2, "ai": "defensive"}
+  ],
+  "victory": "defeat_all"
+}

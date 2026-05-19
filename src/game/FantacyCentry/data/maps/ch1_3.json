@@ -1,0 +1,37 @@
+{
+  "id": "ch1_3",
+  "name": "风谷关隘",
+  "chapter": 1,
+  "width": 18,
+  "height": 12,
+  "terrain": [
+    ["plain","plain","plain","plain","plain","plain","plain","wall","wall","wall","wall","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","wall","plain","plain","wall","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","forest","plain","plain","plain","plain","wall","plain","plain","wall","plain","plain","plain","forest","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","wall","plain","plain","wall","wall","wall","wall","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","forest","plain","plain","plain","plain","plain","plain","forest","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","forest","plain","plain","plain","plain","wall","wall","wall","wall","wall","plain","plain","plain","forest","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","wall","wall","plain","plain","plain","wall","wall","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","wall","plain","plain","plain","plain","plain","wall","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","wall","plain","plain","plain","plain","plain","wall","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","wall","wall","wall","wall","wall","wall","wall","plain","plain","plain","plain","plain"]
+  ],
+  "player_units": [
+    {"name": "陆离", "class": "swordsman", "x": 2, "y": 5, "level": 3},
+    {"name": "苏瑶", "class": "mage", "x": 2, "y": 6, "level": 3},
+    {"name": "白鹤", "class": "priest", "x": 1, "y": 6, "level": 3},
+    {"name": "凌霜", "class": "griffin_rider", "x": 4, "y": 1, "level": 3}
+  ],
+  "enemy_units": [
+    {"name": "关隘守卫", "class": "knight", "x": 9, "y": 1, "level": 3, "ai": "defensive"},
+    {"name": "关隘守卫", "class": "knight", "x": 9, "y": 9, "level": 3, "ai": "defensive"},
+    {"name": "帝国弓手", "class": "archer", "x": 8, "y": 3, "level": 3, "ai": "defensive"},
+    {"name": "帝国弓手", "class": "archer", "x": 10, "y": 8, "level": 3, "ai": "defensive"},
+    {"name": "帝国法师", "class": "mage", "x": 12, "y": 5, "level": 3, "ai": "defensive"},
+    {"name": "关隘司令", "class": "knight", "x": 15, "y": 5, "level": 4, "ai": "aggressive"}
+  ],
+  "victory": "defeat_all",
+  "pre_dialogue": "ch1_3_pre"
+}

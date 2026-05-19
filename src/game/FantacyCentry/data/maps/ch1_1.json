@@ -1,0 +1,35 @@
+{
+  "id": "ch1_1",
+  "name": "义军营地",
+  "chapter": 1,
+  "width": 16,
+  "height": 12,
+  "terrain": [
+    ["forest","forest","forest","plain","plain","plain","plain","plain","plain","plain","plain","plain","forest","forest","forest","forest"],
+    ["forest","forest","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","forest","forest","forest"],
+    ["forest","plain","plain","plain","plain","wall","wall","plain","plain","plain","plain","plain","plain","plain","forest","forest"],
+    ["plain","plain","plain","plain","wall","plain","plain","wall","plain","plain","plain","plain","plain","plain","plain","forest"],
+    ["plain","plain","plain","plain","wall","plain","plain","wall","plain","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","wall","wall","plain","plain","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","forest","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","plain","plain","forest","forest","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain","plain"],
+    ["plain","plain","plain","forest","plain","plain","plain","plain","plain","plain","plain","plain","forest","plain","plain","plain"],
+    ["forest","plain","plain","forest","forest","plain","plain","plain","plain","plain","plain","forest","forest","plain","plain","forest"],
+    ["forest","forest","plain","plain","forest","plain","plain","plain","plain","plain","forest","forest","forest","plain","forest","forest"]
+  ],
+  "player_units": [
+    {"name": "陆离", "class": "swordsman", "x": 5, "y": 4, "level": 2},
+    {"name": "苏瑶", "class": "mage", "x": 6, "y": 4, "level": 2}
+  ],
+  "enemy_units": [
+    {"name": "帝国兵", "class": "swordsman", "x": 14, "y": 1, "level": 2, "ai": "aggressive"},
+    {"name": "帝国兵", "class": "swordsman", "x": 15, "y": 3, "level": 2, "ai": "aggressive"},
+    {"name": "帝国兵", "class": "swordsman", "x": 14, "y": 5, "level": 2, "ai": "aggressive"},
+    {"name": "帝国弓手", "class": "archer", "x": 13, "y": 2, "level": 2, "ai": "aggressive"},
+    {"name": "帝国弓手", "class": "archer", "x": 13, "y": 7, "level": 2, "ai": "aggressive"},
+    {"name": "帝国队长", "class": "knight", "x": 14, "y": 9, "level": 3, "ai": "aggressive"}
+  ],
+  "victory": "defeat_all",
+  "pre_dialogue": "ch1_1_pre"
+}
