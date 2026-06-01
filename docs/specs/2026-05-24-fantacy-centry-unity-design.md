@@ -371,24 +371,59 @@ public class SkillData : ScriptableObject {
 
 ### 5.6 Unity 导入设置规范（像素游戏必遵）
 
-PixelLab 导出 **PNG sprite sheet**（不是 GIF，Unity 不支持 GIF 动画导入）。文件命名约定：`{character}_{action}_{direction}.png`，例 `luli_attack_south.png`。
+PixelLab v3 / Custom V3 导出的是**逐帧独立 PNG**（不是一整张 sprite sheet），存放在 `[animation_name]/[direction]/frame_000.png` ~ `frame_008.png` 的子目录结构里。**`frame_000` 是 rotation 参考帧，做动画时跳过**，只用 `frame_001` ~ `frame_008`（即 8 帧循环）。
 
-**所有像素 PNG 必须的导入设置**（不改会变糊）：
+源文件在 `art/characters/` 下（git 跟踪）；Unity 用副本放在 `Assets/Art/Characters/` 下（双轨结构，方便 Unity 检测改动 + 避免 Unity meta 文件污染源目录）。
+
+**所有像素 PNG 必须的导入设置**（不改会变糊，2026-06-01 验证）：
 
 | 设置 | 默认 | 必须改为 | 原因 |
 |---|---|---|---|
 | Texture Type | Default | **Sprite (2D and UI)** | 作为 sprite 使用 |
-| Sprite Mode | Single | **Multiple** | 一张图切多帧 |
+| Sprite Mode | Single | **Single** | PixelLab v3 每帧已是独立 PNG，**不需要切片** |
 | Pixels Per Unit | 100 | **48**（= tile size）| 1 unity unit = 1 tile |
 | **Filter Mode** | Bilinear | **Point (no filter)** | **最关键，不改会糊成马赛克** |
 | Compression | Normal | **None** | 防颜色失真 |
 | Wrap Mode | Repeat | Clamp | 防边缘伪影 |
+| Pivot | Center | Center | （默认即可，俯视角不需要 Bottom Pivot） |
 
-**切帧流程**：Inspector → Sprite Editor → Slice → Grid By Cell Size → 输入 PixelLab 画布尺寸（~88 或 92）。
+**批量套用**：选中一个方向下所有 9 张 PNG → Inspector 一次性改 → Apply。一个角色 4 方向 × 4 动画 = 16 个文件夹，每个文件夹批量一次即可。
 
-**项目级优化**：阶段 1 进 Unity 后写一个 `AssetPostprocessor` 脚本（约 20 行），让 `Assets/Art/Characters/` 下所有 PNG 自动应用以上设置，免手动重复。
+**项目级优化（后续）**：写一个 `AssetPostprocessor` 脚本（约 20 行），让 `Assets/Art/Characters/` 下所有 PNG 自动应用以上设置，免手动重复。
 
 ---
+
+### 5.7 Unity 动画创建流程（2026-06-01 验证）
+
+**核心快捷做法**：选中一组 sprite **整体拖**到 Scene 视图，Unity 自动生成 AnimationClip + AnimatorController + GameObject。
+
+**完整步骤**（以陆离 Idle SOUTH 为例）：
+
+1. Project 面板进入 `Assets/Art/Characters/LuLi/.../Hero_stands_in_idle.../south/`
+2. 选中 `frame_001` ~ `frame_008`（共 8 张，**跳过 `frame_000`**）
+3. 整体拖到 Scene 视图
+4. 弹出 "Create New Animation" → 保存为 `LuLi_Idle_South.anim`（与 sprite 同目录）
+5. Unity 自动创建：新 GameObject（带 SpriteRenderer + Animator）+ AnimatorController（同名 `.controller`）
+
+**调动画速度**（PixelLab 出的低帧动画一定要调）：
+
+- 双击 `.anim` → Animation 窗口
+- 改 **Samples** 字段
+- 推荐默认值（写入 spec）：
+
+| 动作类型 | Samples (fps) | 备注 |
+|---|---|---|
+| Idle | **8** | FE GBA 经典呼吸节奏（2026-06-01 验证） |
+| Walking | 10-12 | 待 6/2 验证 |
+| Attack | 12-15 | 待 6/2 验证 |
+| Reaction | 10 | 待 6/2 验证 |
+
+**Animator State 命名约定**：`{Character}_{Action}_{Direction}`，例 `LuLi_Idle_South`、`SuYao_Attack_East`。
+
+**方向复用**：WEST 方向**不单独存** AnimationClip，在 Animator 里复用 EAST clip + 给该 GameObject 设 `flipX = true`（spec §5.2 已定）。
+所以每角色实际 .anim 文件数 = 4 动作 × 3 方向（S/N/E）= 12 个。
+
+
 
 ## 6. 项目结构
 
