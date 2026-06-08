@@ -79,6 +79,10 @@ ExportedObj/
 # Unity Asset Store 购买素材：保留本地，需要时各自从 Asset Store 下载
 # ============================================================
 art/environments/pixel-art-top-down-basic/
+art/environments/pixel-art-top-down/
+Assets/Art/Tilesets/pixel-art-top-down/
+Assets/Art/Tilesets/pixel-art-top-down.meta
+*.unitypackage
 
 # ============================================================
 # .NET / VSCode C# 工具链本地缓存
