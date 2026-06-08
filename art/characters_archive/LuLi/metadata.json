@@ -1,0 +1,221 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "fb1d2783-adf7-4fe8-b7f1-df012f2c85f3",
+        "name": "Fire Emblem GBA style hero",
+        "prompt": "Fire Emblem GBA style hero swordsman, western fantasy, balanced fighter not heavy,  brown short messy hair, light silver plate armor with leather straps, blue cape,  one-handed longsword sheathed on back, confident posture, young man early 20s,  clean pixel art, vibrant colors, sharp silhouette",
+        "size": {
+          "width": 92,
+          "height": 92
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-05-25T09:04:03.547885+00:00"
+      },
+      "folder": "Fire_Emblem_GBA_style_hero",
+      "frames": {
+        "rotations": {
+          "south": "Fire_Emblem_GBA_style_hero/rotations/south.png",
+          "south-east": "Fire_Emblem_GBA_style_hero/rotations/south-east.png",
+          "east": "Fire_Emblem_GBA_style_hero/rotations/east.png",
+          "north-east": "Fire_Emblem_GBA_style_hero/rotations/north-east.png",
+          "north": "Fire_Emblem_GBA_style_hero/rotations/north.png",
+          "north-west": "Fire_Emblem_GBA_style_hero/rotations/north-west.png",
+          "west": "Fire_Emblem_GBA_style_hero/rotations/west.png",
+          "south-west": "Fire_Emblem_GBA_style_hero/rotations/south-west.png"
+        },
+        "animations": {
+          "Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f": {
+            "east": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/east/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/east/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/east/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/east/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/east/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/east/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/east/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/east/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/east/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/south/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/south/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/south/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/south/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/south/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/south/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/south/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/south/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/south/frame_008.png"
+            ],
+            "north": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/north/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/north/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/north/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/north/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/north/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/north/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/north/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/north/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/north/frame_008.png"
+            ],
+            "west": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/west/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/west/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/west/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/west/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/west/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/west/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/west/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/west/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_takes_a_hit_and_recoils_sharply._F1_idle_stan-9d09519f/west/frame_008.png"
+            ]
+          },
+          "Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1": {
+            "east": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/east/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/east/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/east/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/east/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/east/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/east/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/east/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/east/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/east/frame_008.png"
+            ],
+            "west": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/west/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/west/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/west/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/west/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/west/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/west/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/west/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/west/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/west/frame_008.png"
+            ],
+            "north": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/north/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/north/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/north/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/north/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/north/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/north/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/north/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/north/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/north/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/south/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/south/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/south/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/south/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/south/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/south/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/south/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/south/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_walks_forward_in_a_steady_step._F1_idle_longs-71a3d5b1/south/frame_008.png"
+            ]
+          },
+          "Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c": {
+            "east": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/east/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/east/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/east/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/east/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/east/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/east/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/east/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/east/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/east/frame_008.png"
+            ],
+            "north": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/north/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/north/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/north/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/north/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/north/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/north/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/north/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/north/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/north/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/south/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/south/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/south/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/south/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/south/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/south/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/south/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/south/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/south/frame_008.png"
+            ],
+            "west": [
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/west/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/west/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/west/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/west/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/west/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/west/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/west/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/west/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Hero_stands_in_idle_breathing_pose._F1_idle_stance-cd42d21c/west/frame_008.png"
+            ]
+          },
+          "Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed": {
+            "north": [
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/north/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/north/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/north/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/north/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/north/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/north/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/north/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/north/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/north/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/south/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/south/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/south/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/south/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/south/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/south/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/south/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/south/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/south/frame_008.png"
+            ],
+            "east": [
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/east/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/east/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/east/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/east/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/east/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/east/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/east/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/east/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/east/frame_008.png"
+            ],
+            "west": [
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/west/frame_000.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/west/frame_001.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/west/frame_002.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/west/frame_003.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/west/frame_004.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/west/frame_005.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/west/frame_006.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/west/frame_007.png",
+              "Fire_Emblem_GBA_style_hero/animations/Character_raises_sword_from_idle_stance_up_and_bac-647ec2ed/west/frame_008.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-01T07:22:50.148107"
+}

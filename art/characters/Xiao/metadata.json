@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "93c77cf9-1a18-4a18-a028-ee6d4f2d76dd",
+        "name": "Xiao",
+        "prompt": "Fire Emblem GBA style chibi ally young hunter ranger archer, western fantasy,\n3-head-tall super-deformed proportions, total body height equals 3 head heights stacked,\nlarge head with big expressive eyes, short body, small hands and feet,\nwild young forest hunter and master archer who grew up alone in the deep woods,\nyoung teenage boy mid-teens around 15-17 years old, smooth youthful unshaven face NOT a man, NO beard, NO stubble, NO mustache, NO crow's feet, no facial hair at all,\nsun-tanned slightly weathered skin from outdoor life, sharp narrow predator eyes with a fierce alert wild gaze, a long thin diagonal scar across right cheek, slight scowl,\nlooks distinctly different from a noble knight hero, looks like a feral woodland kid, NOT a clean handsome princely face,\nshoulder length messy unkempt dark brown hair with two small thin side braids hanging down in front of the shoulders one on each side framing the face, the rest of the hair loose and wild with untamed bangs falling across the forehead,\ndark forest green and brown leather hunter armor: leather chest cuirass over dark green sleeveless tunic, brown leather pauldrons reinforced with bone studs, dark green forearm wraps over leather bracers, brown leather belt with brass buckle, brown leather hunting boots,\nsmall grey wolf fur pelt draped over left shoulder as a short shoulder mantle, no hood,\nnecklace of small carved bone beads at the collar,\nrecurved wooden hunter longbow with brass-bound limbs held vertically in left hand, undrawn, slightly taller than him,\nbrown leather quiver full of feathered arrows on back, single hunting knife sheathed at right hip,\ndark brown loose hair and the two small side braids drawn IN FRONT OF and OVER the grey wolf fur shoulder mantle, hair never tucked under any cloth layer,\nno helmet, no plate armor, no shield, no cape,\nclean pixel art, vibrant colors, sharp silhouette\n",
+        "size": {
+          "width": 248,
+          "height": 248
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-08T03:59:13.668542+00:00"
+      },
+      "folder": "93c77cf9",
+      "frames": {
+        "rotations": {
+          "south": "93c77cf9/rotations/south.png",
+          "south-east": "93c77cf9/rotations/south-east.png",
+          "east": "93c77cf9/rotations/east.png",
+          "north-east": "93c77cf9/rotations/north-east.png",
+          "north": "93c77cf9/rotations/north.png",
+          "north-west": "93c77cf9/rotations/north-west.png",
+          "west": "93c77cf9/rotations/west.png",
+          "south-west": "93c77cf9/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-08T04:03:32.785583"
+}

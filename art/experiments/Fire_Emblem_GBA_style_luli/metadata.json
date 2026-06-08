@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "76f40c6c-4b6c-4d98-97e5-8c66379e1b9a",
+        "name": "Fire Emblem GBA style chibi",
+        "prompt": "Fire Emblem GBA style chibi hero swordsman, western fantasy,\n3-head-tall super-deformed proportions,\nlarge head with big expressive eyes, short body, small hands and feet,\nbalanced fighter not heavy,\nbrown short messy hair,\nlight silver plate armor with leather straps, blue cape on back,\none-handed longsword in scabbard hanging at left hip, scabbard clearly visible at waist,\nconfident posture, young man early 20s,\nclean pixel art, vibrant colors, sharp silhouette",
+        "size": {
+          "width": 248,
+          "height": 248
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-06T20:34:50.819533+00:00"
+      },
+      "folder": "Fire_Emblem_GBA_style_chibi",
+      "frames": {
+        "rotations": {
+          "south": "Fire_Emblem_GBA_style_chibi/rotations/south.png",
+          "south-east": "Fire_Emblem_GBA_style_chibi/rotations/south-east.png",
+          "east": "Fire_Emblem_GBA_style_chibi/rotations/east.png",
+          "north-east": "Fire_Emblem_GBA_style_chibi/rotations/north-east.png",
+          "north": "Fire_Emblem_GBA_style_chibi/rotations/north.png",
+          "north-west": "Fire_Emblem_GBA_style_chibi/rotations/north-west.png",
+          "west": "Fire_Emblem_GBA_style_chibi/rotations/west.png",
+          "south-west": "Fire_Emblem_GBA_style_chibi/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-07T03:13:29.196068"
+}

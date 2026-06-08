@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "b234eabb-8441-4b8f-9399-374380983d6c",
+        "name": "EmpireAssassin",
+        "prompt": "Tactics Ogre Let Us Cling Together SNES style chibi enemy assassin rogue, western fantasy,\nsemi-chibi proportion, lean wiry agile build, grounded crouched ready pose, tactical silhouette,\nlean swift imperial assassin in european medieval setting,\nplain forgettable mook face, sharp-faced man in his late 20s with dark stubble partially visible, cold tired expression,\ndark teal green and black light leather armor over dark grey tunic,\nclassic western thief rogue style, not ninja,\nshort messy black hair, dark cloth cowl draped behind the neck across the shoulders,\ndark cloth scarf wrapped around neck and pulled up over the nose, eyes and forehead visible,\ntwo short steel daggers, one held in each hand in reverse ice-pick grip,\nbrass buckles and crossed dark leather belts over chest, leather bracers on both forearms,\nno helmet, no shield, no plate armor, no cape,\n16-bit SNES pixel art, muted earthy desaturated palette, hand-painted dithered shading, sharp readable silhouette\n",
+        "size": {
+          "width": 240,
+          "height": 240
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-08T06:16:37.125851+00:00"
+      },
+      "folder": "EmpireAssassin",
+      "frames": {
+        "rotations": {
+          "south": "EmpireAssassin/rotations/south.png",
+          "south-east": "EmpireAssassin/rotations/south-east.png",
+          "east": "EmpireAssassin/rotations/east.png",
+          "north-east": "EmpireAssassin/rotations/north-east.png",
+          "north": "EmpireAssassin/rotations/north.png",
+          "north-west": "EmpireAssassin/rotations/north-west.png",
+          "west": "EmpireAssassin/rotations/west.png",
+          "south-west": "EmpireAssassin/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-08T06:19:54.649595"
+}

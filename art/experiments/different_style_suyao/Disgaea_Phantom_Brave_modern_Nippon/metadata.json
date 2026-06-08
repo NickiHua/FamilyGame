@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "758a8a8d-d768-4644-912e-fdafc97ebb5d",
+        "name": "Disgaea Phantom Brave modern Nippon",
+        "prompt": "Disgaea Phantom Brave modern Nippon Ichi style chibi female battle mage,\n3-head-tall super-deformed proportions with playful exaggerated curves,\nhuge head with massive expressive anime eyes and small sharp pupils,\nbold thick outlines, flat cel-shaded coloring, high saturation,\nlong flowing platinum silver hair past shoulders with side bangs, head bare,\nwearing frilly white and bright sky-blue robe with pink ribbon trim and large gold buttons,\noversized white pauldrons with star emblems,\nflared sky-blue cape with pink polka-dot lining draped behind to knees,\nsoft fluffy hood resting on upper back behind neck, never on head,\noversized cartoony wooden staff with giant glowing cyan crystal orb in right hand,\nbrown leather belt with cute pouches,\nyoung woman early 20s, cheerful energetic pose with slight tilt,\nvibrant modern JRPG pixel art, candy-bright saturated palette,\ncrisp anime-inspired linework, dynamic sharp silhouette",
+        "size": {
+          "width": 244,
+          "height": 244
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-07T07:26:35.452793+00:00"
+      },
+      "folder": "Disgaea_Phantom_Brave_modern_Nippon",
+      "frames": {
+        "rotations": {
+          "south": "Disgaea_Phantom_Brave_modern_Nippon/rotations/south.png",
+          "south-east": "Disgaea_Phantom_Brave_modern_Nippon/rotations/south-east.png",
+          "east": "Disgaea_Phantom_Brave_modern_Nippon/rotations/east.png",
+          "north-east": "Disgaea_Phantom_Brave_modern_Nippon/rotations/north-east.png",
+          "north": "Disgaea_Phantom_Brave_modern_Nippon/rotations/north.png",
+          "north-west": "Disgaea_Phantom_Brave_modern_Nippon/rotations/north-west.png",
+          "west": "Disgaea_Phantom_Brave_modern_Nippon/rotations/west.png",
+          "south-west": "Disgaea_Phantom_Brave_modern_Nippon/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-07T08:23:48.630807"
+}

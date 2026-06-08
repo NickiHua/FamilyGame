@@ -1,0 +1,221 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "e00ec869-41d4-4529-90f3-7dfea989a747",
+        "name": "Fire Emblem GBA style enemy",
+        "prompt": "Fire Emblem GBA style enemy soldier, european medieval fantasy, \ngeneric imperial foot trooper, \nstocky stern soldier in his 30s with stubble and grim face partially visible, \ndark teal green tabard over chainmail and dull steel plate armor, classic western soldier style, \nbrass and leather trim accents, \nopen-faced steel nasal helmet (kettle hat style) with no horns and no plume, \nlarge round wooden shield painted teal green with iron rim and central iron boss, \nsingle-handed steel battle axe in right hand, \nclean pixel art, sharp silhouette",
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-05-31T08:24:25.625706+00:00"
+      },
+      "folder": "Fire_Emblem_GBA_style_enemy",
+      "frames": {
+        "rotations": {
+          "south": "Fire_Emblem_GBA_style_enemy/rotations/south.png",
+          "south-east": "Fire_Emblem_GBA_style_enemy/rotations/south-east.png",
+          "east": "Fire_Emblem_GBA_style_enemy/rotations/east.png",
+          "north-east": "Fire_Emblem_GBA_style_enemy/rotations/north-east.png",
+          "north": "Fire_Emblem_GBA_style_enemy/rotations/north.png",
+          "north-west": "Fire_Emblem_GBA_style_enemy/rotations/north-west.png",
+          "west": "Fire_Emblem_GBA_style_enemy/rotations/west.png",
+          "south-west": "Fire_Emblem_GBA_style_enemy/rotations/south-west.png"
+        },
+        "animations": {
+          "Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01": {
+            "west": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/west/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/west/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/west/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/west/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/west/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/west/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/west/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/west/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/west/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/south/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/south/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/south/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/south/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/south/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/south/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/south/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/south/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/south/frame_008.png"
+            ],
+            "east": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/east/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/east/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/east/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/east/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/east/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/east/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/east/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/east/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/east/frame_008.png"
+            ],
+            "north": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/north/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/north/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/north/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/north/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/north/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/north/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/north/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/north/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_stands_in_idle_breathing_pose._F1_idle_sta-c1653f01/north/frame_008.png"
+            ]
+          },
+          "Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d": {
+            "east": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/east/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/east/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/east/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/east/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/east/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/east/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/east/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/east/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/east/frame_008.png"
+            ],
+            "west": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/west/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/west/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/west/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/west/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/west/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/west/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/west/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/west/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/west/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/south/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/south/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/south/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/south/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/south/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/south/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/south/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/south/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/south/frame_008.png"
+            ],
+            "north": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/north/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/north/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/north/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/north/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/north/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/north/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/north/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/north/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_takes_a_hit_and_recoils_sharply._F1_idle_s-5e2c468d/north/frame_008.png"
+            ]
+          },
+          "Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67": {
+            "south": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/south/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/south/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/south/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/south/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/south/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/south/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/south/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/south/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/south/frame_008.png"
+            ],
+            "east": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/east/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/east/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/east/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/east/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/east/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/east/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/east/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/east/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/east/frame_008.png"
+            ],
+            "north": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/north/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/north/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/north/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/north/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/north/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/north/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/north/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/north/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/north/frame_008.png"
+            ],
+            "west": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/west/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/west/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/west/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/west/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/west/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/west/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/west/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/west/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_marches_forward_armed._F1_idle_steel_axe_i-edb65a67/west/frame_008.png"
+            ]
+          },
+          "Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83": {
+            "north": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/north/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/north/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/north/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/north/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/north/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/north/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/north/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/north/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/north/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/south/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/south/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/south/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/south/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/south/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/south/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/south/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/south/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/south/frame_008.png"
+            ],
+            "west": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/west/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/west/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/west/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/west/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/west/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/west/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/west/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/west/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/west/frame_008.png"
+            ],
+            "east": [
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/east/frame_000.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/east/frame_001.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/east/frame_002.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/east/frame_003.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/east/frame_004.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/east/frame_005.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/east/frame_006.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/east/frame_007.png",
+              "Fire_Emblem_GBA_style_enemy/animations/Soldier_swings_battle_axe_in_heavy_overhead_chop.-0e547b83/east/frame_008.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-01T07:22:55.772447"
+}

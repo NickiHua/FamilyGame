@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "90317e38-ab11-4122-aa0c-61fb5f995640",
+        "name": "EmpireArcher",
+        "prompt": "Tactics Ogre Let Us Cling Together SNES style chibi enemy archer, western fantasy,\nsemi-chibi proportion, lean athletic build, grounded mature pose, tactical silhouette,\ngeneric imperial foot archer in european medieval setting,\nplain forgettable mook face, lean wiry soldier in his 20s with sharp focused face partially visible,\ndark teal green tabard over leather and chainmail light armor, brass and leather trim accents,\nopen-faced steel nasal kettle hat helmet, no horns, no plume,\nbrown leather quiver full of feathered arrows strapped on back,\nrecurved wooden longbow held vertically in left hand, undrawn, brass-bound limbs,\nbracer on left forearm, leather glove on right hand, no shield,\n16-bit SNES pixel art, muted earthy desaturated palette, hand-painted dithered shading, sharp readable silhouette\n",
+        "size": {
+          "width": 240,
+          "height": 240
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-08T06:03:25.812589+00:00"
+      },
+      "folder": "EmpireArcher",
+      "frames": {
+        "rotations": {
+          "south": "EmpireArcher/rotations/south.png",
+          "south-east": "EmpireArcher/rotations/south-east.png",
+          "east": "EmpireArcher/rotations/east.png",
+          "north-east": "EmpireArcher/rotations/north-east.png",
+          "north": "EmpireArcher/rotations/north.png",
+          "north-west": "EmpireArcher/rotations/north-west.png",
+          "west": "EmpireArcher/rotations/west.png",
+          "south-west": "EmpireArcher/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-08T06:08:53.890902"
+}

@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "a42295db-b4a4-46de-af06-4a11e2259aad",
+        "name": "LuLi",
+        "prompt": "Tactics Ogre Let Us Cling Together SNES style chibi ally hero swordsman, western fantasy,\nsemi-chibi proportion, lean athletic balanced build, confident grounded stance, tactical silhouette,\nyoung man early 20s with friendly determined face,\nshort messy brown hair, head bare, no helmet,\nlight silver plate armor with leather straps over a white tunic, brass buckle accents,\nblue cape pinned at the neck flowing behind on the back,\nsilver pauldrons, silver greaves over brown boots, leather gloves,\none-handed steel longsword in a brown leather scabbard hanging at the LEFT HIP, scabbard clearly visible at the waist on the left side, sword hilt sticking out forward at the left hip, sword NOT on the back, sword NOT in hand,\nempty hands at sides,\nbrown messy hair drawn IN FRONT OF and OVER the blue cape,\n16-bit SNES pixel art, muted earthy desaturated palette, hand-painted dithered shading, sharp readable silhouette\n",
+        "size": {
+          "width": 248,
+          "height": 248
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-08T06:36:28.371144+00:00"
+      },
+      "folder": "a42295db",
+      "frames": {
+        "rotations": {
+          "south": "a42295db/rotations/south.png",
+          "south-east": "a42295db/rotations/south-east.png",
+          "east": "a42295db/rotations/east.png",
+          "north-east": "a42295db/rotations/north-east.png",
+          "north": "a42295db/rotations/north.png",
+          "north-west": "a42295db/rotations/north-west.png",
+          "west": "a42295db/rotations/west.png",
+          "south-west": "a42295db/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-08T06:39:46.084436"
+}

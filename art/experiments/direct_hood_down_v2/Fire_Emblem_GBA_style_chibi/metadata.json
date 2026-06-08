@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "1134f426-696d-46ef-ad6f-1734eead39cd",
+        "name": "Fire Emblem GBA style chibi",
+        "prompt": "Fire Emblem GBA style chibi female battle mage, western fantasy,\n3-head-tall super-deformed proportions,\nlarge head with big expressive eyes, short body, small hands and feet,\nlong silver hair from full scalp flowing down past shoulder blades to mid-back,\nhair bangs across forehead, two silver locks framing face at cheeks,\nhead completely uncovered at top, no headwear, no fabric on scalp,\nwearing white and blue robe with gold trim and ornate silver chest armor,\nshort blue shoulder mantle with gold edge draped over shoulders,\nlong blue cape attached at shoulders flowing behind body down to knees,\nsilver hair drawn IN FRONT OF and OVER the shoulder mantle and cape,\nwooden staff with large blue crystal orb held in right hand,\nbrown leather belt with pouches at waist,\nyoung woman early 20s, gentle confident pose,\nclean pixel art, vibrant colors, sharp silhouette",
+        "size": {
+          "width": 244,
+          "height": 244
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-07T08:11:50.700616+00:00"
+      },
+      "folder": "Fire_Emblem_GBA_style_chibi",
+      "frames": {
+        "rotations": {
+          "south": "Fire_Emblem_GBA_style_chibi/rotations/south.png",
+          "south-east": "Fire_Emblem_GBA_style_chibi/rotations/south-east.png",
+          "east": "Fire_Emblem_GBA_style_chibi/rotations/east.png",
+          "north-east": "Fire_Emblem_GBA_style_chibi/rotations/north-east.png",
+          "north": "Fire_Emblem_GBA_style_chibi/rotations/north.png",
+          "north-west": "Fire_Emblem_GBA_style_chibi/rotations/north-west.png",
+          "west": "Fire_Emblem_GBA_style_chibi/rotations/west.png",
+          "south-west": "Fire_Emblem_GBA_style_chibi/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-07T08:17:37.860529"
+}

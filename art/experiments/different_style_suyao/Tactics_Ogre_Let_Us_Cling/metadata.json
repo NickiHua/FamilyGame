@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "c6515825-88dc-49f5-86c5-779236b490d6",
+        "name": "Tactics Ogre Let Us Cling",
+        "prompt": "Tactics Ogre Let Us Cling Together SNES style chibi female battle mage,\n3-head-tall super-deformed proportions, slightly stocky stylized body,\nlarge head with small detailed eyes, hand-painted 16-bit sprite shading,\nlong silver hair flowing past shoulders, short hair bangs across forehead, head bare,\nwearing layered ivory and royal blue robe with crimson sash and gold embroidery,\nornate brass pauldrons with engraved trim on shoulders,\ndeep blue cloak with red inner lining draped behind to mid-calf,\nheavy hood fabric folded flat at upper back behind neck, never on head,\ntall wooden staff with sapphire crystal orb in right hand,\nbrown leather belt with bronze buckle and hanging scroll pouches,\nyoung woman early 20s, formal regal stance,\nclassic 16-bit JRPG pixel art, muted earthy palette with rich jewel-tone accents,\nhand-painted shading with dithered gradients, sharp tactical silhouette",
+        "size": {
+          "width": 248,
+          "height": 248
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-07T07:26:21.548693+00:00"
+      },
+      "folder": "Tactics_Ogre_Let_Us_Cling",
+      "frames": {
+        "rotations": {
+          "south": "Tactics_Ogre_Let_Us_Cling/rotations/south.png",
+          "south-east": "Tactics_Ogre_Let_Us_Cling/rotations/south-east.png",
+          "east": "Tactics_Ogre_Let_Us_Cling/rotations/east.png",
+          "north-east": "Tactics_Ogre_Let_Us_Cling/rotations/north-east.png",
+          "north": "Tactics_Ogre_Let_Us_Cling/rotations/north.png",
+          "north-west": "Tactics_Ogre_Let_Us_Cling/rotations/north-west.png",
+          "west": "Tactics_Ogre_Let_Us_Cling/rotations/west.png",
+          "south-west": "Tactics_Ogre_Let_Us_Cling/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-07T08:23:47.131155"
+}

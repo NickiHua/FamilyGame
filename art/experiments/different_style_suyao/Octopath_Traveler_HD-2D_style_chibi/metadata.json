@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "23ac9f16-aee7-48ba-9e04-28c152225a60",
+        "name": "Octopath Traveler HD-2D style chibi",
+        "prompt": "Octopath Traveler HD-2D style chibi female battle mage,\n3-head-tall super-deformed proportions with cinematic depth,\nlarge head with big detailed eyes, soft painterly shading, deep contrast lighting,\nlong silver hair flowing past shoulders, hair bangs across forehead, head bare,\nwearing layered white and deep blue robe with elaborate gold filigree trim,\nsilver pauldrons with engraved patterns on shoulders,\nmidnight blue cloak with star-pattern lining draped behind to knees,\nhood fabric hanging detached at upper back, never on head,\nornate wooden staff with glowing sapphire crystal orb in right hand,\nbrown leather belt with hanging scroll pouches,\nyoung woman early 20s, mysterious confident pose,\nrich pixel art with subtle gradients, moody atmospheric colors, sharp silhouette",
+        "size": {
+          "width": 248,
+          "height": 248
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-07T04:58:14.937683+00:00"
+      },
+      "folder": "Octopath_Traveler_HD-2D_style_chibi",
+      "frames": {
+        "rotations": {
+          "south": "Octopath_Traveler_HD-2D_style_chibi/rotations/south.png",
+          "south-east": "Octopath_Traveler_HD-2D_style_chibi/rotations/south-east.png",
+          "east": "Octopath_Traveler_HD-2D_style_chibi/rotations/east.png",
+          "north-east": "Octopath_Traveler_HD-2D_style_chibi/rotations/north-east.png",
+          "north": "Octopath_Traveler_HD-2D_style_chibi/rotations/north.png",
+          "north-west": "Octopath_Traveler_HD-2D_style_chibi/rotations/north-west.png",
+          "west": "Octopath_Traveler_HD-2D_style_chibi/rotations/west.png",
+          "south-west": "Octopath_Traveler_HD-2D_style_chibi/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-07T08:23:43.367475"
+}

@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "bad135e9-fd15-4cd2-a1b9-5a7c1f67dc24",
+        "name": "EmpireSwordsman",
+        "prompt": "Fire Emblem GBA style chibi enemy swordsman duelist, western fantasy,\n3-head-tall super-deformed proportions, total body height equals 3 head heights stacked, body proportionally sized to support the large head NOT undersized, total figure looks balanced like a Fire Emblem GBA chibi sprite,\nshort body, small hands and feet,\ngeneric imperial duelist swordmaster in european medieval setting,\nplain forgettable enemy mook face, weary tired expression, small narrow eyes, NOT a hero face, NOT large bright sparkling eyes, dull faded gaze of a low-ranking soldier,\nlean man in his late 20s with sharp jaw and a thin diagonal scar across left cheek partially visible,\ndark teal green tabard over dark steel breastplate and chainmail sleeves, brass trim accents,\nclassic western soldier swordmaster style,\nshort cropped dark brown hair swept back,\none-handed steel longsword held in right hand pointed down at side in a ready guard,\nempty left hand at side,\nbrown leather belt with brass buckle, leather bracers on both forearms,\nno helmet, no shield, no cape, no kettle hat,\nclean pixel art, vibrant colors, sharp silhouette\n",
+        "size": {
+          "width": 244,
+          "height": 244
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-08T01:08:58.768262+00:00"
+      },
+      "folder": "EmpireSwordsman",
+      "frames": {
+        "rotations": {
+          "south": "EmpireSwordsman/rotations/south.png",
+          "south-east": "EmpireSwordsman/rotations/south-east.png",
+          "east": "EmpireSwordsman/rotations/east.png",
+          "north-east": "EmpireSwordsman/rotations/north-east.png",
+          "north": "EmpireSwordsman/rotations/north.png",
+          "north-west": "EmpireSwordsman/rotations/north-west.png",
+          "west": "EmpireSwordsman/rotations/west.png",
+          "south-west": "EmpireSwordsman/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-08T01:13:13.376570"
+}

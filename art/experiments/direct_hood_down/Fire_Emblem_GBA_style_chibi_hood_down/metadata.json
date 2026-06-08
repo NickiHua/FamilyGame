@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "4b31e43b-0dd9-4e03-9f62-c0fd34781dfe",
+        "name": "Fire Emblem GBA style chibi",
+        "prompt": "Fire Emblem GBA style chibi female battle mage, western fantasy,\n3-head-tall super-deformed proportions,\nlarge head with big expressive eyes, short body, small hands and feet,\nlong silver hair flowing from full scalp down past shoulders to chest level,\nhair bangs across forehead, head completely bare and uncovered,\nwearing white and blue robe with gold trim and ornate silver chest armor,\nseparate blue cloak draped from shoulders down to knees behind body,\nloose hood fabric resting flat against upper back behind the neck,\nhood is detached accessory hanging down, never covering head or hair,\nwooden staff with large blue crystal orb held in right hand,\nbrown leather belt with pouches at waist,\nyoung woman early 20s, gentle confident pose,\nclean pixel art, vibrant colors, sharp silhouette",
+        "size": {
+          "width": 248,
+          "height": 248
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-07T07:38:46.119223+00:00"
+      },
+      "folder": "Fire_Emblem_GBA_style_chibi",
+      "frames": {
+        "rotations": {
+          "south": "Fire_Emblem_GBA_style_chibi/rotations/south.png",
+          "south-east": "Fire_Emblem_GBA_style_chibi/rotations/south-east.png",
+          "east": "Fire_Emblem_GBA_style_chibi/rotations/east.png",
+          "north-east": "Fire_Emblem_GBA_style_chibi/rotations/north-east.png",
+          "north": "Fire_Emblem_GBA_style_chibi/rotations/north.png",
+          "north-west": "Fire_Emblem_GBA_style_chibi/rotations/north-west.png",
+          "west": "Fire_Emblem_GBA_style_chibi/rotations/west.png",
+          "south-west": "Fire_Emblem_GBA_style_chibi/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-07T07:58:46.537436"
+}

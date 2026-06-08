@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "ad596347-1a7f-4d03-b318-cad5b9aa2a1d",
+        "name": "SuYao",
+        "prompt": "Tactics Ogre Let Us Cling Together SNES style chibi female battle mage, western fantasy,\nsemi-chibi proportion, slender graceful build, formal regal stance, tactical silhouette,\nyoung woman early 20s with calm gentle face,\nlong silver hair flowing past shoulders, short hair bangs across forehead, head bare,\nwearing layered ivory and royal blue robe with crimson sash and gold embroidery on hem and sleeves, robe falls to ankles,\nornate brass pauldrons with engraved trim on shoulders,\ndeep blue cloak with red inner lining draped behind to mid-calf,\nheavy hood fabric folded flat at the upper back behind the neck, hood NEVER pulled up over the head,\ntall wooden staff with large sapphire blue crystal orb on top, held vertically in right hand at side,\nleft hand resting empty at left side,\nbrown leather belt with bronze buckle and small hanging scroll pouches at waist,\nlong silver hair drawn IN FRONT OF and OVER the deep blue cloak,\nno plate armor, no shield, no helmet,\n16-bit SNES pixel art, muted earthy desaturated palette, hand-painted dithered shading, sharp readable silhouette\n",
+        "size": {
+          "width": 248,
+          "height": 248
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-08T06:39:47.733013+00:00"
+      },
+      "folder": "ad596347",
+      "frames": {
+        "rotations": {
+          "south": "ad596347/rotations/south.png",
+          "south-east": "ad596347/rotations/south-east.png",
+          "east": "ad596347/rotations/east.png",
+          "north-east": "ad596347/rotations/north-east.png",
+          "north": "ad596347/rotations/north.png",
+          "north-west": "ad596347/rotations/north-west.png",
+          "west": "ad596347/rotations/west.png",
+          "south-west": "ad596347/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-08T06:44:10.887772"
+}

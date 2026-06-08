@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "8c0f4289-c2ec-4cbb-8e23-e1fda8a096d9",
+        "name": "Sea of Stars modern indie",
+        "prompt": "Sea of Stars modern indie pixel art style chibi female battle mage,\n3-head-tall super-deformed proportions, slightly taller and slimmer than classic chibi,\nlarge head with big anime-style eyes, clean line work, soft cel-shaded coloring,\nlong pastel-silver hair flowing past shoulders, sleek hair bangs, head bare,\nwearing minimalist white and sky-blue robe with thin gold piping,\nstreamlined silver chest plate with subtle engraving,\nflowing pale blue cloak with smooth gradient draped behind to knees,\nhood fabric resting flat at upper back, never on head,\nslim wooden staff with bright cyan crystal orb in right hand,\nbrown leather belt with small pouches,\nyoung woman early 20s, graceful poised stance,\ncrisp modern pixel art, smooth color gradients, vibrant saturated palette, sharp clean silhouette",
+        "size": {
+          "width": 244,
+          "height": 244
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-07T04:58:27.64077+00:00"
+      },
+      "folder": "Sea_of_Stars_modern_indie",
+      "frames": {
+        "rotations": {
+          "south": "Sea_of_Stars_modern_indie/rotations/south.png",
+          "south-east": "Sea_of_Stars_modern_indie/rotations/south-east.png",
+          "east": "Sea_of_Stars_modern_indie/rotations/east.png",
+          "north-east": "Sea_of_Stars_modern_indie/rotations/north-east.png",
+          "north": "Sea_of_Stars_modern_indie/rotations/north.png",
+          "north-west": "Sea_of_Stars_modern_indie/rotations/north-west.png",
+          "west": "Sea_of_Stars_modern_indie/rotations/west.png",
+          "south-west": "Sea_of_Stars_modern_indie/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-07T08:23:45.130699"
+}

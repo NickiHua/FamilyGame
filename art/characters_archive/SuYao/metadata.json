@@ -1,0 +1,221 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "87e08fb1-1f3c-4392-bc51-ba0be4b0ab6f",
+        "name": "Fire Emblem GBA style female",
+        "prompt": "Fire Emblem GBA style female mage cleric, western fantasy, gentle elegant pose,  long silver hair flowing past waist, white and blue robe with gold trim,  hood down, wooden staff with blue crystal, young woman early 20s,  soft features, clean pixel art, vibrant colors, sharp silhouette",
+        "size": {
+          "width": 92,
+          "height": 92
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-05-25T09:04:24.60684+00:00"
+      },
+      "folder": "Fire_Emblem_GBA_style_female",
+      "frames": {
+        "rotations": {
+          "south": "Fire_Emblem_GBA_style_female/rotations/south.png",
+          "south-east": "Fire_Emblem_GBA_style_female/rotations/south-east.png",
+          "east": "Fire_Emblem_GBA_style_female/rotations/east.png",
+          "north-east": "Fire_Emblem_GBA_style_female/rotations/north-east.png",
+          "north": "Fire_Emblem_GBA_style_female/rotations/north.png",
+          "north-west": "Fire_Emblem_GBA_style_female/rotations/north-west.png",
+          "west": "Fire_Emblem_GBA_style_female/rotations/west.png",
+          "south-west": "Fire_Emblem_GBA_style_female/rotations/south-west.png"
+        },
+        "animations": {
+          "Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c": {
+            "east": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/east/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/east/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/east/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/east/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/east/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/east/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/east/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/east/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/east/frame_008.png"
+            ],
+            "west": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/west/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/west/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/west/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/west/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/west/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/west/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/west/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/west/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/west/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/south/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/south/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/south/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/south/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/south/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/south/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/south/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/south/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/south/frame_008.png"
+            ],
+            "north": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/north/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/north/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/north/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/north/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/north/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/north/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/north/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/north/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_walks_forward_holding_staff._F1_idle_gold_sta-f2161e4c/north/frame_008.png"
+            ]
+          },
+          "Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a": {
+            "east": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/east/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/east/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/east/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/east/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/east/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/east/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/east/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/east/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/east/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/south/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/south/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/south/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/south/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/south/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/south/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/south/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/south/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/south/frame_008.png"
+            ],
+            "north": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/north/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/north/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/north/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/north/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/north/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/north/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/north/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/north/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/north/frame_008.png"
+            ],
+            "west": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/west/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/west/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/west/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/west/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/west/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/west/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/west/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/west/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_takes_a_hit_and_recoils_sharply._F1_idle_stan-bf723c7a/west/frame_008.png"
+            ]
+          },
+          "Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933": {
+            "west": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/west/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/west/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/west/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/west/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/west/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/west/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/west/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/west/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/west/frame_008.png"
+            ],
+            "east": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/east/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/east/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/east/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/east/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/east/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/east/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/east/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/east/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/east/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/south/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/south/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/south/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/south/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/south/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/south/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/south/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/south/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/south/frame_008.png"
+            ],
+            "north": [
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/north/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/north/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/north/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/north/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/north/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/north/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/north/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/north/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Mage_stands_in_idle_breathing_pose._F1_idle_stance-7a173933/north/frame_008.png"
+            ]
+          },
+          "Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982": {
+            "west": [
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/west/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/west/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/west/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/west/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/west/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/west/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/west/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/west/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/west/frame_008.png"
+            ],
+            "east": [
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/east/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/east/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/east/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/east/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/east/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/east/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/east/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/east/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/east/frame_008.png"
+            ],
+            "south": [
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/south/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/south/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/south/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/south/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/south/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/south/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/south/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/south/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/south/frame_008.png"
+            ],
+            "north": [
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/north/frame_000.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/north/frame_001.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/north/frame_002.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/north/frame_003.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/north/frame_004.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/north/frame_005.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/north/frame_006.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/north/frame_007.png",
+              "Fire_Emblem_GBA_style_female/animations/Character_casts_a_magic_spell_with_her_staff._Fram-79cc4982/north/frame_008.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-01T07:22:26.962514"
+}

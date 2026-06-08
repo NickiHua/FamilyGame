@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "f034b398-043c-41b7-a011-25493f37e567",
+        "name": "EmpirePriestess",
+        "prompt": "Fire Emblem GBA style chibi enemy battle priestess, western fantasy,\n3-head-tall super-deformed proportions,\nlarge head with big expressive eyes, short body, small hands and feet,\ngeneric imperial church cleric serving the empire in european medieval setting,\nstern serious woman in her early 30s with sharp focused face partially visible,\ncream off-white robe down to ankles with dark teal green shoulder mantle and dark teal trim on hem and sleeves,\nbrass trim accents on collar and belt,\nclassic western church style,\ndark brown hair tied in low bun at the back of head,\nshort white veil pinned by simple brass circlet on forehead, face fully visible,\ntall wooden staff with brass cap and small upright brass cross emblem on top, held vertically in right hand,\nsmall leather satchel of healing supplies at left hip,\nhair and veil drawn IN FRONT OF and OVER the shoulder mantle, hair never tucked under any cloth layer,\nno armor plates, no shield, no helmet,\nclean pixel art, vibrant colors, sharp silhouette\n",
+        "size": {
+          "width": 248,
+          "height": 248
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-07T22:44:18.286947+00:00"
+      },
+      "folder": "EmpirePriestess",
+      "frames": {
+        "rotations": {
+          "south": "EmpirePriestess/rotations/south.png",
+          "south-east": "EmpirePriestess/rotations/south-east.png",
+          "east": "EmpirePriestess/rotations/east.png",
+          "north-east": "EmpirePriestess/rotations/north-east.png",
+          "north": "EmpirePriestess/rotations/north.png",
+          "north-west": "EmpirePriestess/rotations/north-west.png",
+          "west": "EmpirePriestess/rotations/west.png",
+          "south-west": "EmpirePriestess/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-07T22:48:29.062774"
+}

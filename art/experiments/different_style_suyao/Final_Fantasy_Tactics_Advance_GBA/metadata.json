@@ -1,0 +1,36 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "4a6b2f4c-1049-4722-854b-29b4c87793a8",
+        "name": "Final Fantasy Tactics Advance GBA",
+        "prompt": "Final Fantasy Tactics Advance GBA style chibi female battle mage,\n3-head-tall super-deformed proportions with rounded soft body shape,\nlarge head with big oval eyes and tiny pupils, soft pastel sprite shading,\nlong silver hair flowing past shoulders, side bangs framing face, head bare,\nwearing flowing white and pale blue robe with crimson trim and small gold buckle accents,\ndelicate silver shoulder guards with rounded edges,\nsoft turquoise cape with white inner lining draped behind to mid-calf,\nloose hood fabric folded flat at upper back behind neck, never on head,\nslim wooden staff with glowing pale sapphire orb in right hand,\nbrown leather belt with small ornament,\nyoung woman early 20s, gentle whimsical pose with slight side tilt,\nGBA era pixel art, soft pastel storybook palette,\nrounded clean lineart, fairy tale atmosphere, sharp readable silhouette",
+        "size": {
+          "width": 244,
+          "height": 244
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-07T07:33:40.676831+00:00"
+      },
+      "folder": "Final_Fantasy_Tactics_Advance_GBA",
+      "frames": {
+        "rotations": {
+          "south": "Final_Fantasy_Tactics_Advance_GBA/rotations/south.png",
+          "south-east": "Final_Fantasy_Tactics_Advance_GBA/rotations/south-east.png",
+          "east": "Final_Fantasy_Tactics_Advance_GBA/rotations/east.png",
+          "north-east": "Final_Fantasy_Tactics_Advance_GBA/rotations/north-east.png",
+          "north": "Final_Fantasy_Tactics_Advance_GBA/rotations/north.png",
+          "north-west": "Final_Fantasy_Tactics_Advance_GBA/rotations/north-west.png",
+          "west": "Final_Fantasy_Tactics_Advance_GBA/rotations/west.png",
+          "south-west": "Final_Fantasy_Tactics_Advance_GBA/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-06-07T08:23:50.927927"
+}
