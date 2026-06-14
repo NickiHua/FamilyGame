@@ -27,10 +27,371 @@
           "west": "EmpireArcher/rotations/west.png",
           "south-west": "EmpireArcher/rotations/south-west.png"
         },
-        "animations": {}
+        "animations": {
+          "Archer_stands_in_idle_breathing_pose._F1_idle_stan": {
+            "north-west": [
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-west/frame_000.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-west/frame_001.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-west/frame_002.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-west/frame_003.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-west/frame_004.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-west/frame_005.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-west/frame_006.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-west/frame_007.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-west/frame_008.png"
+            ],
+            "west": [
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/west/frame_000.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/west/frame_001.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/west/frame_002.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/west/frame_003.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/west/frame_004.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/west/frame_005.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/west/frame_006.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/west/frame_007.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-east/frame_000.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-east/frame_001.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-east/frame_002.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-east/frame_003.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-east/frame_004.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-east/frame_005.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-east/frame_006.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-east/frame_007.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-east/frame_008.png"
+            ],
+            "east": [
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/east/frame_000.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/east/frame_001.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/east/frame_002.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/east/frame_003.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/east/frame_004.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/east/frame_005.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/east/frame_006.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/east/frame_007.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/east/frame_008.png"
+            ],
+            "south": [
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south/frame_000.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south/frame_001.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south/frame_002.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south/frame_003.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south/frame_004.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south/frame_005.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south/frame_006.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south/frame_007.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south/frame_008.png"
+            ],
+            "north": [
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north/frame_000.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north/frame_001.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north/frame_002.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north/frame_003.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north/frame_004.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north/frame_005.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north/frame_006.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north/frame_007.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-east/frame_000.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-east/frame_001.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-east/frame_002.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-east/frame_003.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-east/frame_004.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-east/frame_005.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-east/frame_006.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-east/frame_007.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/north-east/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-west/frame_000.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-west/frame_001.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-west/frame_002.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-west/frame_003.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-west/frame_004.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-west/frame_005.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-west/frame_006.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-west/frame_007.png",
+              "EmpireArcher/animations/Archer_stands_in_idle_breathing_pose._F1_idle_stan/south-west/frame_008.png"
+            ]
+          },
+          "Archer_takes_a_sharp_hit_and_flinches_backward._F1": {
+            "south-west": [
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-west/frame_000.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-west/frame_001.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-west/frame_002.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-west/frame_003.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-west/frame_004.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-west/frame_005.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-west/frame_006.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-west/frame_007.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-west/frame_008.png"
+            ],
+            "west": [
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/west/frame_000.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/west/frame_001.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/west/frame_002.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/west/frame_003.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/west/frame_004.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/west/frame_005.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/west/frame_006.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/west/frame_007.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/west/frame_008.png"
+            ],
+            "south": [
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south/frame_000.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south/frame_001.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south/frame_002.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south/frame_003.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south/frame_004.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south/frame_005.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south/frame_006.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south/frame_007.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south/frame_008.png"
+            ],
+            "north": [
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north/frame_000.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north/frame_001.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north/frame_002.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north/frame_003.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north/frame_004.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north/frame_005.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north/frame_006.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north/frame_007.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-east/frame_000.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-east/frame_001.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-east/frame_002.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-east/frame_003.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-east/frame_004.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-east/frame_005.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-east/frame_006.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-east/frame_007.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/south-east/frame_008.png"
+            ],
+            "east": [
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/east/frame_000.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/east/frame_001.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/east/frame_002.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/east/frame_003.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/east/frame_004.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/east/frame_005.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/east/frame_006.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/east/frame_007.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-west/frame_000.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-west/frame_001.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-west/frame_002.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-west/frame_003.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-west/frame_004.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-west/frame_005.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-west/frame_006.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-west/frame_007.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-west/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-east/frame_000.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-east/frame_001.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-east/frame_002.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-east/frame_003.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-east/frame_004.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-east/frame_005.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-east/frame_006.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-east/frame_007.png",
+              "EmpireArcher/animations/Archer_takes_a_sharp_hit_and_flinches_backward._F1/north-east/frame_008.png"
+            ]
+          },
+          "Archer_draws_bow_and_releases_an_arrow_in_a_clean": {
+            "west": [
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/west/frame_000.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/west/frame_001.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/west/frame_002.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/west/frame_003.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/west/frame_004.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/west/frame_005.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/west/frame_006.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/west/frame_007.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/west/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-west/frame_000.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-west/frame_001.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-west/frame_002.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-west/frame_003.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-west/frame_004.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-west/frame_005.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-west/frame_006.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-west/frame_007.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-west/frame_008.png"
+            ],
+            "east": [
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/east/frame_000.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/east/frame_001.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/east/frame_002.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/east/frame_003.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/east/frame_004.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/east/frame_005.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/east/frame_006.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/east/frame_007.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/east/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-east/frame_000.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-east/frame_001.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-east/frame_002.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-east/frame_003.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-east/frame_004.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-east/frame_005.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-east/frame_006.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-east/frame_007.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north-east/frame_008.png"
+            ],
+            "north": [
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north/frame_000.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north/frame_001.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north/frame_002.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north/frame_003.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north/frame_004.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north/frame_005.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north/frame_006.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north/frame_007.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/north/frame_008.png"
+            ],
+            "south": [
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south/frame_000.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south/frame_001.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south/frame_002.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south/frame_003.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south/frame_004.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south/frame_005.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south/frame_006.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south/frame_007.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-west/frame_000.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-west/frame_001.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-west/frame_002.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-west/frame_003.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-west/frame_004.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-west/frame_005.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-west/frame_006.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-west/frame_007.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-east/frame_000.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-east/frame_001.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-east/frame_002.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-east/frame_003.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-east/frame_004.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-east/frame_005.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-east/frame_006.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-east/frame_007.png",
+              "EmpireArcher/animations/Archer_draws_bow_and_releases_an_arrow_in_a_clean/south-east/frame_008.png"
+            ]
+          },
+          "Archer_marches_forward_armed._F1_idle_recurved_lon": {
+            "east": [
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/east/frame_000.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/east/frame_001.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/east/frame_002.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/east/frame_003.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/east/frame_004.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/east/frame_005.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/east/frame_006.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/east/frame_007.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/east/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-east/frame_000.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-east/frame_001.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-east/frame_002.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-east/frame_003.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-east/frame_004.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-east/frame_005.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-east/frame_006.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-east/frame_007.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-east/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-west/frame_000.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-west/frame_001.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-west/frame_002.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-west/frame_003.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-west/frame_004.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-west/frame_005.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-west/frame_006.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-west/frame_007.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south-west/frame_008.png"
+            ],
+            "north": [
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north/frame_000.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north/frame_001.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north/frame_002.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north/frame_003.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north/frame_004.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north/frame_005.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north/frame_006.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north/frame_007.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north/frame_008.png"
+            ],
+            "west": [
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/west/frame_000.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/west/frame_001.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/west/frame_002.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/west/frame_003.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/west/frame_004.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/west/frame_005.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/west/frame_006.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/west/frame_007.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/west/frame_008.png"
+            ],
+            "south": [
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south/frame_000.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south/frame_001.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south/frame_002.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south/frame_003.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south/frame_004.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south/frame_005.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south/frame_006.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south/frame_007.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/south/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-east/frame_000.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-east/frame_001.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-east/frame_002.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-east/frame_003.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-east/frame_004.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-east/frame_005.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-east/frame_006.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-east/frame_007.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-west/frame_000.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-west/frame_001.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-west/frame_002.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-west/frame_003.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-west/frame_004.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-west/frame_005.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-west/frame_006.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-west/frame_007.png",
+              "EmpireArcher/animations/Archer_marches_forward_armed._F1_idle_recurved_lon/north-west/frame_008.png"
+            ]
+          }
+        }
       }
     }
   ],
   "export_version": "3.0",
-  "export_date": "2026-06-07T22:44:17.069408"
+  "export_date": "2026-06-13T09:51:53.024481"
 }

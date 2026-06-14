@@ -15,22 +15,439 @@
         "view": "low top-down",
         "created_at": "2026-06-08T01:20:41.183072+00:00"
       },
-      "folder": "4e8b756a",
+      "folder": "SuYao",
       "frames": {
         "rotations": {
-          "south": "4e8b756a/rotations/south.png",
-          "south-east": "4e8b756a/rotations/south-east.png",
-          "east": "4e8b756a/rotations/east.png",
-          "north-east": "4e8b756a/rotations/north-east.png",
-          "north": "4e8b756a/rotations/north.png",
-          "north-west": "4e8b756a/rotations/north-west.png",
-          "west": "4e8b756a/rotations/west.png",
-          "south-west": "4e8b756a/rotations/south-west.png"
+          "south": "SuYao/rotations/south.png",
+          "south-east": "SuYao/rotations/south-east.png",
+          "east": "SuYao/rotations/east.png",
+          "north-east": "SuYao/rotations/north-east.png",
+          "north": "SuYao/rotations/north.png",
+          "north-west": "SuYao/rotations/north-west.png",
+          "west": "SuYao/rotations/west.png",
+          "south-west": "SuYao/rotations/south-west.png"
         },
-        "animations": {}
+        "animations": {
+          "Mage_cleric_takes_a_hit_and_recoils_backward_gentl": {
+            "east": [
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl/east/frame_000.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl/east/frame_001.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl/east/frame_002.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl/east/frame_003.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl/east/frame_004.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl/east/frame_005.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl/east/frame_006.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl/east/frame_007.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl/east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_casts_a_powerful_spell_with_her_staff.": {
+            "north-west": [
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff./north-west/frame_000.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff./north-west/frame_001.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff./north-west/frame_002.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff./north-west/frame_003.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff./north-west/frame_004.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff./north-west/frame_005.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff./north-west/frame_006.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff./north-west/frame_007.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff./north-west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_walks_forward_holding_staff._F1_idle_w": {
+            "north-west": [
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w/north-west/frame_000.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w/north-west/frame_001.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w/north-west/frame_002.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w/north-west/frame_003.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w/north-west/frame_004.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w/north-west/frame_005.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w/north-west/frame_006.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w/north-west/frame_007.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w/north-west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_stands_in_idle_breathing_pose._F1_idle": {
+            "north-east": [
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle/north-east/frame_000.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle/north-east/frame_001.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle/north-east/frame_002.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle/north-east/frame_003.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle/north-east/frame_004.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle/north-east/frame_005.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle/north-east/frame_006.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle/north-east/frame_007.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle/north-east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_takes_a_hit_and_recoils_backward_gentl-42371c60": {
+            "north-west": [
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-42371c60/north-west/frame_000.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-42371c60/north-west/frame_001.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-42371c60/north-west/frame_002.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-42371c60/north-west/frame_003.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-42371c60/north-west/frame_004.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-42371c60/north-west/frame_005.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-42371c60/north-west/frame_006.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-42371c60/north-west/frame_007.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-42371c60/north-west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_walks_forward_holding_staff._F1_idle_w-46f526f4": {
+            "north": [
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-46f526f4/north/frame_000.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-46f526f4/north/frame_001.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-46f526f4/north/frame_002.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-46f526f4/north/frame_003.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-46f526f4/north/frame_004.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-46f526f4/north/frame_005.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-46f526f4/north/frame_006.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-46f526f4/north/frame_007.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-46f526f4/north/frame_008.png"
+            ]
+          },
+          "Mage_cleric_stands_in_idle_breathing_pose._F1_idle-48652653": {
+            "north-west": [
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-48652653/north-west/frame_000.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-48652653/north-west/frame_001.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-48652653/north-west/frame_002.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-48652653/north-west/frame_003.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-48652653/north-west/frame_004.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-48652653/north-west/frame_005.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-48652653/north-west/frame_006.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-48652653/north-west/frame_007.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-48652653/north-west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_casts_a_powerful_spell_with_her_staff.-4c5c0b9d": {
+            "north": [
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-4c5c0b9d/north/frame_000.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-4c5c0b9d/north/frame_001.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-4c5c0b9d/north/frame_002.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-4c5c0b9d/north/frame_003.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-4c5c0b9d/north/frame_004.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-4c5c0b9d/north/frame_005.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-4c5c0b9d/north/frame_006.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-4c5c0b9d/north/frame_007.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-4c5c0b9d/north/frame_008.png"
+            ]
+          },
+          "Mage_cleric_takes_a_hit_and_recoils_backward_gentl-52715da1": {
+            "north-east": [
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-52715da1/north-east/frame_000.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-52715da1/north-east/frame_001.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-52715da1/north-east/frame_002.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-52715da1/north-east/frame_003.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-52715da1/north-east/frame_004.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-52715da1/north-east/frame_005.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-52715da1/north-east/frame_006.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-52715da1/north-east/frame_007.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-52715da1/north-east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_walks_forward_holding_staff._F1_idle_w-5708d8ee": {
+            "south-east": [
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-5708d8ee/south-east/frame_000.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-5708d8ee/south-east/frame_001.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-5708d8ee/south-east/frame_002.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-5708d8ee/south-east/frame_003.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-5708d8ee/south-east/frame_004.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-5708d8ee/south-east/frame_005.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-5708d8ee/south-east/frame_006.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-5708d8ee/south-east/frame_007.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-5708d8ee/south-east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_walks_forward_holding_staff._F1_idle_w-594717b5": {
+            "south": [
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-594717b5/south/frame_000.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-594717b5/south/frame_001.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-594717b5/south/frame_002.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-594717b5/south/frame_003.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-594717b5/south/frame_004.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-594717b5/south/frame_005.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-594717b5/south/frame_006.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-594717b5/south/frame_007.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-594717b5/south/frame_008.png"
+            ]
+          },
+          "Mage_cleric_stands_in_idle_breathing_pose._F1_idle-60fd64b4": {
+            "west": [
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-60fd64b4/west/frame_000.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-60fd64b4/west/frame_001.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-60fd64b4/west/frame_002.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-60fd64b4/west/frame_003.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-60fd64b4/west/frame_004.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-60fd64b4/west/frame_005.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-60fd64b4/west/frame_006.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-60fd64b4/west/frame_007.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-60fd64b4/west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_stands_in_idle_breathing_pose._F1_idle-675dcd9e": {
+            "north": [
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-675dcd9e/north/frame_000.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-675dcd9e/north/frame_001.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-675dcd9e/north/frame_002.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-675dcd9e/north/frame_003.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-675dcd9e/north/frame_004.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-675dcd9e/north/frame_005.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-675dcd9e/north/frame_006.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-675dcd9e/north/frame_007.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-675dcd9e/north/frame_008.png"
+            ]
+          },
+          "Mage_cleric_casts_a_powerful_spell_with_her_staff.-6ff6c95e": {
+            "south": [
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-6ff6c95e/south/frame_000.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-6ff6c95e/south/frame_001.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-6ff6c95e/south/frame_002.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-6ff6c95e/south/frame_003.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-6ff6c95e/south/frame_004.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-6ff6c95e/south/frame_005.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-6ff6c95e/south/frame_006.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-6ff6c95e/south/frame_007.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-6ff6c95e/south/frame_008.png"
+            ]
+          },
+          "Mage_cleric_casts_a_powerful_spell_with_her_staff.-709c4239": {
+            "east": [
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-709c4239/east/frame_000.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-709c4239/east/frame_001.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-709c4239/east/frame_002.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-709c4239/east/frame_003.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-709c4239/east/frame_004.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-709c4239/east/frame_005.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-709c4239/east/frame_006.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-709c4239/east/frame_007.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-709c4239/east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_takes_a_hit_and_recoils_backward_gentl-79177fd7": {
+            "south": [
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-79177fd7/south/frame_000.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-79177fd7/south/frame_001.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-79177fd7/south/frame_002.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-79177fd7/south/frame_003.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-79177fd7/south/frame_004.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-79177fd7/south/frame_005.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-79177fd7/south/frame_006.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-79177fd7/south/frame_007.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-79177fd7/south/frame_008.png"
+            ]
+          },
+          "Mage_cleric_stands_in_idle_breathing_pose._F1_idle-841b760c": {
+            "south": [
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-841b760c/south/frame_000.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-841b760c/south/frame_001.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-841b760c/south/frame_002.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-841b760c/south/frame_003.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-841b760c/south/frame_004.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-841b760c/south/frame_005.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-841b760c/south/frame_006.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-841b760c/south/frame_007.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-841b760c/south/frame_008.png"
+            ]
+          },
+          "Mage_cleric_casts_a_powerful_spell_with_her_staff.-8490b5bd": {
+            "south-west": [
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-8490b5bd/south-west/frame_000.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-8490b5bd/south-west/frame_001.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-8490b5bd/south-west/frame_002.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-8490b5bd/south-west/frame_003.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-8490b5bd/south-west/frame_004.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-8490b5bd/south-west/frame_005.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-8490b5bd/south-west/frame_006.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-8490b5bd/south-west/frame_007.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-8490b5bd/south-west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_takes_a_hit_and_recoils_backward_gentl-a2e0e0e0": {
+            "south-west": [
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-a2e0e0e0/south-west/frame_000.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-a2e0e0e0/south-west/frame_001.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-a2e0e0e0/south-west/frame_002.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-a2e0e0e0/south-west/frame_003.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-a2e0e0e0/south-west/frame_004.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-a2e0e0e0/south-west/frame_005.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-a2e0e0e0/south-west/frame_006.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-a2e0e0e0/south-west/frame_007.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-a2e0e0e0/south-west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_walks_forward_holding_staff._F1_idle_w-ac73660b": {
+            "east": [
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-ac73660b/east/frame_000.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-ac73660b/east/frame_001.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-ac73660b/east/frame_002.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-ac73660b/east/frame_003.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-ac73660b/east/frame_004.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-ac73660b/east/frame_005.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-ac73660b/east/frame_006.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-ac73660b/east/frame_007.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-ac73660b/east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_casts_a_powerful_spell_with_her_staff.-ad293b27": {
+            "south-east": [
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ad293b27/south-east/frame_000.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ad293b27/south-east/frame_001.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ad293b27/south-east/frame_002.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ad293b27/south-east/frame_003.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ad293b27/south-east/frame_004.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ad293b27/south-east/frame_005.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ad293b27/south-east/frame_006.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ad293b27/south-east/frame_007.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ad293b27/south-east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_takes_a_hit_and_recoils_backward_gentl-b5f4cfa6": {
+            "south-east": [
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-b5f4cfa6/south-east/frame_000.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-b5f4cfa6/south-east/frame_001.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-b5f4cfa6/south-east/frame_002.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-b5f4cfa6/south-east/frame_003.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-b5f4cfa6/south-east/frame_004.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-b5f4cfa6/south-east/frame_005.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-b5f4cfa6/south-east/frame_006.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-b5f4cfa6/south-east/frame_007.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-b5f4cfa6/south-east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_casts_a_powerful_spell_with_her_staff.-bb4a1656": {
+            "north-east": [
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-bb4a1656/north-east/frame_000.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-bb4a1656/north-east/frame_001.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-bb4a1656/north-east/frame_002.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-bb4a1656/north-east/frame_003.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-bb4a1656/north-east/frame_004.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-bb4a1656/north-east/frame_005.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-bb4a1656/north-east/frame_006.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-bb4a1656/north-east/frame_007.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-bb4a1656/north-east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_takes_a_hit_and_recoils_backward_gentl-bbafbbce": {
+            "west": [
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-bbafbbce/west/frame_000.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-bbafbbce/west/frame_001.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-bbafbbce/west/frame_002.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-bbafbbce/west/frame_003.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-bbafbbce/west/frame_004.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-bbafbbce/west/frame_005.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-bbafbbce/west/frame_006.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-bbafbbce/west/frame_007.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-bbafbbce/west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_walks_forward_holding_staff._F1_idle_w-bbb827bc": {
+            "north-east": [
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-bbb827bc/north-east/frame_000.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-bbb827bc/north-east/frame_001.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-bbb827bc/north-east/frame_002.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-bbb827bc/north-east/frame_003.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-bbb827bc/north-east/frame_004.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-bbb827bc/north-east/frame_005.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-bbb827bc/north-east/frame_006.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-bbb827bc/north-east/frame_007.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-bbb827bc/north-east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c1a1ecc4": {
+            "east": [
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c1a1ecc4/east/frame_000.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c1a1ecc4/east/frame_001.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c1a1ecc4/east/frame_002.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c1a1ecc4/east/frame_003.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c1a1ecc4/east/frame_004.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c1a1ecc4/east/frame_005.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c1a1ecc4/east/frame_006.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c1a1ecc4/east/frame_007.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c1a1ecc4/east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_walks_forward_holding_staff._F1_idle_w-c347eec6": {
+            "south-west": [
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-c347eec6/south-west/frame_000.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-c347eec6/south-west/frame_001.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-c347eec6/south-west/frame_002.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-c347eec6/south-west/frame_003.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-c347eec6/south-west/frame_004.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-c347eec6/south-west/frame_005.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-c347eec6/south-west/frame_006.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-c347eec6/south-west/frame_007.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-c347eec6/south-west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c3982b60": {
+            "south-east": [
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c3982b60/south-east/frame_000.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c3982b60/south-east/frame_001.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c3982b60/south-east/frame_002.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c3982b60/south-east/frame_003.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c3982b60/south-east/frame_004.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c3982b60/south-east/frame_005.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c3982b60/south-east/frame_006.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c3982b60/south-east/frame_007.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-c3982b60/south-east/frame_008.png"
+            ]
+          },
+          "Mage_cleric_casts_a_powerful_spell_with_her_staff.-ce80b231": {
+            "west": [
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ce80b231/west/frame_000.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ce80b231/west/frame_001.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ce80b231/west/frame_002.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ce80b231/west/frame_003.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ce80b231/west/frame_004.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ce80b231/west/frame_005.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ce80b231/west/frame_006.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ce80b231/west/frame_007.png",
+              "SuYao/animations/Mage_cleric_casts_a_powerful_spell_with_her_staff.-ce80b231/west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_takes_a_hit_and_recoils_backward_gentl-d4e1d23c": {
+            "north": [
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-d4e1d23c/north/frame_000.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-d4e1d23c/north/frame_001.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-d4e1d23c/north/frame_002.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-d4e1d23c/north/frame_003.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-d4e1d23c/north/frame_004.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-d4e1d23c/north/frame_005.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-d4e1d23c/north/frame_006.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-d4e1d23c/north/frame_007.png",
+              "SuYao/animations/Mage_cleric_takes_a_hit_and_recoils_backward_gentl-d4e1d23c/north/frame_008.png"
+            ]
+          },
+          "Mage_cleric_walks_forward_holding_staff._F1_idle_w-df9ae45c": {
+            "west": [
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-df9ae45c/west/frame_000.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-df9ae45c/west/frame_001.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-df9ae45c/west/frame_002.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-df9ae45c/west/frame_003.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-df9ae45c/west/frame_004.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-df9ae45c/west/frame_005.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-df9ae45c/west/frame_006.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-df9ae45c/west/frame_007.png",
+              "SuYao/animations/Mage_cleric_walks_forward_holding_staff._F1_idle_w-df9ae45c/west/frame_008.png"
+            ]
+          },
+          "Mage_cleric_stands_in_idle_breathing_pose._F1_idle-ef391b88": {
+            "south-west": [
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-ef391b88/south-west/frame_000.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-ef391b88/south-west/frame_001.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-ef391b88/south-west/frame_002.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-ef391b88/south-west/frame_003.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-ef391b88/south-west/frame_004.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-ef391b88/south-west/frame_005.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-ef391b88/south-west/frame_006.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-ef391b88/south-west/frame_007.png",
+              "SuYao/animations/Mage_cleric_stands_in_idle_breathing_pose._F1_idle-ef391b88/south-west/frame_008.png"
+            ]
+          }
+        }
       }
     }
   ],
   "export_version": "3.0",
-  "export_date": "2026-06-08T01:24:55.165058"
+  "export_date": "2026-06-13T19:41:59.267588"
 }

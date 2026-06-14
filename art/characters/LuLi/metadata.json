@@ -15,22 +15,424 @@
         "view": "low top-down",
         "created_at": "2026-06-07T23:11:39.798723+00:00"
       },
-      "folder": "e46642ff",
+      "folder": "LuLi",
       "frames": {
         "rotations": {
-          "south": "e46642ff/rotations/south.png",
-          "south-east": "e46642ff/rotations/south-east.png",
-          "east": "e46642ff/rotations/east.png",
-          "north-east": "e46642ff/rotations/north-east.png",
-          "north": "e46642ff/rotations/north.png",
-          "north-west": "e46642ff/rotations/north-west.png",
-          "west": "e46642ff/rotations/west.png",
-          "south-west": "e46642ff/rotations/south-west.png"
+          "south": "LuLi/rotations/south.png",
+          "south-east": "LuLi/rotations/south-east.png",
+          "east": "LuLi/rotations/east.png",
+          "north-east": "LuLi/rotations/north-east.png",
+          "north": "LuLi/rotations/north.png",
+          "north-west": "LuLi/rotations/north-west.png",
+          "west": "LuLi/rotations/west.png",
+          "south-west": "LuLi/rotations/south-west.png"
         },
-        "animations": {}
+        "animations": {
+          "Hero_swordsman_takes_a_hit_and_recoils_sharply._F1": {
+            "north-east": [
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1/north-east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1/north-east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1/north-east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1/north-east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1/north-east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1/north-east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1/north-east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1/north-east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1/north-east/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_stands_in_idle_breathing_pose._F1_i": {
+            "north-west": [
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i/north-west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i/north-west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i/north-west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i/north-west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i/north-west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i/north-west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i/north-west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i/north-west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i/north-west/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-1faa90b0": {
+            "south": [
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-1faa90b0/south/frame_000.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-1faa90b0/south/frame_001.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-1faa90b0/south/frame_002.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-1faa90b0/south/frame_003.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-1faa90b0/south/frame_004.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-1faa90b0/south/frame_005.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-1faa90b0/south/frame_006.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-1faa90b0/south/frame_007.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-1faa90b0/south/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_draws_his_longsword_from_the_hip_an": {
+            "north-west": [
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an/north-west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an/north-west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an/north-west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an/north-west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an/north-west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an/north-west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an/north-west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an/north-west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an/north-west/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf": {
+            "south-west": [
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-west/frame_008.png"
+            ],
+            "south": [
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south/frame_000.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south/frame_001.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south/frame_002.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south/frame_003.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south/frame_004.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south/frame_005.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south/frame_006.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south/frame_007.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south/frame_008.png"
+            ],
+            "north-east": [
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-east/frame_008.png"
+            ],
+            "east": [
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/east/frame_008.png"
+            ],
+            "north": [
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north/frame_000.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north/frame_001.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north/frame_002.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north/frame_003.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north/frame_004.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north/frame_005.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north/frame_006.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north/frame_007.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north/frame_008.png"
+            ],
+            "north-west": [
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/north-west/frame_008.png"
+            ],
+            "south-east": [
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/south-east/frame_008.png"
+            ],
+            "west": [
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_stands_in_idle_breathing_pose._F1_i-329623bf/west/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-34ca9e34": {
+            "north": [
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-34ca9e34/north/frame_000.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-34ca9e34/north/frame_001.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-34ca9e34/north/frame_002.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-34ca9e34/north/frame_003.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-34ca9e34/north/frame_004.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-34ca9e34/north/frame_005.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-34ca9e34/north/frame_006.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-34ca9e34/north/frame_007.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-34ca9e34/north/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_draws_his_longsword_from_the_hip_an-3c59a790": {
+            "west": [
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-3c59a790/west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-3c59a790/west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-3c59a790/west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-3c59a790/west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-3c59a790/west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-3c59a790/west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-3c59a790/west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-3c59a790/west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-3c59a790/west/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-4e22dade": {
+            "west": [
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-4e22dade/west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-4e22dade/west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-4e22dade/west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-4e22dade/west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-4e22dade/west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-4e22dade/west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-4e22dade/west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-4e22dade/west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-4e22dade/west/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_draws_his_longsword_from_the_hip_an-5463e839": {
+            "north-east": [
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-5463e839/north-east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-5463e839/north-east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-5463e839/north-east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-5463e839/north-east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-5463e839/north-east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-5463e839/north-east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-5463e839/north-east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-5463e839/north-east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-5463e839/north-east/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_draws_his_longsword_from_the_hip_an-78cbcc10": {
+            "south-west": [
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-78cbcc10/south-west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-78cbcc10/south-west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-78cbcc10/south-west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-78cbcc10/south-west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-78cbcc10/south-west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-78cbcc10/south-west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-78cbcc10/south-west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-78cbcc10/south-west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-78cbcc10/south-west/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_draws_his_longsword_from_the_hip_an-8246b037": {
+            "north": [
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-8246b037/north/frame_000.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-8246b037/north/frame_001.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-8246b037/north/frame_002.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-8246b037/north/frame_003.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-8246b037/north/frame_004.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-8246b037/north/frame_005.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-8246b037/north/frame_006.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-8246b037/north/frame_007.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-8246b037/north/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-93b54894": {
+            "north-west": [
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-93b54894/north-west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-93b54894/north-west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-93b54894/north-west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-93b54894/north-west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-93b54894/north-west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-93b54894/north-west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-93b54894/north-west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-93b54894/north-west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-93b54894/north-west/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-a5f57041": {
+            "south-east": [
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-a5f57041/south-east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-a5f57041/south-east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-a5f57041/south-east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-a5f57041/south-east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-a5f57041/south-east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-a5f57041/south-east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-a5f57041/south-east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-a5f57041/south-east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-a5f57041/south-east/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_draws_his_longsword_from_the_hip_an-c149fa54": {
+            "south": [
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c149fa54/south/frame_000.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c149fa54/south/frame_001.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c149fa54/south/frame_002.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c149fa54/south/frame_003.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c149fa54/south/frame_004.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c149fa54/south/frame_005.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c149fa54/south/frame_006.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c149fa54/south/frame_007.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c149fa54/south/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_draws_his_longsword_from_the_hip_an-c1ba78c5": {
+            "south-east": [
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c1ba78c5/south-east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c1ba78c5/south-east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c1ba78c5/south-east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c1ba78c5/south-east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c1ba78c5/south-east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c1ba78c5/south-east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c1ba78c5/south-east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c1ba78c5/south-east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-c1ba78c5/south-east/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_draws_his_longsword_from_the_hip_an-cb03fa6f": {
+            "east": [
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-cb03fa6f/east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-cb03fa6f/east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-cb03fa6f/east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-cb03fa6f/east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-cb03fa6f/east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-cb03fa6f/east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-cb03fa6f/east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-cb03fa6f/east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_draws_his_longsword_from_the_hip_an-cb03fa6f/east/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-ebb71f34": {
+            "south-west": [
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-ebb71f34/south-west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-ebb71f34/south-west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-ebb71f34/south-west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-ebb71f34/south-west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-ebb71f34/south-west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-ebb71f34/south-west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-ebb71f34/south-west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-ebb71f34/south-west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-ebb71f34/south-west/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_walks_forward_in_a_steady_step._F1": {
+            "south-east": [
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-east/frame_008.png"
+            ],
+            "north-west": [
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-west/frame_008.png"
+            ],
+            "south": [
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south/frame_000.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south/frame_001.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south/frame_002.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south/frame_003.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south/frame_004.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south/frame_005.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south/frame_006.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south/frame_007.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south/frame_008.png"
+            ],
+            "north": [
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north/frame_000.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north/frame_001.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north/frame_002.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north/frame_003.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north/frame_004.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north/frame_005.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north/frame_006.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north/frame_007.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north/frame_008.png"
+            ],
+            "east": [
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/east/frame_008.png"
+            ],
+            "west": [
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/west/frame_008.png"
+            ],
+            "north-east": [
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/north-east/frame_008.png"
+            ],
+            "south-west": [
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-west/frame_000.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-west/frame_001.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-west/frame_002.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-west/frame_003.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-west/frame_004.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-west/frame_005.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-west/frame_006.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-west/frame_007.png",
+              "LuLi/animations/Hero_swordsman_walks_forward_in_a_steady_step._F1/south-west/frame_008.png"
+            ]
+          },
+          "Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-fc392a9a": {
+            "east": [
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-fc392a9a/east/frame_000.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-fc392a9a/east/frame_001.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-fc392a9a/east/frame_002.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-fc392a9a/east/frame_003.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-fc392a9a/east/frame_004.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-fc392a9a/east/frame_005.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-fc392a9a/east/frame_006.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-fc392a9a/east/frame_007.png",
+              "LuLi/animations/Hero_swordsman_takes_a_hit_and_recoils_sharply._F1-fc392a9a/east/frame_008.png"
+            ]
+          }
+        }
       }
     }
   ],
   "export_version": "3.0",
-  "export_date": "2026-06-07T23:15:51.483903"
+  "export_date": "2026-06-14T08:34:25.765173"
 }

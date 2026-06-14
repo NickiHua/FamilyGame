@@ -27,10 +27,371 @@
           "west": "EmpireSwordsman/rotations/west.png",
           "south-west": "EmpireSwordsman/rotations/south-west.png"
         },
-        "animations": {}
+        "animations": {
+          "Swordsman_walks_forward_in_a_steady_step_sword_in": {
+            "north": [
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north/frame_008.png"
+            ],
+            "east": [
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/east/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-east/frame_008.png"
+            ],
+            "south": [
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-west/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/south-west/frame_008.png"
+            ],
+            "west": [
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/west/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_walks_forward_in_a_steady_step_sword_in/north-east/frame_008.png"
+            ]
+          },
+          "Swordsman_performs_a_precise_forward_lunging_thrus": {
+            "north-west": [
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-west/frame_008.png"
+            ],
+            "south": [
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-east/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/south-west/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north-east/frame_008.png"
+            ],
+            "east": [
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/east/frame_008.png"
+            ],
+            "north": [
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/north/frame_008.png"
+            ],
+            "west": [
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_performs_a_precise_forward_lunging_thrus/west/frame_008.png"
+            ]
+          },
+          "Swordsman_stands_in_idle_breathing_pose._F1_idle_s": {
+            "north-east": [
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_008.png"
+            ],
+            "west": [
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/west/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_008.png"
+            ],
+            "south": [
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/south/frame_008.png"
+            ],
+            "east": [
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/east/frame_008.png"
+            ],
+            "north": [
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_stands_in_idle_breathing_pose._F1_idle_s/north/frame_008.png"
+            ]
+          },
+          "Swordsman_takes_a_hit_and_flinches_backward_sword": {
+            "north-west": [
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-west/frame_008.png"
+            ],
+            "east": [
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/east/frame_008.png"
+            ],
+            "north": [
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-east/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-east/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-east/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-east/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-east/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-east/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-east/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-east/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-east/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/north-east/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south-west/frame_008.png"
+            ],
+            "west": [
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/west/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/west/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/west/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/west/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/west/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/west/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/west/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/west/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/west/frame_008.png"
+            ],
+            "south": [
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south/frame_000.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south/frame_001.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south/frame_002.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south/frame_003.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south/frame_004.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south/frame_005.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south/frame_006.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south/frame_007.png",
+              "EmpireSwordsman/animations/Swordsman_takes_a_hit_and_flinches_backward_sword/south/frame_008.png"
+            ]
+          }
+        }
       }
     }
   ],
   "export_version": "3.0",
-  "export_date": "2026-06-08T01:13:13.376570"
+  "export_date": "2026-06-14T09:48:33.042192"
 }

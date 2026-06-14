@@ -15,22 +15,383 @@
         "view": "low top-down",
         "created_at": "2026-06-08T03:59:13.668542+00:00"
       },
-      "folder": "93c77cf9",
+      "folder": "Xiao",
       "frames": {
         "rotations": {
-          "south": "93c77cf9/rotations/south.png",
-          "south-east": "93c77cf9/rotations/south-east.png",
-          "east": "93c77cf9/rotations/east.png",
-          "north-east": "93c77cf9/rotations/north-east.png",
-          "north": "93c77cf9/rotations/north.png",
-          "north-west": "93c77cf9/rotations/north-west.png",
-          "west": "93c77cf9/rotations/west.png",
-          "south-west": "93c77cf9/rotations/south-west.png"
+          "south": "Xiao/rotations/south.png",
+          "south-east": "Xiao/rotations/south-east.png",
+          "east": "Xiao/rotations/east.png",
+          "north-east": "Xiao/rotations/north-east.png",
+          "north": "Xiao/rotations/north.png",
+          "north-west": "Xiao/rotations/north-west.png",
+          "west": "Xiao/rotations/west.png",
+          "south-west": "Xiao/rotations/south-west.png"
         },
-        "animations": {}
+        "animations": {
+          "Hunter_ranger_stands_in_idle_breathing_pose._F1_id": {
+            "north": [
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north/frame_000.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north/frame_001.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north/frame_002.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north/frame_003.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north/frame_004.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north/frame_005.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north/frame_006.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north/frame_007.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north/frame_008.png"
+            ],
+            "west": [
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/west/frame_008.png"
+            ],
+            "south": [
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south/frame_000.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south/frame_001.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south/frame_002.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south/frame_003.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south/frame_004.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south/frame_005.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south/frame_006.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south/frame_007.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south/frame_008.png"
+            ],
+            "south-east": [
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-east/frame_008.png"
+            ],
+            "east": [
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/east/frame_008.png"
+            ],
+            "north-east": [
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-east/frame_008.png"
+            ],
+            "north-west": [
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/north-west/frame_008.png"
+            ],
+            "south-west": [
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_stands_in_idle_breathing_pose._F1_id/south-west/frame_008.png"
+            ]
+          },
+          "Hunter_ranger_moves_forward_in_a_quiet_stalking_st": {
+            "east": [
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/east/frame_008.png"
+            ],
+            "south-west": [
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-west/frame_008.png"
+            ],
+            "west": [
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/west/frame_008.png"
+            ],
+            "south": [
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south/frame_000.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south/frame_001.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south/frame_002.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south/frame_003.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south/frame_004.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south/frame_005.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south/frame_006.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south/frame_007.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south/frame_008.png"
+            ],
+            "north-east": [
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-east/frame_008.png"
+            ],
+            "north": [
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north/frame_000.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north/frame_001.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north/frame_002.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north/frame_003.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north/frame_004.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north/frame_005.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north/frame_006.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north/frame_007.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north/frame_008.png"
+            ],
+            "south-east": [
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/south-east/frame_008.png"
+            ],
+            "north-west": [
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_moves_forward_in_a_quiet_stalking_st/north-west/frame_008.png"
+            ]
+          },
+          "Hunter_ranger_draws_bow_and_releases_an_arrow_in_a": {
+            "east": [
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/east/frame_008.png"
+            ],
+            "south-west": [
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-west/frame_008.png"
+            ],
+            "south": [
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south/frame_000.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south/frame_001.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south/frame_002.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south/frame_003.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south/frame_004.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south/frame_005.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south/frame_006.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south/frame_007.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south/frame_008.png"
+            ],
+            "north-west": [
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-west/frame_008.png"
+            ],
+            "north-east": [
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north-east/frame_008.png"
+            ],
+            "north": [
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north/frame_000.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north/frame_001.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north/frame_002.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north/frame_003.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north/frame_004.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north/frame_005.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north/frame_006.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north/frame_007.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/north/frame_008.png"
+            ],
+            "west": [
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/west/frame_008.png"
+            ],
+            "south-east": [
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_draws_bow_and_releases_an_arrow_in_a/south-east/frame_008.png"
+            ]
+          },
+          "Hunter_ranger_takes_a_hit_and_twists_backward_in_a": {
+            "east": [
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/east/frame_008.png"
+            ],
+            "south-west": [
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-west/frame_008.png"
+            ],
+            "south-east": [
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south-east/frame_008.png"
+            ],
+            "north-west": [
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-west/frame_008.png"
+            ],
+            "south": [
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south/frame_000.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south/frame_001.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south/frame_002.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south/frame_003.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south/frame_004.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south/frame_005.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south/frame_006.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south/frame_007.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/south/frame_008.png"
+            ],
+            "north-east": [
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-east/frame_000.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-east/frame_001.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-east/frame_002.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-east/frame_003.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-east/frame_004.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-east/frame_005.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-east/frame_006.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-east/frame_007.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north-east/frame_008.png"
+            ],
+            "west": [
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/west/frame_000.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/west/frame_001.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/west/frame_002.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/west/frame_003.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/west/frame_004.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/west/frame_005.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/west/frame_006.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/west/frame_007.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/west/frame_008.png"
+            ],
+            "north": [
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north/frame_000.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north/frame_001.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north/frame_002.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north/frame_003.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north/frame_004.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north/frame_005.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north/frame_006.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north/frame_007.png",
+              "Xiao/animations/Hunter_ranger_takes_a_hit_and_twists_backward_in_a/north/frame_008.png"
+            ]
+          }
+        }
       }
     }
   ],
   "export_version": "3.0",
-  "export_date": "2026-06-08T04:03:32.785583"
+  "export_date": "2026-06-14T10:19:01.986333"
 }

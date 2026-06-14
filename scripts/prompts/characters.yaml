@@ -33,7 +33,7 @@ characters:
 
         '
     idle:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Archer stands in idle breathing pose.
 
@@ -61,7 +61,7 @@ characters:
 
         '
     walking:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Archer marches forward armed.
 
@@ -95,7 +95,7 @@ characters:
 
         '
     react:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Archer takes a sharp hit and flinches backward.
 
@@ -125,7 +125,7 @@ characters:
 
         '
     attack:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Archer draws bow and releases an arrow in a clean shot.
 
@@ -196,7 +196,7 @@ characters:
 
         '
     idle:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Priestess stands in idle breathing pose.
 
@@ -228,7 +228,7 @@ characters:
 
         '
     walking:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Priestess walks forward holding staff.
 
@@ -264,7 +264,7 @@ characters:
 
         '
     react:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Priestess takes a hit and flinches backward.
 
@@ -294,7 +294,7 @@ characters:
 
         '
     attack:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Priestess raises her staff to cast a healing blessing.
 
@@ -359,7 +359,7 @@ characters:
 
         '
     idle:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Dark mage stands in idle breathing pose.
 
@@ -389,7 +389,7 @@ characters:
 
         '
     walking:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Dark mage walks forward holding spellbook.
 
@@ -423,7 +423,7 @@ characters:
 
         '
     react:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Dark mage takes a hit and stumbles back.
 
@@ -453,7 +453,7 @@ characters:
 
         '
     attack:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Dark mage casts a dark spell from his open tome.
 
@@ -516,7 +516,7 @@ characters:
 
         '
     idle:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Assassin stands in idle ready pose, slightly crouched.
 
@@ -548,7 +548,7 @@ characters:
 
         '
     walking:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Assassin moves forward in a low quick step, daggers ready.
 
@@ -584,7 +584,7 @@ characters:
 
         '
     react:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Assassin takes a hit and recoils backward in a sharp crouch.
 
@@ -614,7 +614,7 @@ characters:
 
         '
     attack:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Assassin lunges forward with a fast cross slash using both daggers.
 
@@ -679,7 +679,7 @@ characters:
 
         '
     idle:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Swordsman stands in idle breathing pose.
 
@@ -709,7 +709,7 @@ characters:
 
         '
     walking:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Swordsman walks forward in a steady step, sword in hand.
 
@@ -743,7 +743,7 @@ characters:
 
         '
     react:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Swordsman takes a hit and flinches backward, sword still in hand.
 
@@ -773,7 +773,7 @@ characters:
 
         '
     attack:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Swordsman performs a precise forward lunging thrust with his longsword.
 
@@ -1001,7 +1001,7 @@ characters:
 
         '
     idle:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Heavy axe warrior stands in idle breathing pose.
 
@@ -1033,7 +1033,7 @@ characters:
 
         '
     walking:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Heavy axe warrior marches forward with great axe on shoulder.
 
@@ -1069,7 +1069,7 @@ characters:
 
         '
     react:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Heavy axe warrior takes a heavy hit and staggers backward, great axe still on shoulder.
 
@@ -1101,7 +1101,7 @@ characters:
 
         '
     attack:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Heavy axe warrior swings his two-handed great axe in a powerful overhead cleave.
 
@@ -1172,7 +1172,7 @@ characters:
 
         '
     idle:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Hunter ranger stands in idle breathing pose.
 
@@ -1204,7 +1204,7 @@ characters:
 
         '
     walking:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Hunter ranger moves forward in a quiet stalking step, bow in left hand.
 
@@ -1242,7 +1242,7 @@ characters:
 
         '
     react:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Hunter ranger takes a hit and twists backward in a wild flinch.
 
@@ -1274,7 +1274,7 @@ characters:
 
         '
     attack:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Hunter ranger draws bow and releases an arrow in a fast snap shot.
 
@@ -1343,7 +1343,7 @@ characters:
 
         '
     idle:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Hero swordsman stands in idle breathing pose.
 
@@ -1377,7 +1377,7 @@ characters:
 
         '
     walking:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Hero swordsman walks forward in a steady step.
 
@@ -1413,7 +1413,7 @@ characters:
 
         '
     react:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Hero swordsman takes a hit and recoils sharply.
 
@@ -1445,7 +1445,7 @@ characters:
 
         '
     attack:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Hero swordsman draws his longsword from the hip and performs a strong diagonal slash.
 
@@ -1518,7 +1518,7 @@ characters:
 
         '
     idle:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Mage cleric stands in idle breathing pose.
 
@@ -1552,7 +1552,7 @@ characters:
 
         '
     walking:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Mage cleric walks forward holding staff.
 
@@ -1590,7 +1590,7 @@ characters:
 
         '
     react:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Mage cleric takes a hit and recoils backward gently.
 
@@ -1624,7 +1624,7 @@ characters:
 
         '
     attack:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Mage cleric casts a powerful spell with her staff.
 
@@ -1691,7 +1691,7 @@ characters:
 
         '
     idle:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Axe soldier stands in idle breathing pose.
 
@@ -1723,7 +1723,7 @@ characters:
 
         '
     walking:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Axe soldier marches forward armed.
 
@@ -1759,7 +1759,7 @@ characters:
 
         '
     react:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Axe soldier takes a hit and braces with his shield.
 
@@ -1789,7 +1789,7 @@ characters:
 
         '
     attack:
-      status: new
+      status: completed
       frame_count: 8
       prompt: 'Axe soldier swings his battle axe in a single-handed diagonal chop, shield held up for guard.
 

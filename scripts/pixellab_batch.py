@@ -69,8 +69,32 @@ LOGS_DIR = REPO_ROOT / "scripts" / "logs"
 YAML_PATH: Path = DEFAULT_YAML_PATH
 OUT_ROOT: Path = DEFAULT_OUT_ROOT
 
-POLL_INTERVAL_SEC = 60
+POLL_INTERVAL_SEC = 30
 POLL_TIMEOUT_SEC = 30 * 60
+
+# Batch mode: one POST with all 8 directions so the server groups them under a
+# single animation_group_id (otherwise the webapp UI shows each direction as
+# its own animation row). The v2 character endpoint has no animation_group_id
+# / replace_existing param (objects do, characters don't) so per-direction
+# retries always create separate UI groups — we minimise that by redoing the
+# whole batch when too many failed.
+#
+# Outcome policy (per-action):
+#   8/8 succeeded             -> completed
+#   PARTIAL_THRESHOLD..7      -> partial: retry just the missing directions
+#                                (each retry adds a separate UI group; cheap)
+#   < PARTIAL_THRESHOLD       -> redo the whole batch from scratch up to
+#                                MAX_FULL_REDOS times; the previous (bad)
+#                                group stays in the UI and must be deleted
+#                                manually because no API can remove it.
+PARTIAL_THRESHOLD = 6  # >=6 success keeps the batch and patches the rest
+MAX_RETRIES_PER_DIRECTION = 2
+MAX_FULL_REDOS = 1
+
+# Back-off when the server returns 429 (Tier 1 = max 8 concurrent jobs).
+# Long enough to outlast someone else's full generation cycle.
+SUBMIT_429_BACKOFF_SEC = 60
+SUBMIT_429_MAX_RETRIES = 10
 
 ACTIONS_ORDER = ("rotation", "idle", "walking", "react", "attack")
 
@@ -109,10 +133,13 @@ class RunLogger:
                     continue
                 status = actions[action_name].get("status", "new")
                 forced = action_name in force
-                will_run = forced or status != "completed"
-                # rotation gating: if no character_id, rotation runs
-                if action_name == "rotation" and not char.get("character_id"):
-                    will_run = True
+                if action_name == "rotation":
+                    # Rotation has its own skip rule (in do_rotation): runs if
+                    # no character_id, or status != completed.
+                    will_run = forced or status != "completed" or not char.get("character_id")
+                else:
+                    # Animations: only run on 'new' by default, --force overrides.
+                    will_run = forced or status == "new"
                 self.plan.append({
                     "character": char["name"],
                     "action": action_name,
@@ -219,6 +246,30 @@ def poll_until_done(token: str, job_id: str, label: str) -> dict:
     raise PixelLabError(f"Timeout waiting for job {job_id} ({label})")
 
 
+def _poll_classified(token: str, job_id: str, label: str) -> str:
+    """Poll one job. Returns 'completed', 'failed', or 'gone'.
+
+    Never raises for transient/expected per-job problems (404 GC, generation
+    failure, timeout). Lets the caller decide whether to retry that direction.
+    Only fatal errors (e.g. network completely down) bubble up.
+    """
+    try:
+        final = poll_until_done(token, job_id, label)
+        return "completed" if final.get("status") == "completed" else "failed"
+    except PixelLabError as e:
+        msg = str(e)
+        if "404" in msg or "not found" in msg.lower():
+            print(f"      [poll {label}] job gone (404), will retry")
+            return "gone"
+        if "Timeout" in msg:
+            print(f"      [poll {label}] timed out, will retry")
+            return "failed"
+        # Unknown PixelLab error: treat as transient failure for this direction
+        # rather than killing the whole script.
+        print(f"      [poll {label}] error: {e}")
+        return "failed"
+
+
 def char_out_dir(name: str) -> Path:
     d = OUT_ROOT / name
     d.mkdir(parents=True, exist_ok=True)
@@ -294,6 +345,84 @@ def do_rotation(token: str, char_cfg: dict, dry_run: bool) -> bool:
     return True
 
 
+def _submit_and_poll_batch(
+    token: str,
+    char_cfg: dict,
+    action_name: str,
+    action: dict,
+    directions: list[str],
+    label_prefix: str,
+) -> list[str]:
+    """Submit ONE POST for all `directions`, poll every returned job.
+
+    Returns the list of directions that did NOT come back 'completed' (includes
+    directions the server silently dropped from the response). Persists in-flight
+    job ids in `action['active_jobs']` (dict direction->jid) and checkpoints
+    YAML after every state change for crash safety.
+    """
+    failed: list[str] = []
+    action["status"] = "processing"
+
+    # Back-off retry for rate-limit / concurrent-job-cap (429). Tier 1 allows
+    # only 8 concurrent background jobs, so when slots are full we must wait
+    # for them to drain rather than counting it as a generation failure.
+    resp = None
+    for attempt in range(SUBMIT_429_MAX_RETRIES + 1):
+        try:
+            resp = create_animation_v3(
+                token,
+                character_id=char_cfg["character_id"],
+                action_name=action_name,
+                action_description=action["prompt"],
+                directions=list(directions),
+                frame_count=action.get("frame_count", 8),
+                seed=char_cfg.get("seed"),
+            )
+            break
+        except PixelLabError as e:
+            msg = str(e)
+            if "429" in msg and attempt < SUBMIT_429_MAX_RETRIES:
+                print(
+                    f"    [{label_prefix}] 429 rate-limit (attempt {attempt + 1}/"
+                    f"{SUBMIT_429_MAX_RETRIES + 1}); sleeping {SUBMIT_429_BACKOFF_SEC}s"
+                )
+                time.sleep(SUBMIT_429_BACKOFF_SEC)
+                continue
+            print(f"    [{label_prefix}] submit error: {e}")
+            return list(directions)
+    if resp is None:
+        return list(directions)
+
+    returned_dirs = resp.get("directions", []) or []
+    jids = resp.get("background_job_ids", []) or []
+    pairs: dict[str, str] = {}
+    for d, j in zip(returned_dirs, jids):
+        pairs[d] = j
+    missing = [d for d in directions if d not in pairs]
+    if missing:
+        print(f"    [{label_prefix}] server returned no job for: {missing}")
+        failed.extend(missing)
+
+    for d, jid in pairs.items():
+        action.setdefault("active_jobs", {})[d] = jid
+    save_yaml_now()
+    print(f"    submitted {len(pairs)}/{len(directions)} jobs")
+
+    for d in directions:
+        jid = pairs.get(d)
+        if not jid:
+            continue
+        outcome = _poll_classified(token, jid, f"{label_prefix}/{d}")
+        if outcome != "completed":
+            failed.append(d)
+        action.get("active_jobs", {}).pop(d, None)
+        save_yaml_now()
+
+    if not action.get("active_jobs"):
+        action.pop("active_jobs", None)
+    return failed
+
+
 def do_animation(
     token: str,
     char_cfg: dict,
@@ -303,11 +432,22 @@ def do_animation(
 ) -> bool:
     name = char_cfg["name"]
     action = char_cfg["actions"][action_name]
-    if action.get("status") == "completed" and not force:
+    status = action.get("status", "new")
+    # Default: only run actions in state 'new'. Anything else (completed,
+    # partial, processing, failed) is left alone unless --force is given.
+    # Rationale: partial/processing may have been manually fixed via PixelLab
+    # web UI mirror; re-running would clobber the fix.
+    if status != "new" and not force:
+        note = {
+            "completed": "already completed",
+            "partial": "previously partial; pass --force to redo",
+            "processing": "left in processing state; pass --force to redo",
+            "failed": "previously failed; pass --force to redo",
+        }.get(status, f"status={status}; pass --force to redo")
         if _LOGGER:
             _LOGGER.record(name, action_name, "skipped",
                            character_id=char_cfg.get("character_id"),
-                           note="already completed")
+                           note=note)
         return False
     if not char_cfg.get("character_id"):
         print(f"  [skip {action_name}] {name}: no character_id yet")
@@ -324,43 +464,70 @@ def do_animation(
         return False
 
     t0 = time.monotonic()
-    job_ids: list[str] = action.get("job_ids") or []
+    label = f"{name}/{action_name}"
+
     try:
-        if not job_ids or force:
-            resp = create_animation_v3(
-                token,
-                character_id=char_cfg["character_id"],
-                action_name=action_name,
-                action_description=action["prompt"],
-                directions=list(ALL_DIRECTIONS),
-                frame_count=action.get("frame_count", 8),
-                seed=char_cfg.get("seed"),
+        # Clear stale state from previous runs; we always start fresh because
+        # PixelLab GCs background jobs and old job_ids may 404.
+        for k in ("job_ids", "active_jobs", "failed_jobs", "failed_directions"):
+            action.pop(k, None)
+
+        total_dirs = len(ALL_DIRECTIONS)
+
+        # Phase 1: full-batch submission, with up to MAX_FULL_REDOS redos
+        # when too few directions came back successfully.
+        failed_dirs: list[str] = []
+        for redo in range(MAX_FULL_REDOS + 1):
+            attempt_label = label if redo == 0 else f"{label}/redo{redo}"
+            failed_dirs = _submit_and_poll_batch(
+                token, char_cfg, action_name, action,
+                list(ALL_DIRECTIONS), attempt_label,
             )
-            job_ids = resp.get("background_job_ids", [])
-            action["job_ids"] = job_ids
-            action["status"] = "processing"
-            save_yaml_now()
-            print(f"    submitted {len(job_ids)} jobs")
+            success = total_dirs - len(failed_dirs)
+            if success >= PARTIAL_THRESHOLD:
+                break
+            if redo < MAX_FULL_REDOS:
+                print(
+                    f"    [{label}] only {success}/{total_dirs} succeeded "
+                    f"(< {PARTIAL_THRESHOLD}); redoing whole batch "
+                    f"(redo {redo + 1}/{MAX_FULL_REDOS}). "
+                    f"Previous group remains in UI and must be deleted manually."
+                )
+            else:
+                print(
+                    f"    [{label}] only {success}/{total_dirs} succeeded "
+                    f"after {MAX_FULL_REDOS} redo(s); patching the rest per-direction."
+                )
 
-        all_ok = True
-        for i, jid in enumerate(job_ids):
-            final = poll_until_done(token, jid, f"{name}/{action_name}/{ALL_DIRECTIONS[i] if i < len(ALL_DIRECTIONS) else i}")
-            if final.get("status") != "completed":
-                all_ok = False
-                action.setdefault("failed_jobs", []).append(jid)
+        # Phase 2: per-direction retries for whatever's still missing.
+        # These create separate animation groups in the UI (API limitation).
+        for attempt in range(1, MAX_RETRIES_PER_DIRECTION + 1):
+            if not failed_dirs:
+                break
+            print(f"    [{label}] retry {attempt}/{MAX_RETRIES_PER_DIRECTION} for {failed_dirs}")
+            failed_dirs = _submit_and_poll_batch(
+                token, char_cfg, action_name, action,
+                failed_dirs, f"{label}/retry{attempt}",
+            )
 
-        if all_ok:
-            action["status"] = "completed"
-            action.pop("job_ids", None)
+        # Always grab the latest ZIP — captures whatever did succeed, even if
+        # the action ended up partial. Cheap (no extra credits).
+        try:
             download_and_extract(token, char_cfg["character_id"], name)
-        else:
+        except PixelLabError as e:
+            print(f"    [{label}] WARN: download failed: {e}")
+
+        if failed_dirs:
             action["status"] = "partial"
+            action["failed_directions"] = failed_dirs
+        else:
+            action["status"] = "completed"
+            action.pop("failed_directions", None)
         save_yaml_now()
     except Exception as e:
         if _LOGGER:
             _LOGGER.record(name, action_name, "failed",
                            character_id=char_cfg.get("character_id"),
-                           job_ids=job_ids,
                            duration_sec=time.monotonic() - t0,
                            error=str(e))
         raise
@@ -369,10 +536,10 @@ def do_animation(
         outcome = "success" if action.get("status") == "completed" else "partial"
         _LOGGER.record(name, action_name, outcome,
                        character_id=char_cfg.get("character_id"),
-                       job_ids=job_ids,
                        output_dir=str((OUT_ROOT / name).relative_to(REPO_ROOT)),
                        duration_sec=time.monotonic() - t0,
-                       error=None if outcome == "success" else "some directions failed")
+                       error=None if outcome == "success"
+                                  else f"failed_directions={action.get('failed_directions')}")
     return True
 
 
@@ -394,6 +561,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--out", default=str(DEFAULT_OUT_ROOT),
                    help=f"Output root for downloaded character ZIPs (default: {DEFAULT_OUT_ROOT.relative_to(REPO_ROOT)}).")
     p.add_argument("--only", nargs="*", default=None, help="Only process these character names.")
+    p.add_argument("--actions", nargs="*", default=None,
+                   help="Only consider these animations (e.g. walking attack). Rotation is always evaluated separately.")
     p.add_argument("--force", nargs="*", default=[], help="Force-regenerate these actions (rotation/idle/walking/react/attack).")
     p.add_argument("--rotation-only", action="store_true", help="Only do rotations; skip animations.")
     p.add_argument("--dry-run", action="store_true", help="Print plan, no API calls.")
@@ -451,6 +620,8 @@ def main() -> None:
                     if action_name == "rotation":
                         continue
                     if action_name not in char.get("actions", {}):
+                        continue
+                    if args.actions and action_name not in args.actions:
                         continue
                     force = action_name in args.force
                     do_animation(token, char, action_name, force, args.dry_run)

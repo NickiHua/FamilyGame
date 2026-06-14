@@ -27,10 +27,371 @@
           "west": "EmpireAxeSoldier/rotations/west.png",
           "south-west": "EmpireAxeSoldier/rotations/south-west.png"
         },
-        "animations": {}
+        "animations": {
+          "Axe_soldier_swings_his_battle_axe_in_a_single-hand": {
+            "north": [
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-east/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/north-east/frame_008.png"
+            ],
+            "west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/west/frame_008.png"
+            ],
+            "south": [
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/south-west/frame_008.png"
+            ],
+            "east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_swings_his_battle_axe_in_a_single-hand/east/frame_008.png"
+            ]
+          },
+          "Axe_soldier_stands_in_idle_breathing_pose._F1_idle": {
+            "west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-west/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south-west/frame_008.png"
+            ],
+            "east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/east/frame_008.png"
+            ],
+            "north": [
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/north-east/frame_008.png"
+            ],
+            "south": [
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_stands_in_idle_breathing_pose._F1_idle/south/frame_008.png"
+            ]
+          },
+          "Axe_soldier_takes_a_hit_and_braces_with_his_shield": {
+            "south-west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-west/frame_008.png"
+            ],
+            "east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-west/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north-east/frame_008.png"
+            ],
+            "north": [
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/north/frame_008.png"
+            ],
+            "south": [
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south/frame_008.png"
+            ],
+            "west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_takes_a_hit_and_braces_with_his_shield/south-east/frame_008.png"
+            ]
+          },
+          "Axe_soldier_marches_forward_armed._F1_idle_steel_b": {
+            "north-east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north-west/frame_008.png"
+            ],
+            "east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/east/frame_008.png"
+            ],
+            "north": [
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/north/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-east/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-east/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-east/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-east/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-east/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-east/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-east/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-east/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-east/frame_008.png"
+            ],
+            "west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/west/frame_008.png"
+            ],
+            "south": [
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-west/frame_000.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-west/frame_001.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-west/frame_002.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-west/frame_003.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-west/frame_004.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-west/frame_005.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-west/frame_006.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-west/frame_007.png",
+              "EmpireAxeSoldier/animations/Axe_soldier_marches_forward_armed._F1_idle_steel_b/south-west/frame_008.png"
+            ]
+          }
+        }
       }
     }
   ],
   "export_version": "3.0",
-  "export_date": "2026-06-07T23:25:20.899779"
+  "export_date": "2026-06-14T10:35:47.640664"
 }

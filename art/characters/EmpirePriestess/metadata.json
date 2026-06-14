@@ -27,10 +27,371 @@
           "west": "EmpirePriestess/rotations/west.png",
           "south-west": "EmpirePriestess/rotations/south-west.png"
         },
-        "animations": {}
+        "animations": {
+          "Priestess_walks_forward_holding_staff._F1_idle_woo": {
+            "west": [
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/west/frame_008.png"
+            ],
+            "east": [
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/east/frame_008.png"
+            ],
+            "south-west": [
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-west/frame_008.png"
+            ],
+            "north-east": [
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north-west/frame_008.png"
+            ],
+            "north": [
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north/frame_000.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north/frame_001.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north/frame_002.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north/frame_003.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north/frame_004.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north/frame_005.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north/frame_006.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north/frame_007.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/north/frame_008.png"
+            ],
+            "south": [
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south/frame_000.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south/frame_001.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south/frame_002.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south/frame_003.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south/frame_004.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south/frame_005.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south/frame_006.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south/frame_007.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south/frame_008.png"
+            ],
+            "south-east": [
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_walks_forward_holding_staff._F1_idle_woo/south-east/frame_008.png"
+            ]
+          },
+          "Priestess_raises_her_staff_to_cast_a_healing_bless": {
+            "north": [
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north/frame_000.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north/frame_001.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north/frame_002.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north/frame_003.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north/frame_004.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north/frame_005.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north/frame_006.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north/frame_007.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north/frame_008.png"
+            ],
+            "south-east": [
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-east/frame_008.png"
+            ],
+            "south": [
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south/frame_000.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south/frame_001.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south/frame_002.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south/frame_003.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south/frame_004.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south/frame_005.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south/frame_006.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south/frame_007.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south/frame_008.png"
+            ],
+            "north-west": [
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-west/frame_008.png"
+            ],
+            "east": [
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/east/frame_008.png"
+            ],
+            "west": [
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/west/frame_008.png"
+            ],
+            "north-east": [
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/north-east/frame_008.png"
+            ],
+            "south-west": [
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_raises_her_staff_to_cast_a_healing_bless/south-west/frame_008.png"
+            ]
+          },
+          "Priestess_stands_in_idle_breathing_pose._F1_idle_s": {
+            "south-east": [
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_008.png"
+            ],
+            "west": [
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/west/frame_008.png"
+            ],
+            "south-west": [
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south-west/frame_008.png"
+            ],
+            "north": [
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north/frame_000.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north/frame_001.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north/frame_002.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north/frame_003.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north/frame_004.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north/frame_005.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north/frame_006.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north/frame_007.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north/frame_008.png"
+            ],
+            "north-west": [
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-west/frame_008.png"
+            ],
+            "east": [
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/east/frame_008.png"
+            ],
+            "north-east": [
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_008.png"
+            ],
+            "south": [
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south/frame_000.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south/frame_001.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south/frame_002.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south/frame_003.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south/frame_004.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south/frame_005.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south/frame_006.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south/frame_007.png",
+              "EmpirePriestess/animations/Priestess_stands_in_idle_breathing_pose._F1_idle_s/south/frame_008.png"
+            ]
+          },
+          "Priestess_takes_a_hit_and_flinches_backward._F1_id": {
+            "north": [
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north/frame_000.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north/frame_001.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north/frame_002.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north/frame_003.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north/frame_004.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north/frame_005.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north/frame_006.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north/frame_007.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north/frame_008.png"
+            ],
+            "south-east": [
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-west/frame_008.png"
+            ],
+            "north-east": [
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/north-east/frame_008.png"
+            ],
+            "west": [
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/west/frame_008.png"
+            ],
+            "south-west": [
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-west/frame_000.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-west/frame_001.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-west/frame_002.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-west/frame_003.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-west/frame_004.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-west/frame_005.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-west/frame_006.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-west/frame_007.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south-west/frame_008.png"
+            ],
+            "south": [
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south/frame_000.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south/frame_001.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south/frame_002.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south/frame_003.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south/frame_004.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south/frame_005.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south/frame_006.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south/frame_007.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/south/frame_008.png"
+            ],
+            "east": [
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/east/frame_000.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/east/frame_001.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/east/frame_002.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/east/frame_003.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/east/frame_004.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/east/frame_005.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/east/frame_006.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/east/frame_007.png",
+              "EmpirePriestess/animations/Priestess_takes_a_hit_and_flinches_backward._F1_id/east/frame_008.png"
+            ]
+          }
+        }
       }
     }
   ],
   "export_version": "3.0",
-  "export_date": "2026-06-07T22:48:29.062774"
+  "export_date": "2026-06-14T08:56:44.972125"
 }

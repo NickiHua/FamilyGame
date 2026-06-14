@@ -107,15 +107,39 @@ Each `results[]` entry:
 `scripts/prompts/characters.yaml` is updated in place after every state
 transition. Per-action `status` values:
 
-- `new`        — never submitted
-- `processing` — submitted, polling in progress
-- `completed`  — finished, art downloaded
-- `partial`    — some directions failed (animation only)
-- `failed`     — error returned; see `last_error`
+- `new`        — never submitted; will be picked up by a normal run
+- `processing` — in-flight, polling in progress (intermediate / crash state)
+- `completed`  — finished, art downloaded; skipped by default
+- `partial`    — some directions failed after retries; skipped by default
+- `failed`     — fatal error; skipped by default
+
+**Default skip rule (animations):** only `status: new` is processed. Anything
+else is left alone so manual mirror fixes in the PixelLab web UI are not
+clobbered. Use `--force <action>` to redo, or hand-edit the YAML.
 
 To redo an already-completed rotation: set `character_id: ''` and the rotation
 `status: new` in YAML, then rerun. The script will pre-clean the output
 directory before extracting the new ZIP.
+
+## Per-action robustness (animations only)
+
+Each animation submission runs through three phases automatically:
+
+1. **Initial submit** — POST one job per direction (8 total), poll each.
+2. **Per-direction retry** — for any direction that returns `failed`,
+   `404 Job not found`, or polling timeout, resubmit JUST that direction
+   up to `MAX_RETRIES_PER_DIRECTION` (default 2) times.
+3. **Nuke-and-redo** — if anything is still failing, throw away the whole
+   animation and resubmit all 8 directions fresh once
+   (`ENABLE_NUKE_FALLBACK`, default on).
+
+After all that, the latest character ZIP is always downloaded (even on
+partial), so locally you always have whatever did succeed. The action is
+then marked `completed` or `partial`; partial actions record the leftover
+`failed_directions` in YAML for inspection.
+
+A single per-direction error (404, timeout, generation failure) no longer
+aborts the whole character — only fatal submit-side errors do.
 
 ## Notes / known quirks
 

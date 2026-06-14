@@ -27,10 +27,406 @@
           "west": "EmpireAssassin/rotations/west.png",
           "south-west": "EmpireAssassin/rotations/south-west.png"
         },
-        "animations": {}
+        "animations": {
+          "Assassin_lunges_forward_with_a_fast_cross_slash_us": {
+            "south-east": [
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-east/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-east/frame_008.png"
+            ],
+            "east": [
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/east/frame_008.png"
+            ],
+            "west": [
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/west/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north-west/frame_008.png"
+            ],
+            "south": [
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south/frame_000.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south/frame_001.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south/frame_002.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south/frame_003.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south/frame_004.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south/frame_005.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south/frame_006.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south/frame_007.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south/frame_008.png"
+            ],
+            "north": [
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north/frame_000.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north/frame_001.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north/frame_002.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north/frame_003.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north/frame_004.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north/frame_005.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north/frame_006.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north/frame_007.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/north/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_lunges_forward_with_a_fast_cross_slash_us/south-west/frame_008.png"
+            ]
+          },
+          "Assassin_stands_in_idle_ready_pose_slightly_crouch": {
+            "south-east": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south-east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south-east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south-east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south-east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south-east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south-east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south-east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south-east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south-east/frame_008.png"
+            ],
+            "east": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/east/frame_008.png"
+            ],
+            "south": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch/south/frame_008.png"
+            ]
+          },
+          "Assassin_takes_a_hit_and_recoils_backward_in_a_sha": {
+            "east": [
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/east/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south-east/frame_008.png"
+            ],
+            "west": [
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/west/frame_008.png"
+            ],
+            "south": [
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south/frame_000.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south/frame_001.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south/frame_002.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south/frame_003.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south/frame_004.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south/frame_005.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south/frame_006.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south/frame_007.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/south/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-west/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north-east/frame_008.png"
+            ],
+            "north": [
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north/frame_000.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north/frame_001.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north/frame_002.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north/frame_003.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north/frame_004.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north/frame_005.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north/frame_006.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north/frame_007.png",
+              "EmpireAssassin/animations/Assassin_takes_a_hit_and_recoils_backward_in_a_sha/north/frame_008.png"
+            ]
+          },
+          "Assassin_moves_forward_in_a_low_quick_step_daggers": {
+            "west": [
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/west/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north-west/frame_008.png"
+            ],
+            "east": [
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/east/frame_008.png"
+            ],
+            "north": [
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north/frame_000.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north/frame_001.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north/frame_002.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north/frame_003.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north/frame_004.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north/frame_005.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north/frame_006.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north/frame_007.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/north/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-east/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south-west/frame_008.png"
+            ],
+            "south": [
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south/frame_000.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south/frame_001.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south/frame_002.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south/frame_003.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south/frame_004.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south/frame_005.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south/frame_006.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south/frame_007.png",
+              "EmpireAssassin/animations/Assassin_moves_forward_in_a_low_quick_step_daggers/south/frame_008.png"
+            ]
+          },
+          "Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae": {
+            "north": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-west/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-west/frame_008.png"
+            ],
+            "west": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/west/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/west/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/west/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/west/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/west/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/west/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/west/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/west/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south-east/frame_008.png"
+            ],
+            "south": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/south/frame_008.png"
+            ],
+            "east": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/east/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-east/frame_000.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-east/frame_001.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-east/frame_002.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-east/frame_003.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-east/frame_004.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-east/frame_005.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-east/frame_006.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-east/frame_007.png",
+              "EmpireAssassin/animations/Assassin_stands_in_idle_ready_pose_slightly_crouch-edcfa2ae/north-east/frame_008.png"
+            ]
+          }
+        }
       }
     }
   ],
   "export_version": "3.0",
-  "export_date": "2026-06-08T01:08:57.576396"
+  "export_date": "2026-06-14T09:32:16.096965"
 }

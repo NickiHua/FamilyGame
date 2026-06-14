@@ -27,10 +27,373 @@
           "west": "ZhaoTieZhu/rotations/west.png",
           "south-west": "ZhaoTieZhu/rotations/south-west.png"
         },
-        "animations": {}
+        "animations": {
+          "Heavy_axe_warrior_swings_his_two-handed_great_axe": {
+            "north": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe/north/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe/north/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe/north/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe/north/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe/north/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe/north/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe/north/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe/north/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe/north/frame_008.png"
+            ]
+          },
+          "Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5": {
+            "north-west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-west/frame_008.png"
+            ],
+            "south-east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-east/frame_008.png"
+            ],
+            "east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/east/frame_008.png"
+            ],
+            "west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/west/frame_008.png"
+            ],
+            "north-east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/north-east/frame_008.png"
+            ],
+            "south-west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south-west/frame_008.png"
+            ],
+            "south": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_swings_his_two-handed_great_axe-60ae89d5/south/frame_008.png"
+            ]
+          },
+          "Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b": {
+            "north-west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-west/frame_008.png"
+            ],
+            "south": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south/frame_008.png"
+            ],
+            "north-east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north-east/frame_008.png"
+            ],
+            "south-west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-west/frame_008.png"
+            ],
+            "east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/east/frame_008.png"
+            ],
+            "west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/west/frame_008.png"
+            ],
+            "north": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/north/frame_008.png"
+            ],
+            "south-east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_takes_a_heavy_hit_and_staggers_b/south-east/frame_008.png"
+            ]
+          },
+          "Heavy_axe_warrior_marches_forward_with_great_axe_o": {
+            "east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/east/frame_008.png"
+            ],
+            "north": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north/frame_008.png"
+            ],
+            "south-west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-west/frame_008.png"
+            ],
+            "north-west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-west/frame_008.png"
+            ],
+            "south-east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south-east/frame_008.png"
+            ],
+            "north-east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/north-east/frame_008.png"
+            ],
+            "west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/west/frame_008.png"
+            ],
+            "south": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_marches_forward_with_great_axe_o/south/frame_008.png"
+            ]
+          },
+          "Heavy_axe_warrior_stands_in_idle_breathing_pose._F": {
+            "south": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south/frame_008.png"
+            ],
+            "north-west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-west/frame_008.png"
+            ],
+            "north": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north/frame_008.png"
+            ],
+            "south-west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-west/frame_008.png"
+            ],
+            "east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/east/frame_008.png"
+            ],
+            "west": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/west/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/west/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/west/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/west/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/west/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/west/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/west/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/west/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/west/frame_008.png"
+            ],
+            "north-east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/north-east/frame_008.png"
+            ],
+            "south-east": [
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-east/frame_000.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-east/frame_001.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-east/frame_002.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-east/frame_003.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-east/frame_004.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-east/frame_005.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-east/frame_006.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-east/frame_007.png",
+              "ZhaoTieZhu/animations/Heavy_axe_warrior_stands_in_idle_breathing_pose._F/south-east/frame_008.png"
+            ]
+          }
+        }
       }
     }
   ],
   "export_version": "3.0",
-  "export_date": "2026-06-08T03:59:12.426812"
+  "export_date": "2026-06-14T10:06:08.210940"
 }

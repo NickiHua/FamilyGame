@@ -27,10 +27,428 @@
           "west": "EmpireMage/rotations/west.png",
           "south-west": "EmpireMage/rotations/south-west.png"
         },
-        "animations": {}
+        "animations": {
+          "Dark_mage_casts_a_dark_spell_from_his_open_tome._F": {
+            "north-west": [
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-east/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north-east/frame_008.png"
+            ],
+            "north": [
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north/frame_000.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north/frame_001.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north/frame_002.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north/frame_003.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north/frame_004.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north/frame_005.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north/frame_006.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north/frame_007.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/north/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south-west/frame_008.png"
+            ],
+            "south": [
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south/frame_000.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south/frame_001.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south/frame_002.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south/frame_003.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south/frame_004.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south/frame_005.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south/frame_006.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south/frame_007.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/south/frame_008.png"
+            ],
+            "east": [
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/east/frame_008.png"
+            ],
+            "west": [
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_casts_a_dark_spell_from_his_open_tome._F/west/frame_008.png"
+            ]
+          },
+          "Dark_mage_walks_forward_holding_spellbook._F1_idle": {
+            "south-east": [
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-east/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south-west/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-west/frame_008.png"
+            ],
+            "west": [
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/west/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north-east/frame_008.png"
+            ],
+            "east": [
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/east/frame_008.png"
+            ],
+            "south": [
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south/frame_000.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south/frame_001.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south/frame_002.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south/frame_003.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south/frame_004.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south/frame_005.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south/frame_006.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south/frame_007.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/south/frame_008.png"
+            ],
+            "north": [
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north/frame_000.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north/frame_001.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north/frame_002.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north/frame_003.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north/frame_004.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north/frame_005.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north/frame_006.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north/frame_007.png",
+              "EmpireMage/animations/Dark_mage_walks_forward_holding_spellbook._F1_idle/north/frame_008.png"
+            ]
+          },
+          "Dark_mage_stands_in_idle_breathing_pose._F1_idle_s": {
+            "north-east": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north-east/frame_008.png"
+            ],
+            "south": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south/frame_008.png"
+            ],
+            "east": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/east/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/south-east/frame_008.png"
+            ],
+            "north": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s/north/frame_008.png"
+            ]
+          },
+          "Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s": {
+            "west": [
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-east/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north-west/frame_008.png"
+            ],
+            "south": [
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south/frame_000.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south/frame_001.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south/frame_002.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south/frame_003.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south/frame_004.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south/frame_005.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south/frame_006.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south/frame_007.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/south-west/frame_008.png"
+            ],
+            "east": [
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/east/frame_008.png"
+            ],
+            "north": [
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north/frame_000.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north/frame_001.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north/frame_002.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north/frame_003.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north/frame_004.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north/frame_005.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north/frame_006.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north/frame_007.png",
+              "EmpireMage/animations/Dark_mage_takes_a_hit_and_stumbles_back._F1_idle_s/north/frame_008.png"
+            ]
+          },
+          "Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40": {
+            "west": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/west/frame_008.png"
+            ],
+            "south-east": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-east/frame_008.png"
+            ],
+            "south": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south/frame_008.png"
+            ],
+            "north": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north/frame_008.png"
+            ],
+            "north-east": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-east/frame_008.png"
+            ],
+            "north-west": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/north-west/frame_008.png"
+            ],
+            "east": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/east/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/east/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/east/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/east/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/east/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/east/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/east/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/east/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/east/frame_008.png"
+            ],
+            "south-west": [
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-west/frame_000.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-west/frame_001.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-west/frame_002.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-west/frame_003.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-west/frame_004.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-west/frame_005.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-west/frame_006.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-west/frame_007.png",
+              "EmpireMage/animations/Dark_mage_stands_in_idle_breathing_pose._F1_idle_s-d4ac7a40/south-west/frame_008.png"
+            ]
+          }
+        }
       }
     }
   ],
   "export_version": "3.0",
-  "export_date": "2026-06-08T01:02:37.543623"
+  "export_date": "2026-06-14T09:18:17.129458"
 }
