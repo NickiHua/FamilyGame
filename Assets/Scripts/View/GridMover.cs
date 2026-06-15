@@ -20,6 +20,10 @@ namespace FantacyCentry.View
         [Tooltip("Movement speed in tiles per second.")]
         public float tilesPerSecond = 4f;
 
+        [Tooltip("Vertical visual offset (in world units) added to the sprite within a cell. " +
+                 "Raise this to lift the character up off the tile center; does not affect logic cell.")]
+        public float visualYOffset = 0.25f;
+
         private CharacterSpriteAnimator _anim;
         private readonly Queue<Vector2Int> _path = new();
 
@@ -80,13 +84,19 @@ namespace FantacyCentry.View
 
         private void Update()
         {
-            if (!_moving) return;
+            if (_moving)
+            {
+                _segT += Time.deltaTime / _segDuration;
+                if (_segT >= 1f)
+                    BeginNextSegment();
+            }
 
-            _segT += Time.deltaTime / _segDuration;
-            transform.position = Vector3.Lerp(_segStart, _segEnd, Mathf.Clamp01(_segT));
-
-            if (_segT >= 1f)
-                BeginNextSegment();
+            // Recompute the rendered position every frame so the visual offset can be
+            // tuned live in the Inspector and is applied even while standing still.
+            Vector3 basePos = _moving
+                ? Vector3.Lerp(_segStart, _segEnd, Mathf.Clamp01(_segT))
+                : CellToWorld(_cell);
+            transform.position = new Vector3(basePos.x, basePos.y + visualYOffset, basePos.z);
         }
 
         private Vector2Int WorldToCell(Vector3 world) =>

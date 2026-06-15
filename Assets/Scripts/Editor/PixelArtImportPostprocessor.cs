@@ -12,13 +12,15 @@ namespace FantacyCentry.EditorTools
     {
         private const string CharactersRoot = "Assets/Art/Characters";
         private const string TilesetsRoot = "Assets/Art/Tilesets";
+        private const string MapsRoot = "Assets/Art/Maps";
 
         private void OnPreprocessTexture()
         {
             string path = assetPath.Replace('\\', '/');
             bool isCharacter = path.StartsWith(CharactersRoot);
             bool isTileset = path.StartsWith(TilesetsRoot);
-            if (!isCharacter && !isTileset) return;
+            bool isMap = path.StartsWith(MapsRoot);
+            if (!isCharacter && !isTileset && !isMap) return;
 
             var ti = (TextureImporter)assetImporter;
             ti.textureType = TextureImporterType.Sprite;
@@ -34,6 +36,15 @@ namespace FantacyCentry.EditorTools
                 ti.spriteImportMode = SpriteImportMode.Single;
                 ti.spritePixelsPerUnit = 48;    // 1 unit = 1 tile (48px character)
             }
+            else if (isMap)
+            {
+                // AI-painted battlefield background: one big image, 64px per grid cell.
+                // PPU=64 → 2240px image spans exactly 35 units (35 cells), so 1 cell = 1 unit
+                // and the logic grid lines up with GridMover (cellSize = 1).
+                ti.spriteImportMode = SpriteImportMode.Single;
+                ti.spritePixelsPerUnit = 64;
+                ti.maxTextureSize = 4096;       // keep the 2240px map un-downscaled
+            }
             else // tileset
             {
                 // Cainos pack is a 16px grid packed into one PNG — slice in Sprite Editor.
@@ -47,7 +58,8 @@ namespace FantacyCentry.EditorTools
         {
             AssetDatabase.ImportAsset(CharactersRoot, ImportAssetOptions.ImportRecursive);
             AssetDatabase.ImportAsset(TilesetsRoot, ImportAssetOptions.ImportRecursive);
-            Debug.Log("[FantacyCentry] Reapplied pixel-art import settings under Characters + Tilesets");
+            AssetDatabase.ImportAsset(MapsRoot, ImportAssetOptions.ImportRecursive);
+            Debug.Log("[FantacyCentry] Reapplied pixel-art import settings under Characters + Tilesets + Maps");
         }
     }
 }

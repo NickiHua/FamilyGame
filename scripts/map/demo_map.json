@@ -1,0 +1,133 @@
+{
+  "name": "demo_village_battlefield",
+  "grid_size": 35,
+  "cell_px": 64,
+  "palette": {
+    "G": {
+      "name": "Grass/Plains",
+      "rgb": [
+        124,
+        176,
+        76
+      ],
+      "walkable": true,
+      "move_cost": 1,
+      "height": 110
+    },
+    "R": {
+      "name": "Road",
+      "rgb": [
+        201,
+        178,
+        124
+      ],
+      "walkable": true,
+      "move_cost": 1,
+      "height": 100
+    },
+    "F": {
+      "name": "Forest",
+      "rgb": [
+        47,
+        92,
+        47
+      ],
+      "walkable": false,
+      "move_cost": 0,
+      "height": 150
+    },
+    "W": {
+      "name": "Water",
+      "rgb": [
+        60,
+        120,
+        200
+      ],
+      "walkable": false,
+      "move_cost": 0,
+      "height": 30
+    },
+    "C": {
+      "name": "Cliff/Rock",
+      "rgb": [
+        120,
+        110,
+        130
+      ],
+      "walkable": false,
+      "move_cost": 0,
+      "height": 240
+    },
+    "B": {
+      "name": "Building",
+      "rgb": [
+        96,
+        60,
+        56
+      ],
+      "walkable": false,
+      "move_cost": 0,
+      "height": 210
+    },
+    "L": {
+      "name": "Wall",
+      "rgb": [
+        180,
+        180,
+        185
+      ],
+      "walkable": false,
+      "move_cost": 0,
+      "height": 190
+    },
+    "D": {
+      "name": "Bridge",
+      "rgb": [
+        150,
+        110,
+        70
+      ],
+      "walkable": true,
+      "move_cost": 1,
+      "height": 90
+    }
+  },
+  "legend": "G=Grass R=Road F=Forest W=Water C=Cliff B=Building L=Wall D=Bridge",
+  "base": [
+    "FFFFFFFFFFFGFFWWWWWFFFFFFFFFFFFFFFF",
+    "FFFFFFFFFFFGGWWWWWWGFFFFFFFFFFFFFFF",
+    "FFFFFFFFFFFGGWWWWWWGGFGGFFFFFGFFFFF",
+    "FFFFFFFFFFFGGWWWWWWGGGGGGGGFGGGGFGG",
+    "FFFFFFFFFFGGGWWWWWWWGGGGBBBGGGGGGGG",
+    "FFFFFFFFFGGDDDDDDDDDDRRBBBBBBGGGGGG",
+    "FFFFFFFFFFFDDDDDDDDDDRRBBBBBBGGGGFF",
+    "FFFFFFFFFFFFGWWWWWWWWGGBBBBBBGGGGFF",
+    "FFFFFFFFFFFFGWWWWWWWWWGGBBBBBGGGGFF",
+    "FFFFFFFFFFFGGWWWWWWWWWGGBBBBBGGGGFF",
+    "FFFFFFFFFFGGGWWWWWWWWGGGBBBBBGRGGFF",
+    "FFFFFFFFFFGGGWWWWWWWWGGGBBBBBGRGFFF",
+    "FFFFFFFFFFGGWWWWWWWWWWGGGGGGGRGFFFF",
+    "FFFFFFFFFGGGWWWWWWWWWWWGGGGGRRGGGFF",
+    "FFFFFGGGGGGGWWWWWWWWWWWWGGGRRGBBGGG",
+    "FFFGGBBBGGGWWWWWWWWWWWWGGGRRRGBBGGG",
+    "FFFGGBBBBGGDDDDDDDDDDDGGGRRRRGBBGGG",
+    "FFGGGBBBBGGDDDDDDDDDDDGGGRRRRGGGGFF",
+    "FFGGGBBBGGGWWWWWWWWWWWGGGGRRGGGGFFF",
+    "FFFGGGGGGGWWWWWWWWWWWWGGGGRRGGGFFFF",
+    "FFFGGFFGGGWWWWWWWWWWWCCGGRRGGGFFFFF",
+    "FFFFFFFGGGGWWWWWWWWWWCCCGRRGGGFFFFF",
+    "FFFFFFFGGGGGWWWWWWWWCCCCGGGRGGFFFFF",
+    "FFFFFFFFFFGGGWWWWWWWCCCCCGGRGGFFFFF",
+    "FFFFFFFFFFGGGWWWWWWWWCCCCGGRGGFFFFF",
+    "FFFFFFFFFFFGGWWWWWWWWWCCGGRRGGFFFFF",
+    "FFFFFFFFFFFGGWWWWWWWWWCCGRRGGFFFFFF",
+    "FFFFFFFFFFFGGWWWWWWWWWRRRRGGGFFFFFF",
+    "FFFFFFFFFFFDDDDDDDDDDDRRRCCCGFFFFFF",
+    "FFFFFFFFFFFGGWWWWWWWWGGGGCCCGFFFFFF",
+    "FFFFFFFFFGGGWWWWWWWWWCCCCGGGGGFFFFF",
+    "FFFFFFFFGGGGWWWWWWWWWWCCCCGGFFFFFFF",
+    "FFFFFFFFFGGWWWWWWWWWWWWCCCCGGFFFFFF",
+    "FFFFFFFFFFGWWWWWWWWWWWWWWCCCCFFFFFF",
+    "FFFFFFFFFFGWWWWWWWWWWWWWWCCCCFFFFFF"
+  ]
+}
