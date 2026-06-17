@@ -20,8 +20,39 @@ namespace FantacyCentry.EditorTools
     {
         private const string CharactersRoot = "Assets/Art/Characters";
 
+        // Sprites are PPU=48 (1 unit tall) while a tile is 1 unit, so an un-scaled unit
+        // renders one-cell tall — too big. Bake the FFT/langrisser "slightly smaller than
+        // the tile" scale into every prefab so all characters are consistent.
+        private const float CharacterScale = 0.6f;
+
         [MenuItem("Tools/FantacyCentry/Build LingShuang Rig")]
         private static void BuildLingShuang() => BuildCharacter("LingShuang");
+
+        [MenuItem("Tools/FantacyCentry/Build All Character Rigs")]
+        private static void BuildAllCharacters()
+        {
+            if (!Directory.Exists(CharactersRoot))
+            {
+                Debug.LogError($"[FantacyCentry] Characters root not found: {CharactersRoot}");
+                return;
+            }
+
+            int built = 0;
+            foreach (string dir in Directory.GetDirectories(CharactersRoot))
+            {
+                string name = Path.GetFileName(dir);
+                if (FindAnimationsFolder(dir) == null)
+                {
+                    Debug.LogWarning($"[FantacyCentry] Skipped '{name}' (no animations folder).");
+                    continue;
+                }
+
+                BuildCharacter(name);
+                built++;
+            }
+
+            Debug.Log($"[FantacyCentry] Build All finished: {built} character rig(s).");
+        }
 
         private static void BuildCharacter(string characterName)
         {
@@ -72,6 +103,7 @@ namespace FantacyCentry.EditorTools
                 ?? clips[0].frames[0];
 
             var go = new GameObject(characterName);
+            go.transform.localScale = Vector3.one * CharacterScale;
             var sr = go.AddComponent<SpriteRenderer>();
             sr.sprite = defaultSprite;
             sr.sortingOrder = 10;
@@ -121,34 +153,24 @@ namespace FantacyCentry.EditorTools
         }
 
         /// <summary>
-        /// Maps a PixelLab action folder name to a logical action + default fps (spec §5.7 table).
-        /// Order matters: folder names contain overlapping tokens (e.g. walk folder also says "idle").
+        /// Maps a standardized action folder name to a logical action + default fps.
+        /// Folders are normalized to exactly: walk / idle / attack / react.
         /// </summary>
         private static bool TryClassify(string folderName, out Action action, out float fps, out bool loop)
         {
-            string n = folderName.ToLowerInvariant();
-
-            if (n.Contains("walk"))
+            switch (folderName.ToLowerInvariant())
             {
-                action = Action.Walk; fps = 10f; loop = true; return true;
+                case "walk":
+                    action = Action.Walk; fps = 10f; loop = true; return true;
+                case "idle":
+                    action = Action.Idle; fps = 8f; loop = true; return true;
+                case "attack":
+                    action = Action.Attack; fps = 12f; loop = false; return true;
+                case "react":
+                    action = Action.Hit; fps = 10f; loop = false; return true;
+                default:
+                    action = Action.Idle; fps = 8f; loop = true; return false;
             }
-            if (n.Contains("sword") || n.Contains("raises") || n.Contains("attack")
-                || n.Contains("thrust") || n.Contains("lance") || n.Contains("spear")
-                || n.Contains("punch") || n.Contains("kick"))
-            {
-                action = Action.Attack; fps = 12f; loop = false; return true;
-            }
-            if (n.Contains("recoil") || n.Contains("hit") || n.Contains("takes")
-                || n.Contains("flinch"))
-            {
-                action = Action.Hit; fps = 10f; loop = false; return true;
-            }
-            if (n.Contains("idle") || n.Contains("breathing") || n.Contains("stand"))
-            {
-                action = Action.Idle; fps = 8f; loop = true; return true;
-            }
-
-            action = Action.Idle; fps = 8f; loop = true; return false;
         }
     }
 }

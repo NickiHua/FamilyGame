@@ -21,8 +21,9 @@ namespace FantacyCentry.View
         public float tilesPerSecond = 4f;
 
         [Tooltip("Vertical visual offset (in world units) added to the sprite within a cell. " +
-                 "Raise this to lift the character up off the tile center; does not affect logic cell.")]
-        public float visualYOffset = 0.25f;
+                 "~0.5 centers the sprite on the tile (sprite pivot sits at the cell, feet hang low). " +
+                 "Tune live in the Inspector; does not affect logic cell.")]
+        public float visualYOffset = 0.5f;
 
         private CharacterSpriteAnimator _anim;
         private readonly Queue<Vector2Int> _path = new();

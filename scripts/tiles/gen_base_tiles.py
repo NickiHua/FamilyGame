@@ -74,27 +74,42 @@ def _quantize(values: np.ndarray, palette: list[tuple[int, int, int]]) -> np.nda
 # individual tiles
 # ---------------------------------------------------------------------------
 def grass(rng: np.random.Generator) -> np.ndarray:
-    greens = [(58, 110, 42), (74, 140, 52), (96, 168, 66), (130, 196, 88)]
-    base = _fbm(TILE, rng, freqs=(8, 16, 24), amps=(0.5, 0.35, 0.15))
+    greens = [(52, 102, 38), (70, 132, 50), (92, 160, 64), (126, 192, 86)]
+    base = _fbm(TILE, rng, freqs=(7, 14, 24), amps=(0.5, 0.32, 0.18))
     img = _quantize(base, greens)
-    # sparse chunky blade tufts (wrap-safe via modulo)
-    _scatter_tufts(img, rng, count=14, color=(40, 86, 30))
-    _scatter_tufts(img, rng, count=10, color=(160, 214, 110))
+    # clustered tufts + tiny flowers for richer ground breakup
+    _scatter_tufts(img, rng, count=20, color=(40, 82, 30))
+    _scatter_tufts(img, rng, count=12, color=(154, 206, 108))
+    for _ in range(18):
+        x = int(rng.integers(TILE))
+        y = int(rng.integers(TILE))
+        c = (224, 206, 90) if rng.random() < 0.55 else (196, 222, 242)
+        _put(img, x, y, c)
+    for _ in range(8):
+        x = int(rng.integers(TILE))
+        y = int(rng.integers(TILE))
+        _put(img, x, y, (112, 92, 58))
     return img
 
 
 def rock(rng: np.random.Generator) -> np.ndarray:
-    greys = [(78, 80, 86), (104, 106, 112), (132, 134, 140), (160, 162, 168)]
-    base = _fbm(TILE, rng, freqs=(6, 12, 20), amps=(0.55, 0.3, 0.15))
+    greys = [(82, 86, 92), (112, 116, 122), (142, 146, 152), (172, 176, 182)]
+    base = _fbm(TILE, rng, freqs=(5, 10, 18), amps=(0.55, 0.3, 0.15))
     img = _quantize(base, greys)
-    _scatter_cracks(img, rng, count=5, color=(54, 55, 60))
+    _scatter_cracks(img, rng, count=6, color=(62, 66, 72))
+    # chipped highlights
+    for _ in range(22):
+        x = int(rng.integers(TILE))
+        y = int(rng.integers(TILE))
+        for dx, dy in ((0, 0), (1, 0), (0, 1)):
+            _put(img, x + dx, y + dy, (190, 194, 198))
     return img
 
 
 def road(rng: np.random.Generator) -> np.ndarray:
     """Cobblestones on a 16px grid (divides 64 -> seamless)."""
-    stone_shades = [(150, 138, 120), (168, 156, 136), (134, 122, 106)]
-    grout = (86, 78, 66)
+    stone_shades = [(160, 148, 128), (178, 166, 146), (142, 130, 112)]
+    grout = (92, 84, 72)
     img = np.empty((TILE, TILE, 3), dtype=np.uint8)
     img[:] = grout
     cell = 16
@@ -109,8 +124,13 @@ def road(rng: np.random.Generator) -> np.ndarray:
                     # round the corners
                     if (ly in (1, cell - 2) and lx in (1, cell - 2)):
                         continue
-                    t = 0.7 + 0.6 * tex[y, x]
+                    t = 0.74 + 0.52 * tex[y, x]
                     img[y, x] = np.clip(shade * t, 0, 255).astype(np.uint8)
+            # tiny chip specks per cobble
+            for _ in range(3):
+                sx = int(rng.integers(gx + 2, gx + cell - 2))
+                sy = int(rng.integers(gy + 2, gy + cell - 2))
+                img[sy, sx] = (112, 104, 92)
     return img
 
 
@@ -119,27 +139,38 @@ def water(rng: np.random.Generator) -> np.ndarray:
     y = np.arange(TILE)[:, None]
     x = np.arange(TILE)[None, :]
     # horizontal ripples; integer wave count k keeps it seamless in y
-    ripple = 0.5 + 0.5 * np.sin(2 * np.pi * 4 * y / TILE + 6 * base)
-    field = np.clip(0.55 * base + 0.45 * ripple, 0, 1)
-    blues = [(28, 78, 128), (38, 100, 156), (54, 128, 186), (110, 178, 220)]
-    return _quantize(field, blues)
+    ripple = 0.5 + 0.5 * np.sin(2 * np.pi * 4 * y / TILE + 5.5 * base)
+    field = np.clip(0.58 * base + 0.42 * ripple, 0, 1)
+    blues = [(22, 70, 118), (34, 94, 148), (50, 122, 180), (98, 168, 214)]
+    img = _quantize(field, blues)
+    # foam highlights where ripple crests
+    crest = ripple > 0.86
+    img[crest] = (170, 208, 236)
+    img[np.logical_and(crest, base > 0.62)] = (132, 188, 224)
+    return img
 
 
 def bridge(rng: np.random.Generator) -> np.ndarray:
     """Horizontal planks; gap lines on a 16px pitch -> seamless in y."""
     img = np.empty((TILE, TILE, 3), dtype=np.uint8)
-    plank_shades = [(150, 104, 58), (138, 94, 50), (160, 114, 66)]
+    plank_shades = [(154, 110, 64), (142, 98, 56), (166, 120, 72)]
     grain = _fbm(TILE, rng, freqs=(32, 16), amps=(0.6, 0.4))
     pitch = 16
     for gy in range(0, TILE, pitch):
         shade = np.array(plank_shades[rng.integers(len(plank_shades))], dtype=float)
         for y in range(gy, gy + pitch):
             for x in range(TILE):
-                t = 0.75 + 0.5 * grain[y, x]
+                t = 0.78 + 0.46 * grain[y, x]
                 img[y, x] = np.clip(shade * t, 0, 255).astype(np.uint8)
         # dark gap line at the top of each plank (y=gy)
         img[gy, :] = (74, 48, 26)
         img[gy + 1, :] = np.clip(np.array((74, 48, 26)) * 1.2, 0, 255).astype(np.uint8)
+    # side beams + simple nails
+    img[:, 0:2] = (98, 64, 36)
+    img[:, TILE - 2:TILE] = (98, 64, 36)
+    for gy in range(8, TILE, 16):
+        for x in (8, TILE - 9):
+            img[gy:gy + 2, x:x + 2] = (64, 52, 42)
     return img
 
 
@@ -149,10 +180,10 @@ def forest(rng: np.random.Generator) -> np.ndarray:
     base = _fbm(TILE, rng, freqs=(8, 16, 24), amps=(0.5, 0.35, 0.15))
     img = _quantize(base, greens)
     # a few rounded canopy blobs, wrap-safe, with a lighter top-left lit side
-    for _ in range(3):
+    for _ in range(5):
         cx = int(rng.integers(TILE))
         cy = int(rng.integers(TILE))
-        r = int(rng.integers(7, 11))
+        r = int(rng.integers(6, 10))
         dark = (22, 52, 26)
         mid = (40, 92, 42)
         lit = (70, 138, 64)
@@ -169,6 +200,8 @@ def forest(rng: np.random.Generator) -> np.ndarray:
                 else:
                     c = mid
                 _put(img, cx + dx, cy + dy, c)
+    # twig shadows
+    _scatter_cracks(img, rng, count=4, color=(18, 42, 22))
     return img
 
 
@@ -222,20 +255,30 @@ def house(rng: np.random.Generator) -> np.ndarray:
                 img[y, x] = roof_dark
             else:
                 img[y, x] = roof
+    # roof tile separators
+    for y in range(y0 + 6, rh, 6):
+        img[y:y + 1, x0:x1] = (118, 58, 44)
     # door
     img[y1 - 14:y1, 28:36] = (78, 54, 36)
+    img[y1 - 14:y1, 31:33] = (56, 38, 24)
     # window
     img[rh + 4:rh + 12, 14:22] = (96, 150, 170)
     img[rh + 4:rh + 12, 42:50] = (96, 150, 170)
+    img[rh + 7:rh + 8, 14:22] = (136, 196, 216)
+    img[rh + 7:rh + 8, 42:50] = (136, 196, 216)
     return img
 
 
 def cliff(rng: np.random.Generator) -> np.ndarray:
     """Darker, bluer rock for cliffs/mountains."""
-    greys = [(70, 66, 84), (92, 88, 106), (116, 112, 130), (142, 138, 156)]
+    greys = [(74, 70, 88), (98, 94, 114), (124, 120, 140), (152, 148, 166)]
     base = _fbm(TILE, rng, freqs=(5, 10, 18), amps=(0.55, 0.3, 0.15))
     img = _quantize(base, greys)
     _scatter_cracks(img, rng, count=6, color=(48, 46, 60))
+    for _ in range(18):
+        x = int(rng.integers(TILE))
+        y = int(rng.integers(TILE))
+        _put(img, x, y, (166, 162, 182))
     return img
 
 

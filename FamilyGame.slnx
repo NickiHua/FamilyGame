@@ -1,4 +1,6 @@
 ﻿<Solution>
+  <Project Path="FantacyCentry.Domain.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="FantacyCentry.Domain.Tests.csproj" />
 </Solution>
