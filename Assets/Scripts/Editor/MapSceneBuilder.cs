@@ -15,8 +15,9 @@ namespace FantacyCentry.EditorTools
     /// </summary>
     public static class MapSceneBuilder
     {
-        private const string MapPng = "Assets/Art/Maps/demo_map.png";
-        private const string MapJson = "Assets/Art/Maps/demo_map.json";
+        // Switch map version: change "demo_map" to desired version (demo_map / map_v0 / map_v1 / ...)
+        private const string MapPng = "Assets/Art/Maps/map_v0_render.png";
+        private const string MapJson = "Assets/Art/Maps/map_v0.json";
         private const string CharacterPrefab = "Assets/Art/Characters/LingShuang/LingShuang.prefab";
 
         // The character sprite is 1 world unit tall (PPU=48) and a map cell is also 1 unit
