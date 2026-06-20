@@ -33,6 +33,13 @@ namespace FantacyCentry.View
         private string[] _rows;   // indexed by JSON row (0 = top)
         public int Size { get; private set; }
 
+        /// <summary>
+        /// Terrain rows in TOP-FIRST order (JSON/image order), ready to feed
+        /// <c>BattleMap.FromRows</c> so the View grid and Domain map share one source.
+        /// Null until <see cref="Parse"/> has run (Awake does it automatically).
+        /// </summary>
+        public IReadOnlyList<string> RowsTopFirst => _rows;
+
         /// <summary>World position of the map centre (for placing the background sprite / camera).</summary>
         public Vector2 CenterWorld => new((Size - 1) * 0.5f, (Size - 1) * 0.5f);
 

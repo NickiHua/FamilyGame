@@ -57,6 +57,19 @@ namespace FantacyCentry.View
             if (!_moving) BeginNextSegment();
         }
 
+        /// <summary>
+        /// Teleport the logic + visual to a cell immediately (no walk). Used when a unit is
+        /// spawned/bound so the mover adopts the placed cell instead of the prefab's baked one.
+        /// </summary>
+        public void SnapToCell(Vector2Int cell)
+        {
+            _path.Clear();
+            _moving = false;
+            _cell = cell;
+            Vector3 p = CellToWorld(cell);
+            transform.position = new Vector3(p.x, p.y + visualYOffset, p.z);
+        }
+
         private void BeginNextSegment()
         {
             if (_path.Count == 0)

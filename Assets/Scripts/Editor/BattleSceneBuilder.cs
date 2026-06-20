@@ -1,0 +1,236 @@
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
+using UnityEngine.UI;
+using FantacyCentry.View;
+using FantacyCentry.View.Battle;
+using FantacyCentry.Domain.Units;
+
+namespace FantacyCentry.EditorTools
+{
+    /// <summary>
+    /// One-click playable battle: drops the map background + logic grid, spawns the three allies
+    /// and two empire foes near the centre, and wires the <see cref="BattleRunner"/>,
+    /// <see cref="RangeOverlay"/> and <see cref="BattleInputController"/>. Press Play, click an ally,
+    /// click a blue cell to move, click a gold foe to attack, Space to end the turn.
+    /// </summary>
+    public static class BattleSceneBuilder
+    {
+        private const string MapPng = "Assets/Art/Maps/map_v0_render.png";
+        private const string MapJson = "Assets/Art/Maps/map_v0.json";
+        private const string CharDir = "Assets/Art/Characters/";
+        private const string RangeDir = "Assets/Art/UI/range/";
+        private const string BannerDir = "Assets/Art/UI/banners/";
+        private const string ButtonDir = "Assets/Art/UI/buttons/";
+        private const string PanelDir = "Assets/Art/UI/panels/";
+        private const float CharacterScale = 0.6f;
+
+        [MenuItem("Tools/FantacyCentry/Build Battle Scene")]
+        private static void BuildBattleScene()
+        {
+            var bg = AssetDatabase.LoadAssetAtPath<Sprite>(MapPng);
+            var json = AssetDatabase.LoadAssetAtPath<TextAsset>(MapJson);
+            if (bg == null || json == null)
+            {
+                Debug.LogError("[BattleSceneBuilder] Missing map art/json at " + MapPng + " / " + MapJson);
+                return;
+            }
+
+            CleanupPrevious();
+
+            // --- Logic grid -------------------------------------------------
+            var gridGo = new GameObject("MapGrid");
+            var grid = gridGo.AddComponent<MapGrid>();
+            grid.mapJson = json;
+            grid.Parse();
+            if (grid.Size <= 0)
+            {
+                Debug.LogError("[BattleSceneBuilder] Failed to parse map grid.");
+                Object.DestroyImmediate(gridGo);
+                return;
+            }
+
+            // --- Background -------------------------------------------------
+            var bgGo = new GameObject("MapBackground");
+            var bgSr = bgGo.AddComponent<SpriteRenderer>();
+            bgSr.sprite = bg;
+            bgSr.sortingOrder = -5000;
+            Vector2 center = grid.CenterWorld;
+            bgGo.transform.position = new Vector3(center.x, center.y, 0f);
+
+            // --- Overlay ----------------------------------------------------
+            var overlayGo = new GameObject("RangeOverlay");
+            var overlay = overlayGo.AddComponent<RangeOverlay>();
+            overlay.moveTile = AssetDatabase.LoadAssetAtPath<Sprite>(RangeDir + "move_tile.png");
+            overlay.attackTile = AssetDatabase.LoadAssetAtPath<Sprite>(RangeDir + "attack_tile.png");
+            overlay.selectFrame = AssetDatabase.LoadAssetAtPath<Sprite>(RangeDir + "select_frame.png");
+
+            // --- Runner -----------------------------------------------------
+            var runnerGo = new GameObject("BattleRunner");
+            var runner = runnerGo.AddComponent<BattleRunner>();
+            runner.mapGrid = grid;
+            runner.overlay = overlay;
+            runner.spawns = BuildSpawns(grid);
+
+            // --- Input ------------------------------------------------------
+            var input = runnerGo.AddComponent<BattleInputController>();
+            input.runner = runner;
+            input.overlay = overlay;
+            input.worldCamera = Camera.main;
+
+            // --- Canvas HUD -------------------------------------------------
+            var canvasGo = new GameObject("BattleCanvas",
+                typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
+            var canvas = canvasGo.GetComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            var scaler = canvasGo.GetComponent<CanvasScaler>();
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1920f, 1080f);
+            scaler.matchWidthOrHeight = 0.5f;
+
+            var hud = canvasGo.AddComponent<BattleHud>();
+            hud.runner = runner;
+            hud.input = input;
+            hud.worldCamera = Camera.main;
+            hud.bannerPlayer = AssetDatabase.LoadAssetAtPath<Sprite>(BannerDir + "banner_player.png");
+            hud.bannerEnemy = AssetDatabase.LoadAssetAtPath<Sprite>(BannerDir + "banner_enemy.png");
+            hud.buttonNormal = AssetDatabase.LoadAssetAtPath<Sprite>(ButtonDir + "button_normal.png");
+            hud.buttonHover = AssetDatabase.LoadAssetAtPath<Sprite>(ButtonDir + "button_hover.png");
+            hud.buttonPressed = AssetDatabase.LoadAssetAtPath<Sprite>(ButtonDir + "button_pressed.png");
+            hud.panelUnitInfo = AssetDatabase.LoadAssetAtPath<Sprite>(PanelDir + "panel_unit_info.png");
+            runner.hud = hud; // gate the turn flow on the banner
+
+            // EventSystem (new Input System module) so uGUI buttons work in later steps.
+            if (Object.FindAnyObjectByType<EventSystem>() == null)
+            {
+                var esGo = new GameObject("EventSystem",
+                    typeof(EventSystem), typeof(InputSystemUIInputModule));
+            }
+
+            // --- Camera -----------------------------------------------------
+            int c = grid.Size / 2;
+            if (Camera.main != null)
+            {
+                Camera.main.transform.position = new Vector3(c, c, -10f);
+                Camera.main.orthographic = true;
+                Camera.main.orthographicSize = 7f;
+                var follow = Camera.main.GetComponent<CameraFollow>();
+                if (follow != null) Object.DestroyImmediate(follow); // battle camera stays put
+            }
+
+            Selection.activeGameObject = runnerGo;
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+            Debug.Log("[BattleSceneBuilder] Battle scene assembled (" + runner.spawns.Count +
+                      " units). Press Play: click an ally, move, attack, Space ends the turn.");
+        }
+
+        /// <summary>
+        /// Remove objects from earlier builds (or the old demo scene) so each build starts clean:
+        /// no duplicate MapGrid/background and no leftover, unbound character "dummies" that the
+        /// player would click instead of the real battle units.
+        /// </summary>
+        private static void CleanupPrevious()
+        {
+            var doomedNames = new HashSet<string>
+            {
+                "MapGrid", "MapBackground", "RangeOverlay", "BattleRunner",
+                "BattleCanvas", "EventSystem",
+                "LingShuang", "LuLi", "SuYao", "EmpireArcher", "EmpireAxeSoldier",
+            };
+
+            foreach (GameObject root in EditorSceneManager.GetActiveScene().GetRootGameObjects())
+            {
+                // Strip Unity's " (1)" / " (2)" clone suffix before matching.
+                string baseName = root.name;
+                int paren = baseName.IndexOf(" (");
+                if (paren >= 0) baseName = baseName.Substring(0, paren);
+
+                if (doomedNames.Contains(baseName))
+                    Object.DestroyImmediate(root);
+            }
+        }
+
+        private static List<BattleRunner.UnitSpawn> BuildSpawns(MapGrid grid)
+        {
+            int c = grid.Size / 2;
+            var used = new HashSet<Vector2Int>();
+            var list = new List<BattleRunner.UnitSpawn>();
+
+            // NOTE: weapon base-hit (WeaponDef) isn't built yet, so HitChance = accuracy - evade.
+            // Accuracy is set high here to fold in the future "武器基础命中" (e.g. sword 85) so melee
+            // actually lands (~80%). Split it back out once WeaponDef exists. Magic ignores this (100%).
+            // Allies on the left, foes on the right of centre.
+            list.Add(Ally("LingShuang", Snap(grid, new Vector2Int(c - 3, c + 1), used),
+                WeaponType.Sword, hp: 22, str: 11, def: 4, acc: 90, eva: 8, crit: 6, minR: 1, maxR: 1));
+            list.Add(Ally("LuLi", Snap(grid, new Vector2Int(c - 3, c), used),
+                WeaponType.Axe, hp: 26, str: 11, def: 6, acc: 85, eva: 4, crit: 4, minR: 1, maxR: 1));
+            list.Add(Ally("SuYao", Snap(grid, new Vector2Int(c - 3, c - 1), used),
+                WeaponType.Magic, hp: 16, str: 0, mag: 12, def: 2, res: 4, acc: 60, eva: 6, crit: 8, minR: 1, maxR: 2));
+
+            list.Add(Foe("EmpireArcher", Snap(grid, new Vector2Int(c + 3, c + 1), used),
+                WeaponType.Bow, hp: 18, str: 9, def: 3, acc: 85, eva: 6, crit: 6, minR: 1, maxR: 2));
+            list.Add(Foe("EmpireAxeSoldier", Snap(grid, new Vector2Int(c + 3, c), used),
+                WeaponType.Axe, hp: 24, str: 11, def: 4, acc: 82, eva: 4, crit: 5, minR: 1, maxR: 1));
+
+            return list;
+        }
+
+        private static BattleRunner.UnitSpawn Ally(string id, Vector2Int cell, WeaponType weapon,
+            int hp, int str = 0, int mag = 0, int def = 0, int res = 0,
+            int acc = 0, int eva = 0, int crit = 0, int minR = 1, int maxR = 1)
+            => Make(id, Team.Player, cell, weapon, hp, str, mag, def, res, acc, eva, crit, minR, maxR);
+
+        private static BattleRunner.UnitSpawn Foe(string id, Vector2Int cell, WeaponType weapon,
+            int hp, int str = 0, int mag = 0, int def = 0, int res = 0,
+            int acc = 0, int eva = 0, int crit = 0, int minR = 1, int maxR = 1)
+            => Make(id, Team.Enemy, cell, weapon, hp, str, mag, def, res, acc, eva, crit, minR, maxR);
+
+        private static BattleRunner.UnitSpawn Make(string id, Team team, Vector2Int cell, WeaponType weapon,
+            int hp, int str, int mag, int def, int res, int acc, int eva, int crit, int minR, int maxR)
+        {
+            return new BattleRunner.UnitSpawn
+            {
+                id = id,
+                prefab = AssetDatabase.LoadAssetAtPath<GameObject>(CharDir + id + "/" + id + ".prefab"),
+                team = team,
+                cell = cell,
+                weapon = weapon,
+                maxHp = hp,
+                strength = str,
+                magic = mag,
+                defense = def,
+                resist = res,
+                accuracy = acc,
+                evade = eva,
+                crit = crit,
+                move = 4,
+                minRange = minR,
+                maxRange = maxR,
+            };
+        }
+
+        /// <summary>Snap a preferred cell to the nearest free walkable cell (spiral search).</summary>
+        private static Vector2Int Snap(MapGrid grid, Vector2Int preferred, HashSet<Vector2Int> used)
+        {
+            if (grid.IsWalkable(preferred) && used.Add(preferred)) return preferred;
+            for (int r = 1; r < grid.Size; r++)
+            {
+                for (int dx = -r; dx <= r; dx++)
+                for (int dy = -r; dy <= r; dy++)
+                {
+                    var cell = new Vector2Int(preferred.x + dx, preferred.y + dy);
+                    if (grid.IsWalkable(cell) && !used.Contains(cell))
+                    {
+                        used.Add(cell);
+                        return cell;
+                    }
+                }
+            }
+            used.Add(preferred);
+            return preferred;
+        }
+    }
+}

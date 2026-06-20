@@ -13,6 +13,7 @@ namespace FantacyCentry.EditorTools
         private const string CharactersRoot = "Assets/Art/Characters";
         private const string TilesetsRoot = "Assets/Art/Tilesets";
         private const string MapsRoot = "Assets/Art/Maps";
+        private const string UIRoot = "Assets/Art/UI";
 
         private void OnPreprocessTexture()
         {
@@ -20,7 +21,8 @@ namespace FantacyCentry.EditorTools
             bool isCharacter = path.StartsWith(CharactersRoot);
             bool isTileset = path.StartsWith(TilesetsRoot);
             bool isMap = path.StartsWith(MapsRoot);
-            if (!isCharacter && !isTileset && !isMap) return;
+            bool isUI = path.StartsWith(UIRoot);
+            if (!isCharacter && !isTileset && !isMap && !isUI) return;
 
             var ti = (TextureImporter)assetImporter;
             ti.textureType = TextureImporterType.Sprite;
@@ -45,6 +47,25 @@ namespace FantacyCentry.EditorTools
                 ti.spritePixelsPerUnit = 64;
                 ti.maxTextureSize = 4096;       // keep the 2240px map un-downscaled
             }
+            else if (isUI)
+            {
+                // uGUI sprites: icons, panels, bars, banners and the world-space range
+                // tiles. RangeOverlay rescales tiles to 1 cell at runtime, and Canvas
+                // Images size from their RectTransform, so PPU here is non-critical —
+                // what matters is Point filtering + no compression so pixel edges stay crisp.
+                ti.spriteImportMode = SpriteImportMode.Single;
+                ti.spritePixelsPerUnit = 100;
+
+                // 9-slice borders so the ornate gold corners are never stretched when the
+                // sprite is drawn larger/smaller than native. The button plates have a ~44px
+                // chamfered gold corner; panels/nameplates a slightly thicker frame. Only the
+                // flat middle stretches. (BattleHud sets Image.pixelsPerUnitMultiplier so the
+                // border renders at a sensible size on small buttons.)
+                if (path.Contains("/buttons/"))
+                    ti.spriteBorder = new Vector4(44f, 44f, 44f, 44f);
+                else if (path.Contains("/panels/") || path.Contains("/nameplates/"))
+                    ti.spriteBorder = new Vector4(48f, 48f, 48f, 48f);
+            }
             else // tileset
             {
                 // Cainos pack is a 16px grid packed into one PNG — slice in Sprite Editor.
@@ -59,7 +80,8 @@ namespace FantacyCentry.EditorTools
             AssetDatabase.ImportAsset(CharactersRoot, ImportAssetOptions.ImportRecursive);
             AssetDatabase.ImportAsset(TilesetsRoot, ImportAssetOptions.ImportRecursive);
             AssetDatabase.ImportAsset(MapsRoot, ImportAssetOptions.ImportRecursive);
-            Debug.Log("[FantacyCentry] Reapplied pixel-art import settings under Characters + Tilesets + Maps");
+            AssetDatabase.ImportAsset(UIRoot, ImportAssetOptions.ImportRecursive);
+            Debug.Log("[FantacyCentry] Reapplied pixel-art import settings under Characters + Tilesets + Maps + UI");
         }
     }
 }

@@ -35,7 +35,11 @@ namespace FantacyCentry.Domain.Combat
     /// </summary>
     public static class DamageCalc
     {
-        public const float CritMultiplier = 1.5f;
+        public const float CritMultiplier = 1.3f;
+
+        /// <summary>Hit chance is clamped to this band: no attack is a sure thing, none is hopeless.</summary>
+        public const int MinHitChance = 10;
+        public const int MaxHitChance = 95;
 
         /// <summary>
         /// Base damage before affinity/crit/terrain. power = weapon/skill base added on top of the
@@ -58,32 +62,39 @@ namespace FantacyCentry.Domain.Combat
             return result < 1 ? 1 : result;
         }
 
-        /// <summary>命中率 = clamp(速×2 + 武器命中 - 守速×2 - 地形闪避, 0, 100).</summary>
+        /// <summary>
+        /// 命中率 = clamp(武器基础命中 + 攻方命中 - 守方闪避 - 地形闪避, 10, 95).
+        /// Speed plays no part — turn order is fixed (traditional turns), so accuracy/evade are
+        /// dedicated stats. The clamp band keeps every swing between a 10% and 95% chance.
+        /// </summary>
         public static int HitChance(Unit attacker, Unit defender, int weaponHit, int terrainEvade)
         {
-            int chance = attacker.Stats.Speed * 2 + weaponHit - defender.Stats.Speed * 2 - terrainEvade;
-            return Clamp(chance, 0, 100);
+            int chance = weaponHit + attacker.Stats.Accuracy - defender.Stats.Evade - terrainEvade;
+            return Clamp(chance, MinHitChance, MaxHitChance);
         }
 
-        /// <summary>暴击率 = clamp(武器暴击 + 角色暴击 - 守方抗暴, 0, 50).</summary>
-        public static int CritChance(int weaponCrit, int unitCrit, int defenderCritResist)
-            => Clamp(weaponCrit + unitCrit - defenderCritResist, 0, 50);
+        /// <summary>暴击率 = clamp(武器暑击 + 攻方会心 - 守方会心, 0, 50).</summary>
+        public static int CritChance(int weaponCrit, int attackerCrit, int defenderCrit)
+            => Clamp(weaponCrit + attackerCrit - defenderCrit, 0, 50);
 
         /// <summary>
         /// Roll a full attack against a defender standing on <paramref name="defenderTerrain"/>.
-        /// Does not mutate either unit. weaponHit/weaponCrit/unitCrit/critResist default to 0 so a
-        /// bare melee swing works; data layer fills them from WeaponDef/SkillDef later.
+        /// Does not mutate either unit. weaponHit/weaponCrit default to 0 so a bare melee swing
+        /// works; data layer fills them from WeaponDef/SkillDef later. 会心 comes from unit Stats.
+        /// 魔法/技能命中率恒定 100%：magical attacks (and anything flagged <paramref name="alwaysHit"/>)
+        /// never roll hit/evade — they always connect.
         /// </summary>
         public static AttackResult Resolve(
             Unit attacker, Unit defender, int power, DamageType type,
             AffinityTable affinity, TerrainType defenderTerrain, IRng rng,
-            int weaponHit = 0, int weaponCrit = 0, int unitCrit = 0, int critResist = 0)
+            int weaponHit = 0, int weaponCrit = 0, bool alwaysHit = false)
         {
             float affinityMult = affinity.GetMultiplier(attacker, defender);
-            int hit = HitChance(attacker, defender, weaponHit, Terrain.EvadeBonus(defenderTerrain));
-            int crit = CritChance(weaponCrit, unitCrit, critResist);
+            bool guaranteed = alwaysHit || type == DamageType.Magical;
+            int hit = guaranteed ? 100 : HitChance(attacker, defender, weaponHit, Terrain.EvadeBonus(defenderTerrain));
+            int crit = CritChance(weaponCrit, attacker.Stats.Crit, defender.Stats.Crit);
 
-            if (rng.RollPercent() >= hit)
+            if (!guaranteed && rng.RollPercent() >= hit)
                 return AttackResult.Miss(hit, crit, affinityMult);
 
             bool isCrit = crit > 0 && rng.RollPercent() < crit;
