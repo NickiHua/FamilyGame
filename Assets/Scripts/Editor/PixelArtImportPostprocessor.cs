@@ -49,22 +49,20 @@ namespace FantacyCentry.EditorTools
             }
             else if (isUI)
             {
-                // uGUI sprites: icons, panels, bars, banners and the world-space range
-                // tiles. RangeOverlay rescales tiles to 1 cell at runtime, and Canvas
-                // Images size from their RectTransform, so PPU here is non-critical —
-                // what matters is Point filtering + no compression so pixel edges stay crisp.
+                // All UI art is now smooth HD (pixel UI retired). Bilinear keeps the gold
+                // gradients crisp when the sprite is scaled; uncompressed + no mipmaps (set
+                // above) keeps the thin gold filigree punchy.
+                ti.filterMode = FilterMode.Bilinear;
                 ti.spriteImportMode = SpriteImportMode.Single;
                 ti.spritePixelsPerUnit = 100;
 
-                // 9-slice borders so the ornate gold corners are never stretched when the
-                // sprite is drawn larger/smaller than native. The button plates have a ~44px
-                // chamfered gold corner; panels/nameplates a slightly thicker frame. Only the
-                // flat middle stretches. (BattleHud sets Image.pixelsPerUnitMultiplier so the
-                // border renders at a sensible size on small buttons.)
+                // 9-slice borders so the ornate gold corners are never stretched. The HD
+                // button plates carry a 100px glow/bevel margin; the character panel a ~130px
+                // corner flourish (use 140 to keep the whole ornament in the fixed corner).
                 if (path.Contains("/buttons/"))
-                    ti.spriteBorder = new Vector4(44f, 44f, 44f, 44f);
-                else if (path.Contains("/panels/") || path.Contains("/nameplates/"))
-                    ti.spriteBorder = new Vector4(48f, 48f, 48f, 48f);
+                    ti.spriteBorder = new Vector4(100f, 100f, 100f, 100f);
+                else if (path.Contains("/panels/"))
+                    ti.spriteBorder = new Vector4(140f, 140f, 140f, 140f);
             }
             else // tileset
             {

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using FantacyCentry.Domain.Battle;
 using FantacyCentry.Domain.Grid;
 using FantacyCentry.Domain.Pathfinding;
@@ -45,6 +46,12 @@ namespace FantacyCentry.View.Battle
 
         /// <summary>UI hook: standby the selected unit (same as pressing W).</summary>
         public void WaitFromUI() => WaitSelected();
+
+        private static bool IsPointerOverUI()
+        {
+            EventSystem es = EventSystem.current;
+            return es != null && es.IsPointerOverGameObject();
+        }
 
         private Unit _selected;
         private readonly HashSet<GridPos> _moveCells = new();        // foe cell -> how we'd hit it: which reachable cell to stand on (Stop) and the foe itself.
@@ -100,6 +107,7 @@ namespace FantacyCentry.View.Battle
 
             Mouse mouse = Mouse.current;
             if (mouse == null) return;
+            if (IsPointerOverUI()) return;   // clicks on the command panel / buttons are not world clicks
             if (mouse.rightButton.wasPressedThisFrame) { CancelOrUndo(); return; }
             if (mouse.leftButton.wasPressedThisFrame) HandleClick(ScreenToCell(mouse.position.ReadValue()));
         }

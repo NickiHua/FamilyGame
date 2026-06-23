@@ -23,9 +23,10 @@ namespace FantacyCentry.EditorTools
         private const string MapJson = "Assets/Art/Maps/map_v0.json";
         private const string CharDir = "Assets/Art/Characters/";
         private const string RangeDir = "Assets/Art/UI/range/";
-        private const string BannerDir = "Assets/Art/UI/banners/";
         private const string ButtonDir = "Assets/Art/UI/buttons/";
         private const string PanelDir = "Assets/Art/UI/panels/";
+        private const string PortraitDir = "Assets/Art/UI/portraits/";
+        private const string IconDir = "Assets/Art/UI/icons/";
         private const float CharacterScale = 0.6f;
 
         [MenuItem("Tools/FantacyCentry/Build Battle Scene")]
@@ -95,12 +96,22 @@ namespace FantacyCentry.EditorTools
             hud.runner = runner;
             hud.input = input;
             hud.worldCamera = Camera.main;
-            hud.bannerPlayer = AssetDatabase.LoadAssetAtPath<Sprite>(BannerDir + "banner_player.png");
-            hud.bannerEnemy = AssetDatabase.LoadAssetAtPath<Sprite>(BannerDir + "banner_enemy.png");
             hud.buttonNormal = AssetDatabase.LoadAssetAtPath<Sprite>(ButtonDir + "button_normal.png");
             hud.buttonHover = AssetDatabase.LoadAssetAtPath<Sprite>(ButtonDir + "button_hover.png");
             hud.buttonPressed = AssetDatabase.LoadAssetAtPath<Sprite>(ButtonDir + "button_pressed.png");
-            hud.panelUnitInfo = AssetDatabase.LoadAssetAtPath<Sprite>(PanelDir + "panel_unit_info.png");
+            hud.panelUnitInfo = AssetDatabase.LoadAssetAtPath<Sprite>(PanelDir + "char_panel.png");
+            hud.panelSolidCenter = true;   // char_panel.png has a solid navy centre baked in — no NavyFill
+            hud.iconSkill = AssetDatabase.LoadAssetAtPath<Sprite>(IconDir + "icon_skill.png");
+            hud.iconMagic = AssetDatabase.LoadAssetAtPath<Sprite>(IconDir + "icon_magic.png");
+            hud.iconItem = AssetDatabase.LoadAssetAtPath<Sprite>(IconDir + "icon_item.png");
+            hud.iconWait = AssetDatabase.LoadAssetAtPath<Sprite>(IconDir + "icon_wait.png");
+            // Per-unit 立绘: only LuLi has art for now, so only his panel shows a portrait; everyone
+            // else falls back to a placeholder silhouette (no longer LuLi for all units).
+            var luliPortrait = AssetDatabase.LoadAssetAtPath<Sprite>(PortraitDir + "portrait_swordsman.png");
+            hud.portraits = new[]
+            {
+                new BattleHud.PortraitEntry { unitId = "LuLi", sprite = luliPortrait },
+            };
             runner.hud = hud; // gate the turn flow on the banner
 
             // EventSystem (new Input System module) so uGUI buttons work in later steps.
@@ -118,7 +129,15 @@ namespace FantacyCentry.EditorTools
                 Camera.main.orthographic = true;
                 Camera.main.orthographicSize = 7f;
                 var follow = Camera.main.GetComponent<CameraFollow>();
-                if (follow != null) Object.DestroyImmediate(follow); // battle camera stays put
+                if (follow != null) Object.DestroyImmediate(follow); // the map follow rig is map-scene only
+
+                // Edge-scroll / arrow-key panning, clamped to the map extent so the player
+                // can look around a battlefield larger than one screen.
+                var pan = Camera.main.GetComponent<BattleCameraPan>();
+                if (pan == null) pan = Camera.main.gameObject.AddComponent<BattleCameraPan>();
+                pan.cam = Camera.main;
+                pan.boundsMin = new Vector2(-0.5f, -0.5f);
+                pan.boundsMax = new Vector2(grid.Size - 0.5f, grid.Size - 0.5f);
             }
 
             Selection.activeGameObject = runnerGo;

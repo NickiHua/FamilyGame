@@ -150,3 +150,71 @@ aborts the whole character — only fatal submit-side errors do.
 - The PixelLab balance read in `balance_initial` / `balance_final` lives under
   `subscription.generations` in the API response; the JSON in the log captures
   the full response so you can see USD credits separately.
+
+---
+
+# GPT-Image Transparent UI Generator
+
+`scripts/gpt_transparent_image_generation.py` — generates HD (non-pixel) UI
+assets (gold frames, banners, buttons…) as **true transparent PNGs** via the
+OpenAI Image API. Unlike Gemini / ChatGPT web (which only *paint* a magenta /
+checker background you then have to chroma-key out → fringe, colour bleed), the
+`background="transparent"` parameter returns a real alpha channel — no keying.
+
+> ⚠️ **每次调用都是真金白银（~$0.25/张 high quality）。运行前先确认。**
+
+## Model note (verified 2026-06)
+
+| model                                     | transparent bg |
+| ----------------------------------------- | -------------- |
+| `gpt-image-1` / `-mini` / `gpt-image-1.5` | ✅ yes          |
+| `gpt-image-2` (newest)                    | ❌ no           |
+
+Default is `model="gpt-image-1"`. The API is **separate** from ChatGPT
+Plus/Pro (Plus gives no API credit); needs org verification + pay-as-you-go.
+
+## Auth
+
+Key is read in priority order:
+
+1. `--key-file <path>` (default `openaikey.txt` at repo root — **gitignored**)
+2. `OPENAI_API_KEY` env variable
+
+Never commit a key.
+
+## Running
+
+CWD = `FamilyGame/`. Use the venv python.
+
+```powershell
+# built-in presets (transparent bg, no keying)
+.\.venv\Scripts\python.exe scripts\gpt_transparent_image_generation.py panel
+.\.venv\Scripts\python.exe scripts\gpt_transparent_image_generation.py banner-blue
+.\.venv\Scripts\python.exe scripts\gpt_transparent_image_generation.py banner-red
+.\.venv\Scripts\python.exe scripts\gpt_transparent_image_generation.py button
+
+# use an existing image as a STYLE REFERENCE / init (edits endpoint)
+.\.venv\Scripts\python.exe scripts\gpt_transparent_image_generation.py banner-blue `
+    --ref Assets/Art/UI/hd/panel_info_frame.png
+
+# free-form prompt
+.\.venv\Scripts\python.exe scripts\gpt_transparent_image_generation.py custom `
+    --prompt "..." --out art/undecided_art/ui/hd/foo.png --size 1536x1024
+```
+
+CLI args: `--prompt --ref (repeatable) --out --model --size --quality
+--background --n --key-file`. Presets: `panel` / `banner-blue` / `banner-red`
+/ `button` / `custom`. With `--ref` it uses the `images.edit` endpoint (init /
+style anchor); otherwise `images.generate`.
+
+## Output / directory convention
+
+Default output: `art/undecided_art/ui/hd/gptimage/<preset>_<timestamp>_<i>.png`
+(no `.meta` → Unity ignores it). Review there, then copy the keeper into
+`Assets/Art/UI/hd/` for production. Import as Bilinear, **mipmap OFF**
+(mip averaging dims thin gold filigree), uncompressed.
+
+## Size constraints
+
+Max edge ≤ 3840px, multiples of 16, ratio ≤ 3:1, total pixels
+655,360–8,294,400. high quality 1536×1024 ≈ $0.25/image.

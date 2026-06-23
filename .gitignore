@@ -32,6 +32,8 @@ saves/
 # ============================================================
 scripts/config.json
 scripts/logs/
+openaikey.txt
+**/openaikey.txt
 
 # ============================================================
 # Unity (auto-generated, never commit)
