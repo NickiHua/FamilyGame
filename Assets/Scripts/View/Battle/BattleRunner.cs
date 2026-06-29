@@ -115,6 +115,7 @@ namespace FantacyCentry.View.Battle
             BattleMap map = BattleMap.FromRows(mapGrid.RowsTopFirst);
             _affinity = AffinityTable.Default;
             _rng = new SystemRng();
+            if (overlay != null) overlay.worldOrigin = mapGrid.Origin;
 
             var units = new List<Unit>(spawns.Count);
             foreach (UnitSpawn s in spawns)
@@ -166,7 +167,7 @@ namespace FantacyCentry.View.Battle
 
             GameObject go = Instantiate(s.prefab);
             go.name = s.id;
-            go.transform.position = new Vector3(s.cell.x, s.cell.y, 0f);
+            go.transform.position = new Vector3(mapGrid.Origin.x + s.cell.x, mapGrid.Origin.y + s.cell.y, 0f);
 
             // The demo arrow-key driver would fight our input; strip it from battle units.
             var demo = go.GetComponent<CharacterDemoController>();
@@ -175,6 +176,8 @@ namespace FantacyCentry.View.Battle
 
             var view = go.GetComponent<UnitView>();
             if (view == null) view = go.AddComponent<UnitView>();
+            var mover = go.GetComponent<GridMover>();
+            if (mover != null) mover.worldOrigin = mapGrid.Origin;
             view.Bind(unit);
             return view;
         }

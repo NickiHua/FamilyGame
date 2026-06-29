@@ -28,10 +28,17 @@ namespace FantacyCentry.View
                  "logic grid against the painted art.")]
         public bool drawBlockedGizmos = true;
 
-        private const string Walkable = "GRD"; // Grass, Road, Bridge (Forest blocked)
+        private const string Walkable = "GRDIS"; // Grass, Road, Bridge, Dirt, Sand (Forest/Water/Cliff blocked)
 
         private string[] _rows;   // indexed by JSON row (0 = top)
-        public int Size { get; private set; }
+
+        /// <summary>Grid dimensions in cells. Square maps keep Width == Height == Size.</summary>
+        public int Width { get; private set; }
+        public int Height { get; private set; }
+        public int Size => Width; // back-compat: callers that assumed a square map
+
+        /// <summary>World position of cell (0,0)'s centre — matches the painted tilemap's offset.</summary>
+        public Vector2 Origin { get; private set; }
 
         /// <summary>
         /// Terrain rows in TOP-FIRST order (JSON/image order), ready to feed
@@ -41,7 +48,7 @@ namespace FantacyCentry.View
         public IReadOnlyList<string> RowsTopFirst => _rows;
 
         /// <summary>World position of the map centre (for placing the background sprite / camera).</summary>
-        public Vector2 CenterWorld => new((Size - 1) * 0.5f, (Size - 1) * 0.5f);
+        public Vector2 CenterWorld => Origin + new Vector2((Width - 1) * 0.5f, (Height - 1) * 0.5f);
 
         private void Awake() => Parse();
 
@@ -62,32 +69,45 @@ namespace FantacyCentry.View
 
             string text = mapJson.text;
 
+            // New exporter writes grid_w/grid_h; old maps used a square grid_size.
+            Match wMatch = Regex.Match(text, "\"grid_w\"\\s*:\\s*(\\d+)");
+            Match hMatch = Regex.Match(text, "\"grid_h\"\\s*:\\s*(\\d+)");
             Match sizeMatch = Regex.Match(text, "\"grid_size\"\\s*:\\s*(\\d+)");
-            Size = sizeMatch.Success ? int.Parse(sizeMatch.Groups[1].Value) : 0;
+            Width = wMatch.Success ? int.Parse(wMatch.Groups[1].Value)
+                  : sizeMatch.Success ? int.Parse(sizeMatch.Groups[1].Value) : 0;
+            Height = hMatch.Success ? int.Parse(hMatch.Groups[1].Value)
+                   : sizeMatch.Success ? int.Parse(sizeMatch.Groups[1].Value) : 0;
+
+            Match oxMatch = Regex.Match(text, "\"origin_x\"\\s*:\\s*(-?\\d+(?:\\.\\d+)?)");
+            Match oyMatch = Regex.Match(text, "\"origin_y\"\\s*:\\s*(-?\\d+(?:\\.\\d+)?)");
+            Origin = new Vector2(
+                oxMatch.Success ? float.Parse(oxMatch.Groups[1].Value) : 0f,
+                oyMatch.Success ? float.Parse(oyMatch.Groups[1].Value) : 0f);
 
             // The base rows are the only quoted strings made purely of terrain letters.
             var rows = new List<string>();
-            foreach (Match m in Regex.Matches(text, "\"([GRFWCBLD]+)\""))
+            foreach (Match m in Regex.Matches(text, "\"([GRFWCBLDIS]+)\""))
             {
                 string row = m.Groups[1].Value;
-                if (Size == 0 || row.Length == Size) rows.Add(row);
+                if (Width == 0 || row.Length == Width) rows.Add(row);
             }
 
-            if (Size == 0 && rows.Count > 0) Size = rows[0].Length;
+            if (Width == 0 && rows.Count > 0) Width = rows[0].Length;
+            if (Height == 0) Height = rows.Count;
             _rows = rows.ToArray();
 
-            if (_rows.Length != Size)
-                Debug.LogWarning($"[MapGrid] Parsed {_rows.Length} rows but grid_size is {Size}.");
+            if (_rows.Length != Height)
+                Debug.LogWarning($"[MapGrid] Parsed {_rows.Length} rows but grid_h is {Height}.");
         }
 
         public bool InBounds(Vector2Int cell) =>
-            cell.x >= 0 && cell.x < Size && cell.y >= 0 && cell.y < Size;
+            cell.x >= 0 && cell.x < Width && cell.y >= 0 && cell.y < Height;
 
         /// <summary>Terrain letter at a world cell, or '\0' if out of bounds.</summary>
         public char TerrainAt(Vector2Int cell)
         {
             if (_rows == null || !InBounds(cell)) return '\0';
-            return _rows[Size - 1 - cell.y][cell.x];
+            return _rows[Height - 1 - cell.y][cell.x];
         }
 
         public bool IsWalkable(Vector2Int cell)
@@ -101,15 +121,15 @@ namespace FantacyCentry.View
         {
             if (!drawBlockedGizmos) return;
             EnsureParsed();
-            if (_rows == null || Size <= 0) return;
+            if (_rows == null || Width <= 0) return;
 
-            for (int y = 0; y < Size; y++)
-            for (int x = 0; x < Size; x++)
+            for (int y = 0; y < Height; y++)
+            for (int x = 0; x < Width; x++)
             {
                 var cell = new Vector2Int(x, y);
                 if (IsWalkable(cell)) continue;
                 Gizmos.color = new Color(1f, 0f, 0f, 0.35f);
-                Gizmos.DrawCube(new Vector3(x, y, 0f), new Vector3(0.95f, 0.95f, 0f));
+                Gizmos.DrawCube(new Vector3(Origin.x + x, Origin.y + y, 0f), new Vector3(0.95f, 0.95f, 0f));
             }
         }
 #endif

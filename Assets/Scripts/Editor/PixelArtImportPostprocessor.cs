@@ -12,6 +12,7 @@ namespace FantacyCentry.EditorTools
     {
         private const string CharactersRoot = "Assets/Art/Characters";
         private const string TilesetsRoot = "Assets/Art/Tilesets";
+        private const string TilesRoot = "Assets/Art/Tiles";
         private const string MapsRoot = "Assets/Art/Maps";
         private const string UIRoot = "Assets/Art/UI";
 
@@ -20,9 +21,10 @@ namespace FantacyCentry.EditorTools
             string path = assetPath.Replace('\\', '/');
             bool isCharacter = path.StartsWith(CharactersRoot);
             bool isTileset = path.StartsWith(TilesetsRoot);
+            bool isTile = path.StartsWith(TilesRoot);
             bool isMap = path.StartsWith(MapsRoot);
             bool isUI = path.StartsWith(UIRoot);
-            if (!isCharacter && !isTileset && !isMap && !isUI) return;
+            if (!isCharacter && !isTileset && !isTile && !isMap && !isUI) return;
 
             var ti = (TextureImporter)assetImporter;
             ti.textureType = TextureImporterType.Sprite;
@@ -37,6 +39,13 @@ namespace FantacyCentry.EditorTools
                 // PixelLab v3 exports one PNG per frame — keep as Single sprite.
                 ti.spriteImportMode = SpriteImportMode.Single;
                 ti.spritePixelsPerUnit = 48;    // 1 unit = 1 tile (48px character)
+            }
+            else if (isTile)
+            {
+                // Hand-painted 64x64 ground tiles (grass/road/dirt/water/bridge/sand).
+                // 1 cell = 1 unit -> PPU=64, Point + Single, ready for the Tile Palette.
+                ti.spriteImportMode = SpriteImportMode.Single;
+                ti.spritePixelsPerUnit = 64;
             }
             else if (isMap)
             {

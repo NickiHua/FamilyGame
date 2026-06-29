@@ -19,8 +19,8 @@ namespace FantacyCentry.EditorTools
     /// </summary>
     public static class BattleSceneBuilder
     {
-        private const string MapPng = "Assets/Art/Maps/map_v0_render.png";
-        private const string MapJson = "Assets/Art/Maps/map_v0.json";
+        private const string MapPng = ""; // painted Tilemap is the visual; no legacy background
+        private const string MapJson = "Assets/Art/Maps/stage1_map.json";
         private const string CharDir = "Assets/Art/Characters/";
         private const string RangeDir = "Assets/Art/UI/range/";
         private const string ButtonDir = "Assets/Art/UI/buttons/";
@@ -34,9 +34,9 @@ namespace FantacyCentry.EditorTools
         {
             var bg = AssetDatabase.LoadAssetAtPath<Sprite>(MapPng);
             var json = AssetDatabase.LoadAssetAtPath<TextAsset>(MapJson);
-            if (bg == null || json == null)
+            if (json == null)
             {
-                Debug.LogError("[BattleSceneBuilder] Missing map art/json at " + MapPng + " / " + MapJson);
+                Debug.LogError("[BattleSceneBuilder] Missing map json at " + MapJson);
                 return;
             }
 
@@ -54,13 +54,23 @@ namespace FantacyCentry.EditorTools
                 return;
             }
 
-            // --- Background -------------------------------------------------
-            var bgGo = new GameObject("MapBackground");
-            var bgSr = bgGo.AddComponent<SpriteRenderer>();
-            bgSr.sprite = bg;
-            bgSr.sortingOrder = -5000;
-            Vector2 center = grid.CenterWorld;
-            bgGo.transform.position = new Vector3(center.x, center.y, 0f);
+            // --- Background (optional) -- painted Tilemap is the visual; only build the
+            //     legacy rendered background if a sprite exists.
+            if (bg != null)
+            {
+                var bgGo = new GameObject("MapBackground");
+                var bgSr = bgGo.AddComponent<SpriteRenderer>();
+                bgSr.sprite = bg;
+                bgSr.sortingOrder = -5000;
+                Vector2 c0 = grid.CenterWorld;
+                bgGo.transform.position = new Vector3(c0.x, c0.y, 0f);
+            }
+
+            // Push every painted Tilemap below the units/overlay so characters aren't hidden
+            // behind the ground. Units Y-sort to ~ -footY*100 and the overlay sits at -4000.
+            foreach (var tmr in Object.FindObjectsByType<UnityEngine.Tilemaps.TilemapRenderer>(
+                         FindObjectsSortMode.None))
+                tmr.sortingOrder = -5000;
 
             // --- Overlay ----------------------------------------------------
             var overlayGo = new GameObject("RangeOverlay");
@@ -81,6 +91,7 @@ namespace FantacyCentry.EditorTools
             input.runner = runner;
             input.overlay = overlay;
             input.worldCamera = Camera.main;
+            input.worldOrigin = grid.Origin;
 
             // --- Canvas HUD -------------------------------------------------
             var canvasGo = new GameObject("BattleCanvas",
@@ -125,7 +136,7 @@ namespace FantacyCentry.EditorTools
             int c = grid.Size / 2;
             if (Camera.main != null)
             {
-                Camera.main.transform.position = new Vector3(c, c, -10f);
+                Camera.main.transform.position = new Vector3(grid.Origin.x + c, grid.Origin.y + c, -10f);
                 Camera.main.orthographic = true;
                 Camera.main.orthographicSize = 7f;
                 var follow = Camera.main.GetComponent<CameraFollow>();
@@ -136,8 +147,8 @@ namespace FantacyCentry.EditorTools
                 var pan = Camera.main.GetComponent<BattleCameraPan>();
                 if (pan == null) pan = Camera.main.gameObject.AddComponent<BattleCameraPan>();
                 pan.cam = Camera.main;
-                pan.boundsMin = new Vector2(-0.5f, -0.5f);
-                pan.boundsMax = new Vector2(grid.Size - 0.5f, grid.Size - 0.5f);
+                pan.boundsMin = new Vector2(grid.Origin.x - 0.5f, grid.Origin.y - 0.5f);
+                pan.boundsMax = new Vector2(grid.Origin.x + grid.Width - 0.5f, grid.Origin.y + grid.Height - 0.5f);
             }
 
             Selection.activeGameObject = runnerGo;

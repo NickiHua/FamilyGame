@@ -17,6 +17,10 @@ namespace FantacyCentry.View
         [Tooltip("World units per grid tile. With PPU=48 (1 unit = 1 tile) keep this at 1.")]
         public float cellSize = 1f;
 
+        [Tooltip("World position of cell (0,0). Set from MapGrid.Origin so logic cells line up " +
+                 "with the painted tilemap wherever it sits.")]
+        public Vector2 worldOrigin = Vector2.zero;
+
         [Tooltip("Movement speed in tiles per second.")]
         public float tilesPerSecond = 4f;
 
@@ -114,10 +118,11 @@ namespace FantacyCentry.View
         }
 
         private Vector2Int WorldToCell(Vector3 world) =>
-            new(Mathf.RoundToInt(world.x / cellSize), Mathf.RoundToInt(world.y / cellSize));
+            new(Mathf.RoundToInt((world.x - worldOrigin.x) / cellSize),
+                Mathf.RoundToInt((world.y - worldOrigin.y) / cellSize));
 
         private Vector3 CellToWorld(Vector2Int cell) =>
-            new(cell.x * cellSize, cell.y * cellSize, transform.position.z);
+            new(worldOrigin.x + cell.x * cellSize, worldOrigin.y + cell.y * cellSize, transform.position.z);
 
         private static Facing FacingFromDelta(Vector2Int d)
         {

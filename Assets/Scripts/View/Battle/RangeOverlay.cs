@@ -29,6 +29,9 @@ namespace FantacyCentry.View.Battle
                  "negative orders) yet above the map background (-5000).")]
         public int tileSortingOrder = -4000;
 
+        /// <summary>World position of cell (0,0); set from MapGrid.Origin so tiles align to the map.</summary>
+        public Vector2 worldOrigin = Vector2.zero;
+
         private readonly List<SpriteRenderer> _pool = new();
         private int _active;
         private SpriteRenderer _hover;
@@ -69,7 +72,7 @@ namespace FantacyCentry.View.Battle
             _hover.color = hoverTint;
             _hover.sortingOrder = tileSortingOrder + 3; // above the selection frame
             Transform t = _hover.transform;
-            t.position = new Vector3(cell.X, cell.Y, 0f);
+            t.position = new Vector3(worldOrigin.x + cell.X, worldOrigin.y + cell.Y, 0f);
 
             float w = sprite.bounds.size.x;
             float h = sprite.bounds.size.y;
@@ -97,7 +100,7 @@ namespace FantacyCentry.View.Battle
             sr.sprite = sprite;
             sr.sortingOrder = order;
             Transform t = sr.transform;
-            t.position = new Vector3(cell.X, cell.Y, 0f);
+            t.position = new Vector3(worldOrigin.x + cell.X, worldOrigin.y + cell.Y, 0f);
 
             // Scale so the sprite covers exactly one cell no matter its import PPU.
             float w = sprite.bounds.size.x;

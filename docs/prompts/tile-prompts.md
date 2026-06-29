@@ -29,6 +29,220 @@
 
 ---
 
+## ★ 当前批次 · 2026-06-25 · 32px chunky「清爽版」（本次 API 调用用这套）
+
+> **约定**：每次调 GPT-Image **前**先更新此段，使文件 = 即将调用的真实 prompt。
+> **本批**：`gpt-image-1`、`quality=low`、`background=opaque`、5 地形 × 3 张 = 15 张 →
+> 下采样到 **32**，落 `art_undecided/tiles/32_low/{grass,road,dirt,bridge,water}/`。
+> **相对 06-22 64 版的改动**：①更清爽、花纹更少（之前略凌乱）②目标 32 chunky ③新增 泥土/桥，泥土≠道路。
+> **桥**：横向桥 → **竖木板并排** + 上下横梁，左右无缝（竖向不平铺，桥仅 1 格高）。
+
+**草地 grass**
+```
+16-bit JRPG pixel-art GRASS terrain tile, top-down orthographic flat view. Clean green grassland,
+MOSTLY UNIFORM medium green with only a FEW subtle darker/lighter pixel patches and very sparse
+tiny tufts - keep it clean and calm, minimal speckle, NOT busy. Designed to read as a chunky
+32x32 pixel-art tile. Crisp hard-edged pixels, limited palette of a few greens, NO anti-aliasing,
+no blur, no gradients, no outlines. Flat even lighting, no shadows, no perspective. Seamless
+tileable on all four edges. Fills the whole frame, no border, no grid lines, no text.
+```
+
+**道路 road（夯土路，traveled）**
+```
+16-bit JRPG pixel-art DIRT ROAD / packed travel PATH tile, top-down orthographic flat view. Light
+tan / sandy-brown packed road, fairly UNIFORM with faint packed wheel-rut texture and only a
+couple of tiny pebbles - clean, not cluttered. Lighter and tidier than raw soil (this is a used
+path). Designed to read as a chunky 32x32 pixel-art tile. Crisp hard-edged pixels, limited tan
+palette, NO anti-aliasing, no blur, no gradients, no outlines. Flat even lighting, no shadows, no
+perspective. Seamless tileable on all four edges. Fills the whole frame, no border, no grid lines,
+no text.
+```
+
+**泥土 dirt（裸土/泥地，≠道路：更深更糙、无铺装）**
+```
+16-bit JRPG pixel-art BARE DIRT / MUD GROUND tile, top-down orthographic flat view. Natural raw
+earth, DARKER reddish-brown soil, MOSTLY UNIFORM with a few subtle tone patches and maybe one or
+two tiny cracks - NOT a built path, no pebbles laid out, rougher and darker than a road. Designed
+to read as a chunky 32x32 pixel-art tile. Crisp hard-edged pixels, limited brown palette, NO
+anti-aliasing, no blur, no gradients, no outlines. Flat even lighting, no shadows, no perspective.
+Seamless tileable on all four edges. Fills the whole frame, no border, no grid lines, no text.
+```
+
+**水 water（强调上下也无缝）**
+```
+16-bit JRPG pixel-art WATER tile, top-down orthographic flat view. Calm blue water, MOSTLY UNIFORM
+blue with only a FEW simple lighter ripple-highlight lines - clean and calm, NOT busy. Designed to
+read as a chunky 32x32 pixel-art tile. Crisp hard-edged pixels, limited blue palette, NO
+anti-aliasing, no blur, no gradients, no outlines, no foam border. Flat even lighting, no shadows,
+no perspective. MUST tile seamlessly on all four edges, ESPECIALLY top-to-bottom (ripples wrap
+vertically with no seam). Fills the whole frame, no border, no grid lines, no text.
+```
+
+**桥面 bridge（横桥 / 竖板 + 上下横梁）**
+```
+16-bit JRPG pixel-art WOODEN BRIDGE DECK tile for a horizontal (left-right) bridge, top-down
+orthographic flat view. Several VERTICAL wooden planks side by side (plank seams are vertical
+lines), weathered warm brown wood with subtle grain and a couple of small nail dots, plus a darker
+wooden support BEAM running along the TOP edge and the BOTTOM edge. Clean and simple, not
+cluttered. Designed to read as a chunky 32x32 pixel-art tile. Crisp hard-edged pixels, limited
+wood-brown palette, NO anti-aliasing, no blur, no gradients, no outlines. Flat even lighting, no
+shadows, no perspective. Seamless tileable LEFT-TO-RIGHT (the deck repeats horizontally). Fills
+the whole frame, no border, no text.
+```
+
+---
+
+## ★ 当前批次 B · 2026-06-25 · 32px「自然细节版」（**去掉**清爽强调，做 A/B 对比）
+
+> 与上面 A 批同地形/同规格，唯一区别：**删掉所有 "MOSTLY UNIFORM / minimal / NOT busy / clean&calm" 之类的抑制词**，让纹理自然丰富，用来和 A 的清爽版对比。
+> 落 `art_undecided/tiles/32_detail/{grass,road,dirt,bridge,water}/`，同样 quality=low、opaque、5×3=15 张、下采样到 32。
+
+**草地 grass（自然）**
+```
+16-bit JRPG pixel-art GRASS terrain tile, top-down orthographic flat view. Green grassland with
+grass-blade clusters, small tufts and a few tiny flowers, several shades of green forming natural
+patches. Designed to read as a chunky 32x32 pixel-art tile. Crisp hard-edged pixels, limited
+palette, NO anti-aliasing, no blur, no gradients, no outlines. Flat even lighting, no shadows, no
+perspective. Seamless tileable on all four edges. Fills the whole frame, no border, no grid lines,
+no text.
+```
+
+**道路 road（自然）**
+```
+16-bit JRPG pixel-art DIRT ROAD / packed travel PATH tile, top-down orthographic flat view. Light
+tan / sandy-brown packed road with scattered pebbles and natural soil mottling, a well-traveled
+dirt path. Designed to read as a chunky 32x32 pixel-art tile. Crisp hard-edged pixels, limited tan
+palette, NO anti-aliasing, no blur, no gradients, no outlines. Flat even lighting, no shadows, no
+perspective. Seamless tileable on all four edges. Fills the whole frame, no border, no grid lines,
+no text.
+```
+
+**泥土 dirt（自然）**
+```
+16-bit JRPG pixel-art BARE DIRT / MUD GROUND tile, top-down orthographic flat view. Natural raw
+earth, darker reddish-brown soil with clumps, small cracks and tone variation, rough untended
+ground (not a built path). Designed to read as a chunky 32x32 pixel-art tile. Crisp hard-edged
+pixels, limited brown palette, NO anti-aliasing, no blur, no gradients, no outlines. Flat even
+lighting, no shadows, no perspective. Seamless tileable on all four edges. Fills the whole frame,
+no border, no grid lines, no text.
+```
+
+**水 water（自然）**
+```
+16-bit JRPG pixel-art WATER tile, top-down orthographic flat view. Blue water with rippling wave
+highlights and layered blue tones, lively surface. Designed to read as a chunky 32x32 pixel-art
+tile. Crisp hard-edged pixels, limited blue palette, NO anti-aliasing, no blur, no gradients, no
+outlines, no foam border. Flat even lighting, no shadows, no perspective. MUST tile seamlessly on
+all four edges, especially top-to-bottom (ripples wrap vertically with no seam). Fills the whole
+frame, no border, no grid lines, no text.
+```
+
+**桥面 bridge（自然）**
+```
+16-bit JRPG pixel-art WOODEN BRIDGE DECK tile for a horizontal (left-right) bridge, top-down
+orthographic flat view. Several VERTICAL wooden planks side by side with vertical plank seams,
+weathered brown wood with grain, knots and nail heads, plus a darker support BEAM along the TOP
+edge and the BOTTOM edge. Designed to read as a chunky 32x32 pixel-art tile. Crisp hard-edged
+pixels, limited wood-brown palette, NO anti-aliasing, no blur, no gradients, no outlines. Flat
+even lighting, no shadows, no perspective. Seamless tileable LEFT-TO-RIGHT. Fills the whole frame,
+no border, no text.
+```
+
+---
+
+## ★ 当前批次 C / D · 2026-06-25 · quality=MEDIUM 对照（32-prompt vs 64-prompt）
+
+> 实验目的：在 **medium** 画质下，比较 prompt 写 `chunky 32x32` 还是 `64x64` 的效果。
+> 用 **B 批的「自然细节」5 条 prompt**，唯一变量是句中的**尺寸短语 `{SIZE}`**：
+> - **C**：`{SIZE}` = `chunky 32x32` → `art_undecided/tiles/32_med/`
+> - **D**：`{SIZE}` = `64x64` → `art_undecided/tiles/64_med/`
+> 均 `gpt-image-1`、`quality=medium`、opaque、5×3=15 张/组（共 30）。原图 1024，再按需缩 64。
+> **追加 E/F（仅草地，quality=HIGH 试水）**：同 grass prompt，`{SIZE}`=`chunky 32x32`→`32_high/`、`64x64`→`64_high/`，各 3 张。
+> **追加 G（2026-06-26）**：`32_high/` 补齐其余 4 地形（road/dirt/water/bridge），同 B 批 prompt + `chunky 32x32` + quality=HIGH，各 3 张 → 全套 32-high。**定为 finals 标准：32-prompt + HIGH + 缩到 64。**
+
+```
+grass : 16-bit JRPG pixel-art GRASS terrain tile, top-down orthographic flat view. Green grassland
+        with grass-blade clusters, small tufts and a few tiny flowers, several shades of green
+        forming natural patches. Designed to read as a {SIZE} pixel-art tile. Crisp hard-edged
+        pixels, limited palette, NO anti-aliasing, no blur, no gradients, no outlines. Flat even
+        lighting, no shadows, no perspective. Seamless tileable on all four edges. Fills the whole
+        frame, no border, no grid lines, no text.
+road  : 16-bit JRPG pixel-art DIRT ROAD / packed travel PATH tile, top-down orthographic flat view.
+        Light tan / sandy-brown packed road with scattered pebbles and natural soil mottling, a
+        well-traveled dirt path. Designed to read as a {SIZE} pixel-art tile. Crisp hard-edged
+        pixels, limited tan palette, NO anti-aliasing, no blur, no gradients, no outlines. Flat
+        even lighting, no shadows, no perspective. Seamless tileable on all four edges. Fills the
+        whole frame, no border, no grid lines, no text.
+dirt  : 16-bit JRPG pixel-art BARE DIRT / MUD GROUND tile, top-down orthographic flat view. Natural
+        raw earth, darker reddish-brown soil with clumps, small cracks and tone variation, rough
+        untended ground (not a built path). Designed to read as a {SIZE} pixel-art tile. Crisp
+        hard-edged pixels, limited brown palette, NO anti-aliasing, no blur, no gradients, no
+        outlines. Flat even lighting, no shadows, no perspective. Seamless tileable on all four
+        edges. Fills the whole frame, no border, no grid lines, no text.
+water : 16-bit JRPG pixel-art WATER tile, top-down orthographic flat view. Blue water with rippling
+        wave highlights and layered blue tones, lively surface. Designed to read as a {SIZE}
+        pixel-art tile. Crisp hard-edged pixels, limited blue palette, NO anti-aliasing, no blur,
+        no gradients, no outlines, no foam border. Flat even lighting, no shadows, no perspective.
+        MUST tile seamlessly on all four edges, especially top-to-bottom. Fills the whole frame,
+        no border, no grid lines, no text.
+bridge: 16-bit JRPG pixel-art WOODEN BRIDGE DECK tile for a horizontal (left-right) bridge, top-down
+        orthographic flat view. Several VERTICAL wooden planks side by side with vertical plank
+        seams, weathered brown wood with grain, knots and nail heads, plus a darker support BEAM
+        along the TOP edge and the BOTTOM edge. Designed to read as a {SIZE} pixel-art tile. Crisp
+        hard-edged pixels, limited wood-brown palette, NO anti-aliasing, no blur, no gradients, no
+        outlines. Flat even lighting, no shadows, no perspective. Seamless tileable LEFT-TO-RIGHT.
+        Fills the whole frame, no border, no text.
+```
+
+---
+
+## ★ 当前批次 H · 2026-06-27 · sand 海滩/浅滩（草↔水之间的第三材质）
+
+> 用途：海岸线第三地形（沙），夹在草和水之间(见 tile pipeline §8 / dual-grid 思路)。
+> 同 32-prompt + `chunky 32x32`，**只出 32**。出 **high×3 → `32_high/sand/`**、**medium×3 → `32_med/sand/`**。
+> 要点：**浅 tan、细沙、干净**，比 road(夯土路)更浅更细、比 dirt(红棕裸土)更亮不发红 —— 三者要区分。
+
+```
+16-bit JRPG pixel-art SAND / BEACH SHORE terrain tile, top-down orthographic flat view. Pale sandy
+tan, mostly soft FINE grain with a few tiny darker speckles and maybe one small pebble, light and
+clean - a beach / riverbank sand, LIGHTER and FINER than a dirt road and NOT reddish like bare
+soil. Designed to read as a chunky 32x32 pixel-art tile. Crisp hard-edged pixels, limited pale-sand
+palette, NO anti-aliasing, no blur, no gradients, no outlines. Flat even lighting, no shadows, no
+perspective. Seamless tileable on all four edges. Fills the whole frame, no border, no grid lines,
+no text.
+```
+
+---
+
+## ★ 批次 I · 2026-06-28 · 「大图切块」实验（big-image → crop tiles）
+
+> 实验:出**大图**再切 64 tile(同源 → 变种一致、匀纹理切块更无缝)。对比 ①加不加 chunky 词 ②切前缩到 1024/512/256。
+> 4 张 `gpt-image-1` / **quality=high** / opaque / 1024² → `art_undecided/tiles/_bigcrop/`:
+> grass×2(plain / chunky)、road×2(plain / chunky)。后处理:1024直切 / 512缩后切 / 256缩后切,各切 64 + 3×3 看无缝与脆度。
+
+**grass_plain**（不加像素限制）
+```
+A large top-down view of a lush green grassland ground texture filling the entire frame, seen
+straight from above (flat orthographic, no perspective), with natural variation in grass shades,
+scattered tufts and small details across the whole field. Even flat daylight, no horizon, no
+objects, no characters. Painterly fantasy RPG map ground. Fills the whole frame, no border, no text.
+```
+**grass_chunky**（加像素限制）= grass_plain + 句尾追加：
+```
+Rendered as 16-bit PIXEL ART with CHUNKY hard-edged pixels, a limited palette, NO anti-aliasing,
+no blur, no gradients.
+```
+**road_plain**
+```
+A large top-down view of a packed dirt road / bare earth ground texture filling the entire frame,
+seen straight from above (flat orthographic, no perspective), tan and brown soil with scattered
+pebbles and natural mottling across the whole field. Even flat daylight, no objects, no characters.
+Fills the whole frame, no border, no text.
+```
+**road_chunky** = road_plain + 同上 chunky 句尾。
+
+---
+
 ## 1. 地面 base tile（宽容型，可随机填充 + 脚本无缝化）
 
 > 这类只需「内部纹理好看」，**不需要完美边缘匹配**，脚本会做无缝 + 加变种。每种出 1 张 base + 2~3 张变种即可。

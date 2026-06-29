@@ -16,6 +16,8 @@ namespace FantacyCentry.Domain.Grid
         Cliff,    // C
         Building, // B
         Wall,     // L
+        Dirt,     // I  (bare earth, walkable)
+        Sand,     // S  (shore/beach, walkable)
         None,     // out of bounds / unknown
     }
 
@@ -31,6 +33,8 @@ namespace FantacyCentry.Domain.Grid
             'C' => TerrainType.Cliff,
             'B' => TerrainType.Building,
             'L' => TerrainType.Wall,
+            'I' => TerrainType.Dirt,
+            'S' => TerrainType.Sand,
             _ => TerrainType.None,
         };
 
@@ -39,6 +43,8 @@ namespace FantacyCentry.Domain.Grid
             TerrainType.Grass => true,
             TerrainType.Road => true,
             TerrainType.Bridge => true,
+            TerrainType.Dirt => true,
+            TerrainType.Sand => true,
             _ => false,
         };
 

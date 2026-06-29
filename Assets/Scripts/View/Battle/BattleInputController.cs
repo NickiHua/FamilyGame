@@ -22,6 +22,9 @@ namespace FantacyCentry.View.Battle
         public RangeOverlay overlay;
         public Camera worldCamera;
 
+        /// <summary>World position of cell (0,0); set from MapGrid.Origin so clicks map to the right cell.</summary>
+        public Vector2 worldOrigin = Vector2.zero;
+
         /// <summary>The unit the player currently has selected (null when none). Read by the HUD.</summary>
         public Unit SelectedUnit => _selected;
 
@@ -270,7 +273,7 @@ namespace FantacyCentry.View.Battle
         {
             Camera cam = worldCamera != null ? worldCamera : Camera.main;
             Vector3 world = cam.ScreenToWorldPoint(new Vector3(screen.x, screen.y, -cam.transform.position.z));
-            return new GridPos(Mathf.RoundToInt(world.x), Mathf.RoundToInt(world.y));
+            return new GridPos(Mathf.RoundToInt(world.x - worldOrigin.x), Mathf.RoundToInt(world.y - worldOrigin.y));
         }
 
         /// <summary>Follow the mouse with a hover cursor, hidden while busy/over or off the grid.
