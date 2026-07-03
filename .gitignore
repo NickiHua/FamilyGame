@@ -34,6 +34,8 @@ scripts/config.json
 scripts/logs/
 openaikey.txt
 **/openaikey.txt
+pixellabkey.txt
+**/pixellabkey.txt
 
 # ============================================================
 # Unity (auto-generated, never commit)

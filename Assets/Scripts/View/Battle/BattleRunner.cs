@@ -18,6 +18,9 @@ namespace FantacyCentry.View.Battle
     /// </summary>
     public sealed class BattleRunner : MonoBehaviour
     {
+        /// <summary>Y-sort layer band so battle units always render above map objects (houses).</summary>
+        private const int UnitLayerBias = 10000;
+
         [Serializable]
         public sealed class UnitSpawn
         {
@@ -172,7 +175,11 @@ namespace FantacyCentry.View.Battle
             // The demo arrow-key driver would fight our input; strip it from battle units.
             var demo = go.GetComponent<CharacterDemoController>();
             if (demo != null) Destroy(demo);
-            if (go.GetComponent<YSort>() == null) go.AddComponent<YSort>();
+            // Characters always draw ABOVE map objects (houses): give their Y-sort a large layer
+            // band so a unit is never hidden behind a building, while still sorting vs each other.
+            var ysort = go.GetComponent<YSort>();
+            if (ysort == null) ysort = go.AddComponent<YSort>();
+            ysort.layerBias = UnitLayerBias;
 
             var view = go.GetComponent<UnitView>();
             if (view == null) view = go.AddComponent<UnitView>();

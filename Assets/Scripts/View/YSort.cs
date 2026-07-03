@@ -22,6 +22,12 @@ namespace FantacyCentry.View
         [Tooltip("Y offset of the sprite's 'foot' from its pivot, in world units.")]
         public float footOffset = 0f;
 
+        [Tooltip("Constant added on top of the Y-sort value, used as a coarse LAYER band. " +
+                 "Map objects (houses) keep 0; characters use a large value so a unit always " +
+                 "draws ABOVE houses (never hidden behind one), while units still Y-sort against " +
+                 "each OTHER inside their band.")]
+        public int layerBias = 0;
+
         private SpriteRenderer _sr;
 
         private void Awake() => _sr = GetComponent<SpriteRenderer>();
@@ -29,7 +35,7 @@ namespace FantacyCentry.View
         private void LateUpdate()
         {
             float footY = transform.position.y + footOffset;
-            _sr.sortingOrder = Mathf.RoundToInt(-footY * unitsToOrder);
+            _sr.sortingOrder = layerBias + Mathf.RoundToInt(-footY * unitsToOrder);
         }
     }
 }

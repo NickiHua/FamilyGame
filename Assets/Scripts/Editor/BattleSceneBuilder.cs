@@ -66,11 +66,15 @@ namespace FantacyCentry.EditorTools
                 bgGo.transform.position = new Vector3(c0.x, c0.y, 0f);
             }
 
-            // Push every painted Tilemap below the units/overlay so characters aren't hidden
-            // behind the ground. Units Y-sort to ~ -footY*100 and the overlay sits at -4000.
+            // The hand-painted Stage1 Tilemap is now just an editing canvas — the runtime
+            // ground is the full dual-grid below (rebuilt from JSON). Disable any pre-existing
+            // Tilemap renderers so the two bases don't double up and drift half a cell.
             foreach (var tmr in Object.FindObjectsByType<UnityEngine.Tilemaps.TilemapRenderer>(
-                         FindObjectsSortMode.None))
-                tmr.sortingOrder = -5000;
+                         FindObjectsInactive.Exclude))
+                tmr.enabled = false;
+
+            // --- Full dual-grid ground rebuilt from JSON (no hard base, blended edges) ---
+            DualGridBuilder.Build(grid);
 
             // --- Overlay ----------------------------------------------------
             var overlayGo = new GameObject("RangeOverlay");
@@ -167,7 +171,7 @@ namespace FantacyCentry.EditorTools
             var doomedNames = new HashSet<string>
             {
                 "MapGrid", "MapBackground", "RangeOverlay", "BattleRunner",
-                "BattleCanvas", "EventSystem",
+                "BattleCanvas", "EventSystem", "DualGrid", "GroundTiles",
                 "LingShuang", "LuLi", "SuYao", "EmpireArcher", "EmpireAxeSoldier",
             };
 
@@ -200,7 +204,7 @@ namespace FantacyCentry.EditorTools
             list.Add(Ally("SuYao", Snap(grid, new Vector2Int(c - 3, c - 1), used),
                 WeaponType.Magic, hp: 16, str: 0, mag: 12, def: 2, res: 4, acc: 60, eva: 6, crit: 8, minR: 1, maxR: 2));
 
-            list.Add(Foe("EmpireArcher", Snap(grid, new Vector2Int(c + 3, c + 1), used),
+            list.Add(Foe("EmpireArcher", Snap(grid, new Vector2Int(c + 3, c - 1), used),
                 WeaponType.Bow, hp: 18, str: 9, def: 3, acc: 85, eva: 6, crit: 6, minR: 1, maxR: 2));
             list.Add(Foe("EmpireAxeSoldier", Snap(grid, new Vector2Int(c + 3, c), used),
                 WeaponType.Axe, hp: 24, str: 11, def: 4, acc: 82, eva: 4, crit: 5, minR: 1, maxR: 1));
