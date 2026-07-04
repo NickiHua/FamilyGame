@@ -56,6 +56,13 @@ namespace FantacyCentry.View.Battle
         [Header("HUD (optional; gates turn flow on the turn banner)")]
         public BattleHud hud;
 
+        [Header("Battle stage (cut to a side-view duel on each attack)")]
+        [Tooltip("When on, every attack cuts to the bottom-of-screen duel演出 (Fire Emblem / 梦战 style). " +
+                 "Turn off for fast in-place resolution on the map.")]
+        public bool useBattleStage = true;
+        [Tooltip("The director that plays the duel. Wired by BattleSceneBuilder.")]
+        public BattleStageDirector stageDirector;
+
         [Header("Pacing")]
         [Tooltip("Pause (seconds) inserted between buffered visual steps so the action reads clearly.")]
         public float stepPause = 0.15f;
@@ -335,6 +342,30 @@ namespace FantacyCentry.View.Battle
                     {
                         UnitView atk = ViewFor(step.Unit);
                         UnitView def = ViewFor(step.Other);
+
+                        // --- Cut to the side-view duel stage (default) ---
+                        if (useBattleStage && stageDirector != null && atk != null && def != null)
+                        {
+                            // Fold an immediately-following counter (same pair, swapped) into ONE duel.
+                            bool hasCounter = _queue.Count > 0 && IsCounterOf(_queue.Peek(), step);
+                            VisualStep counter = hasCounter ? _queue.Dequeue() : default;
+
+                            yield return stageDirector.Play(atk, def, step.Hit, hasCounter, hasCounter && counter.Hit);
+
+                            // Apply the HP drops + floaters after the演出 resolves.
+                            _displayHp[step.Other] = step.HpAfter;
+                            SpawnFloater(def.transform.position, step);
+                            if (hasCounter)
+                            {
+                                _displayHp[counter.Other] = counter.HpAfter;
+                                UnitView cdef = ViewFor(counter.Other);
+                                if (cdef != null) SpawnFloater(cdef.transform.position, counter);
+                            }
+                            if (stepPause > 0f) yield return new WaitForSeconds(stepPause);
+                            break;
+                        }
+
+                        // --- Fast in-place resolution on the map ---
                         float dur = 0.25f;
                         if (atk != null)
                         {

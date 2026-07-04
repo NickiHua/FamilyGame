@@ -90,6 +90,14 @@ namespace FantacyCentry.EditorTools
             runner.overlay = overlay;
             runner.spawns = BuildSpawns(grid);
 
+            // --- Battle stage (side-view duel演出) ---------------------------
+            var stageGo = new GameObject("BattleStageDirector");
+            var stage = stageGo.AddComponent<BattleStageDirector>();
+            stage.stageSprite = AssetDatabase.LoadAssetAtPath<Sprite>(
+                "Assets/Art/Objects/BattleStages/grass_stage.png");
+            runner.stageDirector = stage;
+            runner.useBattleStage = true; // default: cut to the duel; toggle off on BattleRunner for fast combat
+
             // --- Input ------------------------------------------------------
             var input = runnerGo.AddComponent<BattleInputController>();
             input.runner = runner;
@@ -128,6 +136,8 @@ namespace FantacyCentry.EditorTools
                 new BattleHud.PortraitEntry { unitId = "LuLi", sprite = luliPortrait },
             };
             runner.hud = hud; // gate the turn flow on the banner
+            stage.mapHud = canvas; // hide the map HUD (END TURN / unit panel) during the duel
+            stage.hud = hud;       // reuse the character panel frame + 立绘 for the duel forecast panels
 
             // EventSystem (new Input System module) so uGUI buttons work in later steps.
             if (Object.FindAnyObjectByType<EventSystem>() == null)
@@ -173,6 +183,7 @@ namespace FantacyCentry.EditorTools
                 "MapGrid", "MapBackground", "RangeOverlay", "BattleRunner",
                 "BattleCanvas", "EventSystem", "DualGrid", "GroundTiles",
                 "LingShuang", "LuLi", "SuYao", "EmpireArcher", "EmpireAxeSoldier",
+                "BattleStageDirector",
             };
 
             foreach (GameObject root in EditorSceneManager.GetActiveScene().GetRootGameObjects())

@@ -123,23 +123,31 @@ namespace FantacyCentry.View.Battle
         // the LAYOUT is ours (every field aligns by construction) rather than guessing slots baked
         // into a pixel-art sprite. A high-res gold frame + half-body 立绘 drop in later (Phase 2/3)
         // without moving any of this text.
-        private RectTransform _infoPanel;
-        private Image _infoBorderImg;        // outer frame, tinted by team
-        private Image _infoPortraitArt;      // real 立绘 bust (opaque); shown when the unit has one
-        private Image _infoPortraitSil;      // placeholder silhouette; shown when the unit has none
-        private TMP_Text _infoPortraitLetter; // placeholder initial until real 立绘 art exists
-        private TMP_Text _infoName;
-        private TMP_Text _infoLv;            // 等级 (placeholder until Unit.Level exists)
-        private TMP_Text _infoJob;           // 职业 (UnitClass)
-        private TMP_Text _infoRange;         // 射程 pill (MinRange..MaxRange)
-        private TMP_Text _infoMove;          // 移动 pill (Stats.Move)
-        private TMP_Text[] _statCells;       // 2col x 3row grid: ATK/MAG, DEF/RES, HIT/CRT
-        private TMP_Text _infoHp;
-        private RectTransform _infoHpFill;
-        private Image _infoHpFillImg;
-        private TMP_Text _infoMp;
-        private RectTransform _infoMpFill;
-        private Image _infoMpFillImg;
+        /// <summary>All the live widgets of one unit-info panel. The HUD owns one (bound to the
+        /// selected/hovered unit); the battle-stage duel builds two more (attacker/defender) via
+        /// <see cref="CreateInfoPanel"/> so they are the SAME panel, not a re-styled copy.</summary>
+        public sealed class InfoPanel
+        {
+            public RectTransform Root;
+            public Image BorderImg;        // outer frame, tinted by team
+            public Image PortraitArt;      // real 立绘 bust (opaque); shown when the unit has one
+            public Image PortraitSil;      // placeholder silhouette; shown when the unit has none
+            public TMP_Text PortraitLetter; // placeholder initial until real 立绘 art exists
+            public TMP_Text Name;
+            public TMP_Text Lv;            // 等级 (placeholder until Unit.Level exists)
+            public TMP_Text Job;           // 职业 (UnitClass)
+            public TMP_Text Range;         // 射程 pill (MinRange..MaxRange)
+            public TMP_Text Move;          // 移动 pill (Stats.Move)
+            public TMP_Text[] StatCells;   // 2col x 3row grid: ATK/MAG, DEF/RES, HIT/CRT
+            public TMP_Text Hp;
+            public RectTransform HpFill;
+            public Image HpFillImg;
+            public TMP_Text Mp;
+            public RectTransform MpFill;
+            public Image MpFillImg;
+        }
+
+        private InfoPanel _info;   // the HUD's own panel (follows selection/hover)
 
         /// <summary>True while the turn banner is animating in/holding/out. The battle runner
         /// waits on this so neither side acts until the banner has cleared.</summary>
@@ -152,7 +160,7 @@ namespace FantacyCentry.View.Battle
             BuildCommandPanel();
             BuildFloaterRoot();
             BuildHpBarRoot();
-            BuildInfoPanel();
+            _info = BuildInfoPanel(transform, new Vector2(0.5f, 0f), new Vector2(-150f, 22f), startActive: false);
         }
 
         private void OnEnable()
@@ -768,26 +776,29 @@ namespace FantacyCentry.View.Battle
 
         // --- Unit info panel ------------------------------------------------------------
 
-        private void BuildInfoPanel()
+        /// <summary>Build a unit-info panel under <paramref name="parent"/> at the given anchor.
+        /// Returns the live widget handle; call <see cref="RefreshPanel"/> to fill it for a unit.</summary>
+        private InfoPanel BuildInfoPanel(Transform parent, Vector2 anchor, Vector2 anchoredPos, bool startActive)
         {
             const float W = 780f, H = 200f, pad = 14f;
+            var p = new InfoPanel();
 
             var go = new GameObject("UnitInfoPanel", typeof(RectTransform), typeof(Image));
-            _infoPanel = go.GetComponent<RectTransform>();
-            _infoPanel.SetParent(transform, false);
+            p.Root = go.GetComponent<RectTransform>();
+            p.Root.SetParent(parent, false);
             // Bottom-centre, shifted left of centre (梦战 classic). Sits clear of the bottom-left
             // action buttons; the portrait window overflows upward (half-body pokes out).
-            _infoPanel.anchorMin = new Vector2(0.5f, 0f);
-            _infoPanel.anchorMax = new Vector2(0.5f, 0f);
-            _infoPanel.pivot = new Vector2(0.5f, 0f);
-            _infoPanel.anchoredPosition = new Vector2(-150f, 22f);
-            _infoPanel.sizeDelta = new Vector2(W, H);
+            p.Root.anchorMin = anchor;
+            p.Root.anchorMax = anchor;
+            p.Root.pivot = new Vector2(0.5f, 0f);
+            p.Root.anchoredPosition = anchoredPos;
+            p.Root.sizeDelta = new Vector2(W, H);
 
             // Background. When the HD gold frame (panelUnitInfo) is wired in the Inspector we
             // draw it as-is: its native 1722x458 ≈ the panel's 780x200 ratio, so Image.Simple
             // scales it down crisply (Bilinear+mipmap) without distorting the corner filigree.
             // Otherwise fall back to the procedural rounded frame + a dark inner pane.
-            _infoBorderImg = go.GetComponent<Image>();
+            p.BorderImg = go.GetComponent<Image>();
             bool hasHdFrame = panelUnitInfo != null;
             if (hasHdFrame)
             {
@@ -798,15 +809,15 @@ namespace FantacyCentry.View.Battle
                 //   (2) GoldFrame — the panel_info_frame sprite drawn on top of the navy.
                 // The root image itself is left transparent. Children added later (portrait, text)
                 // draw on top of the gold, so they stay readable.
-                _infoBorderImg.color = new Color(0f, 0f, 0f, 0f);
-                _infoBorderImg.raycastTarget = false;
+                p.BorderImg.color = new Color(0f, 0f, 0f, 0f);
+                p.BorderImg.raycastTarget = false;
 
                 // Navy plate (same deep navy as the original panel, RGB 23,33,50). Anchored to the
                 // measured inner hole (x 0.020-0.981, y 0.041-0.958), expanded a touch so it tucks
                 // under the gold rim on every side. Skipped when the panel already has a solid centre.
                 if (!panelSolidCenter)
                 {
-                    RectTransform navy = NewImage("NavyFill", _infoPanel,
+                    RectTransform navy = NewImage("NavyFill", p.Root,
                         new Color(23f / 255f, 33f / 255f, 50f / 255f, 1f));
                     navy.anchorMin = new Vector2(0.014f, 0.030f);
                     navy.anchorMax = new Vector2(0.986f, 0.968f);
@@ -816,7 +827,7 @@ namespace FantacyCentry.View.Battle
                 // Gold frame on top of the navy.
                 var goldGo = new GameObject("GoldFrame", typeof(RectTransform), typeof(Image));
                 var goldRt = goldGo.GetComponent<RectTransform>();
-                goldRt.SetParent(_infoPanel, false);
+                goldRt.SetParent(p.Root, false);
                 goldRt.anchorMin = Vector2.zero;
                 goldRt.anchorMax = Vector2.one;
                 goldRt.offsetMin = goldRt.offsetMax = Vector2.zero;
@@ -829,19 +840,19 @@ namespace FantacyCentry.View.Battle
             }
             else
             {
-                _infoBorderImg.sprite = RoundedSprite();
-                _infoBorderImg.type = Image.Type.Sliced;
-                _infoBorderImg.color = new Color(0.45f, 0.5f, 0.65f, 0.95f);
-                RectTransform body = NewRoundedImage("Body", _infoPanel, new Color(0.09f, 0.10f, 0.13f, 0.95f), out _);
+                p.BorderImg.sprite = RoundedSprite();
+                p.BorderImg.type = Image.Type.Sliced;
+                p.BorderImg.color = new Color(0.45f, 0.5f, 0.65f, 0.95f);
+                RectTransform body = NewRoundedImage("Body", p.Root, new Color(0.09f, 0.10f, 0.13f, 0.95f), out _);
                 StretchOutset(body, -3f);
-                _infoBorderImg.raycastTarget = false;
+                p.BorderImg.raycastTarget = false;
             }
 
             // --- Portrait / 立绘 (foreground bust). No hard frame: a real立绘 is an opaque
             // upper-body cut-out that sits IN FRONT of the navy, to the RIGHT of the left gold
             // corner (so the corner filigree stays visible), and OVERFLOWS above the gold top
             // edge (梦战 look). The window is ALWAYS built; which bust it shows is chosen per unit
-            // in UpdateInfoPanel (so each unit shows its OWN 立绘, or a placeholder — never another
+            // in RefreshPanel (so each unit shows its OWN 立绘, or a placeholder — never another
             // unit's). Sized by a representative aspect so the right column start stays stable.
             float leftGold = hasHdFrame ? 96f : pad;       // clear the left corner flourish
             float portraitAspect = 1.1f;
@@ -852,7 +863,7 @@ namespace FantacyCentry.View.Battle
             float portraitW = portraitH * portraitAspect;
             RectTransform portrait = new GameObject("Portrait", typeof(RectTransform))
                 .GetComponent<RectTransform>();
-            portrait.SetParent(_infoPanel, false);
+            portrait.SetParent(p.Root, false);
             portrait.anchorMin = new Vector2(0f, 0f);
             portrait.anchorMax = new Vector2(0f, 0f);
             portrait.pivot = new Vector2(0f, 0f);
@@ -862,12 +873,12 @@ namespace FantacyCentry.View.Battle
             // Placeholder bust silhouette — semi-transparent so it reads as a shadow, not a framed
             // box; team-tinted each frame. Shown only when the unit has no 立绘.
             RectTransform sil = NewRoundedImage("PortraitSilhouette", portrait,
-                new Color(0.40f, 0.45f, 0.6f, 0.32f), out _infoPortraitSil);
+                new Color(0.40f, 0.45f, 0.6f, 0.32f), out p.PortraitSil);
             sil.anchorMin = Vector2.zero;
             sil.anchorMax = Vector2.one;
             sil.offsetMin = sil.offsetMax = Vector2.zero;
-            _infoPortraitLetter = NewText("Initial", portrait, TextAlignmentOptions.Center, 120f, true);
-            PlaceText(_infoPortraitLetter, Vector2.zero, Vector2.one);
+            p.PortraitLetter = NewText("Initial", portrait, TextAlignmentOptions.Center, 120f, true);
+            PlaceText(p.PortraitLetter, Vector2.zero, Vector2.one);
 
             // Real 立绘 layer (opaque bust), drawn on top of the placeholder, overflowing the top
             // gold edge. Hidden until a unit with art is shown.
@@ -876,11 +887,11 @@ namespace FantacyCentry.View.Battle
             prt.SetParent(portrait, false);
             prt.anchorMin = Vector2.zero; prt.anchorMax = Vector2.one;
             prt.offsetMin = prt.offsetMax = Vector2.zero;
-            _infoPortraitArt = pgo.GetComponent<Image>();
-            _infoPortraitArt.type = Image.Type.Simple;
-            _infoPortraitArt.preserveAspect = true;
-            _infoPortraitArt.color = Color.white;
-            _infoPortraitArt.raycastTarget = false;
+            p.PortraitArt = pgo.GetComponent<Image>();
+            p.PortraitArt.type = Image.Type.Simple;
+            p.PortraitArt.preserveAspect = true;
+            p.PortraitArt.color = Color.white;
+            p.PortraitArt.raycastTarget = false;
             pgo.SetActive(false);
 
             // --- Right column: name/Lv header + JOB + HP/MP bars + range/move pills + stat grid.
@@ -897,16 +908,16 @@ namespace FantacyCentry.View.Battle
             float ryMin = vInset / H;
             float ryMax = (H - vInset) / H;
             var col = new GameObject("Right", typeof(RectTransform)).GetComponent<RectTransform>();
-            col.SetParent(_infoPanel, false);
+            col.SetParent(p.Root, false);
             col.anchorMin = new Vector2(rxMin, ryMin);
             col.anchorMax = new Vector2(rxMax, ryMax);
             col.offsetMin = col.offsetMax = Vector2.zero;
 
             // Header band (y 0.82-1.0): name (left) + Lv (right).
-            _infoName = NewText("Name", col, TextAlignmentOptions.Left, 28f, true);
-            PlaceText(_infoName, new Vector2(0f, 0.82f), new Vector2(0.7f, 1f));
-            _infoLv = NewText("Lv", col, TextAlignmentOptions.Right, 22f, true);
-            PlaceText(_infoLv, new Vector2(0.7f, 0.82f), new Vector2(1f, 1f));
+            p.Name = NewText("Name", col, TextAlignmentOptions.Left, 28f, true);
+            PlaceText(p.Name, new Vector2(0f, 0.82f), new Vector2(0.7f, 1f));
+            p.Lv = NewText("Lv", col, TextAlignmentOptions.Right, 22f, true);
+            PlaceText(p.Lv, new Vector2(0.7f, 0.82f), new Vector2(1f, 1f));
 
             RectTransform rule = NewImage("Rule", col, new Color(1f, 1f, 1f, 0.12f));
             rule.anchorMin = new Vector2(0f, 0.80f);
@@ -940,21 +951,21 @@ namespace FantacyCentry.View.Battle
             RectTransform jobEdge = NewRoundedImage("JobEdge", jobPlate, new Color(0.62f, 0.50f, 0.24f, 1f), out _);
             StretchOutset(jobEdge, 2f);
             jobEdge.SetAsFirstSibling();
-            _infoJob = NewText("Job", jobPlate, TextAlignmentOptions.Center, 17f, true);
-            PlaceText(_infoJob, new Vector2(0.06f, 0f), new Vector2(1f, 1f));
+            p.Job = NewText("Job", jobPlate, TextAlignmentOptions.Center, 17f, true);
+            PlaceText(p.Job, new Vector2(0.06f, 0f), new Vector2(1f, 1f));
 
-            RectTransform hpBar = MakeBar(left, "HP", out _infoHpFill, out _infoHpFillImg, out _infoHp);
+            RectTransform hpBar = MakeBar(left, "HP", out p.HpFill, out p.HpFillImg, out p.Hp);
             hpBar.anchorMin = new Vector2(0f, 0.52f);
             hpBar.anchorMax = new Vector2(1f, 0.74f);
             hpBar.offsetMin = hpBar.offsetMax = Vector2.zero;
 
-            RectTransform mpBar = MakeBar(left, "MP", out _infoMpFill, out _infoMpFillImg, out _infoMp);
+            RectTransform mpBar = MakeBar(left, "MP", out p.MpFill, out p.MpFillImg, out p.Mp);
             mpBar.anchorMin = new Vector2(0f, 0.26f);
             mpBar.anchorMax = new Vector2(1f, 0.48f);
             mpBar.offsetMin = mpBar.offsetMax = Vector2.zero;
 
-            _infoRange = MakePill(left, new Vector2(0f, 0f), new Vector2(0.48f, 0.20f));
-            _infoMove = MakePill(left, new Vector2(0.52f, 0f), new Vector2(1f, 0.20f));
+            p.Range = MakePill(left, new Vector2(0f, 0f), new Vector2(0.48f, 0.20f));
+            p.Move = MakePill(left, new Vector2(0.52f, 0f), new Vector2(1f, 0.20f));
 
             // Right half (x 0.5..1): 2col x 3row stat grid + element-icon placeholder row.
             var right = new GameObject("StatCol", typeof(RectTransform)).GetComponent<RectTransform>();
@@ -979,7 +990,7 @@ namespace FantacyCentry.View.Battle
             grid.anchorMin = new Vector2(0f, 0.20f);
             grid.anchorMax = new Vector2(1f, 1f);
             grid.offsetMin = grid.offsetMax = Vector2.zero;
-            _statCells = new TMP_Text[6];
+            p.StatCells = new TMP_Text[6];
             for (int i = 0; i < 6; i++)
             {
                 int c = i % 2, row = i / 2;
@@ -988,7 +999,7 @@ namespace FantacyCentry.View.Battle
                 crt.anchorMin = new Vector2(c / 2f, 1f - (row + 1) / 3f);
                 crt.anchorMax = new Vector2((c + 1) / 2f, 1f - row / 3f);
                 crt.offsetMin = crt.offsetMax = Vector2.zero;
-                _statCells[i] = cell;
+                p.StatCells[i] = cell;
             }
 
             // Element / skill icon row: dim placeholder squares (real icons in a later phase).
@@ -1007,7 +1018,18 @@ namespace FantacyCentry.View.Battle
                 sq.anchoredPosition = new Vector2(i * 26f, 0f);
             }
 
-            go.SetActive(false);
+            go.SetActive(startActive);
+            return p;
+        }
+
+        /// <summary>Build a duel info panel (attacker→bottom-left, defender→bottom-right) under an
+        /// arbitrary canvas, so the battle-stage overlay shows the SAME character panel as the HUD.</summary>
+        public InfoPanel CreateInfoPanel(Transform parent, bool leftSide)
+        {
+            Vector2 anchor = new(leftSide ? 0f : 1f, 0f);
+            // 780-wide panel: tuck it against the screen edge with a small margin.
+            Vector2 pos = new(leftSide ? 400f : -400f, 20f);
+            return BuildInfoPanel(parent, anchor, pos, startActive: true);
         }
 
         /// <summary>Build a labelled value bar (tag + dark groove + coloured fill + centred number)
@@ -1053,24 +1075,37 @@ namespace FantacyCentry.View.Battle
 
         private void UpdateInfoPanel()
         {
-            if (_infoPanel == null || input == null) return;
+            if (_info == null || input == null) return;
 
             Unit u = input.SelectedUnit != null ? input.SelectedUnit : input.HoveredUnit;
             int shownHp = u != null ? (runner != null ? runner.DisplayHpOf(u) : u.Hp) : 0;
             if (u == null || shownHp <= 0)
             {
-                if (_infoPanel.gameObject.activeSelf) _infoPanel.gameObject.SetActive(false);
+                if (_info.Root.gameObject.activeSelf) _info.Root.gameObject.SetActive(false);
                 return;
             }
 
-            if (!_infoPanel.gameObject.activeSelf) _infoPanel.gameObject.SetActive(true);
+            if (!_info.Root.gameObject.activeSelf) _info.Root.gameObject.SetActive(true);
+            PopulateInfoPanel(_info, u, shownHp);
+        }
 
+        /// <summary>Fill a duel info panel for <paramref name="u"/> (used by the battle-stage overlay).</summary>
+        public void RefreshPanel(InfoPanel p, Unit u)
+        {
+            if (p == null || u == null) return;
+            int shownHp = runner != null ? runner.DisplayHpOf(u) : u.Hp;
+            PopulateInfoPanel(p, u, shownHp);
+        }
+
+        /// <summary>Write every widget of <paramref name="p"/> from unit <paramref name="u"/>.</summary>
+        private void PopulateInfoPanel(InfoPanel p, Unit u, int shownHp)
+        {
             bool ally = u.Team == Team.Player;
             Color team = ally ? new Color(0.35f, 0.55f, 0.95f, 0.95f) : new Color(0.95f, 0.40f, 0.40f, 0.95f);
             // The HD gold frame must render at its true colour (white tint, fully opaque); only the
             // procedural fallback frame gets the translucent team tint. Tinting the HD sprite would
             // dim the gold and, via the <1 alpha, let the map show through the navy.
-            if (panelUnitInfo == null) _infoBorderImg.color = team;
+            if (panelUnitInfo == null) p.BorderImg.color = team;
 
             Stats s = u.Stats;
             string name = string.IsNullOrEmpty(u.DisplayName) ? "?" : u.DisplayName;
@@ -1078,50 +1113,50 @@ namespace FantacyCentry.View.Battle
             // Pick THIS unit's 立绘 (or none → placeholder). Each unit shows its own portrait.
             Sprite ps = PortraitFor(name);
             bool hasArt = ps != null;
-            if (_infoPortraitArt.gameObject.activeSelf != hasArt)
-                _infoPortraitArt.gameObject.SetActive(hasArt);
-            if (_infoPortraitSil.gameObject.activeSelf == hasArt)
-                _infoPortraitSil.gameObject.SetActive(!hasArt);
-            if (_infoPortraitLetter.gameObject.activeSelf == hasArt)
-                _infoPortraitLetter.gameObject.SetActive(!hasArt);
+            if (p.PortraitArt.gameObject.activeSelf != hasArt)
+                p.PortraitArt.gameObject.SetActive(hasArt);
+            if (p.PortraitSil.gameObject.activeSelf == hasArt)
+                p.PortraitSil.gameObject.SetActive(!hasArt);
+            if (p.PortraitLetter.gameObject.activeSelf == hasArt)
+                p.PortraitLetter.gameObject.SetActive(!hasArt);
             if (hasArt)
             {
-                if (_infoPortraitArt.sprite != ps) _infoPortraitArt.sprite = ps;
+                if (p.PortraitArt.sprite != ps) p.PortraitArt.sprite = ps;
             }
             else
             {
-                _infoPortraitSil.color = new Color(team.r, team.g, team.b, 0.32f);
-                _infoPortraitLetter.text = name.Substring(0, 1).ToUpperInvariant();
+                p.PortraitSil.color = new Color(team.r, team.g, team.b, 0.32f);
+                p.PortraitLetter.text = name.Substring(0, 1).ToUpperInvariant();
             }
-            _infoName.text = name;
-            _infoLv.text = "Lv 1"; // placeholder until Unit.Level exists
-            _infoJob.text = JobName(u.Class);
+            p.Name.text = name;
+            p.Lv.text = "Lv 1"; // placeholder until Unit.Level exists
+            p.Job.text = JobName(u.Class);
 
-            _infoRange.text = "RNG " +
+            p.Range.text = "RNG " +
                 (u.MinRange == u.MaxRange ? u.MaxRange.ToString() : u.MinRange + "-" + u.MaxRange);
-            _infoMove.text = "MOV " + s.Move;
+            p.Move.text = "MOV " + s.Move;
 
-            _statCells[0].text = "ATK " + s.Strength;
-            _statCells[1].text = "MAG " + s.Magic;
-            _statCells[2].text = "DEF " + s.Defense;
-            _statCells[3].text = "RES " + s.Resist;
-            _statCells[4].text = "HIT " + s.Accuracy;
-            _statCells[5].text = "CRT " + s.Crit;
+            p.StatCells[0].text = "ATK " + s.Strength;
+            p.StatCells[1].text = "MAG " + s.Magic;
+            p.StatCells[2].text = "DEF " + s.Defense;
+            p.StatCells[3].text = "RES " + s.Resist;
+            p.StatCells[4].text = "HIT " + s.Accuracy;
+            p.StatCells[5].text = "CRT " + s.Crit;
 
             // HP reflects what the playback currently shows (lags the Domain during multi-hit phases).
             float hpRatio = Mathf.Clamp01((float)shownHp / Mathf.Max(1, s.MaxHp));
-            _infoHpFill.anchorMax = new Vector2(hpRatio, 1f);
-            _infoHpFillImg.color = HpColor(hpRatio);
-            _infoHp.text = shownHp + " / " + s.MaxHp;
+            p.HpFill.anchorMax = new Vector2(hpRatio, 1f);
+            p.HpFillImg.color = HpColor(hpRatio);
+            p.Hp.text = shownHp + " / " + s.MaxHp;
 
             float mpRatio = Mathf.Clamp01((float)u.Mp / Mathf.Max(1, s.MaxMp));
-            _infoMpFill.anchorMax = new Vector2(mpRatio, 1f);
-            _infoMpFillImg.color = new Color(0.32f, 0.55f, 0.95f, 1f);
-            _infoMp.text = u.Mp + " / " + s.MaxMp;
+            p.MpFill.anchorMax = new Vector2(mpRatio, 1f);
+            p.MpFillImg.color = new Color(0.32f, 0.55f, 0.95f, 1f);
+            p.Mp.text = u.Mp + " / " + s.MaxMp;
         }
 
         /// <summary>The 立绘 bust for a unit id, or null if none is wired (→ placeholder).</summary>
-        private Sprite PortraitFor(string unitId)
+        public Sprite PortraitFor(string unitId)
         {
             if (portraits != null)
                 foreach (var e in portraits)
