@@ -97,6 +97,29 @@ namespace FantacyCentry.EditorTools
                 "Assets/Art/Objects/BattleStages/grass_stage.png");
             runner.stageDirector = stage;
             runner.useBattleStage = true; // default: cut to the duel; toggle off on BattleRunner for fast combat
+            stage.runner = runner;        // so the stage can settle HP on the panels at impact
+            // Ability VFX frame banks (剑气 / 闪电 / 冰锥 / 治疗) played in the duel stage / on the map.
+            stage.swordwaveFrames = LoadFrames("Assets/Art/VFX/swordwave/");
+            stage.lightningFrames = LoadFrames("Assets/Art/VFX/lightning/");
+            stage.icespikeFrames = LoadFrames("Assets/Art/VFX/icespike/");
+            stage.healFrames = LoadFrames("Assets/Art/VFX/heal/");
+            // Ranged normal-attack projectiles (弓箭手 arrow / 法师 fireball).
+            stage.arrowSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Art/Objects/Projectile/arrow_normal.png");
+            stage.fireballFrames = LoadFrames("Assets/Art/VFX/fireball/");
+
+            // --- Battle SFX -------------------------------------------------
+            var audioGo = new GameObject("BattleAudio", typeof(AudioSource));
+            var audio = audioGo.AddComponent<BattleAudio>();
+            audio.source = audioGo.GetComponent<AudioSource>();
+            audio.footsteps = LoadClips("Assets/Audio/footstep/", "kenney_step_grass_1", "kenney_step_grass_2", "kenney_step_grass_3");
+            audio.slashes = LoadClips("Assets/Audio/slash/", "leohpaz_slash", "leohpaz_attack");
+            audio.hits = LoadClips("Assets/Audio/hit/", "leohpaz_hit", "leohpaz_impact_flesh", "kenney_impact_heavy");
+            audio.ui = LoadClips("Assets/Audio/ui/", "leohpaz_click_confirm", "kenney_click_soft");
+            audio.magicFire = LoadClip("Assets/Audio/magic/leohpaz_fire.wav");
+            audio.magicThunder = LoadClip("Assets/Audio/magic/leohpaz_thunder.wav");
+            audio.magicIce = LoadClip("Assets/Audio/magic/leohpaz_ice.wav");
+            audio.charge = LoadClip("Assets/Audio/magic/leohpaz_charge.wav");
+            audio.heal = LoadClip("Assets/Audio/heal/leohpaz_heal.wav");
 
             // --- Input ------------------------------------------------------
             var input = runnerGo.AddComponent<BattleInputController>();
@@ -119,6 +142,7 @@ namespace FantacyCentry.EditorTools
             hud.runner = runner;
             hud.input = input;
             hud.worldCamera = Camera.main;
+            hud.font = CnFontBuilder.EnsureFont();   // dynamic Chinese TMP font (CJK-capable)
             hud.buttonNormal = AssetDatabase.LoadAssetAtPath<Sprite>(ButtonDir + "button_normal.png");
             hud.buttonHover = AssetDatabase.LoadAssetAtPath<Sprite>(ButtonDir + "button_hover.png");
             hud.buttonPressed = AssetDatabase.LoadAssetAtPath<Sprite>(ButtonDir + "button_pressed.png");
@@ -128,13 +152,29 @@ namespace FantacyCentry.EditorTools
             hud.iconMagic = AssetDatabase.LoadAssetAtPath<Sprite>(IconDir + "icon_magic.png");
             hud.iconItem = AssetDatabase.LoadAssetAtPath<Sprite>(IconDir + "icon_item.png");
             hud.iconWait = AssetDatabase.LoadAssetAtPath<Sprite>(IconDir + "icon_wait.png");
-            // Per-unit 立绘: only LuLi has art for now, so only his panel shows a portrait; everyone
-            // else falls back to a placeholder silhouette (no longer LuLi for all units).
-            var luliPortrait = AssetDatabase.LoadAssetAtPath<Sprite>(PortraitDir + "portrait_swordsman.png");
-            hud.portraits = new[]
+            hud.iconStatus = AssetDatabase.LoadAssetAtPath<Sprite>(IconDir + "icon_status.png");
+            // Per-unit 立绘: each character now has TWO assets in Assets/Art/UI/portraits/:
+            //   <Id>_bust.png =胸像 (used in the small unit-info panel)
+            //   <Id>_full.png = 全身立绘 (used in the full-screen character detail overlay)
+            // Both keyed by unit id (== DisplayName); units without art fall back to a silhouette.
+            string[] portraitIds = { "LuLi", "SuYao", "LingShuang", "EmpireArcher", "EmpireAxeSoldier", "EmpireCaptain" };
+            var busts = new BattleHud.PortraitEntry[portraitIds.Length];
+            var fulls = new BattleHud.PortraitEntry[portraitIds.Length];
+            for (int pi = 0; pi < portraitIds.Length; pi++)
             {
-                new BattleHud.PortraitEntry { unitId = "LuLi", sprite = luliPortrait },
-            };
+                busts[pi] = new BattleHud.PortraitEntry
+                {
+                    unitId = portraitIds[pi],
+                    sprite = AssetDatabase.LoadAssetAtPath<Sprite>(PortraitDir + portraitIds[pi] + "_bust.png"),
+                };
+                fulls[pi] = new BattleHud.PortraitEntry
+                {
+                    unitId = portraitIds[pi],
+                    sprite = AssetDatabase.LoadAssetAtPath<Sprite>(PortraitDir + portraitIds[pi] + "_full.png"),
+                };
+            }
+            hud.portraits = busts;
+            hud.fullPortraits = fulls;
             runner.hud = hud; // gate the turn flow on the banner
             stage.mapHud = canvas; // hide the map HUD (END TURN / unit panel) during the duel
             stage.hud = hud;       // reuse the character panel frame + 立绘 for the duel forecast panels
@@ -171,6 +211,34 @@ namespace FantacyCentry.EditorTools
                       " units). Press Play: click an ally, move, attack, Space ends the turn.");
         }
 
+        /// <summary>Load one AudioClip by exact asset path (null if missing).</summary>
+        private static AudioClip LoadClip(string path) =>
+            AssetDatabase.LoadAssetAtPath<AudioClip>(path);
+        private static AudioClip[] LoadClips(string dir, params string[] names)
+        {
+            var list = new List<AudioClip>();
+            foreach (string n in names)
+            {
+                AudioClip c = AssetDatabase.LoadAssetAtPath<AudioClip>(dir + n + ".ogg")
+                              ?? AssetDatabase.LoadAssetAtPath<AudioClip>(dir + n + ".wav");
+                if (c != null) list.Add(c);
+            }
+            return list.ToArray();
+        }
+
+        /// <summary>Load frame0.png, frame1.png, ... from a folder as an ordered Sprite bank.</summary>
+        private static Sprite[] LoadFrames(string dir)
+        {
+            var list = new List<Sprite>();
+            for (int i = 0; ; i++)
+            {
+                Sprite s = AssetDatabase.LoadAssetAtPath<Sprite>(dir + "frame" + i + ".png");
+                if (s == null) break;
+                list.Add(s);
+            }
+            return list.ToArray();
+        }
+
         /// <summary>
         /// Remove objects from earlier builds (or the old demo scene) so each build starts clean:
         /// no duplicate MapGrid/background and no leftover, unbound character "dummies" that the
@@ -183,7 +251,7 @@ namespace FantacyCentry.EditorTools
                 "MapGrid", "MapBackground", "RangeOverlay", "BattleRunner",
                 "BattleCanvas", "EventSystem", "DualGrid", "GroundTiles",
                 "LingShuang", "LuLi", "SuYao", "EmpireArcher", "EmpireAxeSoldier",
-                "BattleStageDirector",
+                "BattleStageDirector", "BattleAudio",
             };
 
             foreach (GameObject root in EditorSceneManager.GetActiveScene().GetRootGameObjects())

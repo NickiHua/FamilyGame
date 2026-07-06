@@ -205,7 +205,7 @@ namespace FantacyCentry.EditorTools
 
         private static void ClearInternal()
         {
-            foreach (var go in Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None))
+            foreach (var go in Object.FindObjectsByType<GameObject>(FindObjectsInactive.Exclude))
             {
                 if (go != null && go.name == ContainerName)
                     Undo.DestroyObjectImmediate(go);

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using FantacyCentry.Domain.Units;
 
@@ -40,6 +41,8 @@ namespace FantacyCentry.View.Battle
         public Sprite iconMagic;
         public Sprite iconItem;
         public Sprite iconWait;
+        [Tooltip("Status/详情 icon — opens the full-screen character detail (立绘 + stats) overlay.")]
+        public Sprite iconStatus;
 
         [Tooltip("Optional CJK font. Leave empty to use TMP's default font (Latin only). " +
                  "Assign a Chinese TMP font asset to show 我方回合 / 敌方回合.")]
@@ -86,6 +89,12 @@ namespace FantacyCentry.View.Battle
         [Tooltip("Per-unit 立绘. unitId must match the spawn id (e.g. \"LuLi\"). Units not listed use a placeholder silhouette.")]
         public PortraitEntry[] portraits;
 
+        /// <summary>Per-unit FULL-BODY 立绘 (used by the full-screen character detail overlay).
+        /// Same keying as <see cref="portraits"/> (the bust); an entry without art falls back to
+        /// the bust, then to a silhouette.</summary>
+        [Tooltip("Per-unit 全身立绘 for the detail overlay. unitId must match the spawn id (e.g. \"LuLi\").")]
+        public PortraitEntry[] fullPortraits;
+
         private RectTransform _banner;
         private CanvasGroup _bannerGroup;
         private Image _bannerImage;
@@ -97,7 +106,7 @@ namespace FantacyCentry.View.Battle
         private Button _endTurnButton;
 
         // Right-side vertical command panel (攻击/技能/魔法/道具/待机).
-        private enum Cmd { Skill, Magic, Item, Wait }
+        private enum Cmd { Status, Skill, Magic, Item, Wait }
         private sealed class CommandRow
         {
             public Cmd cmd;
@@ -109,6 +118,10 @@ namespace FantacyCentry.View.Battle
         }
         private RectTransform _cmdPanel;
         private CommandRow[] _cmdRows;
+
+        // SKILL/MAGIC fly-out: a vertical list of the selected unit's abilities.
+        private RectTransform _abilityMenu;
+        private readonly System.Collections.Generic.List<GameObject> _abilityMenuRows = new();
 
         // Damage-floater pool (parented under a full-rect, raycast-off container).
         private RectTransform _floaterRoot;
@@ -149,6 +162,22 @@ namespace FantacyCentry.View.Battle
 
         private InfoPanel _info;   // the HUD's own panel (follows selection/hover)
 
+        // --- Full-screen character detail overlay (立绘 + stats), opened via the 状态/Status command.
+        private RectTransform _detailRoot;      // full-screen container (dim + portrait + panel), inactive by default
+        private Image _detailPortrait;          // full-body 立绘 on the left
+        private Image _detailPortraitSil;       // placeholder silhouette when no art
+        private TMP_Text _detailPortraitLetter; // placeholder initial
+        private TMP_Text _detailName, _detailJob, _detailLv;
+        private TMP_Text _detailHp, _detailMp;
+        private RectTransform _detailHpFill, _detailMpFill;
+        private Image _detailHpFillImg, _detailMpFillImg;
+        private TMP_Text[] _detailStats;        // ATK/MAG/DEF/RES/HIT/EVA/CRT/MOV/RNG
+        private Unit _detailUnit;               // the unit currently shown (for per-frame refresh)
+
+        /// <summary>True while the full-screen character detail overlay is open. The input
+        /// controller freezes map interaction while a modal is up.</summary>
+        public bool IsCharacterDetailOpen => _detailRoot != null && _detailRoot.gameObject.activeSelf;
+
         /// <summary>True while the turn banner is animating in/holding/out. The battle runner
         /// waits on this so neither side acts until the banner has cleared.</summary>
         public bool IsBannerPlaying { get; private set; }
@@ -158,9 +187,11 @@ namespace FantacyCentry.View.Battle
             BuildBanner();
             BuildActionMenu();
             BuildCommandPanel();
+            BuildAbilityMenu();
             BuildFloaterRoot();
             BuildHpBarRoot();
             _info = BuildInfoPanel(transform, new Vector2(0.5f, 0f), new Vector2(-150f, 22f), startActive: false);
+            BuildCharacterDetail();
         }
 
         private void OnEnable()
@@ -183,6 +214,7 @@ namespace FantacyCentry.View.Battle
             UpdateFloaters();
             UpdateHpBars();
             UpdateInfoPanel();
+            UpdateCharacterDetail();
         }
 
         private void OnPhaseChanged(Team team, int round)
@@ -388,10 +420,11 @@ namespace FantacyCentry.View.Battle
             // on the left, label on the right, each sitting in a recessed dark slot.
             var defs = new (Cmd cmd, string label, Sprite icon, bool functional)[]
             {
-                (Cmd.Skill,  "SKILL",  iconSkill,  false),
-                (Cmd.Magic,  "MAGIC",  iconMagic,  false),
-                (Cmd.Item,   "ITEM",   iconItem,   false),
-                (Cmd.Wait,   "WAIT",   iconWait,   true),
+                (Cmd.Status, "状态",  iconStatus, true),
+                (Cmd.Skill,  "技能",  iconSkill,  false),
+                (Cmd.Magic,  "魔法",  iconMagic,  false),
+                (Cmd.Item,   "道具",   iconItem,   false),
+                (Cmd.Wait,   "待机",   iconWait,   true),
             };
 
             const float rowH = 62f, rowGap = 8f, padX = 30f, padTop = 30f, padBot = 30f, width = 300f;
@@ -507,11 +540,24 @@ namespace FantacyCentry.View.Battle
         private void OnCommandClicked(Cmd cmd)
         {
             if (input == null) return;
+            BattleAudio.PlayClick();
             switch (cmd)
             {
-                case Cmd.Wait: input.WaitFromUI(); break;
-                default: break; // SKILL / MAGIC / ITEM — not implemented yet
+                case Cmd.Status: CloseAbilityMenu(); OpenCharacterDetail(input.SelectedUnit); break;
+                case Cmd.Skill: OpenAbilityMenu(AbilityKind.Skill); break;
+                case Cmd.Magic: OpenAbilityMenu(AbilityKind.Magic); break;
+                case Cmd.Wait: CloseAbilityMenu(); input.WaitFromUI(); break;
+                default: break; // ITEM — not implemented yet
             }
+        }
+
+        private bool HasAbility(AbilityKind kind)
+        {
+            Unit u = input != null ? input.SelectedUnit : null;
+            if (u == null || u.Abilities == null) return false;
+            foreach (Ability a in u.Abilities)
+                if (a.Kind == kind) return true;
+            return false;
         }
 
         private void RefreshCommandRows(bool playerActable)
@@ -519,9 +565,16 @@ namespace FantacyCentry.View.Battle
             if (_cmdRows == null) return;
             foreach (var row in _cmdRows)
             {
-                // MOVE / ATTACK / WAIT stay lit whenever the unit can act; picking one reveals its
-                // range. SKILL / MAGIC / ITEM are greyed until implemented.
-                bool on = row.functional && playerActable;
+                // WAIT always available when actable; SKILL/MAGIC enabled only if the unit owns one;
+                // ITEM stays greyed (not implemented).
+                bool on = playerActable && row.cmd switch
+                {
+                    Cmd.Status => true,
+                    Cmd.Wait => true,
+                    Cmd.Skill => HasAbility(AbilityKind.Skill),
+                    Cmd.Magic => HasAbility(AbilityKind.Magic),
+                    _ => false,
+                };
                 row.button.interactable = on;
                 row.label.color = on
                     ? new Color(0.97f, 0.93f, 0.78f)
@@ -529,6 +582,101 @@ namespace FantacyCentry.View.Battle
                 if (row.icon.sprite != null)
                     row.icon.color = on ? Color.white : new Color(1f, 1f, 1f, 0.4f);
             }
+        }
+
+        // --- SKILL / MAGIC fly-out menu -------------------------------------
+
+        private void BuildAbilityMenu()
+        {
+            var go = new GameObject("AbilityMenu", typeof(RectTransform), typeof(Image));
+            _abilityMenu = go.GetComponent<RectTransform>();
+            _abilityMenu.SetParent(transform, false);
+            _abilityMenu.anchorMin = _abilityMenu.anchorMax = new Vector2(1f, 0.5f);
+            _abilityMenu.pivot = new Vector2(1f, 0.5f);
+            _abilityMenu.anchoredPosition = new Vector2(-360f, 0f); // just left of the command panel
+            _abilityMenu.sizeDelta = new Vector2(280f, 80f);
+
+            var bg = go.GetComponent<Image>();
+            if (panelUnitInfo != null)
+            {
+                bg.sprite = panelUnitInfo; bg.type = Image.Type.Sliced;
+                bg.pixelsPerUnitMultiplier = 3.2f; bg.color = Color.white;
+            }
+            else bg.color = new Color(0.09f, 0.11f, 0.16f, 0.96f);
+            bg.raycastTarget = false;
+            _abilityMenu.gameObject.SetActive(false);
+        }
+
+        private void OpenAbilityMenu(AbilityKind kind)
+        {
+            if (_abilityMenu == null || input == null) return;
+            Unit u = input.SelectedUnit;
+            if (u == null || u.Abilities == null) return;
+
+            foreach (GameObject old in _abilityMenuRows) Destroy(old);
+            _abilityMenuRows.Clear();
+
+            var list = new System.Collections.Generic.List<Ability>();
+            foreach (Ability a in u.Abilities) if (a.Kind == kind) list.Add(a);
+            if (list.Count == 0) { CloseAbilityMenu(); return; }
+
+            const float rowH = 58f, gap = 8f, padX = 26f, padTop = 26f, padBot = 26f, width = 280f;
+            float height = padTop + padBot + list.Count * rowH + (list.Count - 1) * gap;
+            _abilityMenu.sizeDelta = new Vector2(width, height);
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                Ability ability = list[i];
+                float top = -(padTop + i * (rowH + gap));
+                _abilityMenuRows.Add(BuildAbilityRow(ability, padX, top, width - padX * 2f, rowH));
+            }
+
+            _abilityMenu.gameObject.SetActive(true);
+            _abilityMenu.SetAsLastSibling();
+        }
+
+        private void CloseAbilityMenu()
+        {
+            if (_abilityMenu != null) _abilityMenu.gameObject.SetActive(false);
+        }
+
+        private GameObject BuildAbilityRow(Ability ability, float padX, float top, float rowW, float rowH)
+        {
+            var rowGo = new GameObject("Ability_" + ability.Id, typeof(RectTransform), typeof(Image), typeof(Button));
+            var rt = rowGo.GetComponent<RectTransform>();
+            rt.SetParent(_abilityMenu, false);
+            rt.anchorMin = rt.anchorMax = new Vector2(0f, 1f);
+            rt.pivot = new Vector2(0f, 1f);
+            rt.anchoredPosition = new Vector2(padX, top);
+            rt.sizeDelta = new Vector2(rowW, rowH);
+
+            var img = rowGo.GetComponent<Image>();
+            img.color = new Color(0.16f, 0.18f, 0.24f, 0.95f);
+
+            var btn = rowGo.GetComponent<Button>();
+            btn.targetGraphic = img;
+            btn.onClick.AddListener(() =>
+            {
+                BattleAudio.PlayClick();
+                CloseAbilityMenu();
+                input.BeginAbilityTargeting(ability);
+            });
+
+            var labelGo = new GameObject("Label", typeof(RectTransform));
+            var lrt = labelGo.GetComponent<RectTransform>();
+            lrt.SetParent(rt, false);
+            lrt.anchorMin = Vector2.zero; lrt.anchorMax = Vector2.one;
+            lrt.offsetMin = new Vector2(14f, 4f); lrt.offsetMax = new Vector2(-14f, -4f);
+            var text = labelGo.AddComponent<TextMeshProUGUI>();
+            if (font != null) text.font = font;
+            text.alignment = TextAlignmentOptions.Left;
+            text.enableAutoSizing = true; text.fontSizeMin = 14f; text.fontSizeMax = 26f;
+            text.fontStyle = FontStyles.Bold;
+            text.color = new Color(0.97f, 0.93f, 0.78f);
+            text.raycastTarget = false;
+            string mp = ability.MpCost > 0 ? "  <size=70%>MP " + ability.MpCost + "</size>" : "";
+            text.text = ability.Name + mp;
+            return rowGo;
         }
 
         private void RefreshActionMenu()
@@ -549,13 +697,16 @@ namespace FantacyCentry.View.Battle
             }
 
             bool canControl = playerActable && input != null && input.CanControlSelected();
+            bool targeting = input != null && input.IsTargetingAbility;
             if (_cmdPanel != null)
             {
-                _cmdPanel.gameObject.SetActive(canControl);
-                if (canControl) RefreshCommandRows(playerActable);
+                bool show = canControl && !targeting;
+                _cmdPanel.gameObject.SetActive(show);
+                if (show) RefreshCommandRows(playerActable);
             }
+            if (!canControl || targeting) CloseAbilityMenu();
             if (_endTurnButton != null)
-                _endTurnButton.interactable = playerActable;
+                _endTurnButton.interactable = playerActable && !targeting;
         }
 
         // --- Damage floaters ------------------------------------------------------------
@@ -881,15 +1032,20 @@ namespace FantacyCentry.View.Battle
             PlaceText(p.PortraitLetter, Vector2.zero, Vector2.one);
 
             // Real 立绘 layer (opaque bust), drawn on top of the placeholder, overflowing the top
-            // gold edge. Hidden until a unit with art is shown.
+            // gold edge. Hidden until a unit with art is shown. Anchored BOTTOM-CENTRE of the
+            // window (pivot 0,bottom) and sized per-unit in PopulateInfoPanel so every bust's
+            // bottom edge lands on the SAME baseline (preserveAspect would centre them vertically,
+            // which floats the wider busts up — lingshuang / axe soldier / captain).
             var pgo = new GameObject("PortraitArt", typeof(RectTransform), typeof(Image));
             var prt = pgo.GetComponent<RectTransform>();
             prt.SetParent(portrait, false);
-            prt.anchorMin = Vector2.zero; prt.anchorMax = Vector2.one;
+            prt.anchorMin = new Vector2(0.5f, 0f);
+            prt.anchorMax = new Vector2(0.5f, 0f);
+            prt.pivot = new Vector2(0.5f, 0f);
             prt.offsetMin = prt.offsetMax = Vector2.zero;
             p.PortraitArt = pgo.GetComponent<Image>();
             p.PortraitArt.type = Image.Type.Simple;
-            p.PortraitArt.preserveAspect = true;
+            p.PortraitArt.preserveAspect = false; // we size the rect to the sprite aspect ourselves
             p.PortraitArt.color = Color.white;
             p.PortraitArt.raycastTarget = false;
             pgo.SetActive(false);
@@ -1122,6 +1278,17 @@ namespace FantacyCentry.View.Battle
             if (hasArt)
             {
                 if (p.PortraitArt.sprite != ps) p.PortraitArt.sprite = ps;
+                // Bottom-align: fit the bust inside the window (same as preserveAspect would) but
+                // pin its BOTTOM edge to the window bottom so all busts share one baseline.
+                var prt = (RectTransform)p.PortraitArt.transform;
+                var win = (RectTransform)prt.parent;
+                float cw = win.rect.width, ch = win.rect.height;
+                float asp = ps.rect.width / ps.rect.height;
+                float fitW, fitH;
+                if (asp > cw / ch) { fitW = cw; fitH = cw / asp; }   // wider than window → fit width
+                else { fitH = ch; fitW = ch * asp; }                 // taller → fit height
+                prt.sizeDelta = new Vector2(fitW, fitH);
+                prt.anchoredPosition = Vector2.zero;                 // pivot (0.5,0) → bottom-centred
             }
             else
             {
@@ -1165,6 +1332,17 @@ namespace FantacyCentry.View.Battle
             return null;
         }
 
+        /// <summary>The FULL-BODY 立绘 for a unit id (detail overlay). Falls back to the bust so the
+        /// overlay always shows something recognisable even before full art is wired.</summary>
+        public Sprite FullPortraitFor(string unitId)
+        {
+            if (fullPortraits != null)
+                foreach (var e in fullPortraits)
+                    if (e.sprite != null && e.unitId == unitId)
+                        return e.sprite;
+            return PortraitFor(unitId);
+        }
+
         /// <summary>Display label for a combat class (English for now; CJK font swap later).</summary>
         private static string JobName(UnitClass c) => c switch
         {
@@ -1175,6 +1353,230 @@ namespace FantacyCentry.View.Battle
             UnitClass.Mage => "Mage",
             _ => c.ToString(),
         };
+
+        // --- Full-screen character detail overlay ---------------------------------------
+        // Opened from the 状态/Status command: dims the whole screen (like the battle-stage cut),
+        // shows the selected unit's full-body 立绘 on the LEFT and a tall stats panel on the RIGHT
+        // that reuses the SAME char_panel gold frame (9-sliced) as the small unit-info panel.
+
+        private void BuildCharacterDetail()
+        {
+            var go = new GameObject("CharacterDetail", typeof(RectTransform));
+            _detailRoot = go.GetComponent<RectTransform>();
+            _detailRoot.SetParent(transform, false);
+            _detailRoot.anchorMin = Vector2.zero;
+            _detailRoot.anchorMax = Vector2.one;
+            _detailRoot.offsetMin = _detailRoot.offsetMax = Vector2.zero;
+
+            // (1) Dim backdrop — a full-screen dark plate. It captures clicks (so the map behind is
+            //     inert) and closes the overlay when clicked outside the panel.
+            var dimGo = new GameObject("Dim", typeof(RectTransform), typeof(Image), typeof(Button));
+            var dimRt = dimGo.GetComponent<RectTransform>();
+            dimRt.SetParent(_detailRoot, false);
+            dimRt.anchorMin = Vector2.zero; dimRt.anchorMax = Vector2.one;
+            dimRt.offsetMin = dimRt.offsetMax = Vector2.zero;
+            var dimImg = dimGo.GetComponent<Image>();
+            dimImg.color = new Color(0f, 0f, 0f, 0.82f);
+            var dimBtn = dimGo.GetComponent<Button>();
+            dimBtn.transition = Selectable.Transition.None;
+            dimBtn.onClick.AddListener(CloseCharacterDetail);
+
+            // (2) Full-body 立绘 on the LEFT half. A plain container holds the placeholder
+            //     silhouette + a real-art Image; only one is shown at a time.
+            var portraitBox = new GameObject("FullPortraitBox", typeof(RectTransform)).GetComponent<RectTransform>();
+            portraitBox.SetParent(_detailRoot, false);
+            portraitBox.anchorMin = new Vector2(0.03f, 0.02f);
+            portraitBox.anchorMax = new Vector2(0.50f, 0.98f);
+            portraitBox.offsetMin = portraitBox.offsetMax = Vector2.zero;
+
+            RectTransform silRt = NewRoundedImage("FullSil", portraitBox,
+                new Color(0.40f, 0.45f, 0.6f, 0.30f), out _detailPortraitSil);
+            silRt.anchorMin = new Vector2(0.18f, 0f); silRt.anchorMax = new Vector2(0.82f, 1f);
+            silRt.offsetMin = silRt.offsetMax = Vector2.zero;
+            _detailPortraitLetter = NewText("FullInitial", silRt, TextAlignmentOptions.Center, 220f, true);
+            PlaceText(_detailPortraitLetter, Vector2.zero, Vector2.one);
+
+            var artGo = new GameObject("FullArt", typeof(RectTransform), typeof(Image));
+            var artRt = artGo.GetComponent<RectTransform>();
+            artRt.SetParent(portraitBox, false);
+            artRt.anchorMin = Vector2.zero; artRt.anchorMax = Vector2.one;
+            artRt.offsetMin = artRt.offsetMax = Vector2.zero;
+            _detailPortrait = artGo.GetComponent<Image>();
+            _detailPortrait.preserveAspect = true;
+            _detailPortrait.raycastTarget = false;
+            _detailPortrait.color = Color.white;
+
+            // (3) Stats panel on the RIGHT — same char_panel gold frame, 9-sliced tall.
+            var panelGo = new GameObject("DetailPanel", typeof(RectTransform), typeof(Image));
+            var panelRt = panelGo.GetComponent<RectTransform>();
+            panelRt.SetParent(_detailRoot, false);
+            panelRt.anchorMin = new Vector2(0.55f, 0.12f);
+            panelRt.anchorMax = new Vector2(0.97f, 0.90f);
+            panelRt.offsetMin = panelRt.offsetMax = Vector2.zero;
+            var panelBg = panelGo.GetComponent<Image>();
+            if (panelUnitInfo != null)
+            {
+                panelBg.sprite = panelUnitInfo;
+                panelBg.type = Image.Type.Sliced;      // 9-slice keeps the gold corners crisp when tall
+                panelBg.pixelsPerUnitMultiplier = 2.2f;
+                panelBg.color = Color.white;
+            }
+            else
+            {
+                panelBg.sprite = RoundedSprite();
+                panelBg.type = Image.Type.Sliced;
+                panelBg.color = new Color(0.09f, 0.11f, 0.16f, 0.98f);
+            }
+            panelBg.raycastTarget = true; // clicks on the panel do NOT close the overlay
+
+            // Content region inset to clear the gold corner flourishes.
+            var content = new GameObject("Content", typeof(RectTransform)).GetComponent<RectTransform>();
+            content.SetParent(panelRt, false);
+            content.anchorMin = new Vector2(0.10f, 0.08f);
+            content.anchorMax = new Vector2(0.90f, 0.92f);
+            content.offsetMin = content.offsetMax = Vector2.zero;
+
+            // Header: Name (big) + Lv.
+            _detailName = NewText("Name", content, TextAlignmentOptions.Left, 40f, true);
+            PlaceText(_detailName, new Vector2(0f, 0.90f), new Vector2(0.72f, 1f));
+            _detailLv = NewText("Lv", content, TextAlignmentOptions.Right, 26f, true);
+            PlaceText(_detailLv, new Vector2(0.72f, 0.90f), new Vector2(1f, 1f));
+
+            _detailJob = NewText("Job", content, TextAlignmentOptions.Left, 24f, false);
+            PlaceText(_detailJob, new Vector2(0f, 0.82f), new Vector2(1f, 0.90f));
+
+            RectTransform rule = NewImage("Rule", content, new Color(0.62f, 0.50f, 0.24f, 0.6f));
+            rule.anchorMin = new Vector2(0f, 0.805f); rule.anchorMax = new Vector2(1f, 0.805f);
+            rule.pivot = new Vector2(0.5f, 0.5f); rule.sizeDelta = new Vector2(0f, 2f);
+
+            RectTransform hpBar = MakeBar(content, "HP", out _detailHpFill, out _detailHpFillImg, out _detailHp);
+            hpBar.anchorMin = new Vector2(0f, 0.66f); hpBar.anchorMax = new Vector2(1f, 0.78f);
+            hpBar.offsetMin = hpBar.offsetMax = Vector2.zero;
+
+            RectTransform mpBar = MakeBar(content, "MP", out _detailMpFill, out _detailMpFillImg, out _detailMp);
+            mpBar.anchorMin = new Vector2(0f, 0.52f); mpBar.anchorMax = new Vector2(1f, 0.64f);
+            mpBar.offsetMin = mpBar.offsetMax = Vector2.zero;
+
+            // Stat grid (2 columns x 5 rows = 10 slots; we fill 9: ATK MAG DEF RES HIT EVA CRT MOV RNG).
+            var grid = new GameObject("Stats", typeof(RectTransform)).GetComponent<RectTransform>();
+            grid.SetParent(content, false);
+            grid.anchorMin = new Vector2(0f, 0f); grid.anchorMax = new Vector2(1f, 0.48f);
+            grid.offsetMin = grid.offsetMax = Vector2.zero;
+            _detailStats = new TMP_Text[9];
+            const int rows = 5;
+            for (int i = 0; i < 9; i++)
+            {
+                int col = i % 2, row = i / 2;
+                TMP_Text cell = NewText("D" + i, grid, TextAlignmentOptions.Left, 22f, false);
+                var crt = (RectTransform)cell.transform;
+                crt.anchorMin = new Vector2(col / 2f, 1f - (row + 1f) / rows);
+                crt.anchorMax = new Vector2((col + 1) / 2f, 1f - row / (float)rows);
+                crt.offsetMin = new Vector2(8f, 0f); crt.offsetMax = new Vector2(-8f, 0f);
+                _detailStats[i] = cell;
+            }
+
+            // (4) Close button (top-right corner of the screen).
+            var closeGo = new GameObject("Close", typeof(RectTransform), typeof(Image), typeof(Button));
+            var closeRt = closeGo.GetComponent<RectTransform>();
+            closeRt.SetParent(_detailRoot, false);
+            closeRt.anchorMin = closeRt.anchorMax = new Vector2(1f, 1f);
+            closeRt.pivot = new Vector2(1f, 1f);
+            closeRt.anchoredPosition = new Vector2(-32f, -32f);
+            closeRt.sizeDelta = new Vector2(64f, 64f);
+            var closeImg = closeGo.GetComponent<Image>();
+            closeImg.sprite = RoundedSprite();
+            closeImg.type = Image.Type.Sliced;
+            closeImg.color = new Color(0.16f, 0.05f, 0.05f, 0.92f);
+            var closeBtn = closeGo.GetComponent<Button>();
+            closeBtn.targetGraphic = closeImg;
+            closeBtn.onClick.AddListener(CloseCharacterDetail);
+            var xLabel = NewText("X", closeRt, TextAlignmentOptions.Center, 40f, true);
+            PlaceText(xLabel, Vector2.zero, Vector2.one);
+            xLabel.text = "✕";
+
+            _detailRoot.gameObject.SetActive(false);
+        }
+
+        /// <summary>Open the full-screen 立绘 + stats overlay for <paramref name="u"/>.</summary>
+        public void OpenCharacterDetail(Unit u)
+        {
+            if (_detailRoot == null || u == null) return;
+            _detailUnit = u;
+            PopulateDetail(u);
+            _detailRoot.SetAsLastSibling(); // draw above the rest of the HUD
+            _detailRoot.gameObject.SetActive(true);
+        }
+
+        /// <summary>Close the character detail overlay.</summary>
+        public void CloseCharacterDetail()
+        {
+            if (_detailRoot == null || !_detailRoot.gameObject.activeSelf) return;
+            BattleAudio.PlayClick();
+            _detailUnit = null;
+            _detailRoot.gameObject.SetActive(false);
+        }
+
+        private void UpdateCharacterDetail()
+        {
+            if (_detailRoot == null || !_detailRoot.gameObject.activeSelf) return;
+
+            // Esc / right-click closes the modal (same feel as the rest of the UI).
+            Keyboard kb = Keyboard.current;
+            Mouse mouse = Mouse.current;
+            if ((kb != null && kb.escapeKey.wasPressedThisFrame) ||
+                (mouse != null && mouse.rightButton.wasPressedThisFrame))
+            {
+                CloseCharacterDetail();
+                return;
+            }
+
+            if (_detailUnit != null) PopulateDetail(_detailUnit);
+        }
+
+        private void PopulateDetail(Unit u)
+        {
+            Stats s = u.Stats;
+            string name = string.IsNullOrEmpty(u.DisplayName) ? "?" : u.DisplayName;
+
+            Sprite art = FullPortraitFor(name);
+            bool hasArt = art != null;
+            if (_detailPortrait.gameObject.activeSelf != hasArt) _detailPortrait.gameObject.SetActive(hasArt);
+            if (_detailPortraitSil.gameObject.activeSelf == hasArt) _detailPortraitSil.gameObject.SetActive(!hasArt);
+            if (hasArt) { if (_detailPortrait.sprite != art) _detailPortrait.sprite = art; }
+            else
+            {
+                bool ally0 = u.Team == Team.Player;
+                Color t0 = ally0 ? new Color(0.35f, 0.55f, 0.95f) : new Color(0.95f, 0.40f, 0.40f);
+                _detailPortraitSil.color = new Color(t0.r, t0.g, t0.b, 0.30f);
+                _detailPortraitLetter.text = name.Substring(0, 1).ToUpperInvariant();
+            }
+
+            _detailName.text = name;
+            _detailLv.text = "Lv 1"; // placeholder until Unit.Level exists
+            _detailJob.text = JobName(u.Class);
+
+            int shownHp = runner != null ? runner.DisplayHpOf(u) : u.Hp;
+            float hpRatio = Mathf.Clamp01((float)shownHp / Mathf.Max(1, s.MaxHp));
+            _detailHpFill.anchorMax = new Vector2(hpRatio, 1f);
+            _detailHpFillImg.color = HpColor(hpRatio);
+            _detailHp.text = shownHp + " / " + s.MaxHp;
+
+            float mpRatio = Mathf.Clamp01((float)u.Mp / Mathf.Max(1, s.MaxMp));
+            _detailMpFill.anchorMax = new Vector2(mpRatio, 1f);
+            _detailMpFillImg.color = new Color(0.32f, 0.55f, 0.95f, 1f);
+            _detailMp.text = u.Mp + " / " + s.MaxMp;
+
+            _detailStats[0].text = "攻击 ATK  " + s.Strength;
+            _detailStats[1].text = "智力 MAG  " + s.Magic;
+            _detailStats[2].text = "防御 DEF  " + s.Defense;
+            _detailStats[3].text = "魔防 RES  " + s.Resist;
+            _detailStats[4].text = "命中 HIT  " + s.Accuracy;
+            _detailStats[5].text = "闪避 EVA  " + s.Evade;
+            _detailStats[6].text = "会心 CRT  " + s.Crit;
+            _detailStats[7].text = "移动 MOV  " + s.Move;
+            _detailStats[8].text = "射程 RNG  " +
+                (u.MinRange == u.MaxRange ? u.MaxRange.ToString() : u.MinRange + "-" + u.MaxRange);
+        }
 
         // --- Small UI builders shared by the HP bars / info panel -----------------------
 

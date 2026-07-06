@@ -112,6 +112,9 @@ namespace FantacyCentry.View.Battle
         public int DisplayHpOf(Unit unit) =>
             unit != null && _displayHp.TryGetValue(unit, out int hp) ? hp : (unit?.Hp ?? 0);
 
+        /// <summary>Settle the visual HP for a unit (called by the stage director at the impact frame).</summary>
+        public void SetDisplayHp(Unit unit, int hp) { if (unit != null) _displayHp[unit] = hp; }
+
         private void Start() => Build();
 
         private void Build()
@@ -155,8 +158,10 @@ namespace FantacyCentry.View.Battle
 
         private static Unit BuildUnit(UnitSpawn s)
         {
+            var abilities = FantacyCentry.Domain.Units.Abilities.For(s.id);
+            int maxMp = abilities.Count > 0 ? 20 : 0; // casters get an MP pool so skills/spells work
             var stats = new Stats(
-                s.maxHp, 0, s.strength, s.magic, s.defense, s.resist,
+                s.maxHp, maxMp, s.strength, s.magic, s.defense, s.resist,
                 s.accuracy, s.evade, s.crit, s.move);
             return new Unit(s.id, s.team, stats)
             {
@@ -164,6 +169,7 @@ namespace FantacyCentry.View.Battle
                 Weapon = s.weapon,
                 MinRange = s.minRange,
                 MaxRange = s.maxRange,
+                Abilities = abilities,
             };
         }
 
@@ -230,6 +236,126 @@ namespace FantacyCentry.View.Battle
             new AttackCommand(attacker, defender, _affinity, _rng).Execute(State);
             StartCoroutine(PlayQueued());
             return true;
+        }
+
+        /// <summary>The ability currently being cast, so <see cref="OnDamaged"/> can tag its visual
+        /// step with the right VFX (剑气/闪电) instead of a plain melee swing. Set only across the
+        /// synchronous Execute of an ability command.</summary>
+        private Ability _currentAbility;
+
+        /// <summary>
+        /// Cast <paramref name="ability"/> from <paramref name="caster"/> at <paramref name="target"/>
+        /// (an enemy for damage skills, an ally for heals). Cast from the caster's current cell; no
+        /// counter is provoked. Returns true if the cast was legal.
+        /// </summary>
+        public bool SubmitAbility(Unit caster, Unit target, Ability ability)
+        {
+            if (!CanAct() || caster == null || target == null || ability == null) return false;
+
+            if (ability.IsHeal)
+            {
+                var cmd = new HealCommand(caster, target, ability);
+                if (!cmd.Execute(State)) return false;
+                if (ability.MapCast)
+                    StartCoroutine(PlayMapHeal(caster, target, cmd.Healed, ability));
+                else
+                {
+                    _queue.Enqueue(VisualStep.HealStep(caster, target, cmd.Healed, target.Hp, ability.VfxKey));
+                    StartCoroutine(PlayQueued());
+                }
+                return true;
+            }
+
+            _currentAbility = ability;
+            bool ok = new AbilityAttackCommand(caster, target, ability, _affinity, _rng).Execute(State);
+            _currentAbility = null;
+            if (!ok) return false;
+            StartCoroutine(PlayQueued());
+            return true;
+        }
+
+        /// <summary>Cast a MAP AOE ability (火球术) centred on <paramref name="center"/>, hitting every
+        /// enemy in its footprint. Plays on the map (no battle-stage cut).</summary>
+        public bool SubmitAbilityCell(Unit caster, GridPos center, Ability ability)
+        {
+            if (!CanAct() || caster == null || ability == null || ability.Aoe == AbilityAoe.Single) return false;
+            var cmd = new AoeFireballCommand(caster, center, ability, _affinity, _rng);
+            if (!cmd.Execute(State)) return false;
+            StartCoroutine(PlayMapAoe(center, ability, cmd.Results));
+            return true;
+        }
+
+        private Vector3 CellToWorld(GridPos cell) =>
+            new(mapGrid.Origin.x + cell.X, mapGrid.Origin.y + cell.Y, 0f);
+
+        /// <summary>Play a frame bank as a world SpriteRenderer at <paramref name="world"/>, sized to
+        /// <paramref name="worldHeight"/> units, at <paramref name="alpha"/> opacity (semi-transparent heals).</summary>
+        private IEnumerator PlayMapVfx(Sprite[] frames, Vector3 world, float worldHeight, float fps, float alpha)
+        {
+            if (frames == null || frames.Length == 0) { yield return new WaitForSeconds(0.3f); yield break; }
+            var go = new GameObject("MapVfx");
+            var sr = go.AddComponent<SpriteRenderer>();
+            sr.sortingOrder = UnitLayerBias * 3; // above characters
+            go.transform.position = world;
+            float spf = 1f / Mathf.Max(1f, fps);
+            foreach (Sprite s in frames)
+            {
+                if (s != null)
+                {
+                    sr.sprite = s;
+                    float unitH = s.rect.height / s.pixelsPerUnit;
+                    float sc = worldHeight / Mathf.Max(0.01f, unitH);
+                    go.transform.localScale = new Vector3(sc, sc, 1f);
+                }
+                sr.color = new Color(1f, 1f, 1f, alpha);
+                yield return new WaitForSeconds(spf);
+            }
+            Destroy(go);
+        }
+
+        private IEnumerator PlayMapHeal(Unit caster, Unit target, int healed, Ability ability)
+        {
+            _busy = true; StateChanged?.Invoke();
+            UnitView tv = ViewFor(target);
+            Vector3 w = tv != null ? tv.transform.position : CellToWorld(target.Position);
+            BattleAudio.PlayHeal();
+            // Semi-transparent heal glow ON the ally, rising from the feet.
+            yield return PlayMapVfx(stageDirector != null ? stageDirector.BankFor(ability.VfxKey) : null,
+                w, 2.4f, 14f, 0.6f);
+            _displayHp[target] = target.Hp;
+            if (hud != null) hud.SpawnFloater(w + Vector3.up * 0.8f, "+" + healed, new Color(0.4f, 0.95f, 0.5f));
+            StateChanged?.Invoke();
+            if (!State.IsOver && _turns.ActingTeamFinished())
+                yield return EnemyTurn();
+            _busy = false; StateChanged?.Invoke();
+        }
+
+        private IEnumerator PlayMapAoe(GridPos center, Ability ability, System.Collections.Generic.List<Domain.Battle.AoeFireballCommand.Hit> results)
+        {
+            _busy = true; StateChanged?.Invoke();
+            Vector3 w = CellToWorld(center) + Vector3.up * 0.5f;
+            BattleAudio.PlayMagic("fire");
+            yield return PlayMapVfx(stageDirector != null ? stageDirector.BankFor(ability.VfxKey) : null,
+                w, 3f, 16f, 1f);
+            BattleAudio.PlayHit();
+            foreach (var r in results)
+            {
+                if (r.Unit == null) continue;
+                _displayHp[r.Unit] = r.HpAfter;
+                UnitView v = ViewFor(r.Unit);
+                Vector3 fw = v != null ? v.transform.position : CellToWorld(r.Unit.Position);
+                if (hud != null)
+                {
+                    string t = !r.Landed ? "MISS" : (r.Crit ? "CRIT " + r.Dmg : r.Dmg.ToString());
+                    Color c = !r.Landed ? new Color(0.85f, 0.85f, 0.85f) : new Color(1f, 0.5f, 0.45f);
+                    hud.SpawnFloater(fw + Vector3.up * 0.6f, t, c);
+                }
+            }
+            yield return DrainQueue(); // plays any deaths queued by the command
+            StateChanged?.Invoke();
+            if (!State.IsOver && _turns.ActingTeamFinished())
+                yield return EnemyTurn();
+            _busy = false; StateChanged?.Invoke();
         }
 
         /// <summary>
@@ -331,8 +457,15 @@ namespace FantacyCentry.View.Battle
                         UnitView v = ViewFor(step.Unit);
                         if (v != null)
                         {
+                            BattleAudio.PlayFootstep();
                             v.WalkPath(step.Path);
-                            while (v.IsAnimating) yield return null;
+                            float ft = 0f;
+                            while (v.IsAnimating)
+                            {
+                                ft += Time.deltaTime;
+                                if (ft >= 0.3f) { ft = 0f; BattleAudio.PlayFootstep(); }
+                                yield return null;
+                            }
                             v.FaceSouth();
                         }
                         if (stepPause > 0f) yield return new WaitForSeconds(stepPause);
@@ -343,6 +476,27 @@ namespace FantacyCentry.View.Battle
                         UnitView atk = ViewFor(step.Unit);
                         UnitView def = ViewFor(step.Other);
 
+                        // --- Ability (剑气/闪电/冰锥): ranged cast, plays its VFX on the target, no counter ---
+                        if (!string.IsNullOrEmpty(step.Vfx))
+                        {
+                            BattleAudio.PlayMagic(step.Vfx);
+                            if (useBattleStage && stageDirector != null && atk != null && def != null)
+                            {
+                                var hit = new BattleStageDirector.Hit { Landed = step.Hit, Dmg = step.Amount, Crit = step.Crit, HpAfter = step.HpAfter };
+                                yield return stageDirector.PlayAbility(atk, def, hit, step.Vfx, isHeal: false, speedMul: step.VfxSpeed);
+                            }
+                            else
+                            {
+                                if (atk != null) atk.FacePoint(step.Other.Position);
+                                yield return new WaitForSeconds(0.25f);
+                                if (def != null && step.Hit) def.PlayHit();
+                                _displayHp[step.Other] = step.HpAfter;
+                                if (def != null) SpawnFloater(def.transform.position, step);
+                            }
+                            if (stepPause > 0f) yield return new WaitForSeconds(stepPause);
+                            break;
+                        }
+
                         // --- Cut to the side-view duel stage (default) ---
                         if (useBattleStage && stageDirector != null && atk != null && def != null)
                         {
@@ -350,17 +504,10 @@ namespace FantacyCentry.View.Battle
                             bool hasCounter = _queue.Count > 0 && IsCounterOf(_queue.Peek(), step);
                             VisualStep counter = hasCounter ? _queue.Dequeue() : default;
 
-                            yield return stageDirector.Play(atk, def, step.Hit, hasCounter, hasCounter && counter.Hit);
-
-                            // Apply the HP drops + floaters after the演出 resolves.
-                            _displayHp[step.Other] = step.HpAfter;
-                            SpawnFloater(def.transform.position, step);
-                            if (hasCounter)
-                            {
-                                _displayHp[counter.Other] = counter.HpAfter;
-                                UnitView cdef = ViewFor(counter.Other);
-                                if (cdef != null) SpawnFloater(cdef.transform.position, counter);
-                            }
+                            var atkHit = new BattleStageDirector.Hit { Landed = step.Hit, Dmg = step.Amount, Crit = step.Crit, HpAfter = step.HpAfter };
+                            var ctrHit = new BattleStageDirector.Hit { Landed = hasCounter && counter.Hit, Dmg = counter.Amount, Crit = counter.Crit, HpAfter = counter.HpAfter };
+                            // The stage settles HP + pops floaters on impact via SettleHit → runner.SetDisplayHp.
+                            yield return stageDirector.Play(atk, def, atkHit, hasCounter, ctrHit);
                             if (stepPause > 0f) yield return new WaitForSeconds(stepPause);
                             break;
                         }
@@ -402,6 +549,22 @@ namespace FantacyCentry.View.Battle
                         if (stepPause > 0f) yield return new WaitForSeconds(stepPause);
                         break;
                     }
+                    case VisualKind.Heal:
+                    {
+                        UnitView caster = ViewFor(step.Unit);
+                        UnitView tgt = ViewFor(step.Other);
+                        BattleAudio.PlayHeal();
+                        if (useBattleStage && stageDirector != null && caster != null && tgt != null)
+                            yield return stageDirector.PlayAbility(caster, tgt, BattleStageDirector.Hit.Miss, step.Vfx, isHeal: true);
+                        else
+                            yield return new WaitForSeconds(0.35f);
+                        _displayHp[step.Other] = step.HpAfter;
+                        if (tgt != null && hud != null)
+                            hud.SpawnFloater(tgt.transform.position + Vector3.up * 0.6f,
+                                "+" + step.Amount, new Color(0.4f, 0.95f, 0.5f));
+                        if (stepPause > 0f) yield return new WaitForSeconds(stepPause);
+                        break;
+                    }
                 }
             }
         }
@@ -417,7 +580,9 @@ namespace FantacyCentry.View.Battle
 
         private void OnDamaged(UnitDamagedEvent e)
         {
-            _queue.Enqueue(VisualStep.Damage(e.Attacker, e.Defender, e.Result.IsHit, e.Result.Damage, e.Result.IsCrit, e.DefenderHpAfter));
+            string vfx = _currentAbility != null ? _currentAbility.VfxKey : null;
+            float vfxSpeed = _currentAbility != null ? _currentAbility.VfxSpeedMul : 1f;
+            _queue.Enqueue(VisualStep.Damage(e.Attacker, e.Defender, e.Result.IsHit, e.Result.Damage, e.Result.IsCrit, e.DefenderHpAfter, vfx, vfxSpeed));
             string outcome = e.Result.IsHit
                 ? (e.Result.IsCrit ? "CRIT " : "") + e.Result.Damage + " dmg (hp " + e.DefenderHpAfter + ")"
                 : "MISS";
@@ -462,7 +627,7 @@ namespace FantacyCentry.View.Battle
             hud.SpawnFloater(world + Vector3.up * 0.6f, text, color);
         }
 
-        private enum VisualKind { Move, Damage, Died }
+        private enum VisualKind { Move, Damage, Died, Heal }
 
         private readonly struct VisualStep
         {
@@ -475,8 +640,11 @@ namespace FantacyCentry.View.Battle
             public readonly int Amount;
             public readonly bool Crit;
             public readonly int HpAfter;
+            public readonly string Vfx;    // ability VFX key (null = plain attack)
+            public readonly bool IsHeal;
+            public readonly float VfxSpeed; // ability VFX speed multiplier (1 = normal)
 
-            private VisualStep(VisualKind kind, Unit unit, Unit other, IReadOnlyList<GridPos> path, bool hit, int amount, bool crit, int hpAfter)
+            private VisualStep(VisualKind kind, Unit unit, Unit other, IReadOnlyList<GridPos> path, bool hit, int amount, bool crit, int hpAfter, string vfx, bool isHeal, float vfxSpeed)
             {
                 Kind = kind;
                 Unit = unit;
@@ -486,16 +654,22 @@ namespace FantacyCentry.View.Battle
                 Amount = amount;
                 Crit = crit;
                 HpAfter = hpAfter;
+                Vfx = vfx;
+                IsHeal = isHeal;
+                VfxSpeed = vfxSpeed;
             }
 
             public static VisualStep Move(Unit u, IReadOnlyList<GridPos> path) =>
-                new(VisualKind.Move, u, null, path, false, 0, false, 0);
+                new(VisualKind.Move, u, null, path, false, 0, false, 0, null, false, 1f);
 
-            public static VisualStep Damage(Unit attacker, Unit defender, bool hit, int amount, bool crit, int hpAfter) =>
-                new(VisualKind.Damage, attacker, defender, null, hit, amount, crit, hpAfter);
+            public static VisualStep Damage(Unit attacker, Unit defender, bool hit, int amount, bool crit, int hpAfter, string vfx = null, float vfxSpeed = 1f) =>
+                new(VisualKind.Damage, attacker, defender, null, hit, amount, crit, hpAfter, vfx, false, vfxSpeed);
+
+            public static VisualStep HealStep(Unit caster, Unit target, int amount, int hpAfter, string vfx) =>
+                new(VisualKind.Heal, caster, target, null, true, amount, false, hpAfter, vfx, true, 1f);
 
             public static VisualStep Died(Unit u) =>
-                new(VisualKind.Died, u, null, null, false, 0, false, 0);
+                new(VisualKind.Died, u, null, null, false, 0, false, 0, null, false, 1f);
         }
     }
 }

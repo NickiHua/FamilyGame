@@ -28,6 +28,9 @@ namespace FantacyCentry.Domain.Units
         public int MinRange = 1;
         public int MaxRange = 1;
 
+        /// <summary>Castable skills / spells this unit owns (剑气, 闪电术, 治疗, ...).</summary>
+        public System.Collections.Generic.List<Ability> Abilities = new();
+
         public Unit(string id, Team team, Stats stats)
         {
             Id = id;

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
@@ -50,6 +51,109 @@ namespace FantacyCentry.View.Battle
         /// <summary>UI hook: standby the selected unit (same as pressing W).</summary>
         public void WaitFromUI() => WaitSelected();
 
+        /// <summary>UI hook: the player picked an ability from the SKILL/MAGIC menu — enter
+        /// targeting mode and highlight the legal targets (enemies for damage, allies for heal).</summary>
+        public void BeginAbilityTargeting(Ability ability)
+        {
+            if (ability == null || _selected == null || !IsControllable(_selected)) return;
+            _pendingAbility = ability;
+            RefreshAbilityTargets();
+            SelectionChanged?.Invoke();
+        }
+
+        /// <summary>Leave targeting mode and restore the normal move/attack overlay.</summary>
+        public void CancelAbilityTargeting()
+        {
+            if (_pendingAbility == null) return;
+            _pendingAbility = null;
+            _abilityTargets.Clear();
+            _abilityCells.Clear();
+            _aoeCenter = null;
+            RefreshOverlays();
+            SelectionChanged?.Invoke();
+        }
+
+        private void RefreshAbilityTargets()
+        {
+            _abilityTargets.Clear();
+            _abilityCells.Clear();
+            if (overlay != null) overlay.Clear();
+            Unit caster = _selected;
+            BattleState state = runner.State;
+            Ability ab = _pendingAbility;
+            if (caster == null || state == null || ab == null) return;
+
+            // AOE (火球): pick any CELL within range; the red range shows where it can be aimed.
+            if (ab.Aoe != AbilityAoe.Single)
+            {
+                _abilityCells.UnionWith(CellsInRange(caster.Position, ab, state));
+                if (overlay != null)
+                {
+                    // Stage A = aiming (red range). Stage B = a centre chosen: dim the range and
+                    // paint the resolved footprint (orange) so the player can confirm with a 2nd click.
+                    if (_aoeCenter.HasValue)
+                    {
+                        overlay.ShowRange(_abilityCells);
+                        overlay.ShowAoeArea(AoeFootprint(_aoeCenter.Value, ab, state));
+                    }
+                    else
+                    {
+                        overlay.ShowRange(_abilityCells);
+                    }
+                    overlay.ShowSelection(caster.Position);
+                }
+                return;
+            }
+
+            IEnumerable<Unit> candidates = ab.Target == AbilityTarget.Enemy
+                ? state.FoesOf(caster.Team)
+                : state.AliveUnits.Where(u => !BattleState.AreEnemies(caster.Team, u.Team));
+
+            var cells = new HashSet<GridPos>();
+            foreach (Unit u in candidates)
+            {
+                int d = GridPos.ManhattanDistance(caster.Position, u.Position);
+                if (d < ab.MinRange || d > ab.MaxRange) continue;
+                _abilityTargets[u.Position] = u;
+                cells.Add(u.Position);
+            }
+
+            if (overlay != null)
+            {
+                overlay.ShowRange(cells);            // red = valid targets this skill can point at
+                overlay.ShowSelection(caster.Position);
+            }
+        }
+
+        /// <summary>Every cell within an ability's min/max range of <paramref name="from"/>.</summary>
+        private static IEnumerable<GridPos> CellsInRange(GridPos from, Ability ab, BattleState state)
+        {
+            for (int x = 0; x < state.Map.Width; x++)
+                for (int y = 0; y < state.Map.Height; y++)
+                {
+                    var c = new GridPos(x, y);
+                    int d = GridPos.ManhattanDistance(from, c);
+                    if (d >= ab.MinRange && d <= ab.MaxRange) yield return c;
+                }
+        }
+
+        /// <summary>The cells an AOE actually hits when centred on <paramref name="center"/>
+        /// (currently a plus: centre + 4 orthogonal), clipped to the map.</summary>
+        private static HashSet<GridPos> AoeFootprint(GridPos center, Ability ab, BattleState state)
+        {
+            var cells = new HashSet<GridPos> { center };
+            if (ab.Aoe == AbilityAoe.Plus)
+            {
+                foreach (var (dx, dy) in new[] { (1, 0), (-1, 0), (0, 1), (0, -1) })
+                {
+                    var c = new GridPos(center.X + dx, center.Y + dy);
+                    if (c.X >= 0 && c.X < state.Map.Width && c.Y >= 0 && c.Y < state.Map.Height)
+                        cells.Add(c);
+                }
+            }
+            return cells;
+        }
+
         private static bool IsPointerOverUI()
         {
             EventSystem es = EventSystem.current;
@@ -60,6 +164,13 @@ namespace FantacyCentry.View.Battle
         private readonly HashSet<GridPos> _moveCells = new();        // foe cell -> how we'd hit it: which reachable cell to stand on (Stop) and the foe itself.
         private readonly Dictionary<GridPos, FoePlan> _attackTargets = new();
         private bool _wasBusy;
+
+        // Ability targeting: an ability chosen from the HUD, waiting for the player to click a target.
+        private Ability _pendingAbility;
+        private readonly Dictionary<GridPos, Unit> _abilityTargets = new();
+        private readonly HashSet<GridPos> _abilityCells = new();   // valid centre cells for an AOE cast
+        private GridPos? _aoeCenter;                                // AOE centre picked, awaiting confirm
+        public bool IsTargetingAbility => _pendingAbility != null;
 
         // For right-click take-back: where the unit stood before an uncommitted move (null = nothing to undo).
         private GridPos? _undoCell;
@@ -86,6 +197,10 @@ namespace FantacyCentry.View.Battle
         private void Update()
         {
             if (runner == null || !runner.Ready) return;
+
+            // A modal overlay (e.g. the full-screen character detail) is open → freeze battlefield
+            // interaction; the overlay handles its own dismissal.
+            if (runner.hud != null && runner.hud.IsCharacterDetailOpen) return;
 
             // When the runner finishes animating, re-evaluate the current selection.
             if (_wasBusy && !runner.IsBusy) ReselectAfterAction();
@@ -118,6 +233,53 @@ namespace FantacyCentry.View.Battle
         private void HandleClick(GridPos cell)
         {
             BattleState state = runner.State;
+            if (state == null) return;   // battle not ready / already torn down
+
+            // 0) In ability-targeting mode: click a valid target to cast, anything else cancels.
+            if (_pendingAbility != null)
+            {
+                // AOE (火球): two-stage. 1st click on a valid centre previews the effect area;
+                // 2nd click (on that centre / its footprint) fires. Clicking a different valid
+                // centre re-aims. Right-click take-back is handled in CancelOrUndo.
+                if (_pendingAbility.Aoe != AbilityAoe.Single)
+                {
+                    if (_selected == null) { CancelAbilityTargeting(); return; }
+
+                    if (_aoeCenter.HasValue)
+                    {
+                        var footprint = AoeFootprint(_aoeCenter.Value, _pendingAbility, state);
+                        if (cell == _aoeCenter.Value || footprint.Contains(cell))
+                        {
+                            // Confirm: fire at the previewed centre.
+                            Ability ab = _pendingAbility;
+                            GridPos center = _aoeCenter.Value;
+                            _pendingAbility = null; _abilityCells.Clear(); _aoeCenter = null;
+                            runner.SubmitAbilityCell(_selected, center, ab);
+                            return;
+                        }
+                        if (_abilityCells.Contains(cell)) { _aoeCenter = cell; RefreshAbilityTargets(); return; }
+                        // Click outside range: drop the preview but stay in aiming mode.
+                        _aoeCenter = null; RefreshAbilityTargets();
+                        return;
+                    }
+
+                    if (_abilityCells.Contains(cell)) { _aoeCenter = cell; RefreshAbilityTargets(); }
+                    else CancelAbilityTargeting();
+                    return;
+                }
+                if (_selected != null && _abilityTargets.TryGetValue(cell, out Unit tgt))
+                {
+                    Ability ab = _pendingAbility;
+                    _pendingAbility = null;
+                    _abilityTargets.Clear();
+                    runner.SubmitAbility(_selected, tgt, ab);
+                }
+                else
+                {
+                    CancelAbilityTargeting();
+                }
+                return;
+            }
 
             // 1) Selected + clicked an attackable foe -> attack (moving into range first if needed).
             if (_selected != null && _attackTargets.TryGetValue(cell, out FoePlan plan))
@@ -159,6 +321,10 @@ namespace FantacyCentry.View.Battle
         /// <summary>Right-click / Esc: undo an uncommitted move if there is one, otherwise deselect.</summary>
         private void CancelOrUndo()
         {
+            // While previewing an AOE, right-click first drops the preview (back to aiming),
+            // and only then cancels the whole ability on a second right-click.
+            if (_pendingAbility != null && _aoeCenter.HasValue) { _aoeCenter = null; RefreshAbilityTargets(); return; }
+            if (_pendingAbility != null) { CancelAbilityTargeting(); return; }
             if (_selected != null && _undoCell.HasValue && _selected.TurnState == TurnState.Moved)
             {
                 runner.UndoMove(_selected, _undoCell.Value);
@@ -193,8 +359,12 @@ namespace FantacyCentry.View.Battle
         {
             _selected = null;
             _undoCell = null;
+            _pendingAbility = null;
             _moveCells.Clear();
             _attackTargets.Clear();
+            _abilityTargets.Clear();
+            _abilityCells.Clear();
+            _aoeCenter = null;
             if (overlay != null) overlay.Clear();
             SelectionChanged?.Invoke();
         }

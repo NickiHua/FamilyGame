@@ -87,6 +87,19 @@ art/environments/pixel-art-top-down/
 Assets/Art/Tilesets/pixel-art-top-down/
 Assets/Art/Tilesets/pixel-art-top-down.meta
 *.unitypackage
+# 音效原包：Kenney=CC0 可分发，但 Leohpaz 免费包禁止再分发原包 → 原始 zip + 解压全集不入库
+audio/_zips/
+
+# 本地工具包 / 大模型二进制：可重新下载，不进库
+tools/realesrgan/
+
+# VFX 切帧质检输出：contact sheet / preview gif / debug check，不是生产资产
+art/vfx/_contact_*.png
+art/vfx/_preview_*.gif
+art/vfx/_check_*.png
+art/vfx/_gen/_contact_*.png
+art/vfx/_gen/_preview_*.gif
+art/vfx/_gen/_montage*.png
 
 # ============================================================
 # 草稿/待定美术（本地保留，不入库）

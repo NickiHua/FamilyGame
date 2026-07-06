@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FantacyCentry.Domain.Grid;
@@ -83,8 +84,31 @@ namespace FantacyCentry.View.Battle
             _mover.SnapToCell(new Vector2Int(cell.X, cell.Y));
         }
 
-        /// <summary>Remove a dead unit from view (no death clip in the rig yet, so just hide it).</summary>
-        public void Die() => gameObject.SetActive(false);
+        /// <summary>Death effect: freeze, sink into the ground and fade out (no death clip yet).</summary>
+        public void Die()
+        {
+            if (isActiveAndEnabled) StartCoroutine(DieRoutine());
+            else gameObject.SetActive(false);
+        }
+
+        private IEnumerator DieRoutine()
+        {
+            if (_anim != null) _anim.enabled = false; // freeze on the current frame
+            var sr = GetComponentInChildren<SpriteRenderer>();
+            Vector3 start = transform.position;
+            Vector3 end = start + Vector3.down * 0.55f;
+            Color c0 = sr != null ? sr.color : Color.white;
+            float t = 0f, dur = 0.55f;
+            while (t < dur)
+            {
+                t += Time.deltaTime;
+                float k = t / dur;
+                transform.position = Vector3.Lerp(start, end, k);
+                if (sr != null) { Color c = c0; c.a = Mathf.Lerp(1f, 0f, k); sr.color = c; }
+                yield return null;
+            }
+            gameObject.SetActive(false);
+        }
 
         private static Facing FacingFromDelta(int dx, int dy)
         {

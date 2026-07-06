@@ -25,6 +25,12 @@ namespace FantacyCentry.View.Battle
                  "solid gold selection frame (a faint, semi-transparent highlight).")]
         public Color hoverTint = new Color(1f, 1f, 1f, 0.55f);
 
+        [Tooltip("Tint for the ability aiming range (where a skill can be pointed).")]
+        public Color rangeTint = new Color(1f, 0.28f, 0.24f, 0.85f);
+
+        [Tooltip("Tint for the resolved AOE effect area, shown after picking a centre cell.")]
+        public Color aoeTint = new Color(1f, 0.62f, 0.12f, 0.95f);
+
         [Tooltip("Sorting order for ground highlights. Must be below every unit (units Y-sort to " +
                  "negative orders) yet above the map background (-5000).")]
         public int tileSortingOrder = -4000;
@@ -47,6 +53,12 @@ namespace FantacyCentry.View.Battle
         public void ShowMove(IEnumerable<GridPos> cells) => Paint(cells, moveTile, tileSortingOrder);
 
         public void ShowAttack(IEnumerable<GridPos> cells) => Paint(cells, attackTile, tileSortingOrder + 1);
+
+        /// <summary>Red aiming range: where an ability may be pointed.</summary>
+        public void ShowRange(IEnumerable<GridPos> cells) => Paint(cells, attackTile, tileSortingOrder + 1, rangeTint);
+
+        /// <summary>Solid orange effect footprint of an AOE about to be cast.</summary>
+        public void ShowAoeArea(IEnumerable<GridPos> cells) => Paint(cells, attackTile, tileSortingOrder + 2, aoeTint);
 
         public void ShowSelection(GridPos cell)
         {
@@ -88,16 +100,17 @@ namespace FantacyCentry.View.Battle
             if (_hover != null) _hover.gameObject.SetActive(false);
         }
 
-        private void Paint(IEnumerable<GridPos> cells, Sprite sprite, int order)
+        private void Paint(IEnumerable<GridPos> cells, Sprite sprite, int order, Color? tint = null)
         {
             if (sprite == null || cells == null) return;
-            foreach (GridPos c in cells) Place(c, sprite, order);
+            foreach (GridPos c in cells) Place(c, sprite, order, tint);
         }
 
-        private void Place(GridPos cell, Sprite sprite, int order)
+        private void Place(GridPos cell, Sprite sprite, int order, Color? tint = null)
         {
             SpriteRenderer sr = Next();
             sr.sprite = sprite;
+            sr.color = tint ?? Color.white;
             sr.sortingOrder = order;
             Transform t = sr.transform;
             t.position = new Vector3(worldOrigin.x + cell.X, worldOrigin.y + cell.Y, 0f);
