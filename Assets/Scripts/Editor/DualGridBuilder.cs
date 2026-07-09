@@ -25,6 +25,7 @@ namespace FantacyCentry.EditorTools
     public static class DualGridBuilder
     {
         private const string TileDir = "Assets/Art/Tiles/";
+        private const string BridgeSpritePath = "Assets/Art/Objects/Bridges/bridge_horizon_wood_128X256.png";
 
         // Terrain letter -> flat base tile asset (interior fill). Water/bridge cells are filled
         // specially with the 2x2 water_base set. 'B' (building) & 'S' (sand) render as grass.
@@ -80,12 +81,11 @@ namespace FantacyCentry.EditorTools
             grid.Parse();
             if (grid.Size <= 0) { Debug.LogError("[DualGridBuilder] Failed to parse map grid."); return; }
 
-            // Disable the hand-painted Stage1 Tilemap renderers so the flat base doesn't double up
-            // and drift half a cell under the dual grid (skip our own DualGrid layers).
+            // Disable any existing Tilemap renderers so the hand-painted authoring canvas and
+            // previous generated layers don't double up. Build() destroys the old DualGrid before
+            // creating the fresh runtime layers below.
             foreach (var tmr in Object.FindObjectsByType<TilemapRenderer>(FindObjectsInactive.Exclude))
-                if (tmr.gameObject.name != "ground" && tmr.gameObject.name != "bridge"
-                    && !tmr.gameObject.name.EndsWith("_edges"))
-                    tmr.enabled = false;
+                tmr.enabled = false;
 
             Build(grid);
             Debug.Log("[DualGridBuilder] DualGrid rebuilt from " + mapJson + " (" + grid.Size + " wide).");
@@ -101,6 +101,8 @@ namespace FantacyCentry.EditorTools
                 var t = AssetDatabase.LoadAssetAtPath<TileBase>($"{TileDir}{kv.Value}.asset");
                 if (t != null) byLetter[kv.Key] = t;
             }
+            var grassVariants = LoadVariantTiles("grass_v1", "G", 5);
+            var roadVariants = LoadVariantTiles("road_v1", "R", 5);
             var water = new TileBase[4];
             for (int i = 0; i < 4; i++)
                 water[i] = GetOrCreateTile("", $"water_base_{i + 1}");
@@ -113,6 +115,7 @@ namespace FantacyCentry.EditorTools
             rend.sortingOrder = -5000;
 
             byLetter.TryGetValue('G', out var grassFallback);
+            byLetter.TryGetValue('R', out var roadFallback);
             for (int y = 0; y < grid.Height; y++)
             for (int x = 0; x < grid.Width; x++)
             {
@@ -120,9 +123,44 @@ namespace FantacyCentry.EditorTools
                 TileBase tile;
                 if (c == 'W' || c == 'D')
                     tile = water[(x & 1) + 2 * (y & 1)]; // 2x2 water_base pattern
+                else if (c == 'G' || c == 'B' || c == 'S')
+                    tile = PickWeightedVariant(grassVariants, x, y, 17, grassFallback);
+                else if (c == 'R')
+                    tile = PickWeightedVariant(roadVariants, x, y, 31, roadFallback != null ? roadFallback : grassFallback);
                 else if (!byLetter.TryGetValue(c, out tile))
                     tile = grassFallback;
                 if (tile != null) tm.SetTile(new Vector3Int(x, y, 0), tile);
+            }
+        }
+
+        private static TileBase[] LoadVariantTiles(string subdir, string prefix, int count)
+        {
+            var tiles = new TileBase[count];
+            for (int i = 0; i < count; i++)
+                tiles[i] = GetOrCreateTile(subdir, $"{prefix}{i}");
+            return tiles;
+        }
+
+        private static TileBase PickWeightedVariant(TileBase[] variants, int x, int y, int salt, TileBase fallback)
+        {
+            int index = WeightedVariantIndex(x, y, salt);
+            return index >= 0 && index < variants.Length && variants[index] != null ? variants[index] : fallback;
+        }
+
+        private static int WeightedVariantIndex(int x, int y, int salt)
+        {
+            unchecked
+            {
+                uint h = (uint)(x * 73856093) ^ (uint)(y * 19349663) ^ (uint)(salt * 83492791);
+                h ^= h >> 13;
+                h *= 1274126177u;
+                h ^= h >> 16;
+                uint roll = h % 100u;
+                if (roll < 60u) return 0;
+                if (roll < 70u) return 1;
+                if (roll < 80u) return 2;
+                if (roll < 90u) return 3;
+                return 4;
             }
         }
 
@@ -219,23 +257,70 @@ namespace FantacyCentry.EditorTools
             return existing;
         }
 
-        /// <summary>Bridge as a solid hard layer on top of the ground (units still sort above it).</summary>
+        /// <summary>Bridge objects on top of the ground (units still sort above them).</summary>
         private static void BuildBridge(Transform parent, MapGrid grid)
         {
-            var bridge = AssetDatabase.LoadAssetAtPath<TileBase>($"{TileDir}bridge.asset");
+            var bridge = LoadSprite(BridgeSpritePath);
             if (bridge == null) return;
 
-            var go = new GameObject("bridge");
-            go.transform.SetParent(parent, false);
-            go.transform.localPosition = new Vector3(grid.Origin.x - 0.5f, grid.Origin.y - 0.5f, 0f);
-            var tm = go.AddComponent<Tilemap>();
-            var rend = go.AddComponent<TilemapRenderer>();
-            rend.sortingOrder = -4980;
+            int w = grid.Width, h = grid.Height;
+            var visited = new bool[w, h];
+            for (int y = 0; y < h; y++)
+            for (int x = 0; x < w; x++)
+            {
+                if (visited[x, y] || grid.TerrainAt(new Vector2Int(x, y)) != 'D') continue;
+                BuildBridgeComponent(parent, grid, bridge, visited, x, y);
+            }
+        }
 
-            for (int y = 0; y < grid.Height; y++)
-            for (int x = 0; x < grid.Width; x++)
-                if (grid.TerrainAt(new Vector2Int(x, y)) == 'D')
-                    tm.SetTile(new Vector3Int(x, y, 0), bridge);
+        private static void BuildBridgeComponent(Transform parent, MapGrid grid, Sprite bridge,
+                                                 bool[,] visited, int startX, int startY)
+        {
+            int minX = startX, maxX = startX, minY = startY, maxY = startY;
+            var open = new System.Collections.Generic.Queue<Vector2Int>();
+            open.Enqueue(new Vector2Int(startX, startY));
+            visited[startX, startY] = true;
+
+            while (open.Count > 0)
+            {
+                Vector2Int c = open.Dequeue();
+                minX = Mathf.Min(minX, c.x); maxX = Mathf.Max(maxX, c.x);
+                minY = Mathf.Min(minY, c.y); maxY = Mathf.Max(maxY, c.y);
+                TryBridgeNeighbor(grid, visited, open, c.x + 1, c.y);
+                TryBridgeNeighbor(grid, visited, open, c.x - 1, c.y);
+                TryBridgeNeighbor(grid, visited, open, c.x, c.y + 1);
+                TryBridgeNeighbor(grid, visited, open, c.x, c.y - 1);
+            }
+
+            float centerX = grid.Origin.x + (minX + maxX) * 0.5f;
+            float bottomY = grid.Origin.y + minY - 0.5f;
+            var go = new GameObject($"bridge_{minX}_{minY}");
+            go.transform.SetParent(parent, false);
+            go.transform.position = new Vector3(centerX, bottomY, 0f);
+            var sr = go.AddComponent<SpriteRenderer>();
+            sr.sprite = bridge;
+            sr.sortingOrder = -4980;
+        }
+
+        private static void TryBridgeNeighbor(MapGrid grid, bool[,] visited,
+                                              System.Collections.Generic.Queue<Vector2Int> open,
+                                              int x, int y)
+        {
+            if (x < 0 || x >= grid.Width || y < 0 || y >= grid.Height || visited[x, y]) return;
+            if (grid.TerrainAt(new Vector2Int(x, y)) != 'D') return;
+            visited[x, y] = true;
+            open.Enqueue(new Vector2Int(x, y));
+        }
+
+        private static Sprite LoadSprite(string path)
+        {
+            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+            if (sprite == null && System.IO.File.Exists(path))
+            {
+                AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
+                sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+            }
+            return sprite;
         }
 
         public static void Cleanup()

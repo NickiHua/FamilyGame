@@ -31,9 +31,20 @@ namespace FantacyCentry.EditorTools
         public static void Scatter()
         {
             MapGrid grid = GetOrCreateGrid();
-            if (grid == null) return;
+            Scatter(grid, randomizeSeed: true);
+        }
 
-            Sprite[] trees = LoadSprites(TreeDir, "tree", 1, 8);
+        public static void Scatter(MapGrid grid)
+        {
+            Scatter(grid, randomizeSeed: false);
+        }
+
+        private static void Scatter(MapGrid grid, bool randomizeSeed)
+        {
+            if (grid == null) return;
+            grid.Parse();
+
+            Sprite[] trees = LoadSprites(TreeDir, "ref_green_tree_", 0, 3);
             Sprite[] stones = LoadSprites(StoneDir, "stone", 1, 30);
             if (trees.Length == 0 || stones.Length == 0)
             {
@@ -46,8 +57,9 @@ namespace FantacyCentry.EditorTools
             var container = new GameObject(ContainerName);
             Undo.RegisterCreatedObjectUndo(container, "Scatter Props");
 
-            // Fresh seed each run so re-running gives a new layout the player can re-roll.
-            Random.InitState(System.Environment.TickCount);
+            // Menu scatter is a re-roll tool; battle-scene build is deterministic so a rebuild
+            // does not unexpectedly shuffle the map art.
+            Random.InitState(randomizeSeed ? System.Environment.TickCount : 20260707);
 
             int w = grid.Width, h = grid.Height;
             var used = new HashSet<Vector2Int>();
@@ -68,11 +80,16 @@ namespace FantacyCentry.EditorTools
                 float treeProb = 0f;
                 if (grass)
                 {
-                    if (x <= 5) treeProb = 0.60f;                    // dense left forest
-                    else if (x == 6) treeProb = 0.30f;               // forest thinning to river
-                    else if (x >= 8 && x <= 16) treeProb = 0.07f;    // scattered right bank
-                    // a few clustered near the houses (house zone ~x10-15, y16-21)
-                    if (x >= 8 && x <= 17 && y >= 13 && y <= 24) treeProb = Mathf.Max(treeProb, 0.12f);
+                    bool forestCap = y >= 22 || y <= 6;
+                    bool nearRoad = HasTerrainNear(grid, cell, 'R', 1);
+                    if (x <= 2) treeProb = forestCap ? 0.96f : 0.86f;
+                    else if (x <= 4) treeProb = forestCap ? 0.88f : 0.68f;
+                    else if (x <= 6) treeProb = forestCap ? 0.58f : 0.34f;
+                    else if (x >= 8 && x <= 12 && y >= 18) treeProb = 0.10f; // sparse upper right bank
+                    else if (x >= 8 && x <= 13 && y <= 8) treeProb = 0.12f;  // sparse lower right bank
+
+                    if (x >= 7 && nearRoad) treeProb *= 0.25f;               // keep village paths open
+                    if (x >= 10 && x <= 20 && y >= 10 && y <= 22) treeProb *= 0.35f;
                 }
 
                 if (grass && !used.Contains(cell) && Random.value < treeProb)
@@ -96,8 +113,8 @@ namespace FantacyCentry.EditorTools
             }
 
             Selection.activeGameObject = container;
-            Debug.Log($"[PropScatter] Placed {treeCount} trees + {stoneCount} stones under '{ContainerName}'. " +
-                      "Re-run for a new layout, or Ctrl+Z to undo.");
+            string reroll = randomizeSeed ? " Re-run for a new layout, or Ctrl+Z to undo." : "";
+            Debug.Log($"[PropScatter] Placed {treeCount} trees + {stoneCount} stones under '{ContainerName}'." + reroll);
         }
 
         [MenuItem("Tools/FantacyCentry/Clear Scattered Props")]
@@ -111,8 +128,21 @@ namespace FantacyCentry.EditorTools
         private static bool PlaceTree(Transform parent, MapGrid grid, Vector2Int cell, Sprite[] pool)
         {
             Sprite sprite = pool[Random.Range(0, pool.Length)];
-            float targetW = Random.Range(0.7f, 1.1f);              // smaller
+            float targetW = Random.Range(1.10f, 1.45f);
             return MakeProp("tree", sprite, grid, cell, targetW, 0f, parent) != null; // 0 jitter = exact tile
+        }
+
+        private static bool HasTerrainNear(MapGrid grid, Vector2Int cell, char terrain, int radius)
+        {
+            for (int dy = -radius; dy <= radius; dy++)
+            for (int dx = -radius; dx <= radius; dx++)
+            {
+                if (Mathf.Abs(dx) + Mathf.Abs(dy) > radius) continue;
+                if (dx == 0 && dy == 0) continue;
+                if (grid.TerrainAt(new Vector2Int(cell.x + dx, cell.y + dy)) == terrain)
+                    return true;
+            }
+            return false;
         }
 
         private static bool PlaceStone(Transform parent, MapGrid grid, Vector2Int cell, Sprite[] pool)
@@ -198,6 +228,11 @@ namespace FantacyCentry.EditorTools
             for (int i = lo; i <= hi; i++)
             {
                 var s = AssetDatabase.LoadAssetAtPath<Sprite>($"{dir}{prefix}{i}.png");
+                if (s == null && System.IO.File.Exists($"{dir}{prefix}{i}.png"))
+                {
+                    AssetDatabase.ImportAsset($"{dir}{prefix}{i}.png", ImportAssetOptions.ForceSynchronousImport);
+                    s = AssetDatabase.LoadAssetAtPath<Sprite>($"{dir}{prefix}{i}.png");
+                }
                 if (s != null) list.Add(s);
             }
             return list.ToArray();

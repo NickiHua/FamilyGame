@@ -94,10 +94,44 @@ namespace FantacyCentry.View
 
             if (Width == 0 && rows.Count > 0) Width = rows[0].Length;
             if (Height == 0) Height = rows.Count;
-            _rows = rows.ToArray();
+            _rows = InferBridgeCells(rows.ToArray());
 
             if (_rows.Length != Height)
                 Debug.LogWarning($"[MapGrid] Parsed {_rows.Length} rows but grid_h is {Height}.");
+        }
+
+        private string[] InferBridgeCells(string[] rows)
+        {
+            if (rows == null || rows.Length == 0 || Width <= 0) return rows;
+
+            var chars = new char[rows.Length][];
+            for (int i = 0; i < rows.Length; i++)
+                chars[i] = rows[i].ToCharArray();
+
+            for (int r = 0; r < chars.Length; r++)
+            for (int x = 0; x < Width; x++)
+            {
+                if (chars[r][x] != 'W') continue;
+                if (HasRoadAcrossWater(chars[r], x, -1) && HasRoadAcrossWater(chars[r], x, 1))
+                    chars[r][x] = 'D';
+            }
+
+            var inferred = new string[rows.Length];
+            for (int i = 0; i < rows.Length; i++)
+                inferred[i] = new string(chars[i]);
+            return inferred;
+        }
+
+        private static bool HasRoadAcrossWater(char[] row, int x, int step)
+        {
+            for (int nx = x + step; nx >= 0 && nx < row.Length; nx += step)
+            {
+                char c = row[nx];
+                if (c == 'R' || c == 'D') return true;
+                if (c == 'W') continue;
+                return false;
+            }
+            return false;
         }
 
         public bool InBounds(Vector2Int cell) =>

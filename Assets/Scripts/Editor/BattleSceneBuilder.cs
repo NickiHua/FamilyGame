@@ -76,6 +76,11 @@ namespace FantacyCentry.EditorTools
             // --- Full dual-grid ground rebuilt from JSON (no hard base, blended edges) ---
             DualGridBuilder.Build(grid);
 
+            // --- Map props --------------------------------------------------
+            // Decorative trees/stones are part of the generated battlefield, not a separate
+            // manual follow-up step. The standalone menu can still be used to re-roll them.
+            PropScatterTool.Scatter(grid);
+
             // --- Overlay ----------------------------------------------------
             var overlayGo = new GameObject("RangeOverlay");
             var overlay = overlayGo.AddComponent<RangeOverlay>();
@@ -251,7 +256,7 @@ namespace FantacyCentry.EditorTools
                 "MapGrid", "MapBackground", "RangeOverlay", "BattleRunner",
                 "BattleCanvas", "EventSystem", "DualGrid", "GroundTiles",
                 "LingShuang", "LuLi", "SuYao", "EmpireArcher", "EmpireAxeSoldier",
-                "BattleStageDirector", "BattleAudio",
+                "BattleStageDirector", "BattleAudio", "ScatteredProps",
             };
 
             foreach (GameObject root in EditorSceneManager.GetActiveScene().GetRootGameObjects())

@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 r"""gen_dual_tiles.py — build seamless 16-tile dual-grid sets for MANY terrains
-from the same 3 hand-drawn masks (grass corner/half/3corners), each filled with
-that terrain's own texture. No baked rim (seam layer is separate).
+from the shared 00..15 dual-grid alpha masks, each filled with that terrain's
+own texture. No baked rim (seam layer is separate).
 
-Masks (art/tiles/grass/, 64x64 alpha silhouette, grass reaches 42px on every mixed
-edge = 10px overhang past the 32px midpoint -> seamless):
-    grass_1_corner_mask.png    (bit 1  = TL)
-    grass_1_half_mask.png      (bit 3  = top)
-    grass_1_3corners_mask.png  (bit 7  = notch BR)
-Bits: 1=TL 2=TR 4=BL 8=BR (matches DualGridBuilder).
+Masks (art/tiles/masks/, 64x64 alpha silhouette):
+    00.png .. 15.png, where bits are TL=1 TR=2 BL=4 BR=8
+    (matches DualGridBuilder's Unity bit convention).
 
 Terrains + their fill textures are in TERRAINS below. Output for each:
     Assets/Art/Tiles/<name>_dual/00.png .. 15.png  (+ old ones backed up)
@@ -25,19 +22,15 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw
 
 TILE = 64
-MASK_DIR = Path("art/tiles/grass")
+MASK_DIR = Path("art/tiles/masks")
 
 # terrain name -> fill texture (any size; tiled if smaller, cropped if larger)
 TERRAINS = {
-    "grass": "Assets/Art/Tiles/grass.png",
-    "road": "Assets/Art/Tiles/road.png",
+    "grass": "art/tiles/grass/v1/G0.png",
+    "road": "art/tiles/road/v1/R0.png",
     "dirt": "Assets/Art/Tiles/dirt.png",
     "water": "art/tiles/water/water_1_128.png",
 }
-
-R90 = Image.Transpose.ROTATE_90
-R180 = Image.Transpose.ROTATE_180
-R270 = Image.Transpose.ROTATE_270
 
 
 def load_alpha(name: str) -> Image.Image:
@@ -45,10 +38,6 @@ def load_alpha(name: str) -> Image.Image:
     if im.size != (TILE, TILE):
         im = im.resize((TILE, TILE), Image.NEAREST)
     return im.split()[3]
-
-
-def rot(a, t):
-    return a if t is None else a.transpose(t)
 
 
 def clip_half(rgba, dirn):
@@ -66,10 +55,6 @@ def clip_half(rgba, dirn):
     return out
 
 
-def union(a, b):
-    return ImageChops.lighter(a, b)
-
-
 def fit_64(tex: Image.Image) -> Image.Image:
     """Return a 64x64 fill: tile up if smaller, crop top-left if larger."""
     if tex.size == (TILE, TILE):
@@ -84,20 +69,7 @@ def fit_64(tex: Image.Image) -> Image.Image:
 
 
 def silhouettes():
-    corner = load_alpha("grass_1_corner_mask.png")
-    half = load_alpha("grass_1_half_mask.png")
-    three = load_alpha("grass_1_3corners_mask.png")
-    full = Image.new("L", (TILE, TILE), 255)
-    empty = Image.new("L", (TILE, TILE), 0)
-    return {
-        0: empty,
-        1: rot(corner, None), 4: rot(corner, R90), 8: rot(corner, R180), 2: rot(corner, R270),
-        3: rot(half, None), 5: rot(half, R90), 12: rot(half, R180), 10: rot(half, R270),
-        7: rot(three, None), 13: rot(three, R90), 14: rot(three, R180), 11: rot(three, R270),
-        6: union(rot(corner, R270), rot(corner, R90)),
-        9: union(rot(corner, None), rot(corner, R180)),
-        15: full,
-    }
+    return {b: load_alpha(f"{b:02d}.png") for b in range(16)}
 
 
 def main() -> None:

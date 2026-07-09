@@ -27,6 +27,19 @@ art/portraits/<char>/<char>_*.png  ← ③ 最终透明 master
 Assets/Art/UI/portraits/           ← ④ Unity 实际导入的副本
 ```
 
+### 0.1 工具分工（2026-07-08 实测）
+
+| 工具 | 最适合 | 不适合 / 风险 | 当前结论 |
+|---|---|---|---|
+| **GPT Image 1.5 high** | 新角色主立绘、第一张高完成度概念、审美定调 | 严格同一角色动作差分；服装结构、腰带、腿甲、披风剪影会漂 | **主立绘首选** |
+| **Seedream 5.0 reference image** | 同一角色姿势 / 武器 / 剧情立绘差分 | 单张绘画完成度和动作表现不一定强于 GPT | **角色一致性惊艳，差分首选** |
+| **即梦交互编辑 inpainting** | 云端 mask 局部重绘、表情候选 | 语义惯性强：高兴易露齿，难过易落泪；仍需人工挑选 | **有 mask，优于旧 inpaint** |
+| **旧 `i2i_inpainting_edit`** | 仅历史兼容 / 粗草稿 | 文档标「下线中」，身份漂移严重，返回 JPEG/RGB 无 alpha | **淘汰** |
+| **local ComfyUI + FaceDetailer** | 本地批量表情差分、只改脸 | 需要本地工作流和人工筛选 | **表情生产线最接近正解** |
+| **火山 `saliency_seg` 抠图** | 快速 alpha 粗抠图 | 边缘羽化偏重，不如 X4 + 手工抠图 | **可作预览，不作最终上限** |
+
+一句话：**GPT 定主立绘美术上限，Seedream 做同角色动作差分，Comfy/即梦做表情候选，最终仍由 Photopea/PS/Aseprite 锁一致性和边缘质量。**
+
 ---
 
 ## 1. 黄金铁律（先记这六条）
@@ -99,6 +112,190 @@ Assets/Art/UI/portraits/<Id>_bust.png         Unity 导入副本（胸像）
 - **模型**：默认 `gpt-image-1.5`（通常质量 / 价格更合适；虽支持透明，但本 pipeline 不使用透明出图）。需时可 `--model gpt-image-1` 回退。
 - **语言**：走 Image API **不会 rewrite**（不同于 ChatGPT 网页 / Responses API 工具），prompt **逐字使用** → 用**英文** prompt 最稳（portrait-prompts.md 已是英文精简版）。
 - ⚠️ **调用前停下来跟用户确认**（每次 generate / `--ref` 都付费）。
+
+### 4.1 Seedream 5.0：同一角色动作 / 武器 / 姿势差分
+
+Seedream 5.0 不一定是主立绘审美上限，但实测在**参考图一致性**上非常强。陆离、凌霜实验中，它能保住：
+
+```text
+脸型 / 发型 / 发色 / 眼色 / 主要服装分区 / 披风轮廓 / 腰带 / 甲片 / 角色体型
+```
+
+适合做：
+
+```text
+拔剑 / 持枪 / 跪地 / 挥剑 / 受伤 / 低落 / 剧情姿势差分
+```
+
+不适合做：
+
+```text
+主立绘首图审美定调（GPT Image high 仍更强）
+严格局部修脸（走 Comfy / 即梦）
+```
+
+调用方式：
+
+```text
+Endpoint: https://ark.cn-beijing.volces.com/api/v3/images/generations
+Auth: Bearer Ark API Key（本地 volcenginekey.txt）
+model: doubao-seedream-5-0-260128
+field: image = data:image/png;base64,...  # 单张参考图
+size: 1664x2496 或按角色比例指定
+output_format: jpeg
+response_format: url  # 避免大 b64_json 响应被截断
+```
+
+本地脚本：
+
+```text
+scripts/volcengine_seedream_ref_portrait.py
+```
+
+推荐 prompt 结构：
+
+```text
+参考图中的人物形象、脸型、发型、眼色、服装结构、配色、职业气质和画风。
+必须生成同一个角色；不要换脸、不要换发型、不要改变发色眼色、不要改变主配色、不要过度华丽。
+竖版全身立绘，完整人物从头到脚可见，留安全边距。
+动作：<具体动作/武器/情绪姿势>。
+```
+
+生产建议：
+
+```text
+GPT 主立绘 / concept sheet
+   → 裁出单独 full-body 参考图（不要整张 sheet）
+   → Seedream 参考图生图生成动作差分
+   → 横向对比检查服装结构是否跳
+   → 通过后再走 X4 + 手工抠图
+```
+
+### 4.2 表情差分：Comfy FaceDetailer / 即梦 inpainting
+
+表情差分的目标不是“画一张更好看的脸”，而是切换表情时玩家仍觉得是同一张脸。审核重点：
+
+```text
+眼睛大小不跳
+眉毛粗细不跳
+嘴线粗细不跳
+鼻子位置不跳
+脸型边界不跳
+颜色不跳
+```
+
+#### A. 首选：local ComfyUI + FaceDetailer
+
+用户本地实测可行工作流：
+
+```text
+LoadImage 原全身图
+CheckpointLoader: Illustrious-XL
+正向提示词: 身份锚点 + 表情
+负向提示词
+YOLO 脸检测
+SAM 精细分割
+FaceDetailer
+SaveImage
+```
+
+优点：
+
+- 只处理脸部检测区域，blast radius 小。
+- 不污染身体、披风、盔甲、角色外轮廓。
+- 本地批量抽候选，无云端 API 成本。
+
+FaceDetailer 的本质是：
+
+```text
+detector 找到区域 → crop / mask → inpaint/detail → 贴回原图
+```
+
+默认常接 face detector，但并非只能画脸；接手部 / 人物 / 自定义 bbox 或 mask 时也能处理其他局部。
+
+#### B. 备选：即梦 AI 交互编辑 inpainting
+
+文档：`https://www.volcengine.com/docs/85621/1976207?lang=zh`
+
+```text
+Endpoint: https://visual.volcengineapi.com
+Action: CVSync2AsyncSubmitTask / CVSync2AsyncGetResult
+Version: 2022-08-31
+Region: cn-north-1
+Service: cv
+Auth: AK/SK 签名（volcengineak.txt + volcenginesk.txt）
+req_key: jimeng_image2image_dream_inpaint
+binary_data_base64: [原图, mask]
+mask: 黑色 0 = 保持，白色 255 = 待重绘
+prompt: 必填，建议 <=120 字
+seed: 默认 101
+```
+
+本地脚本：
+
+```text
+scripts/volcengine_jimeng_inpaint.py
+```
+
+实测结论：
+
+- 比旧 `i2i_inpainting_edit` 强很多。
+- 表情读法明显，mask 真实可用。
+- 但语义惯性强：`高兴` 容易露齿笑，`难过` 容易落泪。
+- 否定词不稳：`不要露牙` / `不要眼泪` 可能仍失败。
+- 正向写法更好：`闭唇微笑`、`脸颊干净`、`沉默低落`。
+
+推荐 prompt 写法：
+
+```text
+日式战棋RPG立绘，干净赛璐璐，克制商业手游画风。
+只编辑mask内脸部表情；保持角色身份、脸型轮廓、蓝眼睛、发色、肤色、服装颜色和未遮罩区域一致；
+只允许眉毛角度、眼睑开合、嘴角弧度小幅变化。
+目标：<轻微表情，使用正向描述>。
+```
+
+推荐表情词：
+
+```text
+微笑：一点笑意 / 浅浅微笑 / 闭唇微笑 / 嘴角小幅上扬
+低落：沉默低落 / 温和遗憾 / 眼神向下 / 脸颊干净
+生气：轻微生气 / 眉毛内压 / 嘴巴紧闭
+疑惑：轻微疑惑 / 一侧眉毛略抬 / 嘴巴闭合
+```
+
+避免：
+
+```text
+大笑、伤心、哭、强烈生气、夸张表情
+```
+
+因为模型会自动放大这些语义。
+
+### 4.3 旧火山 inpaint 与抠图服务定位
+
+旧 prompt inpaint：
+
+```text
+req_key: i2i_inpainting_edit
+状态: 文档标记「下线中」
+问题: 身份漂移、面罩/黄眼等严重重绘、返回 JPEG/RGB 无 alpha
+```
+
+不再作为主流程，只保留历史脚本用于对照。
+
+主体分割抠图：
+
+```text
+req_key: saliency_seg
+only_mask: 3/4
+rgb: [-1,-1,-1]
+```
+
+可返回真 RGBA 透明图，但边缘羽化偏重。最终立绘透明资产仍走：
+
+```text
+Real-ESRGAN x4 → Photopea / PS 手工抠图 → 缩回 → Aseprite 点修
+```
 
 ---
 
