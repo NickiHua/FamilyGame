@@ -25,6 +25,9 @@ namespace FantacyCentry.EditorTools
     public static class DualGridBuilder
     {
         private const string TileDir = "Assets/Art/Tiles/";
+        private const string WaterSurfacePath = "Assets/Art/Maps/stage1_water_surface.png";
+        private const string ShoreLandPath = "Assets/Art/Maps/stage1_shore_land.png";
+        private const string Stage1OverlayPath = "Assets/Art/Maps/stage1_b.png";
         private const string BridgeSpritePath = "Assets/Art/Objects/Bridges/bridge_horizon_wood_128X256.png";
 
         // Terrain letter -> flat base tile asset (interior fill). Water/bridge cells are filled
@@ -57,9 +60,12 @@ namespace FantacyCentry.EditorTools
             var root = new GameObject("DualGrid");
             root.AddComponent<UnityEngine.Grid>();
 
+            BuildMapSprite(root.transform, grid, "water_surface", WaterSurfacePath, -5010);
+            BuildMapSprite(root.transform, grid, "shore_land", ShoreLandPath, -5009);
             BuildBaseGround(root.transform, grid);
             foreach (var (name, priority, order) in DualLayers)
                 BuildDualLayer(root.transform, grid, name, priority, order);
+            BuildMapSprite(root.transform, grid, "stage1_ground_overlay", Stage1OverlayPath, -4981);
             BuildBridge(root.transform, grid);
             AssetDatabase.SaveAssets();
         }
@@ -91,8 +97,8 @@ namespace FantacyCentry.EditorTools
             Debug.Log("[DualGridBuilder] DualGrid rebuilt from " + mapJson + " (" + grid.Size + " wide).");
         }
 
-        /// <summary>Flat per-cell base ground. Water and under-bridge cells use the 2x2 water_base
-        /// set (a cut-up 128px tile) so big water reads as a larger, less-repetitive pattern.</summary>
+        /// <summary>Flat per-cell land base ground. Water and under-bridge cells are skipped because
+        /// the map-sized baked water sprite sits underneath this Tilemap.</summary>
         private static void BuildBaseGround(Transform parent, MapGrid grid)
         {
             var byLetter = new System.Collections.Generic.Dictionary<char, TileBase>();
@@ -103,9 +109,6 @@ namespace FantacyCentry.EditorTools
             }
             var grassVariants = LoadVariantTiles("grass_v1", "G", 5);
             var roadVariants = LoadVariantTiles("road_v1", "R", 5);
-            var water = new TileBase[4];
-            for (int i = 0; i < 4; i++)
-                water[i] = GetOrCreateTile("", $"water_base_{i + 1}");
 
             var go = new GameObject("ground");
             go.transform.SetParent(parent, false);
@@ -122,8 +125,8 @@ namespace FantacyCentry.EditorTools
                 char c = grid.TerrainAt(new Vector2Int(x, y));
                 TileBase tile;
                 if (c == 'W' || c == 'D')
-                    tile = water[(x & 1) + 2 * (y & 1)]; // 2x2 water_base pattern
-                else if (c == 'G' || c == 'B' || c == 'S')
+                    continue;
+                if (c == 'G' || c == 'B' || c == 'S')
                     tile = PickWeightedVariant(grassVariants, x, y, 17, grassFallback);
                 else if (c == 'R')
                     tile = PickWeightedVariant(roadVariants, x, y, 31, roadFallback != null ? roadFallback : grassFallback);
@@ -131,6 +134,23 @@ namespace FantacyCentry.EditorTools
                     tile = grassFallback;
                 if (tile != null) tm.SetTile(new Vector3Int(x, y, 0), tile);
             }
+        }
+
+        private static void BuildMapSprite(Transform parent, MapGrid grid, string name, string path, int order)
+        {
+            var sprite = LoadSprite(path);
+            if (sprite == null)
+            {
+                Debug.LogWarning($"[DualGridBuilder] Missing map sprite {path}; '{name}' layer skipped.");
+                return;
+            }
+
+            var go = new GameObject(name);
+            go.transform.SetParent(parent, false);
+            go.transform.localPosition = new Vector3(grid.CenterWorld.x, grid.CenterWorld.y, 0f);
+            var sr = go.AddComponent<SpriteRenderer>();
+            sr.sprite = sprite;
+            sr.sortingOrder = order;
         }
 
         private static TileBase[] LoadVariantTiles(string subdir, string prefix, int count)

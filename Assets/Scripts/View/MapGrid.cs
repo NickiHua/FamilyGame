@@ -28,6 +28,9 @@ namespace FantacyCentry.View
                  "logic grid against the painted art.")]
         public bool drawBlockedGizmos = true;
 
+        [Tooltip("Legacy compatibility: infer bridge cells where a road crosses water. Keep off so stage1_map.json stays the single source of truth.")]
+        public bool inferBridgeCells = false;
+
         private const string Walkable = "GRDIS"; // Grass, Road, Bridge, Dirt, Sand (Forest/Water/Cliff blocked)
 
         private string[] _rows;   // indexed by JSON row (0 = top)
@@ -94,7 +97,7 @@ namespace FantacyCentry.View
 
             if (Width == 0 && rows.Count > 0) Width = rows[0].Length;
             if (Height == 0) Height = rows.Count;
-            _rows = InferBridgeCells(rows.ToArray());
+            _rows = inferBridgeCells ? InferBridgeCells(rows.ToArray()) : rows.ToArray();
 
             if (_rows.Length != Height)
                 Debug.LogWarning($"[MapGrid] Parsed {_rows.Length} rows but grid_h is {Height}.");
