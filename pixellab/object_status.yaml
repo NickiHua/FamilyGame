@@ -1,0 +1,253 @@
+# =============================================================================
+# object_status.yaml — PixelLab MAP-OBJECT pipeline: status + prompt ledger
+# =============================================================================
+# Mirrors character_status.yaml, but for static map props (houses/trees/bridges/
+# fences/rocks/farmland). One entry per object; records the exact PixelLab call so
+# a good result is reproducible and a bad one is diagnosable.
+#
+# ── WHICH ENDPOINT ──────────────────────────────────────────────────────────
+# There are TWO object systems on PixelLab and they cost VERY differently:
+#
+#   /v2/map-objects            ← PRODUCTION WORKHORSE. ~1 generation (cheap).
+#                                transparent top-down prop. 32-400px, ANY aspect.
+#                                scripts/pixellab_map_object.py drives this.
+#   /v2/create-1-direction-object  ← the website "create-object/{id}" creator.
+#                                20-40 generations EACH (expensive!). Gives review
+#                                candidates. Only use when you want the review grid
+#                                or a size >400 / multi-direction. size 32-256 sq.
+#   /v2/create-8-direction-object  ← 8-facing prop, 20-40 gen, size 32-168.
+#
+# The two example objects the user made were via the WEBSITE creator (= the
+# expensive create-1-direction-object). For our scalable pipeline prefer
+# /v2/map-objects unless a review grid is specifically wanted.
+#
+# ── /v2/map-objects PARAMS (CreateMapObjectRequest) ─────────────────────────
+#   description        req, <=2000 chars
+#   image_size         default 128x128. 32-400px each side, ANY aspect ratio.
+#                      basic mode (no inpainting): max 400x400 AREA (160k px).
+#                      inpainting mode: max 192x192 area. common: 64/128/192,
+#                      256x128, 384x96.
+#   view               high top-down (default, ~35 deg) | low top-down (~20 deg
+#                      RPG) | side
+#   outline            single color outline (default) | selective outline | lineless
+#   shading            flat | basic | medium (default) | detailed
+#   detail             low | medium (default) | high
+#   text_guidance_scale 1-20 (default 8)
+#   init_image + init_image_strength (1-999, default 300)   # style/shape anchor
+#   color_image        forced palette
+#   background_image + inpainting (mask/oval/rectangle)      # paste into a map
+#   seed
+#   ASYNC: returns background_job_id + object_id → poll GET /v2/background-jobs/
+#   {job_id} → on completed, GET /v2/objects/{object_id} to download.
+#
+# ── VERDICT (2026-07-13, TESTED + user-confirmed) ─────────────────────────────
+#   HOUSES: /v2/map-objects = BAD (frontal + low-res). /v2/create-1-direction-
+#   object = GOOD chunky pixels. Use size=128 (-> 4 candidates, review, pick the
+#   good ones) so ALL houses share ONE pixel density (256 vs 128 have DIFFERENT
+#   fineness that CLASH on the map; reserve 256 only for a big/2-storey building).
+#   VIEW: the model renders the classic Fire-Emblem 3/4 view = you SEE the roof
+#   AND the front wall, but NOT the sides. THIS IS CORRECT / intended (user
+#   confirmed) — do NOT try to force a steeper straight-down top-down.
+#
+# ── PROMPT RULES (this project, user-confirmed) ───────────────────────────────
+#   - NO "16-bit / GBA / Langrisser / FFT" style-name wording (user removed it).
+#     Describe the look plainly: "chunky readable hard-edged pixels, clean crisp
+#     pixel art, warm earthy limited palette, no anti-aliasing/blur/text/watermark".
+#   - NO grass / ground / dirt patch around the base (user cuts it otherwise):
+#     "isolated building standing alone on a fully transparent background, no
+#     grass, no ground patch, no dirt, no terrain around it." A stone doorstep /
+#     a few flat stone slabs / stone path ARE fine.
+#   - Keep the FE 3/4 framing words ("top-down map view ... see the roof and a
+#     short front wall, not the sides"). The 3/4 look is RIGHT, not a bug.
+#   view (this endpoint) = "top-down" (only top-down|sidescroller).
+#   size 128 -> 4 candidates (2x2 review) ← STANDARD; 256 -> 1; 64 -> 16. ~20 gen.
+#   GOTCHA 1: scripts/pixellab_object.py writes candidate_NN.png INTO --out as a
+#   FOLDER. GOTCHA 2: the 128 job can exceed the default 300s timeout — pass
+#   --timeout 900 (or poll GET /v2/objects/{object_id} until status='review').
+#
+# status: none | generating | done   (per object)
+# =============================================================================
+
+objects:
+  # ===========================================================================
+  - id: farmhouse_thatched                # STANDARD house recipe (user-confirmed 2026-07-13)
+    category: house
+    endpoint: create-1-direction-object   # NOT map-objects (map-objects = frontal/low-res)
+    size: 128                             # 128 -> 4 candidates (STANDARD density); reroll for variety
+    view: top-down
+    dir: pixellab/objects/houses
+    file: pixellab/objects/houses/farmhouse_topdown_128/candidate_00..03.png
+    seed:                                 # none (gacha; re-roll for variants)
+    status: done
+    # VERIFIED look: FE 3/4 map view (roof + short front wall, no sides), chunky
+    # clean pixels, NO grass base, NO GBA style-name words. Use verbatim; reroll.
+    prompt: >-
+      strict overhead top-down map view of a small rustic countryside cottage for
+      a top-down tactics game map, the roof seen from almost directly above and
+      strongly foreshortened, only a very short sliver of front wall visible under
+      the roof, one single-story building, golden thatched straw roof in one
+      uniform color, cream half-timbered plaster walls with dark wooden beams, a
+      grey stone chimney, a wooden plank door with a stone doorstep and a few flat
+      stone slabs, small windows, low grey stone foundation. Isolated building
+      standing alone on a fully transparent background, no grass, no ground patch,
+      no dirt, no terrain around it. Flat top-down projection, NOT isometric, NOT
+      a 45 degree angle, NOT a side view, NOT a front elevation. Chunky readable
+      hard-edged pixels, clean crisp pixel art, warm earthy limited palette, no
+      anti-aliasing, no blur, no photorealism, no text, no watermark.
+    # Prior website references (also good, made via create-object creator):
+    website_object_ids: [0990630e-f8bf-45bb-958d-198185841613]
+
+  # ===========================================================================
+  - id: redtile_cottage                   # 2nd house style (verified 2026-07-13)
+    category: house
+    endpoint: create-1-direction-object
+    size: 128                             # 4 candidates
+    view: top-down
+    dir: pixellab/objects/houses
+    file: pixellab/objects/houses/redtile_house_flat_128/candidate_00..03.png
+    seed:
+    status: done
+    # RED terracotta clay-tile roof variant (vs golden thatch) for village variety.
+    # NOTE: the SAME prompt WITHOUT the "roof from above / side walls NOT visible /
+    # not isometric / not 45" clause came out ISOMETRIC (side walls visible) —
+    # KEEP those view-lock words in to hold the flat FE front look.
+    prompt: >-
+      topdown map view of a village house for a top-down tactics game, the roof
+      seen from almost directly above and strongly foreshortened, only a short
+      front wall visible under the roof and the side walls NOT visible: a slightly
+      larger two-section cottage with a steep red terracotta clay-tile roof in one
+      uniform warm orange-red color, sturdy grey fieldstone lower walls with cream
+      plaster and dark timber framing on the upper gable, a tall red-brick chimney,
+      a heavy arched wooden double door with an iron-banded frame and a stone step,
+      a couple of small square shuttered windows, a low stone foundation, no grass
+      and no ground around it. Flat top-down projection, NOT isometric, NOT a 45
+      degree angle, NOT a side view. Warm earthy limited palette.
+
+  # ===========================================================================
+  - id: log_cabin                         # 3rd house style (2026-07-13)
+    category: house
+    endpoint: create-1-direction-object
+    size: 128                             # 4 candidates
+    view: top-down
+    dir: pixellab/objects/houses
+    file: pixellab/objects/houses/logcabin_128/candidate_00..03.png
+    seed:
+    status: done
+    # Wooden log cabin (stacked timber walls + wood-shingle roof) for variety.
+    # BASE PROPS allowed (barrels / firewood pile / stones) but NO grass — user
+    # is fine with props on the map, just not a grass patch.
+    # !!! VIEW CAVEAT: even WITH the view-lock words, the strong 3D log texture
+    # pulls this toward ISOMETRIC (side walls show) more than thatch/red-tile did
+    # — candidate quality varies; reroll or hand-pick the flattest.
+    prompt: >-
+      topdown map view of a cozy wooden log cabin for a top-down tactics game, the
+      roof seen from almost directly above and strongly foreshortened, only a short
+      front wall visible under the roof and the side walls NOT visible: a
+      single-story log cabin with stacked horizontal round timber log walls in warm
+      honey-brown, a steep dark wooden shingle roof, a grey stone chimney, a wooden
+      plank door with iron hinges and a stone step, small square shuttered windows
+      with wooden frames, a low stone foundation, and a few small props tucked at
+      the base such as wooden barrels, a stacked firewood pile and a couple of grey
+      stones, no grass and no ground around it. Flat top-down projection, NOT
+      isometric, NOT a 45 degree angle, NOT a side view. Warm earthy limited palette.
+
+  # ===========================================================================
+  - id: wooden_plank_bridge
+    category: bridge
+    endpoint: create-1-direction-object   # made on the WEBSITE creator (expensive)
+    website_object_id: 76900c10-2642-474b-8298-02ac0dd0d8c4
+    size: 128
+    view: high top-down
+    dir: pixellab/objects/bridges
+    status: done
+    # Bridge spans a river cell; keep it JUST the bridge (no water/grass baked in)
+    # so it composites over the Seedream river. Revised prompt:
+    prompt: >-
+      a short wooden plank footbridge seen from a high top-down angle, weathered
+      brown timber planks running across, low grey stone abutments at each end,
+      simple rope-and-post rails, isolated bridge object only, no water, no river,
+      no grass, no ground, transparent background, clean crisp pixel art, sharp
+      silhouette
+    map_object_params:
+      image_size: {width: 256, height: 128}   # wide (spans the river)
+      view: high top-down
+      outline: single color outline
+      shading: medium
+      detail: high
+      text_guidance_scale: 8
+
+  # ===========================================================================
+  - id: mixed_crops_field                 # crop sampler -> cut into strips (2026-07-14)
+    category: crop
+    endpoint: create-1-direction-object   # create-object, NOT map-objects
+    size: 256                             # 256 -> 1 big sheet; 128 -> 4 candidates
+    view: top-down
+    dir: pixellab/objects/crops
+    file: pixellab/objects/crops/candidate_00.png  # then cut -> crops/strips/crop_*.png
+    seed:
+    status: done
+    # WORKFLOW: this does NOT make a tileable field — it makes a SAMPLER SHEET of
+    # many crop clusters (corn, pumpkins on vines, cabbages, carrots, leafy greens)
+    # on transparent bg. We then cut it into vertical planting-row strips
+    # (scripts, connected-component + valley split) -> Assets/Art/Objects/Crops.
+    # KEY LEARNING: on create-object, "no background" + "isolated on a fully
+    # transparent background" DID kill the grass base even at 256 (map-objects at
+    # 256 always re-added a grass patch). Let the crop list stay open ("a variety
+    # of vegetables including ...") so the model fills the sheet with variety.
+    prompt: >-
+      A top-down pixel art illustration of tilled farmland with rows of growing
+      crops, featuring a variety of vegetables including corn, pumpkins, cabbages,
+      carrots, and leafy green plants, chunky readable hard-edged pixels, no
+      background
+
+  # ===========================================================================
+  - id: stone_bridge                      # arched cobblestone bridge (2026-07-13)
+    category: bridge
+    endpoint: create-1-direction-object   # create-object size 256 -> 1 image
+    size: 256
+    view: top-down
+    dir: pixellab/objects/bridges
+    file: pixellab/objects/bridges/bridge_stone_co256/candidate_00.png
+    seed:
+    status: done
+    # Clean arched grey cobblestone bridge with low side railings, fully
+    # transparent (no water/grass), thanks to the strong "no ... transparent
+    # background" negatives on create-object. Composite over the Seedream river.
+    prompt: >-
+      A top-down pixel art stone bridge, an arched bridge built from grey
+      cobblestone blocks with low stone side railings, only the bridge and nothing
+      else, isolated on a fully transparent background, no water, no river, no
+      grass, no ground, no terrain, chunky readable hard-edged pixels
+
+  # ===========================================================================
+  - id: farmhouse_thatched_sidedoor       # asymmetric door-on-one-side variant (2026-07-15)
+    category: house
+    endpoint: create-1-direction-object
+    size: 128                             # 4 candidates
+    view: top-down
+    dir: pixellab/objects/houses
+    file: pixellab/objects/houses/thatch_sidedoor_128/candidate_00..03.png
+    seed:
+    status: done
+    # Variant of farmhouse_thatched to break the too-centered, too-symmetric look.
+    # KEY WORDS that shifted the facade: "ASYMMETRIC off-center layout", porch
+    # "off to ONE SIDE ... shifted to the right corner, clearly NOT centered",
+    # chimney "on the opposite side", windows "unevenly placed". Swap right->left
+    # for a mirrored variant. (Fewer view-lock words still held the FE 3/4 look.)
+    prompt: >-
+      TOPDOWN rustic countryside farmhouse cottage, single-story one-level
+      building, ASYMMETRIC off-center layout, one simple roof in golden yellow
+      thatched straw (single uniform roof color), a small protruding entrance porch
+      positioned off to ONE SIDE of the front wall (shifted to the right corner,
+      clearly NOT centered), with its own little gable roof over the doorway, cream
+      half-timbered plaster and dark wooden beams, a single grey stone chimney on
+      the opposite side, whitewashed plaster and rough stone walls, an arched wooden
+      plank door set into the side porch with a stone doorway and a little stone
+      path leading to it, a small round stone water well with a wooden roof and
+      bucket beside the porch, small arched and square windows unevenly placed, low
+      stone foundation, no grass, no ground patch, no dirt, no terrain around it.
+      NOT isometric, NOT a 45 degree angle, NOT a side view
+
+  # ===========================================================================
+  # TREES: currently using ref_green_tree_0..3 (not PixelLab). If regenerating
+  # via PixelLab, log them here with category: tree, endpoint: map-objects.

@@ -1,0 +1,1621 @@
+# =============================================================================
+# character_status.yaml  —  PixelLab sprite pipeline: status + MANUAL direction anchor
+# =============================================================================
+# THE ONE RULE (learned 2026-07-11):
+#   PixelLab rotation directions are UNSTABLE and differ per character. There is
+#   NO fixed offset formula ("counterclockwise off-by-one" was WRONG). After a
+#   character's 8-direction rotation is generated, a HUMAN looks at the 8 PNGs
+#   and MANUALLY anchors which PNG = front(S) / side(E) / back(N). Each
+#   character's anchor is its own — never reuse another character's mapping.
+#   !!! ANCHOR BY WHAT THE FRAME VISUALLY IS, NOT its PixelLab filename — a PNG
+#   named "south" can visually be a SE, "east" can be the clean 45°, etc. The
+#   filenames are unstable per character; only your eyes decide.
+#   SIDE (E) = the VISUAL 45° 3/4 (SE) frame — NOT a near-profile. 45° reads
+#   best for the side-view battle actions (FE-style) AND is what PixelLab most
+#   reliably produces; used for BOTH map-walk side and battle actions.
+#   One side (E or W) is the REAL generated PNG; the other side is its flipX
+#   mirror. WHICH side is generated vs mirror is decided by the USER per
+#   character after review — do NOT assume W is always the mirror of E.
+#
+# DIRECTIONS — TWO CONTEXTS (2026-07-12):
+#   MAP (top-down):   idle = S ;  walk = S / N / E / W.
+#   BATTLE (dedicated 45° side-view scene):  idle = SE / SW ;  walk = E / W ;
+#     attack = SE / SW ;  react/hit/knockback/knockout = SE / SW.
+#   => our GAME directions = S / N / E / W / SE / SW. Only 4 are GENERATED:
+#     S (visual front), N (visual back), E (visual side — map+battle walk),
+#     SE (visual 45° — battle poses). Mirrors: W = flipX(E), SW = flipX(SE).
+#     S/N have no mirror.
+#   `anchor` maps each OUR direction -> the pixellab VISUAL frame (by eye, NOT
+#   filename). The pipeline COPIES that pixellab frame's animation and RENAMES
+#   it to OUR direction under animations/<action>/<OURDIR>/. In Unity the folder
+#   IS that OUR direction (e.g. our S), whatever pixellab frame it came from.
+#   THIS YAML IS THE SOURCE OF TRUTH for that mapping.
+#   All animations are generated ONLY for the anchored SOURCE dirs, then the
+#   mirror side(s) are produced in post (flipX).
+#
+# STATES (char group vs char):
+#   A character (group) can have multiple `states` = different jobs/classes.
+#   EACH state is a SEPARATE PixelLab character (own prompt + character_id +
+#   rotation + anchor + animations) — a job change is a whole new sprite set.
+#   Allies will need several states (jobs). Enemies usually have just one.
+#   PixelLab binds states via a shared `group_id` (that's why several states
+#   show on ONE PixelLab webpage). We mirror it: char-level `group_id` (shared,
+#   may be null if ungrouped), state-level `character_id` (unique per state).
+#   NOTE: the API's GET /v2/characters?group_id=X filter is IGNORED (returns all,
+#   paginated ~50) — list a group by client-side filtering on group_id.
+#
+# anchor:   OUR direction (S/N/E/W/SE/SW) -> pixellab VISUAL frame basename,
+#           or "mirror:E" / "mirror:SE"
+# status:   none | generating | done   (per rotation / per animation)
+# =============================================================================
+
+characters:
+  - id: EmpireCaptain              # internal id == Unit DisplayName
+    team: enemy
+    group_id: null                 # not grouped on PixelLab (single state)
+    portrait: art/portraits/empirecaptain/empirecaptain_full.png
+    states:
+      - state: base                # enemies: single state
+        job: heavy_knight
+        # 616 chars. GBA keyword dropped (2026-07-11): removing "Fire Emblem
+        # GBA style" -> "Fire Emblem style" made PixelLab drop the head plume
+        # naturally + slightly cleaner. Do NOT add "modern/high-res pixel"
+        # words (they make it grow random gold horns). Let it go default.
+        prompt: >-
+          Fire Emblem style chibi enemy heavy knight, western fantasy,
+          3-head-tall super-deformed, short stout body, small hands and feet,
+          faceless elite imperial knight in full silver plate armor with gold
+          trim and a gold cross on the chest, steel bascinet helm with lowered
+          pointed visor and a small gold cross on the brow, narrow eye slit, no
+          horns no plume, long flowing dark teal green cape from the shoulders,
+          tall kite shield in left hand, dark teal with gold rim and a gold
+          crowned eagle emblem, one-handed steel sword with brass crossguard in
+          right hand pointed down, clean pixel art, vibrant colors, sharp
+          silhouette
+        character_id: e6084051-192e-4892-941e-2054a12b9d41
+        rotation:
+          status: done
+          dir: pixellab/characters/empirecaptain/rotations
+        # MANUAL anchor (user confirmed 2026-07-12, by VISUAL). our <-> pixellab:
+        #   S  <-> south         (visual front)
+        #   N  <-> north-west    (visual back, shows shield + gold eagle)
+        #   E  <-> east          (visual side, map+battle walk)
+        #   SE <-> south-east    (visual 45°, battle poses)
+        #   W  <-> mirror:E      (flipX east)
+        #   SW <-> mirror:SE     (flipX south-east)
+        anchor:
+          S: south
+          N: north-west
+          E: east
+          SE: south-east
+          W: mirror:E
+          SW: mirror:SE
+        # ACTION SET (2026-07-12): universal base = idle / walk / attack /
+        # knockback / knockout. EmpireCaptain also has defense (char-specific).
+        # dirs use GAME directions (mapped via anchor); mirrors auto (W=flipX E,
+        # SW=flipX SE). idle [S,SE]. walk [S,N,E]. attack/knockback/knockout/
+        # defense [SE] (battle 45°).
+        # !!! F1 must NOT be idle: PixelLab ALWAYS prepends the rotation frame as
+        # frame_000 (the idle rest), so the 8 described frames start AT motion.
+        # DROPPED: react=forward flinch (PixelLab won't lean back for "react");
+        # the Gemini "recoils bent backward -> returns upright" wording gives a
+        # REAL backward knockback instead (see knockback). shieldbash + lookup
+        # exist on PixelLab but are intentionally NOT tracked here.
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]          # map idle S + battle idle SE (+SW = mirror SE)
+            prompt: >-
+              Heavy knight stands in a guard breathing pose.
+              F1: chest begins to rise with breath, shoulders lift slightly.
+              F2-3: chest continues rising, body slightly taller.
+              F4: peak inhale.
+              F5-6: chest falls, shoulders settle.
+              F7: deepest exhale.
+              F8: settles to a neutral guard breath.
+              Feet stay planted, no walking, no spinning.
+              Kite shield with gold eagle stays in left hand and sword in right
+              hand every frame, never dropped or swapped.
+              Bascinet helm stays on head, teal green cape hangs behind.
+              Clean pixel art, sharp silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]        # map+battle walk (+W = mirror E)
+            prompt: >-
+              Heavy armored knight walks forward, already mid-stride, feet never
+              both planted still.
+              F1: right foot already lifted off the ground mid-step, body
+              leaning forward, weight on the left leg.
+              F2: right foot swings forward at peak knee lift, body rises, cape
+              swings back.
+              F3: right foot plants forward, weight shifts onto it, body bobs
+              down.
+              F4: left foot lifts off the ground, pushing the body forward.
+              F5: left foot swings forward at peak knee lift, body rises, cape
+              swings.
+              F6: left foot plants forward, weight settles, body bobs down.
+              F7: right foot lifts off again, continuing the cycle.
+              F8: right foot mid-swing forward, ready to loop back to the start.
+              Continuous marching walk cycle, high knee lifts, clear up-and-down
+              body bob and weight shift every step, big weighted strides, teal
+              cape sways, no idle pause, no spinning, no jumping, no sliding feet.
+              Kite shield with gold eagle stays in left hand, sword carried low
+              in right hand every frame, never raised, never dropped or swapped.
+              Bascinet helm stays on head.
+              Clean pixel art, sharp silhouette.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SE]             # battle 45° (+SW = mirror SE)
+            prompt: >-
+              Heavy knight swings his sword down in a hard overhead slash.
+              F1: raises the sword up and back over the right shoulder, shield
+              up, weight shifts to the back foot.
+              F2: sword rising toward full height, body coiling back.
+              F3: sword at full height overhead, tension peak.
+              F4: begins the downward chop, torso drives forward.
+              F5: powerful downward slash at peak speed, sword sweeps down across
+              the front, body lunges forward behind it.
+              F6: sword follows through low to the side, full forward commitment.
+              F7: recovers, pulls the sword back up.
+              F8: settles to guard stance.
+              Feet planted, no spinning, no jumping, no walking.
+              Sword stays in right hand, kite shield in left hand, never dropped
+              or swapped.
+              Bascinet helm stays on head, teal cape trails the motion.
+              Strong heavy weighted slash, clear windup and hard impact, clean
+              pixel art, sharp silhouette.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SE]             # battle 45° (+SW = mirror SE)
+            # Gemini-written (user 2026-07-12) — THIS produces a real BACKWARD
+            # recoil that RETURNS to standing. KEY: "recoils, slightly bent
+            # backward ... full return, upright" (NOT smashed/knocked-off-feet/
+            # falls) avoids PixelLab's forward-crouch prior. Verbatim + id tail.
+            prompt: >-
+              Frame 1: Initial impact. Character recoils, slightly bent backward,
+              expression of pain/surprise. Hands flinch, head jolts.
+              Frames 2-3: Arc of the backward lunge. Character is pushed further
+              back, torso angled steeply, legs braced but slightly bent for
+              balance. Clothes/hair might flow slightly with the motion.
+              Frames 4-5: Peak of the recoil. Most extreme backward position. May
+              even slightly "skid" back. Torso fully arched.
+              Frames 6-7: Beginning of the return. Torso starts to straighten,
+              head tilts back forward. Legs begin to absorb the momentum.
+              Frame 8: Full return. Character is back in a stable, upright
+              standing pose, looking forward, recovered from the impact.
+              Sword in right hand, kite shield in left hand, bascinet helm on
+              head, teal cape. Clean pixel art, sharp silhouette.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SE]             # battle 45° (+SW = mirror SE)
+            # Defeat / KO: ends DOWN on the ground (used for death). PixelLab
+            # falls FORWARD (can't fall backward) — acceptable for a KO.
+            prompt: >-
+              Frame 1: a heavy impact lands, the body lurches, footing lost.
+              Frames 2-3: knocked over, feet sliding out, arms flailing for
+              balance, tipping toward the ground.
+              Frames 4-5: the body falls and slams onto the ground, sprawling on
+              impact.
+              Frames 6-7: lying on the ground, sliding to a stop, limbs splayed,
+              stunned.
+              Frame 8: still down on the ground, dazed and defeated, does not get
+              back up.
+              Sword in right hand, kite shield in left hand, bascinet helm on
+              head, teal cape. Clean pixel art, sharp silhouette.
+          defense:                 # EmpireCaptain extra (NOT a universal base action)
+            status: done
+            frame_count: 8
+            dirs: [SE]             # battle 45° (+SW = mirror SE)
+            prompt: >-
+              Heavy knight raises his shield to guard and holds a defensive
+              stance.
+              F1: brings the kite shield up and forward in front of the body to
+              block.
+              F2-3: shield fully raised covering the torso, body braces low
+              behind it, sword tucked back.
+              F4-5: holds the guard firmly, weight settled, minimal motion.
+              F6-7: begins to lower the shield, easing out of the block.
+              F8: settles back toward a neutral guard.
+              Feet planted, no stepping, no spinning.
+              Kite shield with gold eagle stays raised in left hand, sword in
+              right hand, never dropped or swapped.
+              Bascinet helm stays on head, teal cape behind.
+              Clean pixel art, sharp silhouette.
+
+  # ===========================================================================
+  - id: SuYao                        # 苏瑶 — ally priestess/mage healer
+    team: ally
+    group_id: null                   # single state for now (job states later)
+    portrait: art/portraits/suyao/suyao_full.png
+    states:
+      - state: base
+        job: priestess
+        # NOTE (2026-07-12, user): make a NO-HOOD version. !!! LESSON (oldest
+        # record + reconfirmed 2026-07-12): do NOT mention "hood"/"cape" AT ALL,
+        # not even negated ("no hood") — merely naming them makes PixelLab put
+        # one ON, and "long hair" then drapes into the hood. So just DON'T say
+        # the words. Do NOT slavishly copy the portrait's outfit (so a future
+        # 立绘 change won't break the sprite). Only IDENTITY traits matter: 18yo
+        # girl, long silver hair, blue eyes, white+gold holy robe, ornate staff
+        # w/ blue crystal. Clothes may differ from the portrait.
+        prompt: >-
+          Fire Emblem style chibi ally priestess mage girl, western fantasy,
+          3-head-tall super-deformed, short stout body, small hands and feet,
+          an 18-year-old girl with a gentle youthful face and clear blue eyes,
+          very long straight silver-white hair with bangs, wearing a simple
+          flowing white and gold holy robe with a belted sash and long sleeves,
+          holding a tall ornate golden staff topped with a faceted blue teardrop
+          crystal, clean pixel art, vibrant colors, sharp silhouette
+        # character_id REPLACED 2026-07-15 (user): new rotation batch. Old #6
+        # (29bf913f) retired. anchor RESET — must re-anchor by VISUAL review of
+        # the NEW rotation (pixellab/characters/suyao/_contact.png). animations
+        # status kept at none (prompts retained, regenerate after re-anchor).
+        character_id: 8d241f54-52a1-4c1d-a8a7-522b3d29903d
+        rotation:
+          status: done
+          dir: pixellab/characters/suyao/rotations
+        # MANUAL anchor (user 2026-07-16, VISUAL). user gave S/N/SE; E reuses SE;
+        # W=flipX E, SW=flipX SE.
+        anchor:
+          S: south-east
+          N: north-west
+          E: east
+          SE: east
+          W: mirror:E
+          SW: mirror:SE
+        # ACTION SET: universal base = idle / walk / attack / knockback /
+        # knockout (attack = staff cast for a mage). dirs = GENERATED sources
+        # (mapped via anchor); mirrors auto-made (W=flipX E, SW=flipX SE).
+        #   idle  [S, SE]  (map S + battle SE; +SW mirror)
+        #   walk  [S, N, E] (map+battle walk; +W mirror)
+        #   attack/knockback/knockout [SE] (battle; +SW mirror)
+        # F1 must NOT be idle (frame_000 auto rotation start).
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]          # map idle S + battle idle SE (+SW = mirror SE)
+            prompt: >-
+              Silver-haired priestess stands in a calm breathing idle, holding
+              her staff.
+              F1: chest begins to rise with breath, shoulders lift slightly.
+              F2-3: chest continues rising, body slightly taller, hair settles.
+              F4: peak inhale.
+              F5-6: chest falls, shoulders settle.
+              F7: deepest exhale.
+              F8: settles to a neutral standing breath.
+              Feet stay planted, no walking, no spinning, mouth stays closed the
+              whole time, do not open the mouth.
+              The tall golden staff with the blue crystal stays held in her hands
+              every frame, never dropped or swapped.
+              Long silver hair and white robe gently sway.
+              Clean pixel art, sharp silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]        # map+battle walk (+W = mirror E)
+            prompt: >-
+              Young priestess walks forward, already mid-stride, feet never both
+              planted still.
+              F1: right foot lifted mid-step, body leaning forward.
+              F2: right foot swings forward at peak knee lift, body rises, hair
+              and robe sway back.
+              F3: right foot plants, weight shifts, body bobs down.
+              F4: left foot lifts, pushing the body forward.
+              F5: left foot swings forward at peak lift, body rises.
+              F6: left foot plants, body bobs down.
+              F7: right foot lifts again, continuing the cycle.
+              F8: right foot mid-swing, ready to loop.
+              Continuous walk cycle, clear up-and-down bob and weight shift, no
+              idle pause, no sliding feet, no spinning.
+              The golden staff with the blue crystal carried upright in her hand
+              every frame, never dropped. Long silver hair and white robe sway.
+              Clean pixel art, sharp silhouette.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SE]             # battle 45° (+SW = mirror SE)
+            # !!! NO baked VFX (user 2026-07-13): sprite must have NO glow/light/
+            # magic/particles — VFX is overlaid separately. Only body + staff
+            # move; crystal stays plain/unlit. Heavy negatives below.
+            prompt: >-
+              Priestess casts a spell with her staff, feet planted, only body and
+              staff move, mouth closed.
+              F1: she raises the staff upward.
+              F2: staff rising higher, free hand lifting, body drawing up tall.
+              F3: staff at the top of the raise, a brief hold.
+              F4: she brings the staff down and points it forward ahead of her.
+              F5: staff at full forward point, body leaning into the cast.
+              F6: holds the forward-pointing cast pose.
+              F7: draws the staff back upright, recovering.
+              F8: settles to a calm standing stance.
+              Feet planted, no walking, no spinning. Plain golden staff with a
+              plain unlit blue crystal in her hands every frame, never dropped.
+              NO glow, NO light, NO sparkles, NO flash, NO aura, NO particles —
+              the crystal does NOT light up.
+              Silver hair and white robe move naturally.
+              Clean pixel art, sharp silhouette.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SE]             # battle 45° (+SW = mirror SE)
+            # Proven backward-recoil wording (see EmpireCaptain knockback):
+            # understated "recoils slightly bent backward" + "full return
+            # upright", NEVER smashed/falls/prone. Identity tail swapped.
+            prompt: >-
+              Frame 1: Initial impact. Character recoils, slightly bent backward,
+              expression of pain/surprise. Hands flinch, head jolts.
+              Frames 2-3: Arc of the backward lunge. Character is pushed further
+              back, torso angled steeply, legs braced but slightly bent for
+              balance. Hair and robe flow with the motion.
+              Frames 4-5: Peak of the recoil. Most extreme backward position. May
+              even slightly "skid" back. Torso fully arched.
+              Frames 6-7: Beginning of the return. Torso starts to straighten,
+              head tilts back forward. Legs begin to absorb the momentum.
+              Frame 8: Full return. Character is back in a stable, upright
+              standing pose, looking forward, recovered from the impact.
+              Golden staff with blue crystal held in her hands, long silver hair,
+              white robe. Clean pixel art, sharp silhouette.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SE]             # battle 45° (+SW = mirror SE)
+            prompt: >-
+              Frame 1: a heavy impact lands, the body lurches, footing lost.
+              Frames 2-3: knocked over, feet sliding out, arms flailing for
+              balance, tipping toward the ground.
+              Frames 4-5: the body falls and slams onto the ground, sprawling on
+              impact.
+              Frames 6-7: lying on the ground, sliding to a stop, limbs splayed,
+              stunned.
+              Frame 8: still down on the ground, dazed and defeated, does not get
+              back up.
+              Golden staff with blue crystal, long silver hair, white robe.
+              Clean pixel art, sharp silhouette.
+
+  # ===========================================================================
+  - id: EmpireCavalier               # 帝国骑兵 — enemy cavalry knight (tier-1 mook)
+    team: enemy
+    group_id: null
+    portrait:                        # no portrait yet
+    states:
+      - state: base
+        job: heavy_cavalry
+        # NOTE (2026-07-12, user): the earlier attempt
+        # (pixellab char a7b8e319-f80a-4440-a428-69d03b4d4b44) was not ideal.
+        # Look reference = EmpireCaptain (imperial silver+gold+teal knight) BUT:
+        #   - helm HAS a plume/翎羽 this time (still a closed faceless 覆面盔)
+        #   - mounted on a BLACK horse (骑黑马)
+        #   - LONG LANCE (长枪) — must say LARGE/OVERSIZED or PixelLab draws it tiny
+        #   - heavy CAVALRY, NO shield (盾去掉)
+        # !!! FIX (2026-07-12): first run drew a stray SECOND half-lance. Cause =
+        # the redundant trailing "oversized thick lance" clause. Collapsed the
+        # lance to ONE explicit mention ("a single large long cavalry lance
+        # upright in the right hand"). Rest is gacha — reroll if it dupes again.
+        prompt: >-
+          Fire Emblem style chibi enemy heavy cavalry knight commander mounted
+          on a black warhorse, western fantasy, super-deformed chibi rider with
+          short stout body and small hands, faceless elite imperial knight in
+          full silver plate armor with gold trim, closed steel full-face helm
+          with a lowered visor and a tall flowing dark teal green plume crest,
+          long flowing dark teal green cape, no shield, holding a single large
+          long cavalry lance upright in the right hand, the black horse in dark
+          teal and gold barding, clean pixel art, vibrant colors, sharp
+          silhouette
+        # character_id ADOPTED 2026-07-13 = cav#2 (1debb144). User reviewed 8
+        # candidates: !!! #3-#7 all had a BROKEN LANCE (half-lance / lance split
+        # into two), and d6976147 had the lance CLIPPING through the body in N +
+        # a crooked lance in S. Only cav#2 has S / N / SE all correct AND no
+        # clipping. Trade-off (user-accepted): cav#2's plate is less imposing +
+        # the horse has NO barding — it's a TIER-1 cavalry MOOK (level 1: captain
+        # leads, knights are小兵). A barded-horse 「骑士长」 commander = FUTURE variant
+        # (this prompt above is kept as that aspirational reference; cav#2 the
+        # actual sprite is lighter and differs from it).
+        # !!! REPLACED 2026-07-20 (user): 1debb144 (cav#2) had bad output +
+        # a broken prompt. New rotation 1bdc21ba — a HEAVY-CAVALIER-look lance
+        # knight (imperial silver plate + gold + teal plume/cape) but holding a
+        # LONG LANCE. anchor + animations reworked to match EmpireHeavyCavalier.
+        character_id: 1bdc21ba-cc6c-46f8-b88b-22c693ea6bd2
+        rotation:
+          status: done
+          dir: pixellab/characters/empirecavalier/rotations
+        # MANUAL anchor (user 2026-07-20, by VISUAL on new rotation 1bdc21ba).
+        # This is the MIRROR of EmpireHeavyCavalier: the clean 45° frame
+        # (pixellab `south`) faces screen-LEFT here, so it anchors our W/SW and
+        # E/SE are the flipX mirror. Front(S)=east, back(N)=west.
+        #   S <-> east   N <-> west   W <-> south   SW <-> south (45°)
+        #   E <-> mirror:W   SE <-> mirror:SW
+        anchor:
+          S: east
+          N: west
+          E: mirror:W
+          SE: mirror:SW
+          W: south
+          SW: south
+        # animations 2026-07-20: MOUNTED plumed lance knight (like
+        # EmpireHeavyCavalier but a LANCE, attack = mounted forward lance thrust).
+        # New conventions: no "Clean pixel art" tail; knockout = fall off horse +
+        # eyes closed, no weapon scatter. dirs use the real (non-mirror) sources:
+        # idle [S,SW]  walk [S,N,W]  battle [SW]  (E/SE auto-mirrored).
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SW]
+            prompt: >-
+              Armored lance knight sits mounted on his warhorse in a calm idle,
+              holding his lance upright.
+              F1: the rider's chest and the horse's body rise gently with a slow
+              breath.
+              F2-3: rider eases slightly, the horse's head bobs a little.
+              F4: peak of the breath.
+              F5-6: rider settles, the horse lowers its head slightly.
+              F7: settles low.
+              F8: returns to a neutral mounted rest.
+              The horse stays in place, no walking, no galloping, no rearing.
+              Long lance held upright in his right hand every frame, plumed
+              silver helm, teal cape, dark warhorse.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, W]
+            prompt: >-
+              The armored lance knight rides his warhorse forward at a walk,
+              already mid-stride, the horse's legs never all planted.
+              F1: the horse's front legs mid-step, body moving forward, rider
+              bobbing gently.
+              F2: front leg reaches forward, horse's body rises, teal cape sways.
+              F3: front hoof plants, weight shifts, rider bobs down.
+              F4: rear legs push the horse forward.
+              F5: the horse strides forward at full step, rider rising.
+              F6: hooves plant, rider bobs down.
+              F7: front legs lift again, continuing the gait.
+              F8: mid-stride, ready to loop.
+              Continuous horse walk cycle, forward stride and gentle rider bob,
+              no galloping, no rearing, no sliding hooves. Long lance upright in
+              his right hand, plumed helm, teal cape.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SW]
+            # 2026-07-20: pixellab can't do a clean lance THRUST (esp. side view)
+            # → attack is an overhead lance CHOP/slash instead (like the heavy
+            # cavalry sword overhead slash, but swinging the long lance).
+            prompt: >-
+              Armored lance knight swings his long lance down in a hard overhead
+              chop while mounted, the horse holding position.
+              F1: raises the lance up and back over the right shoulder, body
+              coiling.
+              F2: lance rising to full height overhead, tension peak.
+              F3: lance at the top, the horse braces.
+              F4: begins the downward chop, torso driving forward over the
+              horse's neck.
+              F5: powerful downward chop, the lance sweeps down across the front,
+              rider leaning forward.
+              F6: lance follows through low to the side.
+              F7: recovers, pulls the lance back up.
+              F8: settles upright in the saddle to a guard.
+              The horse stays in place, no galloping. Long lance in his right hand
+              every frame, plumed silver helm, teal cape, dark warhorse.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SW]
+            prompt: >-
+              Frame 1: Initial impact. The mounted knight recoils, slightly bent
+              backward in the saddle, the horse flinching back.
+              Frames 2-3: rider and horse pushed further back, the horse's head
+              jerking up, rider's torso angled back. Teal cape flows.
+              Frames 4-5: peak of the recoil, the horse steps back, rider leaning
+              steeply back.
+              Frames 6-7: begins to return, rider straightens, horse settles
+              forward.
+              Frame 8: full return to a stable mounted upright pose, recovered.
+              Long lance in his right hand, plumed silver helm, teal cape, mounted
+              on a dark warhorse, the horse does not fall.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SW]
+            # 2026-07-20 convention: simplified KO — eyes closed, NO weapon
+            # scatter, NO "clean pixel art" tail.
+            prompt: >-
+              Frame 1: a heavy impact lands, the horse stumbles hard, the rider
+              lurches.
+              Frames 2-3: the horse buckles and pitches, the rider thrown off
+              balance, tipping to the side.
+              Frames 4-5: the rider falls from the horse and slams onto the
+              ground, sprawling, the horse staggering aside.
+              Frames 6-7: the knight lies on the ground, sliding to a stop, limbs
+              splayed, stunned.
+              Frame 8: still down on the ground, defeated and unconscious, both
+              eyes closed, not getting up.
+
+  # ===========================================================================
+  - id: LuLi                         # 陆离 — ally male protagonist (hero swordsman)
+    team: ally
+    group_id: null
+    portrait: art/portraits/luli/luli_full.png
+    states:
+      - state: base
+        job: hero_swordsman
+        # 男主重做 (2026-07-14, user): 要更「英气」。archetype = young hero
+        # swordsman lord（召唤 FE 主角/lord 训练样本，比普通 soldier 更飒）+
+        # valiant/dashing/heroic stance + 飘逸大蓝披风强化气场。保留立绘识别点：
+        # 棕碎发 / 蓝眼 / 银板甲+白袍 / 蓝围巾 / 蓝披风 / 单手长剑。去 GBA、3-头身。
+        # !!! 高度修 (2026-07-14): 第一版 (788 char) 太高——补回 v3 的压比关键词
+        # `large head with big expressive eyes` + `very short stout body, stubby
+        # limbs`，这几个是把头身压成 3-头身 chibi 的锚，别再漏。
+        # !!! 剑修 (2026-07-14, user): rotation 不要手持剑+又挂剑鞘=两把剑。
+        # 基础姿势把剑【收进鞘】(single sword, sheathed, 双手空)，attack 动画再拔。
+        # !!! 披风修 (2026-07-14, user): v3 (80ab6aa1) 的 long flowing cape 太大、
+        # 背面/侧面把身体银甲全吞了。改成 short half cape 缩小。
+        prompt: >-
+          Fire Emblem style chibi ally young hero swordsman lord, western
+          fantasy, 3-head-tall super-deformed proportions, large head with big
+          expressive eyes, very short stout body, stubby limbs, small hands and
+          feet, a handsome valiant young man with a confident heroic face, short
+          tousled brown hair with bangs, bright blue eyes, wearing polished
+          silver plate armor over a white tunic — shoulder pauldrons,
+          breastplate, armored gauntlets, thigh and knee plates, silver greaves
+          over dark boots — a dark navy blue scarf around the neck, a short
+          royal blue half cape pinned at the left shoulder, brown leather belt,
+          a single one-handed steel longsword with a cross guard sheathed in a
+          scabbard at the left hip, both hands empty and relaxed at his sides,
+          no helmet, dashing confident heroic stance, clean pixel art, vibrant
+          colors, sharp silhouette
+        # character_id REPLACED 2026-07-15 (user): adopted `e46642ff` (the
+        # `LuLi` fragment). This id ALSO already has a full animation set
+        # generated on PixelLab (download/LuLi/animations/*) — organize those
+        # AFTER anchoring. Old base `8c8af545` retired. anchor stays empty.
+        character_id: 8c8af545-4aab-49c3-a177-de2c6aeece97
+        rotation:
+          status: done
+          dir: pixellab/characters/luli/rotations
+        # BASE SWITCHED 2026-07-19 (user): back to 8c8af545 (e46642ff retired) —
+        # its motion reads crisper. anchor S->south, N->north, E->east, SE reuses
+        # E (east); W=flipX E, SW=flipX SE. Animations regenerated on this base.
+        anchor:
+          S: south
+          N: north
+          E: east
+          SE: east
+          W: mirror:E
+          SW: mirror:SE
+        # animations (LuLi 2026-07-19): ALL regenerated on base 8c8af545 in our
+        # prompt style + user-approved. attack = DRAW the sword from the hip +
+        # slash in ONE motion (base pose has sword sheathed). All 5 done.
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              Hero swordsman stands in a calm confident idle, sword sheathed at
+              his hip, mouth closed.
+              F1: chest and shoulders begin to rise gently with a slow breath.
+              F2-3: body eases slightly taller as he inhales, cape settles.
+              F4: peak of the breath.
+              F5-6: chest lowers, shoulders settle.
+              F7: settles low.
+              F8: returns to a neutral standing rest.
+              Feet stay planted, no stepping, no spinning, mouth stays closed the
+              whole time, do not open the mouth.
+              Sword stays sheathed in the scabbard at his left hip every frame,
+              hands relaxed. Short brown hair and blue half cape sway only
+              slightly. Clean pixel art, sharp silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              Hero swordsman walks forward, already mid-stride, feet never both
+              planted still, sword sheathed.
+              F1: right foot lifted mid-step, body leaning forward.
+              F2: right foot swings forward at peak knee lift, body rises, half
+              cape sways back.
+              F3: right foot plants, weight shifts, body bobs down.
+              F4: left foot lifts, pushing the body forward.
+              F5: left foot swings forward at peak lift, body rises.
+              F6: left foot plants, body bobs down.
+              F7: right foot lifts again, continuing the cycle.
+              F8: right foot mid-swing, ready to loop.
+              Continuous walk cycle, clear up-and-down bob and weight shift, no
+              idle pause, no sliding feet, no spinning.
+              Sword stays sheathed at his left hip, short brown hair and blue half
+              cape sway. Clean pixel art, sharp silhouette.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Hero swordsman draws his sword from his hip and slashes in one
+              swift motion, feet planted.
+              F1: his right hand grips the sword hilt at his left hip, starting
+              to draw.
+              F2: he pulls the blade partway out of the scabbard.
+              F3: the blade clears the scabbard, sweeping up and back over the
+              shoulder.
+              F4: sword at full height overhead, body coiling.
+              F5: powerful downward slash, the blade sweeps down across the
+              front, body lunging forward behind it.
+              F6: the slash follows through low to the side, full commitment.
+              F7: recovers, brings the sword back up.
+              F8: settles into a sword guard stance, blade drawn.
+              Feet planted, no spinning, no jumping. Steel longsword in his right
+              hand, short brown hair, silver plate armor, blue half cape.
+              Clean pixel art, sharp silhouette.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: Initial impact. Character recoils, slightly bent backward,
+              expression of pain. Hands flinch, head jolts.
+              Frames 2-3: pushed further back, torso angled steeply, legs braced
+              but slightly bent. Brown hair and blue half cape flow with it.
+              Frames 4-5: peak of the recoil, most extreme backward position, may
+              slightly skid back, torso arched.
+              Frames 6-7: begins to return, torso straightens, head tilts
+              forward, legs absorb the momentum.
+              Frame 8: full return to a stable upright standing pose, recovered.
+              Steel longsword in his right hand, short brown hair, silver plate
+              armor, blue half cape. Clean pixel art, sharp silhouette.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: a heavy impact lands, the body lurches, footing lost.
+              Frames 2-3: knocked over, feet sliding out, arms flailing, tipping
+              toward the ground.
+              Frames 4-5: falls and slams onto the ground, sprawling on impact.
+              Frames 6-7: lying on the ground, sliding to a stop, limbs splayed,
+              stunned.
+              Frame 8: still down on the ground, defeated and unconscious, both
+              eyes closed, not getting up.
+              Steel sword fallen beside him, short brown hair, silver plate armor,
+              short blue half cape. Clean pixel art, sharp silhouette.
+
+  # ===========================================================================
+  # 2026-07-15 roster batch — rotations pulled + contact sheets built; prompts
+  # were authored in a separate batch session and are NOT recorded here yet
+  # (TODO backfill). All need VISUAL anchoring before animations.
+  # ===========================================================================
+  - id: Xiao                         # 萧 — ally ranger / archer
+    team: ally
+    group_id: null
+    portrait:                        # TBD
+    states:
+      - state: base
+        job: ranger
+        # rotation ADOPTED 2026-07-15 from batch (id below). prompt TODO backfill.
+        prompt: >-
+          (TODO backfill — Fire Emblem style chibi ally ranger/archer)
+        character_id: aaa5dffe-0026-402f-aa7d-f2a75527a386
+        rotation:
+          status: done
+          dir: pixellab/characters/xiao/rotations
+        # MANUAL anchor (user 2026-07-16, VISUAL). user gave S/N/SE; E reuses SE;
+        # W=flipX E, SW=flipX SE.
+        anchor:
+          S: south
+          N: north
+          E: south-east
+          SE: south-east
+          W: mirror:E
+          SW: mirror:SE
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              Archer stands in a calm alert idle, weight settled, mouth closed.
+              F1: chest and shoulders begin to rise gently with a slow breath.
+              F2-3: body eases slightly taller as he inhales.
+              F4: peak of the breath.
+              F5-6: chest lowers, shoulders settle.
+              F7: settles low.
+              F8: returns to a neutral standing rest.
+              Feet stay planted, no stepping, no spinning, mouth stays closed the
+              whole time, do not open the mouth.
+              Wooden bow stays in his left hand every frame, quiver on his back,
+              never dropped. Brown hair and white half cape sway only slightly.
+              Clean pixel art, sharp silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              Archer walks forward, already mid-stride, feet never both planted
+              still.
+              F1: right foot lifted mid-step, body leaning forward.
+              F2: right foot swings forward at peak knee lift, body rises, half
+              cape sways back.
+              F3: right foot plants, weight shifts, body bobs down.
+              F4: left foot lifts, pushing the body forward.
+              F5: left foot swings forward at peak lift, body rises.
+              F6: left foot plants, body bobs down.
+              F7: right foot lifts again, continuing the cycle.
+              F8: right foot mid-swing, ready to loop.
+              Continuous walk cycle, clear up-and-down bob and weight shift, no
+              idle pause, no sliding feet, no spinning.
+              Wooden bow carried in his left hand every frame, quiver on his
+              back. Clean pixel art, sharp silhouette.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Archer raises his bow and draws the empty bowstring, feet planted.
+              F1: raises the bow up and forward in the left hand, right hand
+              moving to the string.
+              F2: right hand grips the string and begins to pull it back.
+              F3: draws the string back toward the cheek, bow flexing, body
+              tensing.
+              F4: full draw, string pulled to an anchor at the cheek, holding
+              steady, aiming ahead.
+              F5: holds the full draw at peak tension.
+              F6: releases the string, the bowstring snaps forward.
+              F7: bow arm recoils slightly from the release.
+              F8: lowers the bow, recovering to a ready stance.
+              NO arrow, NO projectile, the bow is empty the whole time. Feet
+              planted, no walking, no spinning. Wooden bow in his left hand,
+              quiver on his back. Clean pixel art, sharp silhouette.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: Initial impact. Character recoils, slightly bent backward,
+              expression of pain. Hands flinch, head jolts.
+              Frames 2-3: pushed further back, torso angled steeply, legs braced
+              but slightly bent. Brown hair and white half cape flow with it.
+              Frames 4-5: peak of the recoil, most extreme backward position, may
+              slightly skid back, torso arched.
+              Frames 6-7: begins to return, torso straightens, head tilts
+              forward, legs absorb the momentum.
+              Frame 8: full return to a stable upright standing pose, recovered.
+              Wooden bow in his left hand, quiver on his back, green tunic, white
+              half cape. Clean pixel art, sharp silhouette.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: a heavy impact lands, the body lurches, footing lost.
+              Frames 2-3: knocked over, feet sliding out, arms flailing, tipping
+              toward the ground.
+              Frames 4-5: falls and slams onto the ground, sprawling on impact.
+              Frames 6-7: lying on the ground, sliding to a stop, limbs splayed,
+              stunned.
+              Frame 8: still down on the ground, defeated, does not get back up.
+              Wooden bow fallen near him, quiver on his back, green tunic, white
+              half cape. Clean pixel art, sharp silhouette.
+
+  # ===========================================================================
+  - id: EmpireArcher                 # 帝国弓兵 — enemy archer (tier-1 mook)
+    team: enemy
+    group_id: null
+    portrait:
+    states:
+      - state: base
+        job: archer
+        # rotation ADOPTED 2026-07-15 from batch. prompt TODO backfill.
+        prompt: >-
+          (TODO backfill — Fire Emblem style chibi enemy imperial archer)
+        character_id: 4233960d-26ef-43eb-bb03-56d2f0a59ee4
+        rotation:
+          status: done
+          dir: pixellab/characters/empirearcher/rotations
+        # MANUAL anchor (user 2026-07-16, VISUAL). user gave S/N/SE; E reuses SE;
+        # W=flipX E, SW=flipX SE.
+        anchor:
+          S: south-east
+          N: north-west
+          E: east
+          SE: east
+          W: mirror:E
+          SW: mirror:SE
+        # animations: idle/walk/attack/knockback GENERATED ON PIXELLAB WEB (full
+        # 8-dir sets), organized from download 2026-07-19; knockout made via gen
+        # script (eyes closed last frame). Web prompts not recorded locally.
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              (PixelLab web; prompt not recorded) Archer stands in an idle
+              breathing pose.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              (PixelLab web; prompt not recorded) Archer marches forward armed.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              (PixelLab web; prompt not recorded) Archer draws bow and releases
+              an arrow.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              (PixelLab web; prompt not recorded) Archer takes a sharp hit and
+              flinches backward.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: a heavy impact lands, the body lurches, footing lost.
+              Frames 2-3: knocked over, feet sliding out, arms flailing, tipping
+              toward the ground.
+              Frames 4-5: falls and slams onto the ground, sprawling on impact.
+              Frames 6-7: lying on the ground, sliding to a stop, limbs splayed,
+              stunned.
+              Frame 8: still down on the ground, defeated and unconscious, both
+              eyes closed, not getting up.
+              Bow fallen beside him, quiver on his back, imperial soldier armor.
+              Clean pixel art, sharp silhouette.
+
+  # ===========================================================================
+  - id: EmpireAxeSoldier             # 帝国斧兵 — enemy axe infantry (tier-1 mook)
+    team: enemy
+    group_id: null
+    portrait:
+    states:
+      - state: base
+        job: axe_soldier
+        # rotation ADOPTED 2026-07-15 from batch. prompt TODO backfill.
+        prompt: >-
+          (TODO backfill — Fire Emblem style chibi enemy imperial axe soldier)
+        character_id: ab7b792d-7981-41da-9121-82d5534c7548
+        rotation:
+          status: done
+          dir: pixellab/characters/empireaxesoldier/rotations
+        # MANUAL anchor (user 2026-07-16, VISUAL). user gave S/N/SE; E reuses SE;
+        # W=flipX E, SW=flipX SE.
+        anchor:
+          S: south
+          N: north-west
+          E: south-east
+          SE: south-east
+          W: mirror:E
+          SW: mirror:SE
+        # animations: idle/walk/attack/knockback GENERATED ON PIXELLAB WEB (full
+        # 8-dir sets), organized from download 2026-07-19; knockout made via gen
+        # script (eyes closed last frame). Web prompts not recorded locally.
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              (PixelLab web; prompt not recorded) Axe soldier stands in an idle
+              breathing pose.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              (PixelLab web; prompt not recorded) Axe soldier marches forward
+              armed.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              (PixelLab web; prompt not recorded) Axe soldier swings his battle
+              axe in an overhead chop.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              (PixelLab web; prompt not recorded) Axe soldier takes a hit and
+              braces with his shield.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: a heavy impact lands, the body lurches, footing lost.
+              Frames 2-3: knocked over, feet sliding out, arms flailing, tipping
+              toward the ground.
+              Frames 4-5: falls and slams onto the ground, sprawling on impact.
+              Frames 6-7: lying on the ground, sliding to a stop, limbs splayed,
+              stunned.
+              Frame 8: still down on the ground, defeated and unconscious, both
+              eyes closed, not getting up.
+              Battle axe and shield fallen beside him, imperial soldier armor.
+              Clean pixel art, sharp silhouette.
+
+  # ===========================================================================
+  - id: EmpireHeavyCavalier          # 帝国重装骑兵 — enemy heavy cavalry (plumed, mounted)
+    team: enemy
+    group_id: null
+    portrait:
+    states:
+      - state: base
+        job: heavy_cavalry
+        # rotation ADOPTED 2026-07-15 from batch (plumed knight, mounted). NOTE:
+        # separate unit from EmpireCavalier (the lighter tier-1 mook) — this is a
+        # heavier plumed variant. prompt TODO backfill.
+        prompt: >-
+          (TODO backfill — Fire Emblem style chibi enemy heavy cavalry, plumed helm, mounted)
+        character_id: 37d6ad78-8343-4386-a146-0088630a89c2
+        rotation:
+          status: done
+          dir: pixellab/characters/empireheavycavalier/rotations
+        # MANUAL anchor. !!! FIX 2026-07-17 (user): the SE=north frame drew the
+        # rider BADLY (half a knight / sword-hand mangled). The clean frame is
+        # pixellab `south`, so E and SE now BOTH use `south` (battle 45° + side
+        # walk); W/SW = flipX(south). S/N (map front/back) stay east/west (their
+        # walk frames are fine). !!! pixellab can't mirror `south` itself — W/SW
+        # are produced by our OWN flipX in post (done at organize time).
+        anchor:
+          S: east
+          N: west
+          E: south
+          SE: south
+          W: mirror:E
+          SW: mirror:SE
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              Armored knight sits mounted on his warhorse in a calm idle, holding
+              his sword upright, mouth closed.
+              F1: the rider's chest and the horse's body rise gently with a slow
+              breath.
+              F2-3: rider eases slightly, the horse's head bobs a little.
+              F4: peak of the breath.
+              F5-6: rider settles, the horse lowers its head slightly.
+              F7: settles low.
+              F8: returns to a neutral mounted rest.
+              The horse stays in place, no walking, no galloping, no rearing,
+              rider's mouth stays closed. Steel sword upright in his right hand
+              every frame, plumed silver helm, teal cape, dark warhorse.
+              Clean pixel art, sharp silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              The armored knight rides his warhorse forward at a walk, already
+              mid-stride, the horse's legs never all planted.
+              F1: the horse's front legs mid-step, body moving forward, rider
+              bobbing gently.
+              F2: front leg reaches forward, horse's body rises, teal cape sways.
+              F3: front hoof plants, weight shifts, rider bobs down.
+              F4: rear legs push the horse forward.
+              F5: the horse strides forward at full step, rider rising.
+              F6: hooves plant, rider bobs down.
+              F7: front legs lift again, continuing the gait.
+              F8: mid-stride, ready to loop.
+              Continuous horse walk cycle, forward stride and gentle rider bob,
+              no galloping, no rearing, no sliding hooves. Steel sword upright in
+              his right hand, plumed helm, teal cape. Clean pixel art, sharp
+              silhouette.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Armored knight swings his sword in a hard overhead slash while
+              mounted, the horse holding position.
+              F1: raises the sword up and back over the right shoulder, body
+              coiling.
+              F2: sword rising to full height overhead, tension peak.
+              F3: sword at the top, the horse braces.
+              F4: begins the downward chop, torso driving forward over the
+              horse's neck.
+              F5: powerful downward slash sweeping down across the front, rider
+              leaning forward.
+              F6: sword follows through low to the side.
+              F7: recovers, pulls the sword back up.
+              F8: settles upright in the saddle to a guard.
+              The horse stays in place, no galloping. Steel sword in his right
+              hand every frame, plumed silver helm, teal cape, dark warhorse.
+              Clean pixel art, sharp silhouette.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: Initial impact. The mounted knight recoils, slightly bent
+              backward in the saddle, the horse flinching back.
+              Frames 2-3: rider and horse pushed further back, the horse's head
+              jerking up, rider's torso angled back.
+              Frames 4-5: peak of the recoil, the horse steps back, rider leaning
+              steeply back.
+              Frames 6-7: begins to return, rider straightens, horse settles
+              forward.
+              Frame 8: full return to a stable mounted upright pose, recovered.
+              Steel sword in his right hand, plumed silver helm, teal cape,
+              mounted on a dark warhorse, the horse does not fall. Clean pixel
+              art, sharp silhouette.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: a heavy impact lands, the horse stumbles hard, the rider
+              lurches.
+              Frames 2-3: the horse buckles and pitches, the rider thrown off
+              balance, tipping to the side.
+              Frames 4-5: the rider falls from the horse and slams onto the
+              ground, sprawling, the horse staggering aside.
+              Frames 6-7: the knight lies on the ground, sliding to a stop, limbs
+              splayed, stunned.
+              Frame 8: still down on the ground, defeated, does not get back up.
+              Plumed silver helm, teal cape, steel sword fallen near him, dark
+              warhorse nearby. Clean pixel art, sharp silhouette.
+
+  # ===========================================================================
+  - id: EmpireAssassin               # 帝国刺客 — enemy assassin
+    team: enemy
+    group_id: null
+    portrait:
+    states:
+      - state: base
+        job: assassin
+        # rotation ADOPTED 2026-07-15 from batch. prompt TODO backfill.
+        prompt: >-
+          (TODO backfill — Fire Emblem style chibi enemy imperial assassin)
+        character_id: b234eabb-8441-4b8f-9399-374380983d6c
+        rotation:
+          status: done
+          dir: pixellab/characters/empireassassin/rotations
+        # MANUAL anchor (user 2026-07-16, VISUAL). user gave S/N/SE; E reuses SE;
+        # W=flipX E, SW=flipX SE.
+        anchor:
+          S: south
+          N: north-west
+          E: east
+          SE: east
+          W: mirror:E
+          SW: mirror:SE
+        # animations 2026-07-19: dual-dagger hooded assassin (a dagger in EACH
+        # hand), masked face. idle mouth n/a (masked). attack = swift dual slash.
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              Hooded assassin stands in a low ready crouch idle, a dagger in each
+              hand, still and watchful.
+              F1: chest rises gently with a slow breath.
+              F2-3: body eases up slightly.
+              F4: peak of the breath.
+              F5-6: settles.
+              F7: low.
+              F8: neutral ready crouch.
+              Feet planted, no stepping, no spinning. A dagger stays in each hand
+              every frame, hood and cloak sway only slightly.
+              Clean pixel art, sharp silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              Hooded assassin walks forward, already mid-stride, feet never both
+              planted, a dagger in each hand.
+              F1: right foot lifted mid-step, body leaning forward.
+              F2: right foot swings forward at peak knee lift, cloak sways back.
+              F3: right foot plants, body bobs down.
+              F4: left foot lifts, pushing forward.
+              F5: left foot swings forward at peak lift.
+              F6: left foot plants, body bobs down.
+              F7: right foot lifts again.
+              F8: right foot mid-swing, ready to loop.
+              Continuous light walk cycle, no idle pause, no sliding feet, no
+              spinning. A dagger in each hand, hood and cloak sway.
+              Clean pixel art, sharp silhouette.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Hooded assassin makes a swift dual-dagger strike, nimble and light.
+              F1: coils low, both daggers drawn back to the sides.
+              F2: springs lightly onto the front foot.
+              F3: a fast crossing slash, both daggers cut across the front at full
+              extension, body low.
+              F4: quick backhand return slash with both blades.
+              F5: recoils lightly onto the back foot.
+              F6: a nimble hop resetting the stance.
+              F7: settles light on the feet.
+              F8: returns to a ready crouch.
+              Light airy quick movement, no spinning. A dagger in each hand every
+              frame, hood and cloak flick. Clean pixel art, sharp silhouette.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: Initial impact. Character recoils, slightly bent backward,
+              head jolts.
+              Frames 2-3: pushed further back, torso angled steeply, legs braced
+              but slightly bent. Hood and cloak flow with the motion.
+              Frames 4-5: peak of the recoil, most extreme backward position, may
+              slightly skid back.
+              Frames 6-7: begins to return, torso straightens.
+              Frame 8: full return to a stable upright ready stance, recovered.
+              A dagger in each hand, hooded assassin, dark green armor and grey
+              cloak. Clean pixel art, sharp silhouette.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            # 2026-07-19: simplified KO — NO weapon-scatter (looked bad) + drop the
+            # "clean pixel art, sharp silhouette" tail (pixellab controls it).
+            prompt: >-
+              Frame 1: a heavy impact lands, the body lurches, footing lost.
+              Frames 2-3: knocked over, feet sliding out, tipping toward the
+              ground.
+              Frames 4-5: falls and slams onto the ground, sprawling on impact.
+              Frames 6-7: lying on the ground, sliding to a stop, limbs splayed,
+              stunned.
+              Frame 8: still down on the ground, defeated and unconscious, both
+              eyes closed, not getting up.
+
+  # ===========================================================================
+  - id: Skadi                        # 斯卡蒂 — 帝国女将军 / 刺客 (named enemy)
+    team: enemy
+    group_id: null
+    portrait:                        # TBD
+    states:
+      - state: base
+        job: assassin
+        # named enemy — 帝国女将军, assassin. rotation ADOPTED 2026-07-15 from
+        # batch. prompt TODO backfill.
+        prompt: >-
+          (TODO backfill — Fire Emblem style chibi enemy female general assassin, named boss Skadi)
+        character_id: e370b729-74b4-4671-aa89-b8f523a8aa5e
+        rotation:
+          status: done
+          dir: pixellab/characters/skadi/rotations
+        # MANUAL anchor (user 2026-07-16, VISUAL). user gave S/N/SE; E reuses SE;
+        # W=flipX E, SW=flipX SE.
+        anchor:
+          S: south-east
+          N: north-west
+          E: east
+          SE: east
+          W: mirror:E
+          SW: mirror:SE
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              Assassin stands in a calm poised idle, weight settled, mouth
+              closed.
+              F1: chest and shoulders begin to rise gently with a slow breath.
+              F2-3: body eases slightly taller as she inhales, hair settles.
+              F4: peak of the breath.
+              F5-6: chest lowers, shoulders settle.
+              F7: settles low.
+              F8: returns to a neutral standing rest.
+              Feet stay planted, no stepping, no spinning, mouth stays closed the
+              whole time, do not open the mouth.
+              Dark dagger stays in her right hand every frame, never dropped.
+              Long purple hair and red cape sway only slightly.
+              Clean pixel art, sharp silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              Assassin walks forward, already mid-stride, feet never both planted
+              still.
+              F1: right foot lifted mid-step, body leaning forward.
+              F2: right foot swings forward at peak knee lift, body rises, cape
+              sways back.
+              F3: right foot plants, weight shifts, body bobs down.
+              F4: left foot lifts, pushing the body forward.
+              F5: left foot swings forward at peak lift, body rises.
+              F6: left foot plants, body bobs down.
+              F7: right foot lifts again, continuing the cycle.
+              F8: right foot mid-swing, ready to loop.
+              Continuous light walk cycle, clear up-and-down bob and weight
+              shift, no idle pause, no sliding feet, no spinning.
+              Dark dagger in her right hand every frame, purple hair and red cape
+              sway. Clean pixel art, sharp silhouette.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Assassin makes a swift light dagger strike, nimble and graceful,
+              feet quick and light.
+              F1: she coils, weight dropping low, dagger drawn back to the side.
+              F2: springs lightly forward onto the front foot, dagger sweeping
+              in.
+              F3: a fast slashing lunge, the dagger cuts across the front at full
+              extension, body low and agile.
+              F4: quick backhand return slash.
+              F5: recoils lightly onto the back foot, dagger pulled back.
+              F6: a nimble hop resetting her stance.
+              F7: settles light on her feet.
+              F8: returns to a poised ready crouch.
+              No spinning, no heavy stomping, light and airy quick movement.
+              Dark dagger in her right hand every frame, never dropped. Long
+              purple hair and red cape flick with the motion.
+              Clean pixel art, sharp silhouette.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: Initial impact. Character recoils, slightly bent backward,
+              expression of pain. Hands flinch, head jolts.
+              Frames 2-3: pushed further back, torso angled steeply, legs braced
+              but slightly bent. Purple hair and red cape flow with the motion.
+              Frames 4-5: peak of the recoil, most extreme backward position, may
+              slightly skid back, torso arched.
+              Frames 6-7: begins to return, torso straightens, head tilts
+              forward, legs absorb the momentum.
+              Frame 8: full return to a stable upright standing pose, recovered.
+              Dark dagger in her right hand, long purple hair, black armor, red
+              cape. Clean pixel art, sharp silhouette.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: a heavy impact lands, the body lurches, footing lost.
+              Frames 2-3: knocked over, feet sliding out, arms flailing, tipping
+              toward the ground.
+              Frames 4-5: falls and slams onto the ground, sprawling on impact.
+              Frames 6-7: lying on the ground, sliding to a stop, limbs splayed,
+              stunned.
+              Frame 8: still down on the ground, defeated, does not get back up.
+              Dark dagger fallen near her, long purple hair, black armor, red
+              cape. Clean pixel art, sharp silhouette.
+
+  # ===========================================================================
+  - id: LingShuang                   # 凌霜 — ally lance fighter (枪兵)
+    team: ally
+    group_id: null
+    portrait: art/portraits/lingshuang/lingshuang_full.png
+    states:
+      - state: base
+        job: lance_fighter
+        # 2026-07-15 (user): 对着立绘。粉色长发高马尾+白发带、蓝眼、银轻甲透粉、无
+        # 披风（跟主角蓝披风区分，用长马尾占背后轮廓）。去 GBA、去 pegasus/天马（通用
+        # 枪兵，别的职业以后再说）、无负面词。rotation id = c33efaea。
+        prompt: >-
+          Fire Emblem style chibi ally lance fighter, western fantasy,
+          3-head-tall super-deformed proportions, large head with big expressive
+          blue eyes, short stout body, small hands and feet, a graceful alert
+          young woman in her early 20s with a slender athletic build, very long
+          pale pink hair worn in a high side ponytail tied with a single white
+          ribbon bow, long bangs framing the face, wearing light silver plate
+          armor with soft pink inlay accents over a white tunic — silver
+          breastplate with pink panels, slim silver pauldrons, armored gauntlets
+          with white gloves, a brown leather belt with a pink gem, a white
+          armored skirt with pink trim, silver thigh and knee plates, silver
+          greaves over silver heeled boots, the long pink ponytail flowing down
+          her back, holding a tall western steel cavalry lance upright in the
+          right hand, the lance as tall as her body, no helmet, alert poised
+          posture, clean pixel art, vibrant colors, sharp silhouette
+        character_id: c33efaea-c199-46f3-b303-dc56d60f5e9a
+        rotation:
+          status: done
+          dir: pixellab/characters/lingshuang/rotations
+        # MANUAL anchor (user 2026-07-16, VISUAL). user gave S/N/SE; E reuses SE;
+        # W=flipX E, SW=flipX SE.
+        anchor:
+          S: south-east
+          N: north-west
+          E: east
+          SE: east
+          W: mirror:E
+          SW: mirror:SE
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              Lance fighter stands in a calm alert idle, weight settled, mouth
+              closed.
+              F1: chest and shoulders begin to rise gently with a slow breath.
+              F2-3: body eases slightly taller as she inhales, ponytail settles.
+              F4: peak of the breath.
+              F5-6: chest lowers, shoulders settle.
+              F7: settles low.
+              F8: returns to a neutral standing rest.
+              Feet stay planted, no stepping, no spinning, mouth stays closed the
+              whole time, do not open the mouth.
+              Steel lance stays upright in her right hand every frame, never
+              dropped. Long pink ponytail sways only slightly.
+              Clean pixel art, sharp silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              Lance fighter walks forward, already mid-stride, feet never both
+              planted still.
+              F1: right foot lifted mid-step, body leaning forward.
+              F2: right foot swings forward at peak knee lift, body rises,
+              ponytail sways back.
+              F3: right foot plants, weight shifts, body bobs down.
+              F4: left foot lifts, pushing the body forward.
+              F5: left foot swings forward at peak lift, body rises.
+              F6: left foot plants, body bobs down.
+              F7: right foot lifts again, continuing the cycle.
+              F8: right foot mid-swing, ready to loop.
+              Continuous walk cycle, clear up-and-down bob and weight shift, no
+              idle pause, no sliding feet, no spinning.
+              Steel lance carried upright in her right hand every frame, long
+              pink ponytail sways. Clean pixel art, sharp silhouette.
+          attack:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Lance fighter makes a strong forward lance thrust, feet planted.
+              F1: she pulls the lance back to her side, both hands gripping it,
+              body coiling.
+              F2: braces, the lance leveled toward the front.
+              F3: begins the thrust, torso driving forward.
+              F4: powerful forward lance thrust at full extension, the lance
+              stabs straight ahead, body lunging behind it.
+              F5: holds the extended thrust, weight forward.
+              F6: begins to retract the lance.
+              F7: pulls the lance back to a guard.
+              F8: settles to a ready stance.
+              Feet planted, no spinning, no jumping. Steel lance in her hands
+              every frame, never dropped or swapped. Long pink ponytail sways
+              with the motion. Clean pixel art, sharp silhouette.
+          knockback:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: Initial impact. Character recoils, slightly bent backward,
+              expression of pain. Hands flinch, head jolts.
+              Frames 2-3: pushed further back, torso angled steeply, legs braced
+              but slightly bent. Pink ponytail flows with the motion.
+              Frames 4-5: peak of the recoil, most extreme backward position, may
+              slightly skid back, torso arched.
+              Frames 6-7: begins to return, torso straightens, head tilts
+              forward, legs absorb the momentum.
+              Frame 8: full return to a stable upright standing pose, recovered.
+              Steel lance in her right hand, long pink ponytail, silver armor
+              with pink trim. Clean pixel art, sharp silhouette.
+          knockout:
+            status: done
+            frame_count: 8
+            dirs: [SE]
+            prompt: >-
+              Frame 1: a heavy impact lands, the body lurches, footing lost.
+              Frames 2-3: knocked over, feet sliding out, arms flailing, tipping
+              toward the ground.
+              Frames 4-5: falls and slams onto the ground, sprawling on impact.
+              Frames 6-7: lying on the ground, sliding to a stop, limbs splayed,
+              stunned.
+              Frame 8: still down on the ground, defeated, does not get back up.
+              Steel lance fallen near her, long pink ponytail, silver armor with
+              pink trim. Clean pixel art, sharp silhouette.
+  # ===========================================================================
+  - id: MaleVillager                 # 男村民 (NPC)
+    team: neutral
+    group_id: null
+    portrait:
+    states:
+      - state: base
+        job: villager
+        prompt: >-
+          Fire Emblem style chibi middle-aged male villager, western fantasy,
+          3-head-tall super-deformed proportions, large head with big expressive
+          eyes, short stout body, small hands and feet, a friendly weathered
+          middle-aged peasant man with a kindly face and short brown hair with
+          light stubble, wearing a simple long-sleeve tunic under a sturdy vest,
+          work trousers with a leather belt, sturdy leather boots, soft
+          earth-tone colors, clean pixel art, vibrant colors, sharp silhouette
+        character_id: 5c9be9be-5219-4d0c-b91f-d299615c6685
+        rotation:
+          status: done
+          dir: pixellab/characters/malevillager/rotations
+        # MANUAL anchor (user 2026-07-16, VISUAL). user gave S/N/SE; E reuses SE;
+        # W=flipX E, SW=flipX SE.
+        anchor:
+          S: south
+          N: north
+          E: east
+          SE: east
+          W: mirror:E
+          SW: mirror:SE
+        # animations 2026-07-19: NPC villager — idle + walk only (no combat).
+        # Armed villagers (with attack) are a FUTURE variant.
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              Middle-aged villager man stands in a calm friendly idle, hands
+              relaxed, mouth closed.
+              F1: chest and shoulders begin to rise gently with a slow breath.
+              F2-3: body eases slightly taller as he inhales.
+              F4: peak of the breath.
+              F5-6: chest lowers, shoulders settle.
+              F7: settles low.
+              F8: returns to a neutral standing rest.
+              Feet planted, no stepping, no spinning, mouth stays closed the whole
+              time, do not open the mouth. Hands relaxed at his sides, no weapon,
+              simple tunic and vest. Clean pixel art, sharp silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              Middle-aged villager man walks forward, already mid-stride, feet
+              never both planted still.
+              F1: right foot lifted mid-step, body leaning forward.
+              F2: right foot swings forward at peak knee lift, body rises.
+              F3: right foot plants, body bobs down.
+              F4: left foot lifts, pushing the body forward.
+              F5: left foot swings forward at peak lift.
+              F6: left foot plants, body bobs down.
+              F7: right foot lifts again.
+              F8: right foot mid-swing, ready to loop.
+              Continuous walk cycle, clear body bob and weight shift, no idle
+              pause, no sliding feet, no spinning. Hands relaxed, no weapon,
+              simple tunic and vest. Clean pixel art, sharp silhouette.
+
+  # ===========================================================================
+  - id: FemaleVillager               # 女村民 (NPC)
+    team: neutral
+    group_id: null
+    portrait:
+    states:
+      - state: base
+        job: villager
+        prompt: >-
+          Fire Emblem style chibi middle-aged female villager, western fantasy,
+          3-head-tall super-deformed proportions, large head with big expressive
+          eyes, short stout body, small hands and feet, a warm gentle
+          middle-aged countrywoman with a kindly rounded face, blonde hair tied
+          in a low bun, wearing a simple long-sleeve blouse and a modest long
+          dress with a clean apron, sturdy leather shoes, soft earth-tone
+          colors, clean pixel art, vibrant colors, sharp silhouette
+        character_id: c7177621-2d3e-4d00-b4d9-bc6f71c0155b
+        rotation:
+          status: done
+          dir: pixellab/characters/femalevillager/rotations
+        # MANUAL anchor (user 2026-07-16, VISUAL). user gave S/N/SE; E reuses SE;
+        # W=flipX E, SW=flipX SE.
+        anchor:
+          S: south
+          N: north-west
+          E: east
+          SE: east
+          W: mirror:E
+          SW: mirror:SE
+        # animations 2026-07-19: NPC villager — idle + walk only (no combat).
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              Middle-aged villager woman stands in a calm friendly idle, hands
+              relaxed, mouth closed.
+              F1: chest and shoulders begin to rise gently with a slow breath.
+              F2-3: body eases slightly taller as she inhales.
+              F4: peak of the breath.
+              F5-6: chest lowers, shoulders settle.
+              F7: settles low.
+              F8: returns to a neutral standing rest.
+              Feet planted, no stepping, no spinning, mouth stays closed the whole
+              time, do not open the mouth. Hands relaxed at her sides, no weapon,
+              blonde hair in a low bun, an apron dress. Clean pixel art, sharp
+              silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              Middle-aged villager woman walks forward, already mid-stride, feet
+              never both planted still.
+              F1: right foot lifted mid-step, body leaning forward.
+              F2: right foot swings forward at peak knee lift, body rises.
+              F3: right foot plants, body bobs down.
+              F4: left foot lifts, pushing the body forward.
+              F5: left foot swings forward at peak lift.
+              F6: left foot plants, body bobs down.
+              F7: right foot lifts again.
+              F8: right foot mid-swing, ready to loop.
+              Continuous walk cycle, clear body bob and weight shift, no idle
+              pause, no sliding feet, no spinning. Hands relaxed, no weapon,
+              blonde low bun, apron dress. Clean pixel art, sharp silhouette.
+
+  # ===========================================================================
+  - id: OldMaleVillager              # 老年男村民 (NPC)
+    team: neutral
+    group_id: null
+    portrait:
+    states:
+      - state: base
+        job: villager
+        prompt: >-
+          Fire Emblem style chibi elderly male villager, western fantasy,
+          3-head-tall super-deformed proportions, large head with big expressive
+          eyes, short stout body, small hands and feet, a kindly old peasant
+          grandfather with a wrinkled friendly face, short grey hair and a short
+          grey beard, wearing a simple long-sleeve tunic under a worn vest, work
+          trousers with a leather belt, sturdy leather boots, soft earth-tone
+          colors, clean pixel art, vibrant colors, sharp silhouette
+        character_id: 916d1c34-a94c-4036-aa53-751563676d15
+        rotation:
+          status: done
+          dir: pixellab/characters/oldmalevillager/rotations
+        # MANUAL anchor (user 2026-07-16, VISUAL). user gave S/N/SE; E reuses SE;
+        # W=flipX E, SW=flipX SE.
+        anchor:
+          S: south
+          N: north-west
+          E: east
+          SE: east
+          W: mirror:E
+          SW: mirror:SE
+        # animations 2026-07-19: NPC villager — idle + walk only (no combat).
+        animations:
+          idle:
+            status: done
+            frame_count: 8
+            dirs: [S, SE]
+            prompt: >-
+              Elderly villager grandfather stands in a calm friendly idle, hands
+              relaxed, mouth closed.
+              F1: chest and shoulders begin to rise gently with a slow breath.
+              F2-3: body eases slightly taller as he inhales.
+              F4: peak of the breath.
+              F5-6: chest lowers, shoulders settle.
+              F7: settles low.
+              F8: returns to a neutral standing rest.
+              Feet planted, no stepping, no spinning, mouth stays closed the whole
+              time, do not open the mouth. Hands relaxed at his sides, no weapon,
+              short grey hair and a short grey beard, simple tunic and vest.
+              Clean pixel art, sharp silhouette.
+          walk:
+            status: done
+            frame_count: 8
+            dirs: [S, N, E]
+            prompt: >-
+              Elderly villager grandfather walks forward, already mid-stride,
+              feet never both planted still.
+              F1: right foot lifted mid-step, body leaning forward.
+              F2: right foot swings forward at peak knee lift, body rises.
+              F3: right foot plants, body bobs down.
+              F4: left foot lifts, pushing the body forward.
+              F5: left foot swings forward at peak lift.
+              F6: left foot plants, body bobs down.
+              F7: right foot lifts again.
+              F8: right foot mid-swing, ready to loop.
+              Continuous walk cycle, clear body bob and weight shift, no idle
+              pause, no sliding feet, no spinning. Hands relaxed, no weapon, grey
+              hair and beard, simple tunic and vest. Clean pixel art, sharp
+              silhouette.

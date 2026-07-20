@@ -1,0 +1,25 @@
+{
+  "usage": {
+    "type": "generations",
+    "generations": 20.0
+  },
+  "id": "7e87f8c5-1986-4002-aa61-af3e00d8f183",
+  "status": "completed",
+  "created_at": "2026-07-16T06:18:48.668564+00:00",
+  "last_response": {
+    "object_id": "4ce046cb-7899-4b81-871a-c86e72f859ea",
+    "frame_count": 4,
+    "single_frame": false,
+    "storage_urls": {
+      "frame_0": "https://backblaze.pixellab.ai/file/pixellab-characters/objects/515bfa7b-48f0-426e-b37c-fdf1096738b1/4ce046cb-7899-4b81-871a-c86e72f859ea/rotations/frame_0.png",
+      "frame_1": "https://backblaze.pixellab.ai/file/pixellab-characters/objects/515bfa7b-48f0-426e-b37c-fdf1096738b1/4ce046cb-7899-4b81-871a-c86e72f859ea/rotations/frame_1.png",
+      "frame_2": "https://backblaze.pixellab.ai/file/pixellab-characters/objects/515bfa7b-48f0-426e-b37c-fdf1096738b1/4ce046cb-7899-4b81-871a-c86e72f859ea/rotations/frame_2.png",
+      "frame_3": "https://backblaze.pixellab.ai/file/pixellab-characters/objects/515bfa7b-48f0-426e-b37c-fdf1096738b1/4ce046cb-7899-4b81-871a-c86e72f859ea/rotations/frame_3.png"
+    },
+    "billing_usage": {
+      "usd": 0.0,
+      "type": "generations",
+      "generations": 20
+    }
+  }
+}

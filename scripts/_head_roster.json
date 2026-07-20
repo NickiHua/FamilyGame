@@ -1,0 +1,10 @@
+[
+  {"label": "SuYao",      "png": "pixellab/characters/suyao/rotations/south.png",                                                                     "crown": 9,  "chin": 53, "eye": 43},
+  {"label": "Captain",    "png": "pixellab/characters/empirecaptain/rotations/south.png",                                                             "crown": 2, "chin": 46, "eye": 30},
+  {"label": "mage1_8e7a", "png": "pixellab/_tmp_luli_candidates/8e7a738c-ce67-4716-8257-7c89b376f51d/hood_lowered_down_on/rotations/south.png",       "crown": 2, "chin": 48, "eye": 42},
+  {"label": "mage2_8e7a", "png": "pixellab/_tmp_luli_candidates/8e7a738c-ce67-4716-8257-7c89b376f51d/Fire_Emblem_GBA_style_chibi/rotations/south.png","crown": 2, "chin": 52, "eye": 43},
+  {"label": "LuLi_80ab",  "png": "pixellab/_tmp_luli_candidates/80ab6aa1-8dbf-4efd-a02a-c9b26a424cc7/LuLi_base/rotations/south-east.png",             "crown": 2, "chin": 42, "eye": 32},
+  {"label": "LuLi_e466",  "png": "pixellab/_tmp_luli_candidates/e46642ff-630f-4cc3-afb9-24efec4b9144/LuLi/rotations/south.png",                       "crown": 2, "chin": 44, "eye": 34},
+  {"label": "LingShuang", "png": "pixellab/_tmp_luli_candidates/920fcb19-261b-46a2-b3b4-465f7983e812/LingShuang/rotations/south-east.png",           "crown": 2, "chin": 46, "eye": 40},
+  {"label": "Xiao",       "png": "pixellab/_tmp_luli_candidates/93c77cf9-1a18-4a18-a028-ee6d4f2d76dd/Xiao/rotations/south.png",                       "crown": 2, "chin": 48, "eye": 36}
+]

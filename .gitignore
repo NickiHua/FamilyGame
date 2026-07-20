@@ -128,3 +128,12 @@ dotnet/
 # PixelLab 角色 ZIP（可随时由 character_id 重新下载，体积大且每次生成都会变）
 # ============================================================
 art/characters/*/character.zip
+# raw PixelLab downloads (zip + extracted); re-downloadable from character_id
+pixellab/characters/*/download/
+# PixelLab review artifacts (filmstrip / contact sheet / preview gifs / ad-hoc
+# compare images — all regenerable, underscore-prefixed, not shipped assets)
+pixellab/characters/*/_preview/
+pixellab/characters/*/_*.png
+pixellab/characters/*/rotations/_*.png
+# one-off temp scripts
+scripts/_tmp_*.py
