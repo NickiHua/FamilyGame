@@ -14,6 +14,7 @@ namespace FantacyCentry.View
     /// base map + object sprites).
     /// </summary>
     [RequireComponent(typeof(SpriteRenderer))]
+    [ExecuteAlways] // keep the depth order correct in the EDITOR too (no Play needed)
     public class YSort : MonoBehaviour
     {
         [Tooltip("Sorting precision per world unit. Higher = finer ordering.")]
@@ -28,14 +29,24 @@ namespace FantacyCentry.View
                  "each OTHER inside their band.")]
         public int layerBias = 0;
 
+        [Tooltip("Tie-break when two sprites share the same foot Y: the one with the SMALLER X " +
+                 "draws in FRONT. Kept small (1) so it never crosses a whole Y band.")]
+        public int xTieBreak = 1;
+
         private SpriteRenderer _sr;
 
         private void Awake() => _sr = GetComponent<SpriteRenderer>();
 
         private void LateUpdate()
         {
+            if (_sr == null) _sr = GetComponent<SpriteRenderer>();
             float footY = transform.position.y + footOffset;
-            _sr.sortingOrder = layerBias + Mathf.RoundToInt(-footY * unitsToOrder);
+            float footX = transform.position.x;
+            // Primary: lower Y (footY small) → larger order → drawn in front.
+            // Tie-break: lower X → larger order → drawn in front. xTieBreak << unitsToOrder
+            // so X only separates sprites that are on the same Y row.
+            _sr.sortingOrder = layerBias
+                + Mathf.RoundToInt(-footY * unitsToOrder - footX * xTieBreak);
         }
     }
 }
