@@ -140,10 +140,12 @@ def main() -> int:
         "size": args.size,
         "output_format": args.output_format,
         "response_format": args.response_format,
-        "sequential_image_generation": "disabled",
         "stream": False,
         "watermark": False,
     }
+    # seedream 5.0 PRO rejects `sequential_image_generation`; omit it for pro.
+    if "pro" not in args.model.lower():
+        payload["sequential_image_generation"] = "disabled"
     print(f"[seedream-ref] model={args.model} size={args.size} out={out_path.relative_to(repo_root())}")
     print(f"[seedream-ref] ref={ref_path.relative_to(repo_root())}")
     print(f"[seedream-ref] prompt={args.prompt}")

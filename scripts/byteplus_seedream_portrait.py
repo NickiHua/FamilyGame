@@ -176,7 +176,10 @@ def main() -> None:
     repo_root = Path(__file__).resolve().parent.parent
 
     parser = argparse.ArgumentParser(description="Generate portraits with ModelArk Seedream.")
-    parser.add_argument("preset", choices=PRESETS.keys())
+    parser.add_argument("preset", choices=list(PRESETS.keys()) + ["custom"])
+    parser.add_argument("--prompt", help="Free-form prompt (required for 'custom').")
+    parser.add_argument("--type", default="misc", help="Output subfolder under art_undecided/portraits/ (for 'custom').")
+    parser.add_argument("--prefix", default="custom", help="Output filename prefix (for 'custom').")
     parser.add_argument("--provider", choices=BASE_URLS.keys(), default="byteplus")
     parser.add_argument("--base-url")
     parser.add_argument("--model")
@@ -195,7 +198,16 @@ def main() -> None:
     model = args.model or DEFAULT_MODELS[args.provider]
     response_format = args.response_format or DEFAULT_RESPONSE_FORMATS[args.provider]
 
-    preset = PRESETS[args.preset]
+    if args.preset == "custom":
+        if not args.prompt:
+            sys.exit("ERROR: 'custom' requires --prompt.")
+        preset = {
+            "prompt": args.prompt,
+            "type": args.type,
+            "filename_prefix": args.prefix,
+        }
+    else:
+        preset = PRESETS[args.preset]
     out_path = Path(args.out) if args.out else None
     if out_path is None:
         stamp = dt.datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -213,10 +225,13 @@ def main() -> None:
         "background": args.background,
         "output_format": args.output_format,
         "response_format": response_format,
-        "sequential_image_generation": args.sequential_image_generation,
         "stream": False,
         "watermark": args.watermark,
     }
+    # Some models (e.g. seedream 5.0 PRO) reject `sequential_image_generation`
+    # entirely; pass "omit" to leave the key out of the request.
+    if args.sequential_image_generation.lower() != "omit":
+        payload["sequential_image_generation"] = args.sequential_image_generation
 
     print(
         f"[seedream] provider={args.provider} model={model} size={args.size} "
