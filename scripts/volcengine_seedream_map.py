@@ -117,8 +117,9 @@ def save_first_image(response: dict[str, Any], out_path: Path) -> Path:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate Seedream map redraws through Ark.")
-    parser.add_argument("--ref", action="append", required=True, help="Reference image path. Repeat for multiple refs.")
-    parser.add_argument("--prompt", required=True)
+    parser.add_argument("--ref", action="append", help="Reference image path. Repeat for multiple refs. Omit for pure text-to-image.")
+    parser.add_argument("--prompt")
+    parser.add_argument("--prompt-file", help="Read the prompt from a UTF-8 text file (overrides --prompt).")
     parser.add_argument("--out", required=True)
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--size", default="1920x1920")
@@ -128,26 +129,33 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    ref_paths = [resolve_path(value) for value in args.ref]
+    if args.prompt_file:
+        prompt = resolve_path(args.prompt_file).read_text(encoding="utf-8").strip()
+    elif args.prompt:
+        prompt = args.prompt
+    else:
+        raise SystemExit("ERROR: provide --prompt or --prompt-file.")
+
+    ref_paths = [resolve_path(value) for value in (args.ref or [])]
     for ref_path in ref_paths:
         if not ref_path.is_file():
             raise SystemExit(f"ERROR: ref image not found: {ref_path}")
     out_path = resolve_path(args.out)
-    image_arg = data_url(ref_paths[0]) if len(ref_paths) == 1 else [data_url(path) for path in ref_paths]
     payload = {
         "model": args.model,
-        "prompt": args.prompt,
-        "image": image_arg,
+        "prompt": prompt,
         "size": args.size,
         "output_format": args.output_format,
         "response_format": args.response_format,
         "watermark": False,
     }
+    if ref_paths:
+        payload["image"] = data_url(ref_paths[0]) if len(ref_paths) == 1 else [data_url(p) for p in ref_paths]
 
     print(f"[seedream-map] model={args.model} size={args.size} out={out_path.relative_to(repo_root())}")
     for i, ref_path in enumerate(ref_paths, 1):
         print(f"[seedream-map] ref{i}={ref_path.relative_to(repo_root())}")
-    print(f"[seedream-map] prompt={args.prompt[:120]}...")
+    print(f"[seedream-map] prompt={prompt[:120]}...")
     if args.dry_run:
         print("[seedream-map] dry-run: not calling Ark.")
         return 0

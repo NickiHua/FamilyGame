@@ -5,6 +5,8 @@
 > **核心原则**：地图逻辑永远由 `stage1_map.json` / grid 决定；AI 只做视觉重绘，不决定 walkability、不改变格子语义。
 >
 > **当前最优结论**：整图重绘用 **Seedream 5.0 Pro**。GPT Image 2.0 更适合生成概念图和边缘 transition sheet，不适合作为最终整图保 layout 模型。
+>
+> **2026-07 更新**：主流程已从「dual-grid + edge sheet」演进到 **「marker 布局图 + 房子参考图 → Seedream 重绘 → 单张 baked HD 图（Build Battle Scene V2）」**，并新增**水面流动 shader**。§1–§5 是旧 dual-grid 流程（仍有效，作背景参考），**§6 起是当前主线**。§9 是未来设想（尚未实施）。
 
 ---
 
@@ -380,3 +382,175 @@ watermark: false
 ```text
 人设计地图，JSON 固化语义，dual-grid 转成 AI 可读布局，edge sheet 提供接壤语言，Seedream Pro 做最终手绘化。
 ```
+
+---
+
+## 6. 【当前主线】Marker 布局 → Seedream 重绘 → 单张 baked HD 图（Build Battle Scene V2）
+
+> 详细实验记录见 `docs/developing_process/2026-07-22_process.md`。这里只沉淀「怎么做」。
+
+### 6.1 为什么换掉 dual-grid + object sprite
+
+老做法把**真的 object sprite**（房子/树…）摆到地图上，痛点：
+- 房子 sprite 里**烘死了门口的路桩**，位置固定，多半不在格子中线。
+- 想「门对齐 road」就得平移房子，一平移**房子就不占整格**。
+- 本质矛盾：**刚性 sprite 的门**没法同时满足「footprint 贴整格」+「门对齐 road」。
+- 且 PixelLab 生成的 object 和 HD 地图**融合不佳**。
+
+### 6.2 破解思路：marker tile
+
+不摆刚性 sprite，改成在网格上画「纯色带字母的 marker 方块」：
+- **footprint 画整格 → 天生锁网格**（collider 仍从 JSON 走）。
+- **门画在哪、怎么接路 → 交给模型现画**（柔性门，自动长到路那侧）。
+
+marker 配色（`scripts/tiles/gen_marker_tiles.py`）：
+
+| 对象 | 颜色 | 字母 |
+|---|---|---|
+| 房子 house | 深棕 (74,47,27) | H |
+| 树 tree | 深绿 (28,74,38) | T |
+| 石头 stone | 灰 (130,130,130) | S |
+| 桥 bridge | 棕 (150,95,50) | B |
+
+Unity 里用**带字母**那套画（好核对）；渲染出图用**纯色块 + 大字母**。
+
+### 6.3 链路
+
+```text
+用户在 Unity 的 marker Tilemap 上画物件（H/T/S/B）
+        ↓  Tools > Map > Export Marker Map
+Assets/Art/Maps/stage1_marker_map.json（render-only，不碰真实 map JSON）
+        ↓  scripts/render_marker_map.py
+art/experiments/stage1_marker_render_1920.png（平铺地形 + 纯色 marker 块 + 大字母）
+        ↓  Seedream 5.0 Pro：ref1=marker render，ref2=房子参考图，prompt=only-house
+art/experiments/stage1_onlyhouse*_v*.png（1920²）
+        ↓  W+H 红格 collider 叠图验证（见 6.5）
+选定 → Copy 到 Assets/Art/Maps/stage1_hd.png
+        ↓  scripts/water/gen_water_mask_flowmap.py（重生成水 mask/flowmap）
+Tools > FantacyCentry > Build Battle Scene V2（MapGrid + 一张 HD sprite + 水材质）
+```
+
+### 6.4 房子参考图（ref2）的关键作用
+
+- Seedream **无法**从纯文字生成正确「正俯视 + 横向」房子（文字容易出 45° isometric）。
+- 必须喂一张**已经是正俯视横向**的房子参考图，模型才会跟着这个视角画全图的 H。
+- 参考图切法：把一张 4 宫格房子图切成单栋/多栋（`sample_house_5/6/7/8`=左右上下半，`sample_house_9`=三栋并排），当 ref2。
+- prompt：`art/experiments/stage1_only_house_ref_prompt.txt`——强调「ref2 只提供房子视角/风格，其它元素按文字自主画」「每栋 H 严格填满方格不出格」「门对齐相邻黄土路」「T 是统一矮树不要画成大森林」。
+
+### 6.5 collider 校验（每张 AI 输出都做）
+
+读 `stage1_marker_map.json`，在 W（水）+ H（房子）阻挡格上叠**红色半透明**（alpha 105）+ 淡黑网格，另存 `*_check.png`。看房子/水是否落在红格内、门有没有接上路。
+
+### 6.6 Build Battle Scene V2 架构
+
+- 只两层：**MapGrid（逻辑）+ 一张 HD sprite（视觉，sortingOrder -5000）**，不再有 DualGrid / object sprite（tilemap renderer 全 disable）。
+- 1920px sprite @ PPU64 = 30 世界单位 = 30×30 grid，居中在 `grid.CenterWorld`。
+- V1/V2 公共接线抽成 `WireBattle(grid)`（overlay/runner/stage/audio/input/canvas/camera）。
+- `BattleSceneBuilder.cs` 里 `EnsureWaterMaterial()` 自动挂水面材质（见 §7）。
+
+---
+
+## 7. 水面流动 shader（flowmap water）
+
+> 详见 `docs/developing_process/2026-07-22_process.md` §11。方案 = **A（单图 + 水 mask）+ 3（flowmap 相位混合）**。
+
+### 7.1 关键前提
+
+物件/影子都 bake 进一张平图后，仍能给水面加流动——只要 shader 知道**哪些像素是水**。
+**不能**用 grid 的 W 格当 mask（AI 重绘把河岸挪柔化过，会错位），必须**从 HD 图本身分割**。
+
+### 7.2 数据生成（`scripts/water/gen_water_mask_flowmap.py`，任意分辨率通用）
+
+从 `stage1_hd.png` 一次产出、写在图旁边：
+- `stage1_hd_watermask.png`——蓝色色键分割 + 连通域去杂 + 填洞 + 羽化（water=白）。
+- `stage1_hd_flowmap.png`——**结构张量**求河道走向（沿河=minor 特征向量），强制 Y 朝下→水从上往下流，RG 编码方向，水区外中性 0.5。
+
+### 7.3 Shader（`Assets/Art/Shaders/WaterFlow.shader`，URP sprite）
+
+- **flowmap 相位混合**：两个半周期错开样本（`phase0=frac(t)`、`phase1=frac(t+0.5)`）三角波交叉淡入 → **滚动永不露接缝**，即使噪声本身不可平铺；水顺流向流。
+- 程序化 value noise 当波纹（无贴图、无限、seam 被相位混合藏掉）。
+- 轻微 UV 折射 + 细窄滚动高光（粼光）。只作用于 mask 水区，房子/影子/草地不动。
+- **坑**：`UnityPerMaterial` 里放 `_MainTex_ST` 会触发「2D SRP Batcher 不支持 _TexelSize/_ST」并禁用批处理。地图是整张 sprite、UV 就是 0–1，**删掉 `_MainTex_ST`、用原始 `IN.uv`**。
+
+### 7.4 调参：治「肥皂水」
+
+第一版动静太大像肥皂油花。**主因是 Refraction**（UV 折射把蓝色搅成大块明暗带）；`Ripple Scale` 在折射归零后几乎无感。真正救回来的是**高光算法重写**（大块低频 crest → 细窄流动亮线）。稳妥默认值：
+
+```text
+Flow Speed 0.05 | Flow Advection 0.22 | Ripple Scale 30 | Ripple Height 0.5
+Refraction 0.0015 | Sparkle Strength 0.14 | Sparkle Sharpness 14
+```
+
+> 流向存在 flowmap 贴图里（不是滑杆），Inspector 只能调速度/强度，改不了方向；要反向/分段横流得改脚本重生成 flowmap。
+
+### 7.5 数据贴图导入设置
+
+`BattleSceneBuilder.ConfigureDataTexture()` 自动把 mask/flowmap 设为 **linear / clamp / 无压缩 / 无 mip**（保方向和边缘）。
+
+---
+
+## 8. SD / GPT 使用经验（补充 §3）
+
+### 8.1 Seedream 5.0 Pro（保 layout 主力）
+
+- **强项**：多参考图下 layout 极稳；marker 布局图能被严格遵守（格子位置/大小/朝向不变）。
+- **无法**从纯文字生成正确正俯视物件（房子会出 45° isometric）→ 必须给正俯视参考图定视角。
+- **会跟着参考图的朝向画**：参考图横向，全图房子就横向。
+- **单张过强的参考图 → 克隆**：只给 1 栋房子 ref，模型会把 3 栋画成一模一样；给多栋 ref + 明确「可有变化」才有区分。
+- Chinese prompt 效果好；用 `--prompt-file` 避免 CJK shell 转义。
+- **必须 `--response-format url`**：b64 1920² ~11MB 会 IncompleteRead。
+
+### 8.2 GPT Image 2.0（概念/风格，不保 layout）
+
+- 支持任意尺寸（长边 ≤3840、双边 16 倍数、比例 ≤3:1；1920² 合法但 >2K 实验性；**无透明底**）。
+- 保 layout **漂移严重、画面更乱**，即使 HIGH 也不适合做最终整图。
+- 定位：概念图 / 风格探索 / edge transition sheet。
+
+### 8.3 本 session 测试地图产物
+
+- marker tile：`Assets/Art/Tiles/markers/*.png`（8 张）
+- 布局渲染：`art/experiments/stage1_marker_render_1920.png`
+- Seedream 迭代：`stage1_onlyhouse{5,6,7,9}_v*`（+ `_check` collider 校验）
+- **定稿**：`stage1_onlyhouse9_v5.png` → `Assets/Art/Maps/stage1_hd.png`
+- 水面：`stage1_hd_watermask.png`、`stage1_hd_flowmap.png`、`Assets/Art/Shaders/WaterFlow.shader`、`Assets/Art/Materials/WaterFlow.mat`
+
+---
+
+## 9. 未来设想（尚未实施 · 只是方向，暂无精力做）
+
+> 记录 2026-07-24 的讨论，等有精力再落地。核心思路：**baked 静态地面 + 上层「Props/FX 层」**。
+
+### 9.1 分离线：什么 bake、什么做成对象
+
+- **该 bake**（纯静态、容忍网格）：地形、道路、水底、农田、**房子**（门对齐已解决）。
+- **该做成对象**（满足任一）：① 需交互/拾取 ② 需逐个单独动 ③ 需每个精确统一。
+
+### 9.2 树对象化（根治「树偏大/不单独」）
+
+- 根因：AI 把整片 T 区画成连成一坨的树丛，文字压不死。
+- 方案：Seedream 画几个**统一小树**变体（抠图）→ T 格摆独立 sprite（Props 层）→ 每棵配阴影 + **顶点风摇（根锚定、冠摆动）**。
+- 前提：baked 地面**不再画树**（renderer/prompt 把 T 当空草地），否则重影。石头同理。
+
+### 9.3 可交互摆件（稻草人 = 练剑对象 + 秘密宝箱）
+
+- 交互/可拾取物**必须是独立 GameObject**（自带 collider/交互，在 MapGrid 登记阻挡/可交互），不能 bake。
+- 阴影同树共用。
+
+### 9.4 阴影方案（树/摆件通用）
+
+1. **Blob 阴影**：脚下软椭圆暗斑（Multiply/Alpha）。最便宜万能。
+2. **投影剪影阴影**：复制 sprite → 压扁 + 按光向 skew + 染黑降透明 + 模糊。更有方向感，**对齐 baked 图的光向**。
+
+### 9.5 让地图「活起来」（上层 FX，不动 baked 图）
+
+- **烟囱冒烟**：每烟囱一个 2D 粒子系统（软烟上升+飘+淡出）。廉价高回报。
+- **水车**：sprite 脚本 `transform.Rotate` 或翻页帧 + 落水小水花粒子。
+- **顺手加**：云影缓慢掠过全图（电影感、近零成本）、萤火虫/蝴蝶粒子、偶尔飞鸟、河面泡沫/鱼跃涟漪、花草摇曳、火把闪烁。
+
+### 9.6 分辨率与缩放策略（结论）
+
+- 缩放锁**整数三档**：**1X**（30 格/屏，64px/格，1:1）｜**2X**（15 格，128px/格）｜**3X**（10 格，192px/格）。
+- 整数缩放的好处：**真像素小人**正好被放大 ×1/×2/×3 → 像素永远锐利（连续无级缩放会非整数拉伸导致抖动/糊）。
+- 采样：像素小人 **Point**，HD 背景 **Bilinear**。
+- 分辨率：**1920² 足够 1X–2X**；3X 会略软。**若 3X 常用**再**原生出 3840²**（不是 ESRGAN 放大——放大会磨掉水彩笔触）。mask/flowmap 脚本任意分辨率零成本跟上。
+- **不做全图 4K/ESRGAN**：显存贵（7680² RGBA ~236MB）、对干净 AI 手绘增益小还可能塑料感。

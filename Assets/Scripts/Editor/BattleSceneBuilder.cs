@@ -27,6 +27,11 @@ namespace FantacyCentry.EditorTools
         private const string PanelDir = "Assets/Art/UI/panels/";
         private const string PortraitDir = "Assets/Art/UI/portraits/";
         private const string IconDir = "Assets/Art/UI/icons/";
+        private const string HdMapPng = "Assets/Art/Maps/stage1_hd.png";
+        private const string WaterMaskPng = "Assets/Art/Maps/stage1_hd_watermask.png";
+        private const string WaterFlowPng = "Assets/Art/Maps/stage1_hd_flowmap.png";
+        private const string WaterShaderName = "FantacyCentry/WaterFlow";
+        private const string WaterMaterialPath = "Assets/Art/Materials/WaterFlow.mat";
         private const float CharacterScale = 0.6f;
 
         [MenuItem("Tools/FantacyCentry/Build Battle Scene")]
@@ -84,6 +89,134 @@ namespace FantacyCentry.EditorTools
             if (ObjectPlacementIO.Build() < 0)
                 PropScatterTool.Scatter(grid);
 
+            WireBattle(grid);
+        }
+
+        /// <summary>HD-image-only battle scene (V2): MapGrid logic + ONE full-map HD sprite as the
+        /// only visual layer. No DualGrid terrain, no placed object sprites. The old
+        /// "Build Battle Scene" is left untouched.</summary>
+        [MenuItem("Tools/FantacyCentry/Build Battle Scene V2")]
+        private static void BuildBattleSceneV2()
+        {
+            var json = AssetDatabase.LoadAssetAtPath<TextAsset>(MapJson);
+            if (json == null)
+            {
+                Debug.LogError("[BattleSceneBuilder] Missing map json at " + MapJson);
+                return;
+            }
+
+            CleanupPrevious();
+
+            // --- Logic grid (MapGrid) --------------------------------------
+            var gridGo = new GameObject("MapGrid");
+            var grid = gridGo.AddComponent<MapGrid>();
+            grid.mapJson = json;
+            grid.Parse();
+            if (grid.Size <= 0)
+            {
+                Debug.LogError("[BattleSceneBuilder] Failed to parse map grid.");
+                Object.DestroyImmediate(gridGo);
+                return;
+            }
+
+            // Disable any hand-painted Tilemap renderers so only the HD image shows.
+            foreach (var tmr in Object.FindObjectsByType<UnityEngine.Tilemaps.TilemapRenderer>(
+                         FindObjectsInactive.Exclude))
+                tmr.enabled = false;
+
+            // --- HD map image = the ENTIRE visual (no DualGrid, no object sprites) ---
+            // A 1920px sprite at PPU 64 spans 30 units = the 30x30 grid, centred on CenterWorld.
+            var hd = AssetDatabase.LoadAssetAtPath<Sprite>(HdMapPng);
+            if (hd == null)
+            {
+                Debug.LogError("[BattleSceneBuilder] Missing HD map sprite at " + HdMapPng +
+                               " \u2014 import it into Assets/Art/Maps/ first.");
+            }
+            else
+            {
+                var hdGo = new GameObject("MapHD");
+                var hdSr = hdGo.AddComponent<SpriteRenderer>();
+                hdSr.sprite = hd;
+                hdSr.sortingOrder = -5000;
+                Vector2 cc = grid.CenterWorld;
+                hdGo.transform.position = new Vector3(cc.x, cc.y, 0f);
+
+                // Animated flow-map water: only the masked river pixels ripple/flow.
+                var waterMat = EnsureWaterMaterial();
+                if (waterMat != null)
+                    hdSr.sharedMaterial = waterMat;
+            }
+
+            WireBattle(grid);
+        }
+
+        /// <summary>Loads (or creates) the flow-map water material and binds the mask + flow
+        /// textures. Returns null if the shader or data textures are missing.</summary>
+        private static Material EnsureWaterMaterial()
+        {
+            var shader = Shader.Find(WaterShaderName);
+            if (shader == null)
+            {
+                Debug.LogWarning("[BattleSceneBuilder] Water shader '" + WaterShaderName +
+                                 "' not found \u2014 MapHD will use the default material.");
+                return null;
+            }
+
+            var mask = ConfigureDataTexture(WaterMaskPng);
+            var flow = ConfigureDataTexture(WaterFlowPng);
+            if (mask == null || flow == null)
+            {
+                Debug.LogWarning("[BattleSceneBuilder] Missing water mask/flow textures \u2014 run " +
+                                 "scripts/water/gen_water_mask_flowmap.py first.");
+                return null;
+            }
+
+            var mat = AssetDatabase.LoadAssetAtPath<Material>(WaterMaterialPath);
+            if (mat == null)
+            {
+                var dir = System.IO.Path.GetDirectoryName(WaterMaterialPath);
+                if (!AssetDatabase.IsValidFolder(dir))
+                    System.IO.Directory.CreateDirectory(dir);
+                mat = new Material(shader);
+                AssetDatabase.CreateAsset(mat, WaterMaterialPath);
+            }
+            else if (mat.shader != shader)
+            {
+                mat.shader = shader;
+            }
+
+            mat.SetTexture("_WaterMask", mask);
+            mat.SetTexture("_FlowMap", flow);
+            EditorUtility.SetDirty(mat);
+            AssetDatabase.SaveAssetIfDirty(mat);
+            return mat;
+        }
+
+        /// <summary>Ensures a mask/flow texture imports as linear, clamped, uncompressed data
+        /// (so directions/edges stay crisp) and returns the imported Texture2D.</summary>
+        private static Texture2D ConfigureDataTexture(string path)
+        {
+            var importer = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (importer != null)
+            {
+                bool changed = false;
+                if (importer.textureType != TextureImporterType.Default)
+                { importer.textureType = TextureImporterType.Default; changed = true; }
+                if (importer.sRGBTexture) { importer.sRGBTexture = false; changed = true; }
+                if (importer.wrapMode != TextureWrapMode.Clamp)
+                { importer.wrapMode = TextureWrapMode.Clamp; changed = true; }
+                if (importer.textureCompression != TextureImporterCompression.Uncompressed)
+                { importer.textureCompression = TextureImporterCompression.Uncompressed; changed = true; }
+                if (importer.mipmapEnabled) { importer.mipmapEnabled = false; changed = true; }
+                if (changed) importer.SaveAndReimport();
+            }
+            return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+        }
+
+        /// <summary>Shared wiring for both battle builders: overlay, runner, stage director, audio,
+        /// input, canvas HUD and camera. Assumes a MapGrid already exists in the scene.</summary>
+        private static void WireBattle(MapGrid grid)
+        {
             // --- Overlay ----------------------------------------------------
             var overlayGo = new GameObject("RangeOverlay");
             var overlay = overlayGo.AddComponent<RangeOverlay>();
@@ -256,7 +389,7 @@ namespace FantacyCentry.EditorTools
         {
             var doomedNames = new HashSet<string>
             {
-                "MapGrid", "MapBackground", "RangeOverlay", "BattleRunner",
+                "MapGrid", "MapBackground", "MapHD", "RangeOverlay", "BattleRunner",
                 "BattleCanvas", "EventSystem", "DualGrid", "GroundTiles",
                 "LingShuang", "LuLi", "SuYao", "EmpireArcher", "EmpireAxeSoldier",
                 "BattleStageDirector", "BattleAudio", "ScatteredProps",

@@ -1492,7 +1492,6 @@ namespace FantacyCentry.View.Battle
             closeBtn.onClick.AddListener(CloseCharacterDetail);
             var xLabel = NewText("X", closeRt, TextAlignmentOptions.Center, 40f, true);
             PlaceText(xLabel, Vector2.zero, Vector2.one);
-            xLabel.text = "✕";
 
             _detailRoot.gameObject.SetActive(false);
         }
